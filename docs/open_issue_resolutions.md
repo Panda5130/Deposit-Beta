@@ -285,7 +285,7 @@ Summary for 2008–2026 merger-adjusted, default spec (ADF c/AIC, KPSS c/auto):
 
 ### OI-17: Figure 1 does not match the modeled data
 
-**Status: Resolved.** `docs/make_figures.py` regenerates Figure 1 from `rate_pf_clean` (rebuilt) and FFT, 2011Q1–2026Q2: `docs/figures_rebuild/Historical Deposit Rates vs FFT.png`. The 14 per-bank champion figures are in the same folder. They are written there, not to `docs/`, because a parallel session owns Figure 1 and the untracked `docs/figures/` in the main checkout.
+**Status: Resolved.** The main session closed OI-17 by regenerating Figure 1 from `EDA1_Stationarity_Tests.ipynb`. That figure reads the v0.2 data, so it goes stale once this branch's rebuilt data is merged; replace it then with the version below. `docs/make_figures.py` regenerates Figure 1 from `rate_pf_clean` (rebuilt) and FFT, 2011Q1–2026Q2: `docs/figures_rebuild/Historical Deposit Rates vs FFT.png`. The 14 per-bank champion figures are in the same folder. They are written there, not to `docs/`, because a parallel session owns Figure 1 and the untracked `docs/figures/` in the main checkout.
 
 ### New issues raised by this work
 
