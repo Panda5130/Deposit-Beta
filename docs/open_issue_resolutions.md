@@ -15,7 +15,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | OI-5 | Resolved | Zivot-Andrews runs for all 7 banks (c / t / ct); the old failures were caused by data defects |
 | OI-6 | Resolved | One-step ECMs now prune insignificant short-run lags; 0 of 163 short-run terms have p ≥ 0.05 |
 | OI-7 | Resolved | Estimated ECMs carry the deterministic terms of their cointegration test; 0 mismatches (was 17 of 78) |
-| OI-8 | Partially resolved | Old National's 2025Q2 drop was a data artifact (fixed). The shared 5Q error at origin 2025Q1 remains and is a model effect (symmetric pass-through); it goes to OI-11 |
+| OI-8 | Partially resolved | Old National's 2025Q2 drop was a data artifact (fixed). The shared error at the single 2025Q1 start date (labelled "5Q") remains and is a model effect (symmetric pass-through), going to OI-11. It is a start-date effect, not a horizon effect (OI-22) |
 | OI-9 | Deferred (user decision) | In-sample MAE rule retained for now; validation-window comparison recorded as evidence |
 | OI-10 | Resolved | Green/Amber/Red thresholds adopted and implemented (`backtest_assessment_8Q.csv`) |
 | OI-11 | Deferred | No challenger built; scope and the specific trigger (OI-8) documented |
@@ -26,6 +26,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | OI-16 | Partially resolved | 2008–2026 merger-adjusted ADF/KPSS grid produced (`diagnostics/unit_root_grid.csv`); the vault placeholders still need to be filled by hand |
 | OI-17 | Resolved | Figure 1 regenerated from the modeled dataset (`docs/figures_rebuild/`) |
 | New | Open | OI-18 to OI-21: see §3 |
+| OI-22 | Partially resolved | Many-start-date backtest implemented (34–41 windows per horizon). Under it, the OI-10 thresholds give 3 Amber and 4 Red, so the thresholds need re-calibrating for the new metric (user decision pending) |
 
 ## 1. Decisions taken with the user (2026-10-30)
 
@@ -186,6 +187,8 @@ FFT itself gives the same result: ZA c = -5.49, p 0.004, break 2022Q1. The break
 
 **Status: Partially resolved.**
 
+**Caveat on what the "5Q" number is:** in the 8Q backtest, each horizon row is a single forecast window. The "5Q MAE" is the average error over 2025Q2–2026Q2 from one start date (2025Q1). The spike is a start-date effect, not a horizon effect. With 37 start dates per horizon (OI-22), 5-step-ahead errors for these banks are 0.26–0.31 pp, with no spike at 5Q.
+
 **Evidence:**
 - **Old National 2025Q2 was a data artifact.** Bremer Bank (32% of deposits) merged on 2025-05-01 and was not in the event list. The calendar-year deposit average then divided 2025Q1 interest by mostly post-merger deposits. v0.2: 2025Q1 1.846%, 2025Q2 2.361%. Rebuilt: 1.867%, 1.908%.
 - **The 5Q spike remains for M&T (0.335), SouthState (0.392) and Old National (0.364), and it is a model effect, not data.** At origin 2025Q1, deposit rates had just fallen sharply after the late-2024 cuts (M&T -0.27 pp in 2025Q1). With FFT flat at 4.33 in 2025Q2–Q3, the actual rates stopped falling: M&T 1.62 → 1.67 → 1.68, then 1.56, 1.37. The models kept moving toward their long-run equilibrium and predicted 1.42 → 1.01 for M&T (SouthState: 1.65 → 1.21 against an actual of about 1.8; Old National: 1.66 → 1.25 against about 1.9). Origins 2024Q4 and 2025Q2 show much smaller errors.
@@ -229,6 +232,8 @@ Validation-window selection wins for 2 banks, loses for 3 and ties for 2. The va
 | SouthState | 0.164 | 0.392 | 0.182 | 5/8 | Amber |
 | Old National | 0.173 | 0.364 | 0.207 | 6/8 | Amber |
 | Huntington | 0.203 | 0.448 | 0.231 | 6/8 | Amber |
+
+**Caveat:** these ratings rest on one forecast window per horizon (the last 8 start dates, all in the 2024–26 easing). Under the many-start-date backtest (OI-22), the same rules give 3 Amber and 4 Red. The thresholds have to be re-calibrated for whichever metric is adopted.
 
 ### OI-11: Benchmark / challenger models
 
@@ -286,6 +291,36 @@ Summary for 2008–2026 merger-adjusted, default spec (ADF c/AIC, KPSS c/auto):
 ### OI-17: Figure 1 does not match the modeled data
 
 **Status: Resolved.** The main session closed OI-17 by regenerating Figure 1 from `EDA1_Stationarity_Tests.ipynb`. That figure reads the v0.2 data, so it goes stale once this branch's rebuilt data is merged; replace it then with the version below. `docs/make_figures.py` regenerates Figure 1 from `rate_pf_clean` (rebuilt) and FFT, 2011Q1–2026Q2: `docs/figures_rebuild/Historical Deposit Rates vs FFT.png`. The 14 per-bank champion figures are in the same folder. They are written there, not to `docs/`, because a parallel session owns Figure 1 and the untracked `docs/figures/` in the main checkout.
+
+### OI-22: Backtest has one forecast window per horizon
+
+**Status: Partially resolved.** The many-start-date backtest is implemented. The choice of metric and thresholds is pending a user decision. The champion rule is unchanged.
+
+**Issue:** in `backtest_summary_8Q.csv`, the kQ row is the single window from origin T−k to 2026Q2, with MAE averaged over its k quarters. Every horizon therefore rests on one start date, and the 8 rows overlap. The old §1.4 wording ("M&T and Old National above 0.53 pp at the 5Q horizon") described one start date (2025Q1), not a 5-quarter horizon effect.
+
+**Change:** `MAEBacktest.run_multi()` in `MAE_Backtesting/backtest.py`, run with `python MAE_Backtesting/run_backtest.py --first-origin 2016Q1`. At every origin from 2016Q1 to 2026Q1, the champion is re-estimated on data up to that origin (expanding window) and forecast dynamically up to 8 steps ahead, with realized FFT. The h-step absolute error is averaged over every origin with origin + h ≤ 2026Q2. The no-change forecast is scored the same way. Outputs: `MAE_Backtesting/output/backtest_multiorigin_8Q.csv` (with `n_windows`) and `backtest_multiorigin_assessment_8Q.csv`. The single-window backtest is unchanged.
+
+**Number of start dates per horizon:** 1Q 41, 2Q 40, 3Q 39, 4Q 38, 5Q 37, 6Q 36, 7Q 35, 8Q 34 (first origin 2016Q1; last origin 2026Q1 for 1Q down to 2024Q2 for 8Q).
+
+**h-step-ahead MAE (pp), expanding window, origins from 2016Q1:**
+
+| Bank | 1Q | 2Q | 3Q | 4Q | 5Q | 6Q | 7Q | 8Q | Mean | No-change mean |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.100 | 0.179 | 0.227 | 0.239 | 0.283 | 0.308 | 0.312 | 0.292 | 0.242 | 0.539 |
+| Glacier Bank | 0.047 | 0.103 | 0.156 | 0.195 | 0.238 | 0.277 | 0.306 | 0.331 | 0.207 | 0.235 |
+| Huntington National Bank | 0.084 | 0.160 | 0.234 | 0.307 | 0.377 | 0.442 | 0.510 | 0.559 | 0.334 | 0.467 |
+| KeyBank National Association | 0.054 | 0.115 | 0.172 | 0.224 | 0.294 | 0.384 | 0.464 | 0.533 | 0.280 | 0.448 |
+| Manufacturers and Traders Trust Company | 0.059 | 0.117 | 0.170 | 0.211 | 0.261 | 0.290 | 0.304 | 0.329 | 0.218 | 0.394 |
+| Old National Bank | 0.067 | 0.132 | 0.182 | 0.230 | 0.300 | 0.359 | 0.396 | 0.437 | 0.263 | 0.404 |
+| SouthState Bank | 0.061 | 0.134 | 0.202 | 0.262 | 0.312 | 0.355 | 0.384 | 0.406 | 0.264 | 0.413 |
+
+**Findings:**
+- Errors now rise smoothly with horizon, as they should. The single-window 5Q spike disappears.
+- Every champion beats the no-change forecast at every horizon (8/8 for all banks). Under the single-window backtest, Glacier and SouthState did so on only 5/8.
+- The levels are higher than the single-window numbers for two reasons. h-step errors are point errors at step h, not averages over steps 1..h. And the start dates now include the 2016–19 and 2022–23 tightening cycles, when deposit rates moved fastest.
+- **Re-check of the OI-10 thresholds:** applied unchanged to these MAEs, the ratings are First Horizon, M&T and Glacier Amber; SouthState, KeyBank, Huntington and Old National Red (mean > 0.25 pp, or the 8Q error > 0.50 for KeyBank and Huntington). The ±0.15/0.25/0.50 levels were set against single-window averages and do not carry over to h-step errors. **The thresholds do not hold as they stand.**
+
+**Open decision (user):** which metric governs acceptance, and at what levels. Options: (1) keep the single-window ratings and report the many-start-date table as supporting evidence; (2) switch to the many-start-date metric and re-set thresholds, for example by horizon band (1–2Q, 3–4Q, 5–8Q) or relative to no-change; (3) both, with the benchmark condition carrying most of the weight. The champion rule (OI-9) has not been touched.
 
 ### New issues raised by this work
 
@@ -360,7 +395,7 @@ Deposit rates track FFT with a lag and partial pass-through through the 2016–2
 - §5.2: "Unit-root tests and Zivot-Andrews break tests are run for all banks by `diagnostics/stationarity_and_breaks.py`."
 - §5.5 item 2: "Parameter screen: within each surviving specification, keep short-run terms with coefficient p-value < 0.05. Deterministic terms are set by the test specification (n / case 1 / det_order -1: none; c / cases 2–3 / det_order 0: constant; ct / cases 4–5 / det_order 1: constant and trend) and are not screened."
 - §5.5 new item 4b: "Refinement: in the one-step ECM, short-run lags with p ≥ 0.05 are removed one at a time (largest p first) and the model refit."
-- §5.6 add: "Each window's MAE is compared with a no-change forecast (y held at its origin value). Ratings: Green, mean MAE ≤ 0.15 pp and below the no-change mean; Amber, mean 0.15–0.25 pp or beats no-change on fewer than 6 of 8 horizons; Red, mean > 0.25 pp or any horizon > 0.50 pp."
+- §5.6 add: "Each window's MAE is compared with a no-change forecast (y held at its origin value). Ratings: Green, mean MAE ≤ 0.15 pp and below the no-change mean; Amber, mean 0.15–0.25 pp or beats no-change on fewer than 6 of 8 horizons; Red, mean > 0.25 pp or any horizon > 0.50 pp. Each kQ figure is one forecast window from a single start date (T−k); it is not an average over many start dates. A many-start-date h-step backtest (origins from 2016Q1, expanding window, 34–41 windows per horizon) is reported alongside (OI-22); the thresholds are calibrated to the single-window figures only."
 - §5.7 add: "For projection, a deterministic trend in the long-run relation is frozen at its end-of-sample value."
 
 ### §6 bank sections (data-treatment, cointegration, champion and outcomes paragraphs)
@@ -406,7 +441,7 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 - 6.5.4 baseline: EG long run p 0.048 (pass); ARDL(2,1) case 3 F 5.18 (p 0.034, pass); Johansen r ≤ 0 = 12.98 (> 0.10).
 - 6.5.5: 22 one-step ECMs (11 ARDL, 6 EG, 5 Johansen). In-sample MAE 0.0383–0.0654. Long-run beta 0.342–0.432.
 - 6.5.6 champion: ARDL(2,1), case 4, AIC. const 0.0556 (p 0.021), trend -0.00202 (p 0.018); λ -0.1835 (t -3.91); FFT.L1 0.0792; D.y.L1 0.3335; D.FFT.L0 0.1385; LR trend -0.0110 (p 0.0065); **θ 0.4316** (t 10.3).
-- 6.5.7: 8Q MAE 0.107, 0.043, 0.065, 0.029, 0.335, 0.115, 0.069, 0.104; mean 0.108 (Green). Replace the 5Q bullet with the OI-8 explanation. Delete the "no-intercept" bullet (OI-7). Add: "The champion carries a long-run trend; frozen for projection (§5.7)."
+- 6.5.7: 8Q MAE 0.107, 0.043, 0.065, 0.029, 0.335, 0.115, 0.069, 0.104; mean 0.108 (Green). Replace the 5Q bullet with: "The large error in the 5Q window is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (OI-8). Over 37 start dates the 5-step-ahead MAE is 0.26 pp (OI-22)." Delete the "no-intercept" bullet (OI-7). Add: "The champion carries a long-run trend; frozen for projection (§5.7)."
 
 **6.6 Old National**
 - 6.6.1: "Pro forma for 13 Mode A events since 2011, including Integra Bank (2011 failure, 28%), AnchorBank (2016, 21%), First Midwest (2022-02-16, 94%), CapStar (2024, 7%) and Bremer Bank (2025-05-01, 32%)."
@@ -415,16 +450,18 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 - 6.6.4: "Baseline: none pass at 5% (EG long run 0.379; Johansen r ≤ 0 = 15.49, < 0.10; ARDL(4,4) case 3 F 2.85, p 0.302). Re-specification (now run, OI-4): EG long run `n`/BIC (p 0.0077); Johansen det_order -1, k_ar_diff = 1 (r ≤ 0 = 13.91, < 0.05)."
 - 6.6.5: 2 one-step ECMs (1 EG, 1 Johansen). In-sample MAE 0.0414–0.0585. Long-run beta 0.419–0.429.
 - 6.6.6 champion: Johansen VECM rank 1, k_ar_diff = 1 (fixed), det_order -1. λ -0.1354 (t -3.49); FFT.L1 0.0567; D.y.L1 0.3063; D.FFT.L1 0.1024; **θ 0.4191** (t 13.9).
-- 6.6.7: 8Q MAE 0.106, 0.052, 0.191, 0.094, 0.364, 0.173, 0.289, 0.114; mean 0.173 (Amber). Replace the 2025Q2 bullet with: "The 2025Q2 drop in v0.2 was a data artifact (unadjusted Bremer merger plus calendar-year deposit averaging) and is fixed. The remaining 5Q error is the shared easing-cycle effect (OI-8)." Delete the First Midwest bullet (applied) and the "no re-specification grid" bullet (run).
+- 6.6.7: 8Q MAE 0.106, 0.052, 0.191, 0.094, 0.364, 0.173, 0.289, 0.114; mean 0.173 (Amber). Replace the 2025Q2 bullet with: "The 2025Q2 drop in v0.2 was a data artifact (unadjusted Bremer merger plus calendar-year deposit averaging) and is fixed. The remaining large error in the 5Q window comes from one start date (2025Q1) and is the shared easing-cycle effect (OI-8)." Delete the First Midwest bullet (applied) and the "no re-specification grid" bullet (run).
 
 **6.7 SouthState**
 - 6.7.1: "Cert 33555 is the former CenterState Bank charter. Pro forma for 19 Mode A events since 2011, including South State Bank (cert 13425, 2020-06-08, 88%; previously mislabelled as CenterState, Mode B, 0.5%), Atlantic Capital (2022-03-01, 9%) and Independent Bank (2025-01-01, 40%)." Delete the CenterState Mode B and placeholder notes.
 - 6.7.4 baseline: EG long run 0.312; Johansen r ≤ 0 = 14.06 (< 0.10); ARDL(4,3) case 3 F 3.50 (p 0.174).
 - 6.7.5: 7 one-step ECMs (5 ARDL, 2 Johansen). In-sample MAE 0.0336–0.0437. Long-run beta 0.424–0.524.
 - 6.7.6 champion: ARDL(4,3), case 1, AIC. λ -0.0816 (t -2.72, p 0.009); FFT.L1 0.0361; D.y.L1 0.7917; D.y.L2 -0.6669; D.y.L3 0.2762; D.FFT.L0 0.1849; D.FFT.L1 -0.1443; D.FFT.L2 0.1447; **θ 0.4428** (t 11.2).
-- 6.7.7: 8Q MAE 0.077, 0.091, 0.057, 0.124, 0.392, 0.126, 0.314, 0.129; mean 0.164 (Amber; was 0.104, best in v0.2). Replace the bullets with: "λ = -0.08 is the slowest adjustment in the peer set." and "Shares the 5Q easing-cycle error (OI-8)."
+- 6.7.7: 8Q MAE 0.077, 0.091, 0.057, 0.124, 0.392, 0.126, 0.314, 0.129; mean 0.164 (Amber; was 0.104, best in v0.2). Replace the bullets with: "λ = -0.08 is the slowest adjustment in the peer set." and "Shares the easing-cycle error at the 2025Q1 start date (the 5Q window, OI-8)."
 
-### §7.1 Rolling-Origin 8Q Backtest (replace table)
+### §7.1 Rolling-Origin 8Q Backtest (replace table; add the OI-22 table as §7.1b)
+
+Add above the table: "Each column is one forecast window, starting at T−k and ending at 2026Q2, with MAE averaged over its k quarters. Each column therefore rests on a single start date."
 
 | Bank | 1Q | 2Q | 3Q | 4Q | 5Q | 6Q | 7Q | 8Q | Mean | No-change mean | Rating |
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -441,7 +478,8 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 - Out-of-sample MAE is about 2 to 5 times in-sample MAE. In-sample MAE fell for every bank after the rebuild (now 0.029–0.071), mostly because the de-cumulation and denominator artifacts are gone.
 - Long-run betas range from 0.35 (Glacier) to 0.52 (First Horizon); the other five lie between 0.40 and 0.47.
 - Acceptance thresholds are defined (§5.6): 3 Green, 4 Amber, 0 Red.
-- M&T, SouthState and Old National share a large 5Q error at origin 2025Q1, where the models over-predict the post-cut decline in deposit rates (OI-8).
+- M&T, SouthState and Old National share a large error in the window starting 2025Q1 (the "5Q" column), where the models over-predict the post-cut decline in deposit rates (OI-8). It is one start date, not a horizon effect: over 37 start dates the 5-step error is 0.26–0.31 pp for these banks (§7.1b, OI-22).
+- Over 34–41 start dates per horizon (§7.1b), h-step errors rise smoothly from 0.05–0.10 pp at 1Q to 0.29–0.56 pp at 8Q, and every champion beats the no-change forecast at every horizon.
 
 ### §8 Model Limitations (replace rows)
 
@@ -462,6 +500,7 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 | L13 | KPSS p-values are truncated at 0.10 | All | Low |
 | L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet | First Horizon, M&T, Glacier | Medium |
 | L15 | Huntington cointegration rests on one specification family (OI-19) | Huntington | High |
+| L16 | The headline 8Q backtest has one forecast window (one start date) per horizon, all in the 2024–26 easing; horizon-level MAEs and the Green/Amber/Red ratings rest on single windows. The many-start-date backtest (OI-22) gives higher h-step errors and does not meet the current thresholds | All | Medium |
 
 ### §9.2 Open Issues Log (replace Status column; add rows)
 
@@ -474,9 +513,9 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 | OI-5 | Closed: ZA runs for all banks; see OI-20 |
 | OI-6 | Closed: short-run lags pruned in the one-step ECM |
 | OI-7 | Closed: deterministic terms follow the test specification |
-| OI-8 | Partially closed: Old National 2025Q2 data artifact fixed; shared 5Q error is a model effect, moved to OI-11 |
+| OI-8 | Partially closed: Old National 2025Q2 data artifact fixed; the shared error at the single 2025Q1 start date is a model effect, moved to OI-11 |
 | OI-9 | Deferred: in-sample MAE retained; validation-window comparison recorded |
-| OI-10 | Closed: Green / Amber / Red thresholds adopted |
+| OI-10 | Closed, subject to OI-22: thresholds adopted for the single-window backtest |
 | OI-11 | Open: asymmetric ECM now a priority (OI-8) |
 | OI-12 | Closed: stale 4Q backtest deleted |
 | OI-13 | Closed: rate rebuilt from quarterly fields with a 2-point deposit average |
@@ -488,6 +527,7 @@ Champion coefficient tables are in `ECM estimation results.csv`; figures are in 
 | OI-19 | Open (new), High: Huntington cointegration robustness |
 | OI-20 | Open (new): cointegration allowing a 2022 break |
 | OI-21 | Open (new), Low: refresh FFT; 2026Q4 not yet complete |
+| OI-22 | Partially closed (new): many-start-date backtest implemented; acceptance metric and thresholds to be re-set (user decision) |
 
 ### §10 Implementation (additions)
 

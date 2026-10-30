@@ -7,6 +7,11 @@ forecast dynamically to T: predicted y is fed back in as the lag, the regressor 
 its realised values. The bar for "kQ" is the mean absolute error over those k quarters.
 naive_mae is the same window's MAE of a no-change forecast (y held at its origin value).
 
+Each kQ bar of run() rests on ONE forecast window (origin T-k). run_multi() is the
+many-origin version (OI-22): expanding-window re-estimation at every origin from
+first_origin to T-1, dynamic forecast up to N steps ahead, and the h-step absolute error
+averaged over every origin with origin + h <= T; n_windows is reported per horizon.
+
 Acceptance thresholds (assess, OI-10), on the N horizons' MAE in pp:
     Green  mean <= 0.15 and mean below the no-change mean
     Amber  mean 0.15-0.25, or the model beats no-change on fewer than 6 of 8 horizons (75%)
@@ -51,6 +56,7 @@ FAMILY_RANK = {"EG": 0, "ARDL": 1, "Johansen": 2}
 TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae", "naive_mae"]
 GREEN_MEAN, AMBER_MEAN, RED_ANY, MIN_WIN_SHARE = 0.15, 0.25, 0.50, 0.75
 ASSESSMENT_COLUMNS = ["mean_mae", "max_mae", "naive_mean_mae", "horizons_beating_naive", "rating"]
+MULTI_COLUMNS = ["horizon_q", "first_origin", "last_origin", "n_windows", "mae", "naive_mae"]
 
 
 def family(test_name):
@@ -158,6 +164,21 @@ class MAEBacktest:
                          float(np.mean(np.abs(actual - predicted))), naive])
         table = pd.DataFrame(rows, columns=TABLE_COLUMNS).iloc[::-1].reset_index(drop=True)
         return BacktestResult(self.bank, self.model, self.horizon, table)
+
+    def run_multi(self, first_origin):
+        """h-step-ahead MAE over every origin from first_origin to T-1 (expanding window)."""
+        index = self.data.index
+        first_origin = max(pd.Period(first_origin, "Q"), index[self.min_train - 1])
+        errors = []  # (h, origin, |model error|, |no-change error|)
+        for origin in index[(index >= first_origin) & (index < index[-1])]:
+            actual, predicted = self.forecast(self.fit(origin), origin)
+            start = self.data.loc[origin, self.y]
+            for h, t in enumerate(actual.index[:self.horizon], start=1):
+                errors.append((h, origin, abs(actual[t] - predicted[t]), abs(actual[t] - start)))
+        e = pd.DataFrame(errors, columns=["h", "origin", "err", "naive"])
+        rows = [[f"{h}Q", str(g.origin.min()), str(g.origin.max()), len(g), g.err.mean(), g.naive.mean()]
+                for h, g in e.groupby("h")]
+        return pd.DataFrame(rows, columns=MULTI_COLUMNS)
 
     def mae(self):
         t = self.run().table

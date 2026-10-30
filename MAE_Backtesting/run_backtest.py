@@ -16,6 +16,9 @@ is used (ties broken EG > ARDL > Johansen). See backtest.py for the method. Outp
             MAE_backtest_<N>Q.csv       horizon, origin, forecast window, n_obs, MAE
         backtest_summary_<N>Q.csv       every bank's rows (only with --bank-name All)
         backtest_assessment_<N>Q.csv    Green/Amber/Red rating per bank (only with --bank-name All)
+        backtest_multiorigin_<N>Q.csv   with --first-origin: h-step MAE over every origin from
+                                        that quarter (expanding window), n_windows per horizon
+        backtest_multiorigin_assessment_<N>Q.csv   the same ratings applied to those MAEs
 
 A bank that cannot be backtested is logged and skipped; the others still run. Exit code: 0
 when every bank ran, 2 when some were skipped, 1 when the arguments or inputs were invalid.
@@ -68,6 +71,8 @@ def main(argv=None):
     parser.add_argument("--x", default=bt.bp.DEFAULTS["x"], help="regressor column")
     parser.add_argument("--group-column", default=bt.bp.DEFAULTS["group_column"])
     parser.add_argument("--out-dir", default=bt.HERE / "output")
+    parser.add_argument("--first-origin", default=None,
+                        help="also run the many-origin backtest from this quarter, e.g. 2016Q1")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", stream=sys.stdout)
 
@@ -89,7 +94,7 @@ def main(argv=None):
     out_dir = Path(args.out_dir)
     stem = f"MAE_backtest_{horizon}Q"
     log.info("backtesting %d bank(s) over %dQ into %s", len(banks), horizon, out_dir)
-    results, skipped = [], 0
+    results, multi, skipped = [], [], 0
     for i, bank in enumerate(banks, start=1):
         try:
             model = bt.select_model(summary, bank, args.model, args.group_column)
@@ -98,7 +103,10 @@ def main(argv=None):
             if spec_rows.empty:
                 raise ValueError(f"model {' | '.join(model)} has no coefficients in the estimates")
             data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
-            result = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train).run()
+            backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train)
+            result = backtest.run()
+            if args.first_origin:
+                multi.append((bank, model, backtest.run_multi(args.first_origin)))
         except Exception as e:
             log.warning("[%d/%d] %s skipped: %s", i, len(banks), bank, e)
             skipped += 1
@@ -116,6 +124,12 @@ def main(argv=None):
         assessment = pd.DataFrame([{"bank_name": r.bank, "model": " | ".join(r.model), **bt.assess(r.table)}
                                    for r in results])
         assessment.to_csv(out_dir / f"backtest_assessment_{horizon}Q.csv", index=False)
+    if multi and args.bank_name.strip().lower() == "all":
+        pd.concat([t.assign(bank_name=b, model=" | ".join(m)) for b, m, t in multi]).to_csv(
+            out_dir / f"backtest_multiorigin_{horizon}Q.csv", index=False)
+        pd.DataFrame([{"bank_name": b, "model": " | ".join(m), "min_windows": int(t.n_windows.min()),
+                       **bt.assess(t)} for b, m, t in multi]).to_csv(
+            out_dir / f"backtest_multiorigin_assessment_{horizon}Q.csv", index=False)
     log.info("done: %d chart(s) in %s, %d bank(s) skipped", len(results), out_dir, skipped)
     return 2 if skipped else 0
 
