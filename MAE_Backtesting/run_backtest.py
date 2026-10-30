@@ -15,6 +15,7 @@ is used (ties broken EG > ARDL > Johansen). See backtest.py for the method. Outp
             MAE_backtest_<N>Q.png       one bar per horizon 1Q..NQ
             MAE_backtest_<N>Q.csv       horizon, origin, forecast window, n_obs, MAE
         backtest_summary_<N>Q.csv       every bank's rows (only with --bank-name All)
+        backtest_assessment_<N>Q.csv    Green/Amber/Red rating per bank (only with --bank-name All)
 
 A bank that cannot be backtested is logged and skipped; the others still run. Exit code: 0
 when every bank ran, 2 when some were skipped, 1 when the arguments or inputs were invalid.
@@ -112,6 +113,9 @@ def main(argv=None):
 
     if results and args.bank_name.strip().lower() == "all":
         pd.concat([r.labelled() for r in results]).to_csv(out_dir / f"backtest_summary_{horizon}Q.csv", index=False)
+        assessment = pd.DataFrame([{"bank_name": r.bank, "model": " | ".join(r.model), **bt.assess(r.table)}
+                                   for r in results])
+        assessment.to_csv(out_dir / f"backtest_assessment_{horizon}Q.csv", index=False)
     log.info("done: %d chart(s) in %s, %d bank(s) skipped", len(results), out_dir, skipped)
     return 2 if skipped else 0
 

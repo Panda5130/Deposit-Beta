@@ -48,8 +48,11 @@ def load_module(path):
 ct = load_module(HERE / "Co-integration Tests.py")
 
 OUTPUT_NAME = "co-integration_respecification_results.csv"
+# All seven banks (OI-4): Huntington and Old National were originally left out because they
+# passed under the baseline, so their cointegration result had no robustness check.
 FLAGGED_BANKS = ["Manufacturers and Traders Trust Company", "Glacier Bank", "First Horizon Bank",
-                 "SouthState Bank", "KeyBank National Association"]
+                 "SouthState Bank", "KeyBank National Association", "Huntington National Bank",
+                 "Old National Bank"]
 GROUP_COLUMN = "bank_name"
 EXTRA_COLUMNS = ["IC/selected lag", "trend type"]
 

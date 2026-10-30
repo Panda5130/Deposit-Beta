@@ -5,6 +5,12 @@ At each origin the model's specification (the terms in "ECM estimation results.c
 re-estimated on data up to and including the origin with ECM estimation.fit_one_step, then
 forecast dynamically to T: predicted y is fed back in as the lag, the regressor (FFT) takes
 its realised values. The bar for "kQ" is the mean absolute error over those k quarters.
+naive_mae is the same window's MAE of a no-change forecast (y held at its origin value).
+
+Acceptance thresholds (assess, OI-10), on the N horizons' MAE in pp:
+    Green  mean <= 0.15 and mean below the no-change mean
+    Amber  mean 0.15-0.25, or the model beats no-change on fewer than 6 of 8 horizons (75%)
+    Red    mean > 0.25, or any horizon > 0.50
 
 Model choice (select_model): the bank's lowest in-sample MAE in "estimation result
 summary.csv", ties broken EG > ARDL > Johansen, then file order; or the model the user names.
@@ -42,7 +48,9 @@ est = load_module(ROOT / "ECM estimation.py", "ecm_estimation")
 
 SPEC_KEYS = bp.SPEC_KEYS
 FAMILY_RANK = {"EG": 0, "ARDL": 1, "Johansen": 2}
-TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae"]
+TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae", "naive_mae"]
+GREEN_MEAN, AMBER_MEAN, RED_ANY, MIN_WIN_SHARE = 0.15, 0.25, 0.50, 0.75
+ASSESSMENT_COLUMNS = ["mean_mae", "max_mae", "naive_mean_mae", "horizons_beating_naive", "rating"]
 
 
 def family(test_name):
@@ -145,14 +153,28 @@ class MAEBacktest:
         for k in range(self.horizon, 0, -1):
             origin = index[-k - 1]
             actual, predicted = self.forecast(self.fit(origin), origin)
+            naive = float(np.mean(np.abs(actual - self.data.loc[origin, self.y])))
             rows.append([f"{k}Q", str(origin), str(actual.index[0]), str(actual.index[-1]), len(actual),
-                         float(np.mean(np.abs(actual - predicted)))])
+                         float(np.mean(np.abs(actual - predicted))), naive])
         table = pd.DataFrame(rows, columns=TABLE_COLUMNS).iloc[::-1].reset_index(drop=True)
         return BacktestResult(self.bank, self.model, self.horizon, table)
 
     def mae(self):
         t = self.run().table
         return pd.Series(t["mae"].values, index=[f"{r.horizon_q} ({r.start}-{r.end})" for r in t.itertuples()])
+
+
+def assess(table):
+    """Green / Amber / Red rating of one backtest table against the acceptance thresholds."""
+    mae, naive = table["mae"], table["naive_mae"]
+    mean, wins = float(mae.mean()), int((mae < naive).sum())
+    if mean > AMBER_MEAN or float(mae.max()) > RED_ANY:
+        rating = "Red"
+    elif mean > GREEN_MEAN or wins < MIN_WIN_SHARE * len(table) or mean >= float(naive.mean()):
+        rating = "Amber"
+    else:
+        rating = "Green"
+    return dict(zip(ASSESSMENT_COLUMNS, [mean, float(mae.max()), float(naive.mean()), f"{wins}/{len(table)}", rating]))
 
 
 def plot_mae_bars(result, path, y=bp.DEFAULTS["y"]):

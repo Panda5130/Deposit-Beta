@@ -1,9 +1,393 @@
-predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,source,class,deposits_at_last_pre_merger_quarter,mode_applied,reason_if_skipped
-22274,First Niagara Bank,17534,KeyBank National Association,2016-08-01,FDIC BankFind / NIC,MERGER,5000000,A,
-11111,FirstMerit Bank,6560,Huntington National Bank,2016-08-16,FDIC BankFind / NIC,MERGER,5000000,A,
-22222,TCF National Bank,6560,Huntington National Bank,2021-06-09,FDIC BankFind / NIC,MERGER,5000000,A,
-33333,IBERIABANK,4977,First Horizon Bank,2020-07-02,FDIC BankFind / NIC,MERGER,5000000,A,
-44444,CenterState Bank,33555,SouthState Bank,2020-06-08,FDIC BankFind / NIC,MERGER,5000000,B,
-55555,Atlantic Capital Bank,33555,SouthState Bank,2022-03-01,FDIC BankFind / NIC,MERGER,5000000,A,
-66666,First Midwest Bank,3832,Old National Bank,2022-02-15,FDIC BankFind / NIC,MERGER,5000000,A,
-77777,People's United Bank,588,Manufacturers and Traders Trust Company,2022-04-02,FDIC BankFind / NIC,MERGER,5000000,A,
+predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,merger_quarter,change_code,change_desc,predecessor_last_quarter,deposits_at_last_pre_merger_quarter,survivor_deposits_same_quarter,pct_of_survivor_deposits,mode_applied,reason_if_skipped,depth
+15067,Centerville State Bank,4977,First Horizon Bank,2007-08-31,2007Q3,223,Merger -Without Assistance,2007Q2,3726.0,21763800.0,0.017120172028781737,B,below 1% materiality,0
+34789,Mountain National Bank,4977,First Horizon Bank,2013-06-07,2013Q2,211,Failure - Whole Institution,2013Q1,373366.0,16546523.0,2.256461976936182,A,,0
+35163,TrustAtlantic Bank,4977,First Horizon Bank,2015-10-17,2015Q4,223,Merger -Without Assistance,2015Q3,349654.0,19097192.0,1.8309183884206641,A,,0
+59049,Capital Bank Corporation,4977,First Horizon Bank,2017-11-30,2017Q4,221,Absorbtion - Without Assistance,2017Q3,8214973.0,22454816.0,36.58445920910685,A,,0
+25172,Metro Bank of Dade County,59049,,2010-07-16,2010Q3,211,Failure - Whole Institution,2010Q2,375522.0,,,B,below 1% materiality,1
+32280,Turnberry Bank,59049,,2010-07-16,2010Q3,211,Failure - Whole Institution,2010Q2,179169.0,,,B,below 1% materiality,1
+35383,First National Bank of the South,59049,,2010-07-16,2010Q3,211,Failure - Whole Institution,2010Q2,550891.0,,,B,below 1% materiality,1
+21435,TIB Bank,59049,,2011-04-30,2011Q2,223,Merger -Without Assistance,2011Q1,1352921.0,849753.0,159.213442023741,A,,1
+34563,Riverside Bank of the Gulf Coast,21435,,2009-02-13,2009Q1,211,Failure - Whole Institution,2008Q4,422708.0,1095609.0,38.58201237850364,A,,2
+57386,The Bank of Venice,21435,,2009-09-26,2009Q3,223,Merger -Without Assistance,2009Q2,71943.0,1324801.0,5.430475973372604,A,,2
+34452,Capital Bank,59049,,2011-06-30,2011Q2,223,Merger -Without Assistance,2011Q1,1368816.0,849753.0,161.08398558169256,A,,1
+895,GreenBank,59049,,2011-09-08,2011Q3,223,Merger -Without Assistance,2011Q2,1896378.0,3523791.0,53.816415332237355,A,,1
+31916,Cumberland Bank,895,,2007-05-18,2007Q2,223,Merger -Without Assistance,2007Q1,739751.0,1398857.0,52.88253195287296,A,,2
+34321,Southern Community Bank and Trust,59049,,2012-10-11,2012Q4,223,Merger -Without Assistance,2012Q3,1093350.0,5086821.0,21.493777744489144,A,,1
+4879,"Communityone Bank, National Association",59049,,2016-10-26,2016Q4,221,Absorbtion - Without Assistance,2016Q3,1909305.0,6176458.0,30.91262014572106,A,,1
+5950,Bank of Granite,4879,,2013-06-08,2013Q2,223,Merger -Without Assistance,2013Q1,599277.0,1258180.0,47.63046622899744,A,,2
+28100,Iberiabank,4977,First Horizon Bank,2020-07-02,2020Q3,223,Merger -Without Assistance,2020Q2,28436334.0,39025284.0,72.86643705142542,A,,0
+22130,CapitalSouth Bank,28100,,2009-08-21,2009Q3,211,Failure - Whole Institution,2009Q2,539422.0,3140354.0,17.177108058518243,A,,1
+32472,Monticello Bank,22130,,2007-09-15,2007Q3,221,Absorbtion - Without Assistance,2007Q2,181665.0,429848.0,42.26261376114348,A,,2
+32267,"Century Bank, a Federal Savings Bank",28100,,2009-11-13,2009Q4,211,Failure - Whole Institution,2009Q3,659742.0,3824077.0,17.25231997159053,A,,1
+22427,Orion Bank,28100,,2009-11-13,2009Q4,211,Failure - Whole Institution,2009Q3,2169446.0,3824077.0,56.7312321378466,A,,1
+32536,Sterling Bank,28100,,2010-07-23,2010Q3,211,Failure - Whole Institution,2010Q2,329541.0,7072700.0,4.659338018012923,A,,1
+33538,IBERIABANK fsb,28100,,2011-01-01,2011Q1,223,Merger -Without Assistance,2010Q4,1293047.0,6857671.0,18.855483151641426,A,,1
+17562,Pulaski Bank and Trust Company,33538,,2007-04-23,2007Q2,223,Merger -Without Assistance,2007Q1,439315.0,594352.0,73.91495275526961,A,,2
+33901,ANB Financial National Association,33538,,2008-05-09,2008Q2,211,Failure - Whole Institution,2008Q1,1815691.0,1121311.0,161.9257280094461,A,,2
+27397,Omni Bank,28100,,2011-06-01,2011Q2,223,Merger -Without Assistance,2011Q1,646411.0,8072564.0,8.007505422069123,A,,1
+58202,OMNI BANK of Baton Rouge,27397,,2008-06-20,2008Q2,223,Merger -Without Assistance,2008Q1,39944.0,618602.0,6.457140455413982,A,,2
+19541,Cameron State Bank,28100,,2011-06-01,2011Q2,223,Merger -Without Assistance,2011Q1,588401.0,8072564.0,7.2888985457408575,A,,1
+57085,Florida Gulf Bank,28100,,2012-08-01,2012Q3,223,Merger -Without Assistance,2012Q2,288002.0,9490715.0,3.0345658888713865,A,,1
+29028,Teche Federal Bank,28100,,2014-06-01,2014Q2,223,Merger -Without Assistance,2014Q1,662636.0,10988645.0,6.030188435425842,A,,1
+58497,First Private Bank of Texas,28100,,2014-07-01,2014Q3,223,Merger -Without Assistance,2014Q2,312318.0,12053284.0,2.5911444549054017,A,,1
+26280,Florida Bank,28100,,2015-03-01,2015Q1,221,Absorbtion - Without Assistance,2014Q4,409112.0,12558662.0,3.2576081751384023,A,,1
+58356,Florida Bank of Sarasota,26280,,2008-12-06,2008Q4,223,Merger -Without Assistance,2008Q3,18300.0,384182.0,4.763367362343889,A,,2
+57211,The Bank of Tallahassee,26280,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,72635.0,466440.0,15.572206500300146,A,,2
+57653,Florida Bank of Jacksonville,26280,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,120789.0,466440.0,25.89593516851042,A,,2
+58822,New Traditions Bank,28100,,2015-04-01,2015Q2,221,Absorbtion - Without Assistance,2015Q1,469183.0,13337642.0,3.517735743694425,A,,1
+24244,Old Florida Bank,28100,,2015-04-01,2015Q2,221,Absorbtion - Without Assistance,2015Q1,978358.0,13337642.0,7.335314593089243,A,,1
+57521,Georgia Commerce Bank,28100,,2015-06-01,2015Q2,221,Absorbtion - Without Assistance,2015Q1,918490.0,13337642.0,6.886449643797607,A,,1
+58273,Patriot Bank of Georgia,57521,,2011-09-02,2011Q3,211,Failure - Whole Institution,2011Q2,140612.0,348693.0,40.32544387182995,A,,2
+58226,CreekSide Bank,57521,,2011-09-02,2011Q3,211,Failure - Whole Institution,2011Q2,96583.0,348693.0,27.69857725850533,A,,2
+58456,Brookhaven Bank,57521,,2013-12-31,2013Q4,223,Merger -Without Assistance,2013Q3,138898.0,633209.0,21.935569456530153,A,,2
+21837,"Sabadell United Bank, National Association",28100,,2017-08-01,2017Q3,223,Merger -Without Assistance,2017Q2,4373027.0,17738360.0,24.652938603117764,A,,1
+25580,TransAtlantic Bank,21837,,2010-08-09,2010Q3,223,Merger -Without Assistance,2010Q2,454201.0,1433775.0,31.67868040661889,A,,2
+35356,Lydian Private Bank,21837,,2011-08-19,2011Q3,211,Failure - Whole Institution,2011Q2,1253835.0,1969237.0,63.67110713438758,A,,2
+17715,"JGB BANK, NATIONAL ASSOCIATION",21837,,2014-07-12,2014Q3,223,Merger -Without Assistance,2014Q2,346402.0,3162311.0,10.954077571750533,A,,2
+32212,Gibraltar Private Bank & Trust Co.,28100,,2018-03-24,2018Q1,223,Merger -Without Assistance,2017Q4,1050699.0,21643569.0,4.854555179878143,A,,1
+26682,"First Citizens Bank, National Association",30788,Glacier Bank,2007-01-27,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,0
+2204,Glacier Bank of Whitefish,30788,Glacier Bank,2008-05-01,2008Q2,223,Merger -Without Assistance,2008Q1,112215.0,447042.0,25.101668299622855,A,,0
+2191,First Bank of Montana,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,177575.0,853864.0,20.796637403614625,A,,0
+2168,Western Bank of Chinook National Association,2191,,2007-06-22,2007Q2,223,Merger -Without Assistance,2007Q1,29607.0,78044.0,37.93629234790631,A,,1
+34873,Bank of the San Juans,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,186950.0,853864.0,21.89458742844294,A,,0
+2226,First Bank of Wyoming,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,292834.0,853864.0,34.295157074194485,A,,0
+32871,Big Sky Western Bank,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,226125.0,853864.0,26.482554598858837,A,,0
+34459,Citizens Community Bank,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,236443.0,853864.0,27.690943756851212,A,,0
+22747,Valley Bank of Helena,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,310409.0,853864.0,36.35344738740596,A,,0
+57248,Western Security Bank,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,585952.0,853864.0,68.62357471447443,A,,0
+19964,First Citizens Bank of Billings,57248,,2007-01-27,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,1
+16522,1ST BANK,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,538864.0,853864.0,63.10887916576878,A,,0
+13244,North Side State Bank of Rock Springs,16522,,2007-05-01,2007Q2,221,Absorbtion - Without Assistance,2007Q1,102310.0,245971.0,41.59433429144086,A,,1
+2263,The First National Bank of Morgan,16522,,2009-02-01,2009Q1,223,Merger -Without Assistance,2008Q4,70885.0,347346.0,20.407605096935043,A,,1
+21010,First Security Bank of Missoula,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,733556.0,853864.0,85.91016836404862,A,,0
+8311,Citizens' State Bank,21010,,2007-01-27,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,1
+33844,Mountain West Bank,30788,Glacier Bank,2012-04-30,2012Q2,223,Merger -Without Assistance,2012Q1,837953.0,853864.0,98.13658849652872,A,,0
+23318,First State Bank,30788,Glacier Bank,2013-06-01,2013Q2,223,Merger -Without Assistance,2013Q1,254649.0,5420321.0,4.698042791192625,A,,0
+26846,North Cascades National Bank,30788,Glacier Bank,2013-08-01,2013Q3,223,Merger -Without Assistance,2013Q2,288245.0,5404404.0,5.333520588024138,A,,0
+22742,Mid State Bank,26846,,2007-07-14,2007Q3,223,Merger -Without Assistance,2007Q2,31052.0,197923.0,15.688929533202305,A,,1
+3041,First National Bank of the Rockies,30788,Glacier Bank,2014-08-31,2014Q3,223,Merger -Without Assistance,2014Q2,305709.0,5807667.0,5.263886514154479,A,,0
+1979,"Community Bank, Inc.",30788,Glacier Bank,2015-02-28,2015Q1,223,Merger -Without Assistance,2014Q4,149548.0,6400364.0,2.336554608456644,A,,0
+33967,Community Bank - Missoula,1979,,2012-06-30,2012Q2,223,Merger -Without Assistance,2012Q1,68762.0,86016.0,79.94094122023809,A,,1
+21801,Canon National Bank,30788,Glacier Bank,2015-10-31,2015Q4,223,Merger -Without Assistance,2015Q3,231638.0,6722746.0,3.4455860744999143,A,,0
+58454,Treasure State Bank,30788,Glacier Bank,2016-09-01,2016Q3,223,Merger -Without Assistance,2016Q2,59842.0,7136839.0,0.8384944651266478,B,below 1% materiality,0
+34573,The Foothills Bank,30788,Glacier Bank,2017-05-01,2017Q2,223,Merger -Without Assistance,2017Q1,293063.0,7538403.0,3.8876005965719793,A,,0
+57099,Yuma Community Bank,34573,,2009-09-21,2009Q3,221,Absorbtion - Without Assistance,2009Q2,55643.0,118566.0,46.92997992679183,A,,1
+57442,Summit Bank,34573,,2011-07-15,2011Q3,211,Failure - Whole Institution,2011Q2,67471.0,183871.0,36.69474794828984,A,,1
+26916,Collegiate Peaks Bank,30788,Glacier Bank,2018-01-31,2018Q1,223,Merger -Without Assistance,2017Q4,464051.0,7589367.0,6.114488863168694,A,,0
+1520,First Security Bank,30788,Glacier Bank,2018-02-28,2018Q1,223,Merger -Without Assistance,2017Q4,891633.0,7589367.0,11.748450167187857,A,,0
+364,Teton Banks,1520,,2016-10-29,2016Q4,223,Merger -Without Assistance,2016Q3,172490.0,708531.0,24.34473579843366,A,,1
+2173,The First National Bank of Fairfield,364,,2010-02-20,2010Q1,223,Merger -Without Assistance,2009Q4,74103.0,61069.0,121.3430709525291,A,,2
+2260,The First National Bank of Layton,30788,Glacier Bank,2019-04-29,2019Q2,223,Merger -Without Assistance,2019Q1,280166.0,9644352.0,2.9049748495285117,A,,0
+34072,Heritage Bank of Nevada,30788,Glacier Bank,2019-07-31,2019Q3,223,Merger -Without Assistance,2019Q2,724670.0,9929512.0,7.298143151445911,A,,0
+58352,Carson River Community Bank,34072,,2010-02-26,2010Q1,211,Failure - Whole Institution,2009Q4,50024.0,361806.0,13.826194148245191,A,,1
+33508,State Bank of Arizona,30788,Glacier Bank,2020-02-29,2020Q1,223,Merger -Without Assistance,2019Q4,586835.0,10834293.0,5.416458646632503,A,,0
+57498,Country Bank,33508,,2016-07-31,2016Q3,223,Merger -Without Assistance,2016Q2,194492.0,302966.0,64.19598238746262,A,,1
+12773,Altabank,30788,Glacier Bank,2021-10-01,2021Q4,223,Merger -Without Assistance,2021Q3,3279164.0,17649441.0,18.579421297252416,A,,0
+9208,Lewiston State Bank,12773,,2015-09-30,2015Q3,223,Merger -Without Assistance,2015Q2,269341.0,1007221.0,26.741003215778864,A,,1
+35588,Lewiston State Bank of Idaho,9208,,2007-01-05,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,2
+58522,Town & Country Bank,12773,,2017-11-13,2017Q4,223,Merger -Without Assistance,2017Q3,126441.0,1531284.0,8.257188085293127,A,,1
+22939,Wheatland Bank,30788,Glacier Bank,2024-01-31,2024Q1,223,Merger -Without Assistance,2023Q4,622632.0,20029981.0,3.1085002027710362,A,,0
+26403,Bank of Idaho,30788,Glacier Bank,2025-04-30,2025Q2,223,Merger -Without Assistance,2025Q1,1101507.0,20810915.0,5.292929215269967,A,,0
+1208,"Guaranty Bank & Trust, N.A.",30788,Glacier Bank,2025-10-01,2025Q4,223,Merger -Without Assistance,2025Q3,2714058.0,22062219.0,12.30183600298773,A,,0
+11140,The First State Bank,1208,,2013-07-20,2013Q3,222,Consolidated - Without Assistance,2013Q2,28902.0,933514.0,3.0960435515696605,A,,1
+57650,Preston State Bank,1208,,2015-03-27,2015Q1,223,Merger -Without Assistance,2014Q4,93320.0,1077656.0,8.659535139228103,A,,1
+58312,Texas Leadership Bank,1208,,2015-08-01,2015Q3,223,Merger -Without Assistance,2015Q2,62835.0,1209741.0,5.194086998787344,A,,1
+58417,Westbound Bank,1208,,2018-06-02,2018Q2,221,Absorbtion - Without Assistance,2018Q1,190516.0,1703437.0,11.184211684963987,A,,1
+35403,"Sky Trust, National Association",6560,Huntington National Bank,2007-08-31,2007Q3,223,Merger -Without Assistance,2007Q2,500.0,25364585.0,0.001971252437207232,B,below 1% materiality,0
+5982,Sky Bank,6560,Huntington National Bank,2007-09-21,2007Q3,223,Merger -Without Assistance,2007Q2,12937515.0,25364585.0,51.00621595031024,A,,0
+34824,Warren Bank,6560,Huntington National Bank,2009-10-02,2009Q4,211,Failure - Whole Institution,2009Q3,467767.0,41746172.0,1.1205027373527805,A,,0
+33883,Fidelity Bank,6560,Huntington National Bank,2012-03-30,2012Q1,211,Failure - Whole Institution,2011Q4,747640.0,44300255.0,1.6876652290150476,A,,0
+20367,Fidelity Bank,33883,,2007-01-04,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,1
+29864,Advantage Bank,6560,Huntington National Bank,2014-03-01,2014Q1,223,Merger -Without Assistance,2013Q4,606552.0,48578143.0,1.2486109236411116,A,,0
+13675,"Firstmerit Bank, National Association",6560,Huntington National Bank,2016-08-16,2016Q3,223,Merger -Without Assistance,2016Q2,21074218.0,57280426.0,36.79130808140288,A,,0
+29952,George Washington Savings Bank,13675,,2010-02-19,2010Q1,211,Failure - Whole Institution,2009Q4,395310.0,7545614.0,5.238937480766973,A,,1
+18117,Midwest Bank and Trust Company,13675,,2010-05-14,2010Q2,211,Failure - Whole Institution,2010Q1,2420738.0,9445896.0,25.62740474805143,A,,1
+34547,Mount Prospect National Bank,18117,,2007-10-01,2007Q4,223,Merger -Without Assistance,2007Q3,478957.0,1999944.0,23.94852055857564,A,,2
+986,Citizens Bank,13675,,2013-04-12,2013Q2,223,Merger -Without Assistance,2013Q1,7218613.0,12393277.0,58.24620074254775,A,,1
+20001,Republic Bank,986,,2007-04-28,2007Q2,223,Merger -Without Assistance,2007Q1,2748013.0,5419853.0,50.70272201109513,A,,2
+57422,"Citizens Bank Wealth Management, National Association",986,,2011-06-30,2011Q2,223,Merger -Without Assistance,2011Q1,0.0,7753522.0,0.0,B,below 1% materiality,2
+28330,TCF National Bank,6560,Huntington National Bank,2021-06-09,2021Q2,223,Merger -Without Assistance,2021Q1,39975492.0,106544576.0,37.519969106639465,A,,0
+58373,TCF National Bank Arizona,28330,,2009-10-31,2009Q4,223,Merger -Without Assistance,2009Q3,136624.0,11538155.0,1.184106124419372,A,,1
+1003,Chemical Bank,28330,,2019-08-01,2019Q3,223,Merger -Without Assistance,2019Q2,15900424.0,19304159.0,82.36786694514898,A,,1
+11405,Byron Bank,1003,,2010-07-24,2010Q3,223,Merger -Without Assistance,2010Q2,714540.0,3519711.0,20.301098584514467,A,,2
+30792,Northwestern Bank,1003,,2014-11-01,2014Q4,223,Merger -Without Assistance,2014Q3,779650.0,5573792.0,13.987784258903094,A,,2
+29069,Monarch Community Bank,1003,,2015-05-11,2015Q2,223,Merger -Without Assistance,2015Q1,144529.0,6365127.0,2.270638119239412,A,,2
+34862,The Bank of Holland,1003,,2015-11-14,2015Q4,223,Merger -Without Assistance,2015Q3,622914.0,6710613.0,9.28252009168164,A,,2
+35324,The Bank of Northern Michigan,1003,,2015-11-14,2015Q4,223,Merger -Without Assistance,2015Q3,304759.0,6710613.0,4.541448001844243,A,,2
+58132,Talmer Bank and Trust,1003,,2016-11-11,2016Q4,223,Merger -Without Assistance,2016Q3,5356671.0,7926143.0,67.58231588806814,A,,2
+30005,CF Bancorp,58132,,2010-04-30,2010Q2,211,Failure - Whole Institution,2010Q1,1418445.0,82931.0,1710.3917714726701,A,,3
+5287,First Banking Center,58132,,2010-11-19,2010Q4,211,Failure - Whole Institution,2010Q3,664752.0,1038857.0,63.988787677226036,A,,3
+14939,Peoples State Bank,58132,,2011-02-11,2011Q1,211,Failure - Whole Institution,2010Q4,389868.0,1395872.0,27.930068086472108,A,,3
+34234,Community Central Bank,58132,,2011-04-29,2011Q2,211,Failure - Whole Institution,2011Q1,371494.0,1672842.0,22.20735729973303,A,,3
+34657,First Place Bank,58132,,2014-02-10,2014Q1,223,Merger -Without Assistance,2013Q4,1763764.0,1937216.0,91.04632627440616,A,,3
+30045,First Place Bank,34657,,2008-07-11,2008Q3,221,Absorbtion - Without Assistance,2008Q2,2360298.0,44411.0,5314.669789016235,A,,4
+27688,First Place Bank,30045,,2007-11-26,2007Q4,223,Merger -Without Assistance,2007Q3,2272741.0,40672.0,5587.9745279307635,A,,5
+10936,Signature Bank,58132,,2015-02-06,2015Q1,223,Merger -Without Assistance,2014Q4,201769.0,3903482.0,5.168949158725466,A,,3
+33134,Talmer West Bank,58132,,2015-08-21,2015Q3,223,Merger -Without Assistance,2015Q2,630583.0,4289277.0,14.701382074414873,A,,3
+34314,Brighton Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,95950.0,300207.0,31.961280050098768,A,,4
+34919,Detroit Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,87544.0,300207.0,29.16121209698641,A,,4
+34008,Grand Haven Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,109189.0,300207.0,36.371237179679355,A,,4
+34609,Kent Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,68983.0,300207.0,22.978478183386798,A,,4
+34262,Macomb Community Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,78770.0,300207.0,26.238562058846064,A,,4
+34608,Muskegon Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,73795.0,300207.0,24.581372186524632,A,,4
+32195,Oakland Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,74800.0,300207.0,24.916141195908157,A,,4
+27236,Portage Commerce Bank,33134,,2009-03-31,2009Q1,223,Merger -Without Assistance,2008Q4,189858.0,300207.0,63.24236276968892,A,,4
+57984,Bank of Auburn Hills,33134,,2010-03-31,2010Q1,223,Merger -Without Assistance,2009Q4,33306.0,975656.0,3.413703190468772,A,,4
+33126,Paragon Bank & Trust,33134,,2010-03-31,2010Q1,223,Merger -Without Assistance,2009Q4,95369.0,975656.0,9.774859171675262,A,,4
+35428,SUNRISE BANK OF ALBUQUERQUE,33134,,2014-01-01,2014Q1,221,Absorbtion - Without Assistance,2013Q4,39816.0,530003.0,7.51241030711147,A,,4
+57276,Bank of Las Vegas,33134,,2014-01-01,2014Q1,223,Merger -Without Assistance,2013Q4,208088.0,530003.0,39.26166455661571,A,,4
+35421,Black Mountain Community Bank,57276,,2010-01-29,2010Q1,223,Merger -Without Assistance,2009Q4,149428.0,63651.0,234.76143344173698,A,,5
+35253,Desert Community Bank,57276,,2010-01-29,2010Q1,223,Merger -Without Assistance,2009Q4,86539.0,63651.0,135.95858666792353,A,,5
+35357,Red Rock Community Bank,57276,,2010-01-29,2010Q1,223,Merger -Without Assistance,2009Q4,118823.0,63651.0,186.6789209910292,A,,5
+57037,Indiana Community Bank,33134,,2014-01-01,2014Q1,223,Merger -Without Assistance,2013Q4,77918.0,530003.0,14.701426218342158,A,,4
+35270,Elkhart Community Bank,57037,,2010-03-19,2010Q1,223,Merger -Without Assistance,2009Q4,86860.0,66944.0,129.75023900573615,A,,5
+57665,Veritex Community Bank,6560,Huntington National Bank,2025-10-20,2025Q4,223,Merger -Without Assistance,2025Q3,10814840.0,169742133.0,6.371335041489081,A,,0
+35266,Fidelity Bank,57665,,2011-03-23,2011Q1,223,Merger -Without Assistance,2010Q4,122924.0,161778.0,75.98313738580029,A,,1
+58688,Bank of Las Colinas,57665,,2011-10-27,2011Q4,223,Merger -Without Assistance,2011Q3,45339.0,298512.0,15.188334137321114,A,,1
+57476,Independent Bank of Texas,57665,,2015-07-01,2015Q3,223,Merger -Without Assistance,2015Q2,98390.0,695987.0,14.13675830152,A,,1
+57787,Sovereign Bank,57665,,2017-08-01,2017Q3,223,Merger -Without Assistance,2017Q2,813907.0,1308019.0,62.22440193911556,A,,1
+26457,Liberty Bank,57665,,2017-12-01,2017Q4,223,Merger -Without Assistance,2017Q3,391798.0,2057801.0,19.039644746989627,A,,1
+35007,"Green Bank, National Association",57665,,2019-01-01,2019Q1,223,Merger -Without Assistance,2018Q4,3527789.0,2662903.0,132.47906514056277,A,,1
+58567,"Opportunity Bank, National Association",35007,,2012-06-01,2012Q2,223,Merger -Without Assistance,2012Q1,44968.0,1184663.0,3.7958474266521365,A,,2
+57760,SharePlus Bank,35007,,2014-10-17,2014Q4,223,Merger -Without Assistance,2014Q3,281652.0,1580236.0,17.823413717950988,A,,2
+3258,Patriot Bank,35007,,2015-10-02,2015Q4,223,Merger -Without Assistance,2015Q3,1063729.0,1944428.0,54.70652551804438,A,,2
+11813,Cadence Bank,6560,Huntington National Bank,2026-02-01,2026Q1,223,Merger -Without Assistance,2025Q4,44139279.0,180595114.0,24.441015054261104,A,,0
+34505,The Signature Bank,11813,,2007-07-02,2007Q3,223,Merger -Without Assistance,2007Q2,574973.0,9839689.0,5.84340622960746,A,,1
+34332,Ouachita Independent Bank,11813,,2018-01-15,2018Q1,223,Merger -Without Assistance,2017Q4,600478.0,11768054.0,5.102610847978774,A,,1
+11151,First State Bank Central Texas,11813,,2018-01-15,2018Q1,223,Merger -Without Assistance,2017Q4,1203208.0,11768054.0,10.224358249885665,A,,1
+15637,The First State Bank,11151,,2008-06-09,2008Q2,223,Merger -Without Assistance,2008Q1,66118.0,727676.0,9.0861867094696,A,,2
+58378,"Icon Bank of Texas, National Association",11813,,2018-10-01,2018Q4,223,Merger -Without Assistance,2018Q3,676103.0,13203757.0,5.120535011360781,A,,1
+22040,Grand  Bank of Texas,11813,,2019-04-01,2019Q2,223,Merger -Without Assistance,2019Q1,323626.0,14557183.0,2.2231361658364808,A,,1
+18637,Merchants Bank,11813,,2019-04-01,2019Q2,223,Merger -Without Assistance,2019Q1,205275.0,14557183.0,1.4101285942479393,A,,1
+58786,"Summit Bank, National Association",11813,,2019-09-01,2019Q3,221,Absorbtion - Without Assistance,2019Q2,453130.0,14971862.0,3.026544059783613,A,,1
+58343,Premier Community Bank of the Emerald Coast,58786,,2011-12-16,2011Q4,211,Failure - Whole Institution,2011Q3,112050.0,101614.0,110.27023835298286,A,,2
+5567,Texas Star Bank,11813,,2019-09-01,2019Q3,221,Absorbtion - Without Assistance,2019Q2,337560.0,14971862.0,2.254629384107334,A,,1
+15300,Texas First State Bank,11813,,2020-01-01,2020Q1,223,Merger -Without Assistance,2019Q4,369379.0,16271863.0,2.270047381790272,A,,1
+3214,National United,11813,,2021-05-01,2021Q2,223,Merger -Without Assistance,2021Q1,712853.0,20871717.0,3.415401809060558,A,,1
+2824,FNB Bank,11813,,2021-05-01,2021Q2,223,Merger -Without Assistance,2021Q1,713073.0,20871717.0,3.4164558670472585,A,,1
+1701,Peoples State Bank of Commerce,2824,,2017-07-17,2017Q3,223,Merger -Without Assistance,2017Q2,139489.0,327996.0,42.52765277625337,A,,2
+19195,Capital Bank,2824,,2018-10-24,2018Q4,223,Merger -Without Assistance,2018Q3,106948.0,471477.0,22.68360916863389,A,,2
+4999,"Cadence Bank, N.A.",11813,,2021-10-29,2021Q4,223,Merger -Without Assistance,2021Q3,17297593.0,23281239.0,74.29842114502583,A,,1
+59026,"Superior Bank, National Association",4999,,2011-11-10,2011Q4,223,Merger -Without Assistance,2011Q3,2127264.0,1147867.0,185.32321253246238,A,,2
+17750,Superior Bank,59026,,2011-04-15,2011Q2,211,Failure - Whole Institution,2011Q1,2736201.0,,,B,below 1% materiality,3
+34378,"Encore Bank, National Association",4999,,2012-09-14,2012Q3,223,Merger -Without Assistance,2012Q2,1220568.0,3102267.0,39.34438911931178,A,,2
+30297,"Encore Bank, National Association",34378,,2007-06-30,2007Q2,223,Merger -Without Assistance,2007Q1,998939.0,0.0,,B,below 1% materiality,3
+57870,State Bank and Trust Company,4999,,2019-01-01,2019Q1,223,Merger -Without Assistance,2018Q4,4147573.0,10837389.0,38.270961760254245,A,,2
+27367,Security Bank of Bibb County,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,831437.0,27065.0,3072.000738961759,A,,3
+27048,Security Bank of Houston County,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,313155.0,27065.0,1157.0478477738777,A,,3
+8486,Security Bank of Jones County,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,375238.0,27065.0,1386.432662109736,A,,3
+57346,Security Bank of Gwinnett County,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,256578.0,27065.0,948.0066506558286,A,,3
+57105,Security Bank of North Metro,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,182413.0,27065.0,673.9811564751524,A,,3
+57430,Security Bank of North Fulton,57870,,2009-07-24,2009Q3,211,Failure - Whole Institution,2009Q2,179523.0,27065.0,663.3031590615186,A,,3
+34663,The Buckhead Community Bank,57870,,2009-12-04,2009Q4,211,Failure - Whole Institution,2009Q3,813668.0,1402063.0,58.03362616373159,A,,3
+57680,First National Bank of Forsyth County,34663,,2007-12-04,2007Q4,223,Merger -Without Assistance,2007Q3,211242.0,542443.0,38.9427091878778,A,,4
+26290,First Security National Bank,57870,,2009-12-04,2009Q4,211,Failure - Whole Institution,2009Q3,121645.0,1402063.0,8.676143654029813,A,,3
+57658,Northwest Bank & Trust,57870,,2010-07-30,2010Q3,211,Failure - Whole Institution,2010Q2,155531.0,2236076.0,6.955532817310324,A,,3
+35065,"United Americas Bank, National Association",57870,,2010-12-17,2010Q4,211,Failure - Whole Institution,2010Q3,193803.0,2339731.0,8.283131693344234,A,,3
+57256,Piedmont Community Bank,57870,,2011-10-14,2011Q4,211,Failure - Whole Institution,2011Q3,178773.0,2243862.0,7.967201191517126,A,,3
+57036,Community Capital Bank,57870,,2011-10-21,2011Q4,211,Failure - Whole Institution,2011Q3,157808.0,2243862.0,7.032874570717807,A,,3
+32362,Bank of Atlanta,57870,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,148463.0,2233988.0,6.645648947084765,A,,3
+27423,First Bank of Georgia,57870,,2015-07-24,2015Q3,223,Merger -Without Assistance,2015Q2,432550.0,2362860.0,18.30620519201307,A,,3
+15926,S Bank,57870,,2016-12-31,2016Q4,221,Absorbtion - Without Assistance,2016Q3,92076.0,3004845.0,3.0642512342566754,A,,3
+35338,The National Bank of Georgia,57870,,2016-12-31,2016Q4,221,Absorbtion - Without Assistance,2016Q3,323196.0,3004845.0,10.755829335622968,A,,3
+59060,AloStar Bank of Commerce,57870,,2017-09-30,2017Q3,221,Absorbtion - Without Assistance,2017Q2,703912.0,3514060.0,20.031302823514682,A,,3
+19794,Nexity Bank,59060,,2011-04-15,2011Q2,211,Failure - Whole Institution,2011Q1,611681.0,,,B,below 1% materiality,4
+57252,First Chatham Bank,11813,,2025-05-01,2025Q2,224,Affiliated Institution Merger (Pooling) (i.e. Corporate Reorganization,2025Q1,522656.0,40335728.0,1.2957643903191731,A,,1
+57102,"Bank of Brenham, National Association",11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,604225.0,40493518.0,1.4921523983171825,A,,1
+12506,Industry State Bank,11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,631669.0,40493518.0,1.5599262084366194,A,,1
+3195,Fayetteville Bank,11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,578838.0,40493518.0,1.429458413566339,A,,1
+5529,The First National Bank of Shiner,11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,805243.0,40493518.0,1.9885725908032985,A,,1
+3099,The First National Bank of Bellville,11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,697014.0,40493518.0,1.7212977148589559,A,,1
+12501,Citizens State Bank,11813,,2025-07-01,2025Q3,223,Merger -Without Assistance,2025Q2,1002560.0,40493518.0,2.4758530488756247,A,,1
+3167,First Bank & Trust Company,12501,,2016-07-15,2016Q3,223,Merger -Without Assistance,2016Q2,35262.0,699374.0,5.041937504110819,A,,2
+23891,First National Bank,12501,,2016-10-01,2016Q4,223,Merger -Without Assistance,2016Q3,48006.0,740349.0,6.484239189895575,A,,2
+5580,The State National Bank in West,12501,,2019-10-01,2019Q4,223,Merger -Without Assistance,2019Q3,68639.0,839363.0,8.177510802835007,A,,2
+20119,Union State Bank,17534,KeyBank National Association,2008-01-17,2008Q1,223,Merger -Without Assistance,2007Q4,1803556.0,64108428.0,2.8132900092324835,A,,0
+91385,KeyTrust Company National Association,17534,KeyBank National Association,2014-09-30,2014Q3,223,Merger -Without Assistance,2014Q2,0.0,70006368.0,0.0,B,below 1% materiality,0
+16004,"First Niagara Bank, National Association",17534,KeyBank National Association,2016-10-08,2016Q4,223,Merger -Without Assistance,2016Q3,27347485.0,80019959.0,34.17582980766086,A,,0
+35185,Greater Buffalo Savings Bank,16004,,2008-02-15,2008Q1,223,Merger -Without Assistance,2007Q4,650172.0,5593975.0,11.622719086159664,A,,1
+35591,First Niagara Commercial Bank,16004,,2010-04-09,2010Q2,223,Merger -Without Assistance,2010Q1,1155532.0,9869654.0,11.707928160399545,A,,1
+7516,The Harleysville National Bank and Trust Company,16004,,2010-04-09,2010Q2,221,Absorbtion - Without Assistance,2010Q1,3948582.0,9869654.0,40.007299141388344,A,,1
+33526,East Penn Bank,7516,,2007-11-16,2007Q4,221,Absorbtion - Without Assistance,2007Q3,372966.0,2575575.0,14.480882909641538,A,,2
+30089,Willow Financial Bank,7516,,2008-12-06,2008Q4,223,Merger -Without Assistance,2008Q3,972350.0,3023672.0,32.157919245209136,A,,2
+18261,NewAlliance Bank,16004,,2011-04-15,2011Q2,223,Merger -Without Assistance,2011Q1,5465816.0,13552409.0,40.33095518294939,A,,1
+18532,Westbank,18261,,2007-01-02,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,2
+16045,Partners Trust Bank,588,Manufacturers and Traders Trust Company,2007-11-30,2007Q4,223,Merger -Without Assistance,2007Q3,2248736.0,38372271.0,5.860315121823256,A,,0
+614,Partners Trust Municipal Bank,588,Manufacturers and Traders Trust Company,2007-11-30,2007Q4,223,Merger -Without Assistance,2007Q3,365362.0,38372271.0,0.9521510989016001,B,below 1% materiality,0
+15951,Provident Bank of Maryland,588,Manufacturers and Traders Trust Company,2009-05-23,2009Q2,223,Merger -Without Assistance,2009Q1,4821521.0,42385408.0,11.37542665626812,A,,0
+28312,Bradford Bank,588,Manufacturers and Traders Trust Company,2009-08-28,2009Q3,211,Failure - Whole Institution,2009Q2,382159.0,46556854.0,0.8208436936052422,B,below 1% materiality,0
+31263,K Bank,588,Manufacturers and Traders Trust Company,2010-11-05,2010Q4,211,Failure - Whole Institution,2010Q3,500056.0,48598701.0,1.0289493128633211,A,,0
+13074,Hudson City Savings Bank,588,Manufacturers and Traders Trust Company,2015-11-01,2015Q4,223,Merger -Without Assistance,2015Q3,17996847.0,74013706.0,24.31555987751782,A,,0
+27334,"People's United Bank, National Association",588,Manufacturers and Traders Trust Company,2022-04-02,2022Q2,223,Merger -Without Assistance,2022Q1,53542021.0,128747728.0,41.5867695933244,A,,0
+33525,Maine Bank & Trust Company,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,279076.0,15577481.0,1.7915348444334485,A,,1
+33704,Merrill Merchants Bank,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,293996.0,15577481.0,1.8873141299289662,A,,1
+4264,Ocean Bank,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,1447144.0,15577481.0,9.289974418842172,A,,1
+33011,Community Bank and Trust Company,4264,,2007-11-01,2007Q4,223,Merger -Without Assistance,2007Q3,343618.0,1173896.0,29.271587943054584,A,,2
+14149,Chittenden Trust Company,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,2582700.0,15577481.0,16.5797024563856,A,,1
+27134,Flagship Bank and Trust Company,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,380456.0,15577481.0,2.442346102043071,A,,1
+26942,The Bank of Western Massachusetts,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,528870.0,15577481.0,3.3950932117972092,A,,1
+26619,Butler Bank,27334,,2010-04-16,2010Q2,211,Failure - Whole Institution,2010Q1,227420.0,15421788.0,1.4746668803902634,A,,1
+26510,Marlborough Co-operative Bank,26619,,2008-11-10,2008Q4,223,Merger -Without Assistance,2008Q3,66334.0,204227.0,32.480524122667426,A,,2
+664,Bank of Smithtown,27334,,2010-11-30,2010Q4,221,Absorbtion - Without Assistance,2010Q3,1815365.0,15709240.0,11.55603326449911,A,,1
+23288,RiverBank,27334,,2010-11-30,2010Q4,221,Absorbtion - Without Assistance,2010Q3,477645.0,15709240.0,3.0405353791781145,A,,1
+90185,Danversbank,27334,,2011-07-01,2011Q3,223,Merger -Without Assistance,2011Q2,2078925.0,18317391.0,11.3494601933212,A,,1
+26449,"BankMalden, A Co-operative Bank",90185,,2007-02-23,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,2
+2557,The Beverly National Bank,90185,,2010-02-12,2010Q1,223,Merger -Without Assistance,2009Q4,412823.0,1400635.0,29.473988583749517,A,,2
+7278,The Suffolk County National Bank of Riverhead,27334,,2017-04-01,2017Q2,221,Absorbtion - Without Assistance,2017Q1,1853880.0,30762905.0,6.026348942013116,A,,1
+18208,Farmington Bank,27334,,2018-10-01,2018Q4,221,Absorbtion - Without Assistance,2018Q3,2433102.0,33478540.0,7.267646677543286,A,,1
+23901,Belmont Savings Bank,27334,,2019-04-01,2019Q2,221,Absorbtion - Without Assistance,2019Q1,2125328.0,37263808.0,5.703464337300149,A,,1
+18203,United Bank,27334,,2019-11-01,2019Q4,221,Absorbtion - Without Assistance,2019Q3,5687109.0,38990540.0,14.585868777400876,A,,1
+26486,United Bank,18203,,2014-05-01,2014Q2,221,Absorbtion - Without Assistance,2014Q1,1964649.0,1834282.0,107.10724959411912,A,,2
+57201,Commonwealth National Bank,26486,,2009-12-01,2009Q4,221,Absorbtion - Without Assistance,2009Q3,196244.0,873010.0,22.479009404245083,A,,3
+35378,NEW ENGLAND BANK,26486,,2012-11-16,2012Q4,221,Absorbtion - Without Assistance,2012Q3,586423.0,1297588.0,45.19331251522055,A,,3
+28051,Enfield Federal Savings and Loan Association,35378,,2009-04-30,2009Q2,223,Merger -Without Assistance,2009Q1,226254.0,194135.0,116.54467252169883,A,,4
+57138,The Apple Valley Bank & Trust Company,35378,,2009-06-08,2009Q2,223,Merger -Without Assistance,2009Q1,74501.0,194135.0,38.37587245988616,A,,4
+34324,St. Joseph Capital Bank,3832,Old National Bank,2007-02-02,2007Q1,223,Merger -Without Assistance,,,,,B,no predecessor financials,0
+12847,Monroe Bank,3832,Old National Bank,2011-01-01,2011Q1,223,Merger -Without Assistance,2010Q4,649365.0,5496674.0,11.813780478885958,A,,0
+4392,Integra Bank National Association,3832,Old National Bank,2011-07-29,2011Q3,211,Failure - Whole Institution,2011Q2,1693592.0,6043497.0,28.023377855569382,A,,0
+33551,Prairie Bank and Trust Company,4392,,2007-04-10,2007Q2,223,Merger -Without Assistance,2007Q1,465320.0,2000812.0,23.25655783751797,A,,1
+28285,Indiana Bank and Trust Company,3832,Old National Bank,2012-09-15,2012Q3,223,Merger -Without Assistance,2012Q2,828822.0,6721395.0,12.331100909855767,A,,0
+35040,Tower Bank & Trust Company,3832,Old National Bank,2014-04-26,2014Q2,223,Merger -Without Assistance,2014Q1,577570.0,7340275.0,7.868506288933316,A,,0
+33001,Old National Trust Company,3832,Old National Bank,2014-08-01,2014Q3,223,Merger -Without Assistance,2014Q2,0.0,7595705.0,0.0,B,below 1% materiality,0
+13177,United Bank & Trust,3832,Old National Bank,2014-08-01,2014Q3,223,Merger -Without Assistance,2014Q2,772528.0,7595705.0,10.170589826750776,A,,0
+57133,United Bank & Trust -Washtenaw,13177,,2010-04-01,2010Q2,223,Merger -Without Assistance,2010Q1,339971.0,444911.0,76.4132601801259,A,,1
+11990,"Lafayette Savings Bank, FSB",3832,Old National Bank,2014-11-01,2014Q4,221,Absorbtion - Without Assistance,2014Q3,305261.0,8400565.0,3.633815106483909,A,,0
+33533,Founders  Bank & Trust,3832,Old National Bank,2015-01-01,2015Q1,221,Absorbtion - Without Assistance,2014Q4,376070.0,8669393.0,4.337904626079358,A,,0
+29979,"AnchorBank, fsb",3832,Old National Bank,2016-05-01,2016Q2,221,Absorbtion - Without Assistance,2016Q1,1838828.0,8621926.0,21.32734611732924,A,,0
+14800,S & C Bank,29979,,2008-02-15,2008Q1,223,Merger -Without Assistance,2007Q4,331851.0,3143220.0,10.557676522801458,A,,1
+8868,"Anchor Bank,  National Association",3832,Old National Bank,2017-11-01,2017Q4,221,Absorbtion - Without Assistance,2017Q3,1817131.0,10721239.0,16.948889955722468,A,,0
+5147,"ANCHOR BANK FARMINGTON, NATIONAL ASSOCIATION",8868,,2008-11-14,2008Q4,223,Merger -Without Assistance,2008Q3,106597.0,424669.0,25.101196461243937,A,,1
+13810,"Anchor Bank Heritage, National Association",8868,,2009-11-14,2009Q4,223,Merger -Without Assistance,2009Q3,202572.0,557065.0,36.36415858113506,A,,1
+18903,Anchor Bank National Association,8868,,2009-11-14,2009Q4,223,Merger -Without Assistance,2009Q3,303795.0,557065.0,54.53492859899652,A,,1
+1414,KleinBank,3832,Old National Bank,2018-11-01,2018Q4,221,Absorbtion - Without Assistance,2018Q3,1720399.0,12677236.0,13.570773629204346,A,,0
+8852,First Community Bank,1414,,2008-03-08,2008Q1,223,Merger -Without Assistance,2007Q4,99478.0,1092892.0,9.102271770678163,A,,1
+57078,Community Bank  Plymouth,1414,,2010-04-10,2010Q2,223,Merger -Without Assistance,2010Q1,43350.0,1197046.0,3.6214147158922882,A,,1
+10166,Prior Lake State Bank,1414,,2014-10-25,2014Q4,223,Merger -Without Assistance,2014Q3,183574.0,1371506.0,13.384848480429543,A,,1
+3709,First Midwest Bank,3832,Old National Bank,2022-02-16,2022Q1,223,Merger -Without Assistance,2021Q4,17578256.0,18678315.0,94.11050193767478,A,,0
+35038,First Dupage Bank,3709,,2009-10-23,2009Q4,211,Failure - Whole Institution,2009Q3,253992.0,5924332.0,4.287268167955475,A,,1
+10888,Peotone Bank and Trust Company,3709,,2010-04-23,2010Q2,211,Failure - Whole Institution,2010Q1,124676.0,5948756.0,2.095833145619017,A,,1
+17599,Palos Bank and Trust Company,3709,,2010-08-13,2010Q3,211,Failure - Whole Institution,2010Q2,467784.0,6199354.0,7.54568943796402,A,,1
+28243,Waukegan Savings Bank,3709,,2012-08-03,2012Q3,211,Failure - Whole Institution,2012Q2,73001.0,6643208.0,1.0988817450846038,A,,1
+3610,"Great Lakes Bank, National Association",3709,,2014-12-06,2014Q4,223,Merger -Without Assistance,2014Q3,468874.0,7687915.0,6.098844745291799,A,,1
+57128,"Great Lakes Trust Company, National Association",3610,,2007-11-28,2007Q4,223,Merger -Without Assistance,2007Q3,0.0,535927.0,0.0,B,below 1% materiality,2
+35195,The Peoples' Bank of Arlington Heights,3709,,2015-12-05,2015Q4,223,Merger -Without Assistance,2015Q3,93094.0,8424387.0,1.1050536970820546,A,,1
+10036,The National Bank & Trust Company of Sycamore,3709,,2016-03-12,2016Q1,223,Merger -Without Assistance,2015Q4,567027.0,8220089.0,6.898063999063757,A,,1
+16606,Standard Bank and Trust Company,3709,,2017-02-04,2017Q1,223,Merger -Without Assistance,2016Q4,2058401.0,8970712.0,22.945792931486373,A,,1
+18626,Norstates Bank,3709,,2018-12-07,2018Q4,223,Merger -Without Assistance,2018Q3,459591.0,11696552.0,3.929286169120609,A,,1
+21122,Bridgeview Bank Group,3709,,2019-05-11,2019Q2,223,Merger -Without Assistance,2019Q1,994079.0,12342189.0,8.054316782865666,A,,1
+26218,Park Bank,3709,,2020-06-13,2020Q2,223,Merger -Without Assistance,2020Q1,911485.0,13328689.0,6.838519527314352,A,,1
+58823,CapStar Bank,3832,Old National Bank,2024-04-01,2024Q2,223,Merger -Without Assistance,2024Q1,2563113.0,38020718.0,6.741358750773722,A,,0
+57636,American Security Bank and Trust Company,58823,,2012-08-01,2012Q3,223,Merger -Without Assistance,2012Q2,144654.0,677967.0,21.336436729221333,A,,1
+29085,Athens Federal Community Bank National Association,58823,,2018-10-01,2018Q4,223,Merger -Without Assistance,2018Q3,404761.0,1142628.0,35.423689949834944,A,,1
+4951,The First National Bank of Manchester,58823,,2020-07-01,2020Q3,223,Merger -Without Assistance,2020Q2,277563.0,2135815.0,12.995648031313573,A,,1
+2375,The Bank of Waynesboro,58823,,2020-07-01,2020Q3,223,Merger -Without Assistance,2020Q2,164138.0,2135815.0,7.6850288999749505,A,,1
+12923,"Bremer Bank, National Association",3832,Old National Bank,2025-05-01,2025Q2,223,Merger -Without Assistance,2025Q1,13321160.0,41333273.0,32.22865994667299,A,,0
+5241,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,540435.0,2555190.0,21.150481960245617,A,,1
+12915,"BREMER BANK, NATIONAL ASSOCIATION",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,500359.0,2555190.0,19.582066304267002,A,,1
+12917,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,245759.0,2555190.0,9.618032318535999,A,,1
+9343,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,84768.0,2555190.0,3.3174832399938943,A,,1
+12198,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,458028.0,2555190.0,17.92539889401571,A,,1
+34380,"BREMER BANK, NATIONAL ASSOCIATION",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,1236165.0,2555190.0,48.37859415542484,A,,1
+2055,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,678858.0,2555190.0,26.567809047468096,A,,1
+15241,"Bremer Bank, National Association",12923,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,544387.0,2555190.0,21.305147562412188,A,,1
+8208,Eastwood Bank,12923,,2015-01-23,2015Q1,223,Merger -Without Assistance,2014Q4,540513.0,7351523.0,7.352394871103579,A,,1
+12188,Fortress Bank Minnesota,8208,,2007-06-08,2007Q2,221,Absorbtion - Without Assistance,2007Q1,46459.0,256104.0,18.140677224877393,A,,2
+27120,"Bremer Trust, National Association",12923,,2019-01-01,2019Q1,223,Merger -Without Assistance,2018Q4,0.0,10561191.0,0.0,B,below 1% materiality,1
+26538,Ocala National Bank,33555,SouthState Bank,2009-01-30,2009Q1,211,Failure - Whole Institution,2008Q4,204663.0,354945.0,57.660482609981834,A,,0
+28864,Olde Cypress Community Bank,33555,SouthState Bank,2010-07-16,2010Q3,211,Failure - Whole Institution,2010Q2,157997.0,691189.0,22.858726050327768,A,,0
+25266,Community National Bank at Bartow,33555,SouthState Bank,2010-08-20,2010Q3,211,Failure - Whole Institution,2010Q2,63708.0,691189.0,9.217160574025339,A,,0
+27344,Independent National Bank,33555,SouthState Bank,2010-08-20,2010Q3,211,Failure - Whole Institution,2010Q2,141877.0,691189.0,20.526513008742906,A,,0
+27581,"Centerstate Bank Central Florida, National Association",33555,SouthState Bank,2010-12-10,2010Q4,223,Merger -Without Assistance,2010Q3,250867.0,996123.0,25.184339684958584,A,,0
+32699,"CENTERSTATE BANK, NATIONAL ASSOCIATION",33555,SouthState Bank,2010-12-10,2010Q4,223,Merger -Without Assistance,2010Q3,331490.0,996123.0,33.27801887919464,A,,0
+32580,Federal Trust Bank,33555,SouthState Bank,2011-11-01,2011Q4,223,Merger -Without Assistance,2011Q3,205766.0,1651264.0,12.461120692996396,A,,0
+57186,Central Florida State Bank,33555,SouthState Bank,2012-01-20,2012Q1,211,Failure - Whole Institution,2011Q4,71080.0,1779775.0,3.993763256591423,A,,0
+16579,First Guaranty Bank and Trust Company of Jacksonville,33555,SouthState Bank,2012-01-27,2012Q1,211,Failure - Whole Institution,2011Q4,378309.0,1779775.0,21.256001460858815,A,,0
+27536,Valrico State Bank,33555,SouthState Bank,2012-06-01,2012Q2,223,Merger -Without Assistance,2012Q1,149373.0,1983807.0,7.529613515830926,A,,0
+35092,Gulfstream Business Bank,33555,SouthState Bank,2014-01-17,2014Q1,223,Merger -Without Assistance,2013Q4,468946.0,2057223.0,22.79509805208283,A,,0
+27044,First Southern Bank,33555,SouthState Bank,2014-06-02,2014Q2,223,Merger -Without Assistance,2014Q1,882020.0,2561132.0,34.43867789711737,A,,0
+58308,Haven Trust Bank Florida,27044,,2010-09-24,2010Q3,211,Failure - Whole Institution,2010Q2,133561.0,343828.0,38.845294740393456,A,,1
+34965,First Commercial Bank of Florida,27044,,2011-01-07,2011Q1,211,Failure - Whole Institution,2010Q4,537223.0,440854.0,121.85961792339415,A,,1
+21258,"Community Bank of Florida, Inc.",33555,SouthState Bank,2016-03-01,2016Q1,223,Merger -Without Assistance,2015Q4,436793.0,3216638.0,13.579178011327356,A,,0
+3564,1st National Bank of South Florida,33555,SouthState Bank,2016-03-01,2016Q1,223,Merger -Without Assistance,2015Q4,267049.0,3216638.0,8.302115438541732,A,,0
+34620,Platinum Bank,33555,SouthState Bank,2017-04-01,2017Q2,223,Merger -Without Assistance,2017Q1,518764.0,4299574.0,12.065474393509684,A,,0
+58176,Gateway Bank of Florida,33555,SouthState Bank,2017-05-01,2017Q2,223,Merger -Without Assistance,2017Q1,238750.0,4299574.0,5.552875703499928,A,,0
+58506,Gateway Bank of Central Florida,33555,SouthState Bank,2017-05-01,2017Q2,223,Merger -Without Assistance,2017Q1,226496.0,4299574.0,5.267870723936836,A,,0
+58725,Gateway Bank of Southwest Florida,33555,SouthState Bank,2017-05-01,2017Q2,223,Merger -Without Assistance,2017Q1,269425.0,4299574.0,6.2663184771328515,A,,0
+30750,Sunshine Bank,33555,SouthState Bank,2018-01-01,2018Q1,223,Merger -Without Assistance,2017Q4,723085.0,5564902.0,12.993669969390295,A,,0
+58313,Community Southern Bank,30750,,2015-06-30,2015Q2,221,Absorbtion - Without Assistance,2015Q1,189481.0,199921.0,94.77793728522767,A,,1
+58081,Florida Bank of Commerce,30750,,2016-10-31,2016Q4,221,Absorbtion - Without Assistance,2016Q3,280478.0,442478.0,63.38801025135713,A,,1
+57832,Prime Bank,58081,,2010-05-01,2010Q2,223,Merger -Without Assistance,2010Q1,67022.0,152455.0,43.96182480076088,A,,2
+18149,Harbor Community Bank,33555,SouthState Bank,2018-01-01,2018Q1,223,Merger -Without Assistance,2017Q4,1773523.0,5564902.0,31.869797527431746,A,,0
+27405,Putnam State Bank,18149,,2012-06-15,2012Q2,211,Failure - Whole Institution,2012Q1,160024.0,116184.0,137.73325070577704,A,,1
+34413,Bank of St. Augustine,18149,,2013-08-29,2013Q3,223,Merger -Without Assistance,2013Q2,141157.0,335291.0,42.09984759507413,A,,1
+26428,Highlands Independent Bank,18149,,2014-10-25,2014Q4,223,Merger -Without Assistance,2014Q3,227460.0,761304.0,29.87768355348192,A,,1
+57722,First America Bank,18149,,2015-05-09,2015Q2,223,Merger -Without Assistance,2015Q1,225103.0,1005698.0,22.382763016332934,A,,1
+34852,Manatee River Community Bank,57722,,2009-10-31,2009Q4,221,Absorbtion - Without Assistance,2009Q3,129897.0,100668.0,129.03504589343186,A,,2
+34869,Florida Citizens Bank,18149,,2015-12-05,2015Q4,223,Merger -Without Assistance,2015Q3,215318.0,1166620.0,18.456566834101938,A,,1
+58672,Jefferson Bank of Florida,18149,,2017-07-28,2017Q3,223,Merger -Without Assistance,2017Q2,238083.0,1589157.0,14.981716721507063,A,,1
+30720,CharterBank,33555,SouthState Bank,2018-09-01,2018Q3,223,Merger -Without Assistance,2018Q2,1342340.0,8225185.0,16.319876087893466,A,,0
+35285,Neighborhood Community Bank,30720,,2009-06-26,2009Q2,211,Failure - Whole Institution,2009Q1,190070.0,452501.0,42.004327062260636,A,,1
+57399,McIntosh Commercial Bank,30720,,2010-03-26,2010Q1,211,Failure - Whole Institution,2009Q4,343339.0,630638.0,54.44311950754632,A,,1
+25155,The First National Bank of Florida,30720,,2011-09-09,2011Q3,211,Failure - Whole Institution,2011Q2,280095.0,711790.0,39.350791666081285,A,,1
+35036,Community Bank of the South,30720,,2016-04-16,2016Q2,221,Absorbtion - Without Assistance,2016Q1,332705.0,813316.0,40.90722425232013,A,,1
+58750,Resurgens Bank,30720,,2017-09-02,2017Q3,221,Absorbtion - Without Assistance,2017Q2,133619.0,1216953.0,10.979799548544603,A,,1
+57764,National Bank of Commerce,33555,SouthState Bank,2019-04-01,2019Q2,221,Absorbtion - Without Assistance,2019Q1,3519251.0,9751711.0,36.08854897361089,A,,0
+57164,United Legacy Bank,57764,,2015-02-28,2015Q1,223,Merger -Without Assistance,2014Q4,196924.0,775539.0,25.39188873802607,A,,1
+58815,Reunion Bank of Florida,57764,,2015-10-31,2015Q4,221,Absorbtion - Without Assistance,2015Q3,265420.0,1161384.0,22.853767573860154,A,,1
+58380,Private Bank of Buckhead,57764,,2017-01-01,2017Q1,223,Merger -Without Assistance,2016Q4,291462.0,1694059.0,17.204949768573584,A,,1
+57789,Patriot Bank,57764,,2017-08-31,2017Q3,223,Merger -Without Assistance,2017Q2,131848.0,2048242.0,6.437129987569828,A,,1
+35200,FirstAtlantic Bank,57764,,2018-01-01,2018Q1,223,Merger -Without Assistance,2017Q4,376985.0,2319187.0,16.25504972216557,A,,1
+26680,Heritage Bank of North Florida,35200,,2013-04-19,2013Q2,211,Failure - Whole Institution,2013Q1,106348.0,282214.0,37.683460069309106,A,,2
+58548,Premier Community Bank of Florida,57764,,2018-07-01,2018Q3,223,Merger -Without Assistance,2018Q2,204479.0,2667416.0,7.665808407837398,A,,1
+58705,First Landmark Bank,57764,,2018-08-01,2018Q3,223,Merger -Without Assistance,2018Q2,469974.0,2667416.0,17.619074040194704,A,,1
+57580,Midtown Bank & Trust Company,58705,,2014-10-20,2014Q4,223,Merger -Without Assistance,2014Q3,173258.0,169680.0,102.10867515322961,A,,2
+13425,South State Bank,33555,SouthState Bank,2020-06-08,2020Q2,223,Merger -Without Assistance,2020Q1,12393605.0,14125981.0,87.73624288465346,A,,0
+34700,"The Scottish Bank, National Association",13425,,2008-11-08,2008Q4,223,Merger -Without Assistance,2008Q3,194534.0,1698769.0,11.451468681144995,A,,1
+34204,"South Carolina Bank and Trust of the Piedmont, National Association",13425,,2008-12-06,2008Q4,223,Merger -Without Assistance,2008Q3,245979.0,1698769.0,14.479838047433171,A,,1
+5702,Community Bank & Trust,13425,,2010-01-29,2010Q1,211,Failure - Whole Institution,2009Q4,1067957.0,2106641.0,50.6947790344914,A,,1
+151,Habersham Bank,13425,,2011-02-18,2011Q1,211,Failure - Whole Institution,2010Q4,339934.0,3006769.0,11.305624076874546,A,,1
+58222,"BankMeridian, N.A.",13425,,2011-07-29,2011Q3,211,Failure - Whole Institution,2011Q2,209737.0,3208376.0,6.537170206983221,A,,1
+35079,Seneca National Bank,13425,,2012-04-25,2012Q2,223,Merger -Without Assistance,2012Q1,69552.0,3359831.0,2.0701041213084825,A,,1
+34830,"Bank of Anderson, National Association",13425,,2012-04-25,2012Q2,223,Merger -Without Assistance,2012Q1,122473.0,3359831.0,3.6452131074449876,A,,1
+26753,The Peoples National Bank,13425,,2012-04-25,2012Q2,223,Merger -Without Assistance,2012Q1,256622.0,3359831.0,7.637943694191761,A,,1
+33120,"The Savannah Bank, National Association",13425,,2012-12-13,2012Q4,223,Merger -Without Assistance,2012Q3,586306.0,3593211.0,16.317049012707578,A,,1
+58146,"Harbourside Community Bank, National Association",33120,,2009-09-30,2009Q3,223,Merger -Without Assistance,2009Q2,71027.0,571342.0,12.431608388670885,A,,2
+34152,First National Bank,33120,,2010-06-25,2010Q2,211,Failure - Whole Institution,2010Q1,231857.0,676048.0,34.295937566563325,A,,2
+32744,Bryan Bank & Trust,13425,,2012-12-13,2012Q4,223,Merger -Without Assistance,2012Q3,192973.0,3593211.0,5.370488958204792,A,,1
+28994,First Federal Bank,13425,,2013-07-26,2013Q3,221,Absorbtion - Without Assistance,2013Q2,2557803.0,4190741.0,61.034623709744885,A,,1
+34639,Cape Fear Bank,28994,,2009-04-10,2009Q2,211,Failure - Whole Institution,2009Q1,402820.0,2076782.0,19.396354552379595,A,,2
+32503,Plantation Federal Bank,28994,,2012-04-27,2012Q2,211,Failure - Whole Institution,2012Q1,415943.0,2301246.0,18.074686495924382,A,,2
+34140,First Savers Bank,32503,,2008-09-30,2008Q3,223,Merger -Without Assistance,2008Q2,248052.0,265292.0,93.50150023370475,A,,3
+27574,Georgia Bank & Trust Company of Augusta,13425,,2017-01-03,2017Q1,223,Merger -Without Assistance,2016Q4,1538760.0,7361637.0,20.90241613380285,A,,1
+58327,Southern Bank & Trust,27574,,2011-12-05,2011Q4,223,Merger -Without Assistance,2011Q3,167082.0,1244368.0,13.427056947783935,A,,2
+58408,Park Sterling Bank,13425,,2017-11-30,2017Q4,223,Merger -Without Assistance,2017Q3,2475353.0,9096350.0,27.212596261137712,A,,1
+27426,CapitalBank,58408,,2011-12-01,2011Q4,223,Merger -Without Assistance,2011Q3,467380.0,375006.0,124.63267254390595,A,,2
+28833,Citizens South Bank,58408,,2012-10-10,2012Q4,223,Merger -Without Assistance,2012Q3,826693.0,831739.0,99.39331929848186,A,,2
+10054,Bank of Hiawassee,28833,,2010-03-19,2010Q1,211,Failure - Whole Institution,2009Q4,339597.0,612023.0,55.487620563279485,A,,3
+57705,New Horizons Bank,28833,,2011-04-15,2011Q2,211,Failure - Whole Institution,2011Q1,99022.0,835001.0,11.858907953403648,A,,3
+28997,"Provident Community Bank, National Association",58408,,2014-05-01,2014Q2,223,Merger -Without Assistance,2014Q1,263336.0,1654040.0,15.920775797441417,A,,2
+34802,First Capital Bank,58408,,2016-01-01,2016Q1,223,Merger -Without Assistance,2015Q4,508181.0,1961154.0,25.912345486381998,A,,2
+35525,"Atlantic Capital Bank, National Association",33555,SouthState Bank,2022-03-01,2022Q1,223,Merger -Without Assistance,2021Q4,3335446.0,35140717.0,9.491684532219418,A,,0
+58492,Atlantic Capital Bank,35525,,2015-10-31,2015Q4,223,Merger -Without Assistance,2015Q3,1179732.0,938489.0,125.70546911045308,A,,1
+3076,Independent Bank,33555,SouthState Bank,2025-01-01,2025Q1,223,Merger -Without Assistance,2024Q4,15244551.0,38171079.0,39.93743797496529,A,,0
+17711,Independent Bank,3076,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,198592.0,514785.0,38.57765863418709,A,,1
+57826,Town Center Bank,3076,,2010-07-30,2010Q3,223,Merger -Without Assistance,2010Q2,31122.0,759625.0,4.097021556689156,A,,1
+14552,First Bank,3076,,2010-09-30,2010Q3,223,Merger -Without Assistance,2010Q2,89218.0,759625.0,11.745005759420767,A,,1
+58014,"I Bank Texas, SSB",3076,,2012-04-01,2012Q2,223,Merger -Without Assistance,2012Q1,122875.0,1087991.0,11.293751510812129,A,,1
+34665,"United Community Bank, National Association",3076,,2012-10-01,2012Q4,223,Merger -Without Assistance,2012Q3,93614.0,1225337.0,7.639857443299272,A,,1
+58610,Collin Bank,3076,,2013-11-30,2013Q4,223,Merger -Without Assistance,2013Q3,121180.0,1570698.0,7.715041338309465,A,,1
+57187,Live Oak State Bank,3076,,2014-01-01,2014Q1,223,Merger -Without Assistance,2013Q4,105027.0,1734422.0,6.055446713660228,A,,1
+57965,Bank of Houston,3076,,2014-04-15,2014Q2,223,Merger -Without Assistance,2014Q1,817435.0,1903587.0,42.94182509126192,A,,1
+23453,"Houston Community Bank, National Association",3076,,2014-10-01,2014Q4,223,Merger -Without Assistance,2014Q3,303092.0,2837254.0,10.682582525216283,A,,1
+57378,Grand Bank,3076,,2015-11-01,2015Q4,223,Merger -Without Assistance,2015Q3,532052.0,3541749.0,15.022295481695625,A,,1
+11561,Northstar Bank,3076,,2017-04-01,2017Q2,221,Absorbtion - Without Assistance,2017Q1,1844246.0,4727232.0,39.01323226784723,A,,1
+22512,Treaty Oak Bank,11561,,2011-05-20,2011Q2,223,Merger -Without Assistance,2011Q1,90547.0,17884.0,506.3017222097964,A,,2
+20935,Northstar Bank of Texas,11561,,2012-11-05,2012Q4,223,Merger -Without Assistance,2012Q3,870347.0,99993.0,870.4079285549989,A,,2
+20202,Community Bank,11561,,2014-11-15,2014Q4,223,Merger -Without Assistance,2014Q3,526443.0,934779.0,56.317375550798644,A,,2
+23058,Northstar Bank of Colorado,11561,,2016-10-08,2016Q4,223,Merger -Without Assistance,2016Q3,502757.0,1398757.0,35.94312664744484,A,,2
+24247,Colorado Community Bank,23058,,2013-08-10,2013Q3,223,Merger -Without Assistance,2013Q2,404089.0,170765.0,236.63455626152899,A,,3
+58631,"Integrity Bank, SSB",3076,,2018-06-01,2018Q2,221,Absorbtion - Without Assistance,2018Q1,601489.0,6799855.0,8.845615090321779,A,,1
+17482,Guaranty Bank and Trust Company,3076,,2019-01-01,2019Q1,221,Absorbtion - Without Assistance,2018Q4,3109403.0,7746519.0,40.139358078125156,A,,1
+15515,Centennial Bank of the West,17482,,2008-01-01,2008Q1,223,Merger -Without Assistance,2007Q4,652093.0,1148602.0,56.77275505353464,A,,2
+16902,The Home State Bank,17482,,2016-09-09,2016Q3,223,Merger -Without Assistance,2016Q2,750847.0,1854974.0,40.47749456326611,A,,2
+90582,Castle Rock Bank,17482,,2017-10-28,2017Q4,223,Merger -Without Assistance,2017Q3,127652.0,2914258.0,4.380257341662955,A,,2

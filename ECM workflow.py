@@ -58,7 +58,7 @@ def main(argv=None):
         ("ECM Param selection.py", ["-i", model_sel, "--alpha", args.alpha, "-o", param_sel], param_sel),
         ("ECM estimation.py",
          ["-i", param_sel, "--dependents", args.dependents, "--independents", args.independents,
-          "--y", args.y, "--x", *args.x, "-o", estimates], estimates),
+          "--y", args.y, "--x", *args.x, "--alpha", args.alpha, "-o", estimates], estimates),
     ]
     for number, (script, step_args, output) in enumerate(steps, start=1):
         code = run_step(number, script, step_args, output)
