@@ -999,13 +999,11 @@ KeyBank, Glacier and SouthState show I(1) stationarity with inconclusive evidenc
 | Artifact | Location |
 | :--- | :--- |
 | Actual vs. predicted charts, every estimated specification | `Actuals vs Predictions/<bank>/` |
-| Backtest bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` |
-| Backtest summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
+| MAE stability bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` |
+| MAE stability summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
 | Full coefficient tables, all estimated ECMs | `ECM estimation results.csv` |
 | In-sample MAE, all estimated ECMs | `estimation result summary.csv` |
 | Merger event inputs and log | `merger_events_raw.csv`, `merger_events_used.csv`, `merger_adjustment_log.md` |
-| Source analysis notes | Obsidian vault `Modeling/Deposit Beta/Documentation.md` |
 
 ---
 
-*End of document. WORK IN PROGRESS: not validated, not approved for use.*
