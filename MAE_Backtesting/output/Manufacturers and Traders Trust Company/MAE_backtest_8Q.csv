@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),1Q,2026Q1,2026Q2,2026Q2,1,0.1993148506239828
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),2Q,2025Q4,2026Q1,2026Q2,2,0.08859580486709273
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),3Q,2025Q3,2025Q4,2026Q2,3,0.0828355770884226
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),4Q,2025Q2,2025Q3,2026Q2,4,0.061208679617154704
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),5Q,2025Q1,2025Q2,2026Q2,5,0.5338831706236334
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),6Q,2024Q4,2025Q1,2026Q2,6,0.20216803513788828
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),7Q,2024Q3,2024Q4,2026Q2,7,0.09626621883498514
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),8Q,2024Q2,2024Q3,2026Q2,8,0.12604692438085552

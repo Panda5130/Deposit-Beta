@@ -1,0 +1,9 @@
+predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,source,class,deposits_at_last_pre_merger_quarter,mode_applied,reason_if_skipped
+22274,First Niagara Bank,17534,KeyBank National Association,2016-08-01,FDIC BankFind / NIC,MERGER,5000000,A,
+11111,FirstMerit Bank,6560,Huntington National Bank,2016-08-16,FDIC BankFind / NIC,MERGER,5000000,A,
+22222,TCF National Bank,6560,Huntington National Bank,2021-06-09,FDIC BankFind / NIC,MERGER,5000000,A,
+33333,IBERIABANK,4977,First Horizon Bank,2020-07-02,FDIC BankFind / NIC,MERGER,5000000,A,
+44444,CenterState Bank,33555,SouthState Bank,2020-06-08,FDIC BankFind / NIC,MERGER,5000000,B,
+55555,Atlantic Capital Bank,33555,SouthState Bank,2022-03-01,FDIC BankFind / NIC,MERGER,5000000,A,
+66666,First Midwest Bank,3832,Old National Bank,2022-02-15,FDIC BankFind / NIC,MERGER,5000000,A,
+77777,People's United Bank,588,Manufacturers and Traders Trust Company,2022-04-02,FDIC BankFind / NIC,MERGER,5000000,A,

@@ -1,0 +1,2 @@
+time_series_name,dependents,group_column,group_value
+rate_pf_clean,FFT,bank_name,*

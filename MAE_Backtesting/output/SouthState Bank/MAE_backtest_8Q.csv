@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),1Q,2026Q1,2026Q2,2026Q2,1,0.1361515959975914
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),2Q,2025Q4,2026Q1,2026Q2,2,0.07259983208609555
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),3Q,2025Q3,2025Q4,2026Q2,3,0.07081783118956382
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),4Q,2025Q2,2025Q3,2026Q2,4,0.11001465442963743
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),5Q,2025Q1,2025Q2,2026Q2,5,0.12470395122130826
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),6Q,2024Q4,2025Q1,2026Q2,6,0.14041423593597846
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),7Q,2024Q3,2024Q4,2026Q2,7,0.0929570629678315
+SouthState Bank,Johansen VECM (rank 1),AIC / k_ar_diff=2,det_order -1 (none),8Q,2024Q2,2024Q3,2026Q2,8,0.08738376019554756

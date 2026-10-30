@@ -1,0 +1,5 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",c (constant),1Q,2026Q1,2026Q2,2026Q2,1,0.005519698441776022
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",c (constant),2Q,2025Q4,2026Q1,2026Q2,2,0.19701072969936828
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",c (constant),3Q,2025Q3,2025Q4,2026Q2,3,0.28208061345095614
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",c (constant),4Q,2025Q2,2025Q3,2026Q2,4,0.25442312667911643

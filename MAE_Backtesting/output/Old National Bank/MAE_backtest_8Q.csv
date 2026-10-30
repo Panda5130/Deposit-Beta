@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),1Q,2026Q1,2026Q2,2026Q2,1,0.05800178419495472
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),2Q,2025Q4,2026Q1,2026Q2,2,0.09244438988272785
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),3Q,2025Q3,2025Q4,2026Q2,3,0.053832883156554434
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),4Q,2025Q2,2025Q3,2026Q2,4,0.1048724120260951
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),5Q,2025Q1,2025Q2,2026Q2,5,0.539180807199795
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),6Q,2024Q4,2025Q1,2026Q2,6,0.22254060730968714
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),7Q,2024Q3,2024Q4,2026Q2,7,0.33878568034951007
+Old National Bank,"ARDL bounds F (ARDL(3,1), case 3)","AIC / ARDL(3,1)",c - case 3 (unrestricted constant),8Q,2024Q2,2024Q3,2026Q2,8,0.1958085907748616

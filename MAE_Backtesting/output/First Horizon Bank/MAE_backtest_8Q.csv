@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.2465727572427987
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.12074362948456996
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.08470997293230502
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.06569003879755292
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.1738289346141968
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.14013934753120663
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.1539678354580982
+First Horizon Bank,"ARDL bounds F (ARDL(3,2), case 4)","AIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.13686777237671907
