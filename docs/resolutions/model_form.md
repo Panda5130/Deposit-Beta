@@ -4,7 +4,7 @@ Resolution notes for root cause RC1: every champion ECM is linear and symmetric,
 
 - Code: `model_form/` (`gregory_hansen.py`, `challengers.py`, `run_model_form.py`). It calls `MAE_Backtesting/backtest.py` and reads `Beta_Backtesting/output/`, and edits neither.
 - Outputs: `model_form/output/`.
-- Status: WIP. Nothing here has been folded into `WIP Regional Banking Deposit Beta Analyses.md`. **Huntington scope decision (user, 2026-10-31): option A**, keep in scope with a caveat and re-specify the champion (§4). The re-specification itself is not done here; it needs the pipeline change in OI-24.
+- Status: WIP. Nothing here has been folded into `WIP Regional Banking Deposit Beta Analyses.md`. **Huntington scope decision (user, 2026-10-31): option A**, keep in scope with a caveat and re-specify the champion (§4). The re-specification itself is not done here; it needs the pipeline change in OI-24. **Update:** OI-24 is fixed and Huntington is re-specified in `docs/resolutions/oi24_eg_short_run.md` (Green, mean 0.221; Old National's champion also changes). The Huntington and Old National champion columns below refer to the champions before that change.
 
 ```bash
 python model_form/run_model_form.py --reps 2000 --first-origin 2016Q1 --horizon 8
