@@ -5,6 +5,26 @@ At each origin the model's specification (the terms in "ECM estimation results.c
 re-estimated on data up to and including the origin with ECM estimation.fit_one_step, then
 forecast dynamically to T: predicted y is fed back in as the lag, the regressor (FFT) takes
 its realised values. The bar for "kQ" is the mean absolute error over those k quarters.
+naive_mae is the same window's MAE of a no-change forecast (y held at its origin value).
+
+Each kQ bar of run() rests on ONE forecast window (origin T-k). run_multi() is the
+many-origin version (OI-22): expanding-window re-estimation at every origin from
+first_origin to T-1, dynamic forecast up to N steps ahead, and the h-step absolute error
+averaged over every origin with origin + h <= T; n_windows is reported per horizon.
+
+Acceptance thresholds for the single-window table (assess, OI-10), on the N horizons' MAE in pp:
+    Green  mean <= 0.15 and mean below the no-change mean
+    Amber  mean 0.15-0.25, or the model beats no-change on fewer than 6 of 8 horizons (75%)
+    Red    mean > 0.25, or any horizon > 0.50
+
+Horizon-aware thresholds for the many-origin table (assess_multi, OI-22), derived each run:
+    bands      1..ceil(N/4), ceil(N/4)+1..ceil(N/2), ceil(N/2)+1..N (empty bands dropped)
+    limits     per band across the banks: green = up(P75 of band avg), red = max(up(P75 of
+               band max), green + 0.05), with up(v) = v rounded up to the next 0.05
+    absolute   Red if band max > red, Amber if band avg > green (worst band counts)
+    skill      model / no-change h-step MAE: Red if any >= 1.00, Amber if any > 0.75
+    rating     worse of absolute and skill; absolute is skipped with fewer than 4 banks
+The limits are relative to the peer group: about a quarter of banks exceed green by construction.
 
 Model choice (select_model): the bank's lowest in-sample MAE in "estimation result
 summary.csv", ties broken EG > ARDL > Johansen, then file order; or the model the user names.
@@ -42,7 +62,13 @@ est = load_module(ROOT / "ECM estimation.py", "ecm_estimation")
 
 SPEC_KEYS = bp.SPEC_KEYS
 FAMILY_RANK = {"EG": 0, "ARDL": 1, "Johansen": 2}
-TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae"]
+TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae", "naive_mae"]
+GREEN_MEAN, AMBER_MEAN, RED_ANY, MIN_WIN_SHARE = 0.15, 0.25, 0.50, 0.75
+ASSESSMENT_COLUMNS = ["mean_mae", "max_mae", "naive_mean_mae", "horizons_beating_naive", "rating"]
+MULTI_COLUMNS = ["horizon_q", "first_origin", "last_origin", "n_windows", "mae", "naive_mae"]
+ERROR_COLUMNS = ["h", "origin", "err", "naive"]
+STEP, SKILL_AMBER, SKILL_RED, MIN_PEERS = 0.05, 0.75, 1.00, 4
+LIMIT_COLUMNS = ["band", "h_from", "h_to", "green", "red", "n_banks"]
 
 
 def family(test_name):
@@ -145,14 +171,151 @@ class MAEBacktest:
         for k in range(self.horizon, 0, -1):
             origin = index[-k - 1]
             actual, predicted = self.forecast(self.fit(origin), origin)
+            naive = float(np.mean(np.abs(actual - self.data.loc[origin, self.y])))
             rows.append([f"{k}Q", str(origin), str(actual.index[0]), str(actual.index[-1]), len(actual),
-                         float(np.mean(np.abs(actual - predicted)))])
+                         float(np.mean(np.abs(actual - predicted))), naive])
         table = pd.DataFrame(rows, columns=TABLE_COLUMNS).iloc[::-1].reset_index(drop=True)
         return BacktestResult(self.bank, self.model, self.horizon, table)
+
+    def multi_errors(self, first_origin):
+        """|model| and |no-change| errors at every (h <= N, origin) from first_origin to T-1."""
+        index = self.data.index
+        first_origin = max(pd.Period(first_origin, "Q"), index[self.min_train - 1])
+        errors = []
+        for origin in index[(index >= first_origin) & (index < index[-1])]:
+            actual, predicted = self.forecast(self.fit(origin), origin)
+            start = self.data.loc[origin, self.y]
+            for h, t in enumerate(actual.index[:self.horizon], start=1):
+                errors.append((h, str(origin), abs(actual[t] - predicted[t]), abs(actual[t] - start)))
+        return pd.DataFrame(errors, columns=ERROR_COLUMNS)
+
+    def run_multi(self, first_origin):
+        """h-step-ahead MAE over every origin from first_origin to T-1 (expanding window)."""
+        return summarise_errors(self.multi_errors(first_origin))
+
+    def data_hash(self):
+        return f"{int(pd.util.hash_pandas_object(self.data, index=True).sum()) & (2**64 - 1):016x}"
 
     def mae(self):
         t = self.run().table
         return pd.Series(t["mae"].values, index=[f"{r.horizon_q} ({r.start}-{r.end})" for r in t.itertuples()])
+
+
+def assess(table):
+    """Green / Amber / Red rating of one backtest table against the acceptance thresholds."""
+    mae, naive = table["mae"], table["naive_mae"]
+    mean, wins = float(mae.mean()), int((mae < naive).sum())
+    if mean > AMBER_MEAN or float(mae.max()) > RED_ANY:
+        rating = "Red"
+    elif mean > GREEN_MEAN or wins < MIN_WIN_SHARE * len(table) or mean >= float(naive.mean()):
+        rating = "Amber"
+    else:
+        rating = "Green"
+    return dict(zip(ASSESSMENT_COLUMNS, [mean, float(mae.max()), float(naive.mean()), f"{wins}/{len(table)}", rating]))
+
+
+def summarise_errors(errors, horizon=None):
+    """Per-origin errors -> one row per horizon (MULTI_COLUMNS); h > horizon is dropped."""
+    e = errors if horizon is None else errors[errors.h <= horizon]
+    rows = [[f"{h}Q", g.origin.min(), g.origin.max(), len(g), g.err.mean(), g.naive.mean()]
+            for h, g in e.groupby("h")]
+    return pd.DataFrame(rows, columns=MULTI_COLUMNS)
+
+
+class ErrorCache:
+    """Per-origin errors stored per bank, reused by any run with horizon <= the stored one.
+
+    One CSV per bank, tagged with model, first_origin, data hash and run horizon. The h-step
+    errors for h <= N do not depend on N, so a longer stored run is sliced, not refit.
+    """
+
+    def __init__(self, directory):
+        self.dir = Path(directory)
+
+    def path(self, bank):
+        return self.dir / f"{bp.INVALID_CHARS_RE.sub('-', bank)}.csv"
+
+    def load(self, bank, model, first_origin, data_hash, horizon):
+        """Stored errors for the bank (h <= horizon), or None if missing or stale."""
+        path = self.path(bank)
+        if not path.exists():
+            return None
+        e = pd.read_csv(path, dtype={"origin": str, "first_origin": str, "data_hash": str, "model": str})
+        key = e.iloc[0]
+        if (key.model != " | ".join(model) or key.first_origin != str(pd.Period(first_origin, "Q"))
+                or key.data_hash != data_hash or key.run_horizon < horizon):
+            return None
+        return e[e.h <= horizon].reset_index(drop=True)
+
+    def store(self, bank, model, first_origin, data_hash, horizon, errors):
+        self.dir.mkdir(parents=True, exist_ok=True)
+        errors.assign(model=" | ".join(model), first_origin=str(pd.Period(first_origin, "Q")),
+                      data_hash=data_hash, run_horizon=horizon).to_csv(self.path(bank), index=False)
+
+
+def up(v):
+    """v rounded up to the next STEP (0.05), guarding float noise."""
+    return np.ceil(np.round(np.asarray(v, dtype=float) / STEP, 9)) * STEP
+
+
+def horizon_bands(horizon):
+    """[(label, h_from, h_to)]: 1..ceil(N/4), ..ceil(N/2), ..N, empty bands dropped."""
+    e1, e2 = -(-horizon // 4), -(-horizon // 2)
+    edges = [(1, e1), (e1 + 1, e2), (e2 + 1, horizon)]
+    return [(f"{a}Q" if a == b else f"{a}-{b}Q", a, b) for a, b in edges if a <= b]
+
+
+def assess_multi(tables, horizon):
+    """Horizon-aware ratings for {bank: summarise_errors table} -> (limits, assessment).
+
+    The band limits use every bank in `tables` (the peers); with fewer than MIN_PEERS banks
+    only the skill-ratio test is applied.
+    """
+    t = pd.concat([tab.assign(bank_name=bank) for bank, tab in tables.items()], ignore_index=True)
+    t["h"] = t["horizon_q"].str.rstrip("Q").astype(int)
+    t = t[t.h <= horizon].copy()
+    bands = horizon_bands(horizon)
+    t["band"] = pd.cut(t.h, [0] + [b for _, _, b in bands], labels=[lab for lab, _, _ in bands]).astype(str)
+    t["skill"] = t["mae"] / t["naive_mae"]
+    per_band = t.groupby(["band", "bank_name"])["mae"].agg(avg="mean", max="max").reset_index()
+    n_banks = t.bank_name.nunique()
+    q = per_band.groupby("band")[["avg", "max"]].quantile(0.75)
+    green = np.round(up(q["avg"]), 2)
+    limits = pd.DataFrame({"band": q.index, "green": green,
+                           "red": np.round(np.maximum(up(q["max"]), green + STEP), 2), "n_banks": n_banks})
+    limits = pd.DataFrame(bands, columns=["band", "h_from", "h_to"]).merge(limits, on="band")[LIMIT_COLUMNS]
+    use_absolute = n_banks >= MIN_PEERS
+    lim = limits.set_index("band")
+    order = ["Green", "Amber", "Red"]
+
+    rows = []
+    for bank, g in per_band.groupby("bank_name"):
+        g = g.set_index("band").loc[[b for b, _, _ in bands]]
+        reasons, absolute = [], "Green"
+        for band, r in g.iterrows():
+            if r["max"] > lim.loc[band, "red"] + 1e-12:
+                absolute = "Red"
+                reasons.append(f"{band} max {r['max']:.3f} > red {lim.loc[band, 'red']:.2f}")
+            elif r["avg"] > lim.loc[band, "green"] + 1e-12:
+                absolute = max(absolute, "Amber", key=order.index)
+                reasons.append(f"{band} avg {r['avg']:.3f} > green {lim.loc[band, 'green']:.2f}")
+        skill = t[t.bank_name == bank].set_index("h")["skill"]
+        worst, worst_h = float(skill.max()), int(skill.idxmax())
+        skill_rating = "Red" if worst >= SKILL_RED else ("Amber" if worst > SKILL_AMBER else "Green")
+        if skill_rating != "Green":
+            reasons.append(f"skill ratio {worst:.2f} at {worst_h}Q")
+        if not use_absolute:
+            absolute = "n/a"
+            reasons = [x for x in reasons if x.startswith("skill")] + [
+                f"absolute test skipped: {n_banks} bank(s) with results, need {MIN_PEERS}"]
+        final = max([skill_rating] + ([absolute] if use_absolute else []), key=order.index)
+        row = {"bank_name": bank}
+        for band, r in g.iterrows():
+            row[f"{band} avg"], row[f"{band} max"] = r["avg"], r["max"]
+        row.update({"worst_skill_ratio": worst, "worst_skill_h": f"{worst_h}Q", "absolute_rating": absolute,
+                    "skill_rating": skill_rating, "rating": final, "reason": "; ".join(reasons)})
+        rows.append(row)
+    return limits, pd.DataFrame(rows)
 
 
 def plot_mae_bars(result, path, y=bp.DEFAULTS["y"]):

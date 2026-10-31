@@ -1,9 +1,9 @@
-bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.09795908850358348
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.09693847249484588
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.10271842570801026
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.06385995479155765
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.0778252710927573
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.1189271461790294
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.28488658340269407
-KeyBank National Association,EG_ShortRun,"AIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.19450699879641473
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),1Q,2026Q1,2026Q2,2026Q2,1,0.0752019071365504,0.017822103793244004
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),2Q,2025Q4,2026Q1,2026Q2,2,0.026060552044036234,0.22694000667259573
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),3Q,2025Q3,2025Q4,2026Q2,3,0.18350912927624674,0.31703890322111383
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),4Q,2025Q2,2025Q3,2026Q2,4,0.059726703727873365,0.21595586958291296
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),5Q,2025Q1,2025Q2,2026Q2,5,0.12100753958481807,0.19655612617482507
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),6Q,2024Q4,2025Q1,2026Q2,6,0.17087546849286714,0.3438134563033286
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),7Q,2024Q3,2024Q4,2026Q2,7,0.35842524608084186,0.507183864874183
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),8Q,2024Q2,2024Q3,2026Q2,8,0.12333051818762569,0.34689539543064096

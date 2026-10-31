@@ -25,6 +25,13 @@ A group needs a surviving correction-rate term (EG_LongRun has none by construct
 only needs a long-run regressor); otherwise there is no error correction and it is
 skipped. ADF terms and the other VECM equations (D.<x>: ...) are not part of this equation.
 
+Deterministic terms follow the cointegration test's specification (trend type), whatever
+step 2 kept: n / case 1 / det_order -1 -> none; c / cases 2-3 / det_order 0 -> const;
+ct / cases 4-5 / det_order 1 -> const + trend (--screen-deterministics restores the old
+behaviour of keeping only the step-2 survivors). Short-run lags are then pruned general-to-
+specific in the one-step ECM itself: the least significant D.<v>.L<k> with p >= alpha is
+dropped and the model refit until every short-run term is significant (--no-refine skips this).
+
 Output columns: bank_name, test_name, IC/selected lag, trend type, term, coef, t_stat, p_value
 (trend type is included because IC/selected lag alone does not identify a model).
 
@@ -106,6 +113,29 @@ def ecm_spec(test_name, terms, y, xs):
     return det, [x for x in xs if x in levels], sorted(short_run, key=lambda t: (t[0] != y, t[0], t[1]))
 
 
+def test_deterministics(trend_type):
+    """Deterministic terms implied by the cointegration test's trend type label."""
+    label = str(trend_type)
+    if label.startswith("det_order"):
+        order = int(label.split()[1])
+        return {-1: [], 0: ["const"], 1: ["const", "trend"]}[order]
+    return {"n": [], "c": ["const"], "ct": ["const", "trend"]}[label.split()[0]]
+
+
+def refine(data, y, det, levels, short_run, alpha):
+    """Drop insignificant short-run lags one at a time (largest p first) and refit."""
+    short_run = list(short_run)
+    while True:
+        res = fit_one_step(data, y, det, levels, short_run)
+        names = [f"D.{v}.L{k}" for v, k in short_run]
+        if not names:
+            return res, short_run
+        worst = res.pvalues[names].idxmax()
+        if res.pvalues[worst] < alpha:
+            return res, short_run
+        short_run.pop(names.index(worst))
+
+
 def fit_one_step(data, y, det, levels, short_run):
     diffs = data.diff()
     X = pd.DataFrame(index=data.index)
@@ -148,6 +178,10 @@ def main(argv=None):
     parser.add_argument("--group-column", default="bank_name")
     parser.add_argument("-o", "--output", default=HERE / OUTPUT_NAME)
     parser.add_argument("--summary", default=HERE / SUMMARY_NAME, help="per-model MAE CSV")
+    parser.add_argument("--alpha", type=float, default=0.05, help="significance level for --refine")
+    parser.add_argument("--screen-deterministics", action="store_true",
+                        help="keep only deterministic terms that survived step 2 (old behaviour)")
+    parser.add_argument("--no-refine", action="store_true", help="do not prune insignificant short-run lags")
     args = parser.parse_args(argv)
 
     try:
@@ -176,7 +210,12 @@ def main(argv=None):
                                                                "group_value": bank}))
                     data_cache[bank] = ct.prepare_data(subset, args.y, args.x)
                 det, levels, short_run = ecm_spec(test_name, group["term"].dropna(), args.y, args.x)
-                res = fit_one_step(data_cache[bank], args.y, det, levels, short_run)
+                if not args.screen_deterministics:
+                    det = test_deterministics(keys[3])
+                if args.no_refine:
+                    res = fit_one_step(data_cache[bank], args.y, det, levels, short_run)
+                else:
+                    res, short_run = refine(data_cache[bank], args.y, det, levels, short_run, args.alpha)
             except Exception as e:
                 ct.err(f"{label}: {e}")
                 continue
