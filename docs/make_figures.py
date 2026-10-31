@@ -5,8 +5,8 @@ Usage:
 
 Writes:
     <bank> - Actual vs Predicted.png                 champion's plot from "Actuals vs Predictions"
-    <bank> - MAE Backtest 8Q.png                     from MAE_Backtesting/output
-Run after "ECM workflow.py", plotting_workflow.py and MAE_Backtesting/run_backtest.py.
+    <bank> - MAE Backtest 8Q.png                     many-start-date backtest chart from MAE_Backtesting/output
+Run after "ECM workflow.py", plotting_workflow.py and MAE_Backtesting/run_backtest.py --first-origin 2016Q1.
 Figure 1 (docs/Historical Deposit Rates vs FFT.png) is produced by EDA1_Stationarity_Tests.ipynb.
 """
 
@@ -34,7 +34,7 @@ def main(argv=None):
         name = bt.bp.INVALID_CHARS_RE.sub("-", "+".join(model)) + ".png"
         folder = bt.bp.INVALID_CHARS_RE.sub("-", bank)
         shutil.copy(ROOT / "Actuals vs Predictions" / folder / name, out / f"{bank} - Actual vs Predicted.png")
-        shutil.copy(ROOT / "MAE_Backtesting" / "output" / folder / "MAE_backtest_8Q.png",
+        shutil.copy(ROOT / "MAE_Backtesting" / "output" / folder / "MAE_backtest_multiorigin_8Q.png",
                     out / f"{bank} - MAE Backtest 8Q.png")
     return 0
 

@@ -26,7 +26,7 @@
 
 | Version | Date | Description |
 | :--- | :--- | :--- |
-| 0 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the repository's code and outputs. Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures; Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9 (OI-1 to OI-22). |
+| 0 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the repository's code and outputs. Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures, with many-start-date backtest bar charts (model vs. no-change, with band limits); Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9 (OI-1 to OI-22). |
 
 ---
 
@@ -294,9 +294,9 @@ Tied on in-sample MAE with the HQIC selection of the same lags and with case 5 u
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.100, 0.179, 0.227, 0.239, 0.283, 0.308, 0.312, 0.292. Worst skill ratio against the no-change forecast: 0.71 at 1Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.044, 0.030, 0.067, 0.096, 0.086, 0.177, 0.103; mean 0.087, no-change mean 0.307, beats no-change on 7/8 horizons (Green).
 
-![First Horizon Bank: 8Q backtest MAE by horizon](<docs/figures/First Horizon Bank - MAE Backtest 8Q.png>)
+![First Horizon Bank: many-start-date backtest MAE by horizon](<docs/figures/First Horizon Bank - MAE Backtest 8Q.png>)
 
-*Figure 3: First Horizon Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 3: First Horizon Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The long-run trend (-0.011 pp per quarter, p 0.0005) survives full pro forma adjustment for IBERIABANK and Capital Bank, so it does not stand in for an unmodeled merger. For projection it is frozen at its 2026Q2 value (§5.7). The best no-trend alternative has θ 0.467, in-sample MAE 0.0511 and holdout MAE 0.118, against 0.517, 0.0469 and 0.087 for this model.
 - λ = -0.37: about 37% of any disequilibrium closes each quarter, the fastest adjustment in the peer set.
@@ -356,9 +356,9 @@ The constant and trend are individually insignificant (p 0.106 and 0.103) but ar
 - **Governing rating (many-start-date backtest, §5.6): Amber** (skill ratio 0.96 at 3Q). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.047, 0.103, 0.156, 0.195, 0.238, 0.277, 0.306, 0.331. Worst skill ratio against the no-change forecast: 0.96 at 3Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.031, 0.021, 0.017, 0.116, 0.172, 0.150, 0.040; mean 0.080, no-change mean 0.119, beats no-change on 5/8 horizons (Amber).
 
-![Glacier Bank: 8Q backtest MAE by horizon](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
+![Glacier Bank: many-start-date backtest MAE by horizon](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
 
-*Figure 5: Glacier Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 5: Glacier Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The skill ratio is close to 1 (0.96 at 3Q): Glacier's rate moves little, so the no-change forecast is nearly as accurate as the model. This is the reason for the Amber rating.
 - The champion carries a long-run trend, frozen at its 2026Q2 value for projection (§5.7).
@@ -410,9 +410,9 @@ All three passing specifications give the same one-step ECM. No short-run terms 
 - **Governing rating (many-start-date backtest, §5.6): Red** (3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.084, 0.160, 0.234, 0.307, 0.377, 0.442, 0.510, 0.559. Worst skill ratio against the no-change forecast: 0.74 at 1Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.101, 0.065, 0.163, 0.118, 0.094, 0.208, 0.424, 0.448; mean 0.203, no-change mean 0.231, beats no-change on 6/8 horizons (Amber).
 
-![Huntington National Bank: 8Q backtest MAE by horizon](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
+![Huntington National Bank: many-start-date backtest MAE by horizon](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
 
-*Figure 7: Huntington National Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 7: Huntington National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - Cointegration rests on one specification family (OI-19).
 - Errors grow at long horizons. With no contemporaneous FFT term, the model passes rate cuts through too slowly (forecast 2.5% to 2.6% in 2024Q4 to 2025Q2 against an actual of 2.1% to 2.25%).
@@ -467,9 +467,9 @@ With deterministic terms matched to each test (§5.5), this model has the lowest
 - **Governing rating (many-start-date backtest, §5.6): Red** (5-8Q max 0.533 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.054, 0.115, 0.172, 0.224, 0.294, 0.384, 0.464, 0.533. Worst skill ratio against the no-change forecast: 0.71 at 8Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.075, 0.026, 0.184, 0.060, 0.121, 0.171, 0.358, 0.123; mean 0.140, no-change mean 0.272, beats no-change on 7/8 horizons (Green).
 
-![KeyBank National Association: 8Q backtest MAE by horizon](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
+![KeyBank National Association: many-start-date backtest MAE by horizon](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
 
-*Figure 9: KeyBank National Association, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 9: KeyBank National Association, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The 8Q-ahead error (0.533) is above the peer-derived red limit for the 5Q to 8Q band, which is the reason for the Red rating.
 - λ = -0.11: slow adjustment, so errors compound over long horizons.
@@ -526,9 +526,9 @@ The deterministic terms follow the case 4 test specification (§5.5).
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.059, 0.117, 0.170, 0.211, 0.261, 0.290, 0.304, 0.329. Worst skill ratio against the no-change forecast: 0.62 at 3Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.107, 0.043, 0.065, 0.029, 0.335, 0.115, 0.069, 0.104; mean 0.108, no-change mean 0.235, beats no-change on 6/8 horizons (Green).
 
-![Manufacturers and Traders Trust Company: 8Q backtest MAE by horizon](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
+![Manufacturers and Traders Trust Company: many-start-date backtest MAE by horizon](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
 
-*Figure 11: Manufacturers and Traders Trust Company, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 11: Manufacturers and Traders Trust Company, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The large single-window error at 5Q is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (OI-8). Over 37 start dates the 5-step-ahead MAE is 0.26 pp.
 - The champion carries a long-run trend (-0.011 pp per quarter, p 0.0065), frozen at its 2026Q2 value for projection (§5.7).
@@ -581,9 +581,9 @@ Johansen trace r ≤ 0 = 13.91 (p < 0.05).
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.067, 0.132, 0.182, 0.230, 0.300, 0.359, 0.396, 0.437. Worst skill ratio against the no-change forecast: 0.67 at 2Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.106, 0.052, 0.191, 0.094, 0.364, 0.173, 0.289, 0.114; mean 0.173, no-change mean 0.207, beats no-change on 6/8 horizons (Amber).
 
-![Old National Bank: 8Q backtest MAE by horizon](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
+![Old National Bank: many-start-date backtest MAE by horizon](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
 
-*Figure 13: Old National Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 13: Old National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The large single-window error at 5Q comes from one start date (2025Q1) and is the shared easing-cycle effect (OI-8).
 
@@ -638,9 +638,9 @@ No deterministic terms (case 1).
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.061, 0.134, 0.202, 0.262, 0.312, 0.355, 0.384, 0.406. Worst skill ratio against the no-change forecast: 0.70 at 3Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.077, 0.091, 0.057, 0.124, 0.392, 0.126, 0.314, 0.129; mean 0.164, no-change mean 0.182, beats no-change on 5/8 horizons (Amber).
 
-![SouthState Bank: 8Q backtest MAE by horizon](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
+![SouthState Bank: many-start-date backtest MAE by horizon](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
 
-*Figure 15: SouthState Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
+*Figure 15: SouthState Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - λ = -0.08 is the slowest adjustment in the peer set.
 - Shares the easing-cycle error at the 2025Q1 start date (OI-8).
@@ -866,7 +866,7 @@ FFT itself gives ZA `c` = -5.49, p 0.004, break 2022Q1. The break in the deposit
 | :--- | :--- |
 | Figures included in this document (champion models only) | `docs/figures/` |
 | Actual vs. predicted charts, every estimated specification | `Actuals vs Predictions/<bank>/` |
-| MAE stability bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` |
+| MAE stability bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` (single window); `MAE_backtest_multiorigin_8Q.{png,csv}` (many start dates; shown in §6) |
 | MAE stability summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
 | Full coefficient tables, all estimated ECMs | `ECM estimation results.csv` |
 | In-sample MAE, all estimated ECMs | `estimation result summary.csv` |

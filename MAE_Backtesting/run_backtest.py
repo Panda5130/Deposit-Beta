@@ -16,6 +16,8 @@ is used (ties broken EG > ARDL > Johansen). See backtest.py for the method. Outp
             MAE_backtest_<N>Q.csv       horizon, origin, forecast window, n_obs, MAE
         backtest_summary_<N>Q.csv       every bank's rows (only with --bank-name All)
         backtest_assessment_<N>Q.csv    Green/Amber/Red rating per bank (only with --bank-name All)
+            MAE_backtest_multiorigin_<N>Q.png/.csv  with --first-origin: h-step MAE, no-change MAE
+                                        and band limits per horizon
         backtest_multiorigin_<N>Q.csv   with --first-origin: h-step MAE over every origin from
                                         that quarter (expanding window), n_windows per horizon
         backtest_multiorigin_limits_<N>Q.csv       horizon-band green/red limits from this run
@@ -116,6 +118,9 @@ def write_multi(multi, args, summary, estimates, source, cache, horizon, out_dir
              "; ".join(f"{r.band} {r.green:.2f}/{r.red:.2f}" for r in limits.itertuples()))
     for r in assessment.itertuples():
         log.info("  %s: %s%s", r.bank_name, r.rating, f" ({r.reason})" if r.reason else "")
+        bank_dir = out_dir / bt.bp.INVALID_CHARS_RE.sub("-", r.bank_name)
+        bt.plot_multi_bars(r.bank_name, multi[r.bank_name][0], tables[r.bank_name], limits, r.rating,
+                           bank_dir / f"MAE_backtest_multiorigin_{horizon}Q.png", args.y)
 
 
 def main(argv=None):

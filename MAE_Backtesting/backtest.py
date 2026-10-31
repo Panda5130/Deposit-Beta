@@ -332,3 +332,29 @@ def plot_mae_bars(result, path, y=bp.DEFAULTS["y"]):
     ax.set_axisbelow(True)
     fig.savefig(path, dpi=120, bbox_inches="tight")
     plt.close(fig)
+
+
+def plot_multi_bars(bank, model, table, limits, rating, path, y=bp.DEFAULTS["y"]):
+    """h-step MAE per horizon (model and no-change) with the band limits from assess_multi."""
+    h = np.arange(1, len(table) + 1)
+    fig, ax = plt.subplots(figsize=(11, 5))
+    bars = ax.bar(h - 0.2, table["mae"], width=0.4, color="#1f4e79", label="Champion model")
+    ax.bar(h + 0.2, table["naive_mae"], width=0.4, color="#b0b0b0", label="No-change forecast")
+    ax.bar_label(bars, fmt="%.3f", fontsize=8)
+    for i, r in enumerate(limits.itertuples()):
+        span = [r.h_from - 0.45, r.h_to + 0.45]
+        ax.plot(span, [r.green] * 2, color="#2e7d32", linestyle="--", linewidth=1.2,
+                label="Green limit (band average)" if i == 0 else None)
+        ax.plot(span, [r.red] * 2, color="#c62828", linestyle="--", linewidth=1.2,
+                label="Red limit (band maximum)" if i == 0 else None)
+    ax.set_xticks(h, [f"{r.horizon_q}\nn={r.n_windows}" for r in table.itertuples()])
+    ax.set_title(f"{bank}\n{' | '.join(model)}\n"
+                 f"Many-start-date h-step MAE of {y}, origins {table.first_origin.iloc[0]} onward; rating: {rating}",
+                 fontsize=10)
+    ax.set_xlabel("Steps ahead (n = number of start dates)")
+    ax.set_ylabel("MAE")
+    ax.legend(fontsize=8, loc="upper left")
+    ax.grid(True, axis="y", alpha=0.3)
+    ax.set_axisbelow(True)
+    fig.savefig(path, dpi=120, bbox_inches="tight")
+    plt.close(fig)
