@@ -1,6 +1,6 @@
 # Open Issue Resolutions (OI-1 to OI-17)
 
-Companion to `WIP Regional Banking Deposit Beta Analyses.md` v0.2. This file records what was done on branch `claude/resolve-open-issues-22ace3` for every open issue in §9.2 and limitation in §8, and gives the replacement text for the doc. The doc itself was **not** edited here; another session owns it.
+Companion to `WIP Regional Banking Deposit Beta Analyses.md` (resolutions folded into version 0 of the document). This file records what was done on branch `claude/resolve-open-issues-22ace3` for every open issue in §9.2 and limitation in §8, and gives the replacement text for the doc. The doc itself was **not** edited here; another session owns it.
 
 Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault.
 
@@ -24,7 +24,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | OI-14 | Resolved (user decision) | First Horizon trend kept for estimation; frozen at its 2026Q2 value for projection |
 | OI-15 | Resolved (user decision) | y is now deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) |
 | OI-16 | Partially resolved | 2008–2026 merger-adjusted ADF/KPSS grid produced (`diagnostics/unit_root_grid.csv`); the vault placeholders still need to be filled by hand |
-| OI-17 | Resolved | Figure 1 regenerated from the modeled dataset (`docs/figures_rebuild/`) |
+| OI-17 | Resolved | Figure 1 regenerated from the modeled dataset (`docs/figures/`) |
 | New | Open | OI-18 to OI-21: see §3 |
 | OI-22 | Resolved (user-approved design) | Many-start-date backtest (34–41 windows per horizon) rated with horizon-aware limits derived each run from N and the peer results: First Horizon, M&T, Old National and SouthState Green; Glacier Amber; Huntington and KeyBank Red |
 
@@ -46,7 +46,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | Estimation | `ECM estimation.py`, `ECM workflow.py` | Deterministic terms follow the test specification (OI-7); short-run lags pruned general-to-specific (OI-6). Old behaviour is available with `--screen-deterministics --no-refine`. The workflow passes `--alpha` to estimation. |
 | Backtest | `MAE_Backtesting/backtest.py`, `run_backtest.py` | Adds `naive_mae` (no-change forecast) to every table; new `backtest_assessment_8Q.csv` with the OI-10 rating. KeyBank `MAE_backtest_4Q.*` deleted (OI-12). |
 | Diagnostics | `diagnostics/stationarity_and_breaks.py` (new) + 3 CSVs | ADF/KPSS grid for all banks and both samples; Zivot-Andrews for all banks (OI-5, OI-16). |
-| Figures | `docs/make_figures.py` (new), `docs/figures_rebuild/` | Figure 1 and the 14 per-bank champion figures, regenerated. Written to `figures_rebuild/` so they don't overwrite the untracked `docs/figures/` in the main checkout. |
+| Figures | `docs/make_figures.py` (new), `docs/figures/` | Figure 1 and the 14 per-bank champion figures, regenerated. Written to `figures_rebuild/` so they don't overwrite the untracked `docs/figures/` in the main checkout. |
 | Outputs | `Co-integration_results.csv`, `co-integration_respecification_results.csv`, `ECM * results.csv`, `estimation result summary.csv`, `Actuals vs Predictions/`, `MAE_Backtesting/output/` | All regenerated on the rebuilt data. |
 
 Run order to reproduce:
@@ -361,7 +361,7 @@ Summary for 2008–2026 merger-adjusted, default spec (ADF c/AIC, KPSS c/auto):
 
 | ID | Issue | Bank(s) | Priority |
 | :-: | :--- | :--- | :-: |
-| OI-18 | Re-run the stationarity notebooks' replacements and update Appendix A (A.0–A.2) with the rebuilt data (`diagnostics/unit_root_grid.csv`) | All | Medium |
+| OI-18 | Re-run the stationarity notebooks' replacements and update Appendix A (A.0–A.2) with the rebuilt data (`diagnostics/unit_root_grid.csv`). Closed in the document: Appendix A regenerated from `diagnostics/` | All | Medium |
 | OI-19 | Huntington cointegration rests on a single specification family (EG long run, no deterministic terms, p 0.019). Assess robustness, and consider whether Huntington should stay in scope | Huntington | High |
 | OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks (and for FFT). Test cointegration allowing a break (Gregory-Hansen) | All | Medium |
 | OI-21 | FFT input carries 2026Q3 and 2026Q4 at 3.67; 2026Q4 is not yet complete (data date 2026-10-30). Not used in estimation (data end 2026Q2), but refresh before the next cycle | All | Low |
@@ -435,7 +435,7 @@ Deposit rates track FFT with a lag and partial pass-through through the 2016–2
 
 ### §6 bank sections (data-treatment, cointegration, champion and outcomes paragraphs)
 
-Champion coefficient tables are in `ECM estimation results.csv`; figures are in `docs/figures_rebuild/`.
+Champion coefficient tables are in `ECM estimation results.csv`; figures are in `docs/figures/`.
 
 **6.1 First Horizon**
 - 6.1.1: "Pro forma for Mountain National (2013), TrustAtlantic (2015), Capital Bank Corporation (2017, 37%) and Iberiabank (2020-07-02, 73%)."
@@ -571,4 +571,4 @@ Add above the table: "Each column is one forecast window, starting at T−k and 
 
 ### Appendix B (additions)
 
-`data_build/build_dataset.py`, `data_build/raw/*.csv`, `diagnostics/*.csv`, `MAE_Backtesting/output/backtest_assessment_8Q.csv`, `docs/figures_rebuild/`, `docs/open_issue_resolutions.md`. `merger_events_raw.csv` (branch-level history only) and the two Colab notebooks are superseded.
+`data_build/build_dataset.py`, `data_build/raw/*.csv`, `diagnostics/*.csv`, `MAE_Backtesting/output/backtest_assessment_8Q.csv`, `docs/figures/`, `docs/open_issue_resolutions.md`. `merger_events_raw.csv` (branch-level history only) and the two Colab notebooks are superseded.

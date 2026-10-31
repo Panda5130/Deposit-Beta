@@ -18,16 +18,15 @@
 | Developer | Shivam Panda (GitHub: Panda5130) |
 | Code repository | `Panda5130/Deposit-Beta` |
 | Source documentation | Obsidian vault: `Modeling/Deposit Beta/Documentation.md` |
-| Code version documented | Commit `326b641` (initial commit, 2026-10-30) |
+| Code version documented | The repository commit that adds this version of the document (2026-10-30) |
 | Document date | 2026-10-30 |
-| Data period | 2011Q1 to 2026Q2 (main); 2008Q1 to 2026Q3 (sensitivity, Appendix A1) |
+| Data period | 2011Q1 to 2026Q2 (main); 2008Q1 to 2026Q2 (sensitivity, Appendix A.2) |
 
 ### 0.1 Revision History
 
 | Version | Date | Description |
 | :--- | :--- | :--- |
-| 0.1 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the development code and outputs in the repository. |
-| 0.2 (WIP) | 2026-10-30 | Added actual-vs-predicted and 8Q backtest figures for each bank's champion model; corrected the Glacier anomaly dates; added the Old National 2025Q2 observation; regenerated Figure 1 from `EDA1_Stationarity_Tests.ipynb`, trimmed to 2026Q2 (OI-17 closed); removed §1.4 (Key Open Issues); each item is tracked in §8 and §9; noted Huntington's zero 2021Q1 interest expense. |
+| 0 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the repository's code and outputs. Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures; Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9 (OI-1 to OI-22). |
 
 ---
 
@@ -40,28 +39,28 @@ The analysis estimates the **deposit beta** of seven U.S. regional banks: the lo
 
 | # | Bank | FDIC Cert | Merger treatment in final dataset |
 | :-: | :--- | :-: | :--- |
-| 1 | First Horizon Bank | 4977 | None applied (see §6.1) |
-| 2 | Glacier Bank | n/a in event file | None (no events) |
-| 3 | Huntington National Bank | 6560 | Mode A (TCF National Bank, 2021) |
-| 4 | KeyBank National Association | 17534 | Mode A (First Niagara Bank, 2016) |
-| 5 | Manufacturers and Traders Trust Company | 588 | Mode A (People's United Bank, 2022) |
-| 6 | Old National Bank | 3832 | None applied (see §6.6) |
-| 7 | SouthState Bank | 33555 | Mode B flag (CenterState Bank, 2020) |
+| 1 | First Horizon Bank | 4977 | Pro forma, 4 Mode A events since 2011 (incl. Capital Bank 2017, IBERIABANK 2020) |
+| 2 | Glacier Bank | 30788 | Pro forma, 25 Mode A events since 2011 (incl. 10-charter consolidation 2012), 1 Mode B |
+| 3 | Huntington National Bank | 6560 | Pro forma, 6 Mode A events since 2011 (incl. FirstMerit 2016, TCF 2021, Cadence 2026) |
+| 4 | KeyBank National Association | 17534 | Pro forma, 1 Mode A event (First Niagara 2016), 1 Mode B |
+| 5 | Manufacturers and Traders Trust Company | 588 | Pro forma, 2 Mode A events (Hudson City 2015, People's United 2022) |
+| 6 | Old National Bank | 3832 | Pro forma, 13 Mode A events since 2011 (incl. First Midwest 2022, Bremer 2025), 1 Mode B |
+| 7 | SouthState Bank | 33555 | Pro forma, 19 Mode A events since 2011 (incl. South State 2020, Atlantic Capital 2022, Independent 2025) |
 
-### 1.3 Summary of Current Results (2011Q1 to 2026Q2, merger-adjusted)
-All seven deposit-rate series are classified as I(1) once flagged banks are re-specified (§5.2). Every bank has at least one cointegrating specification with the federal funds rate at the 5% level. The selected model for each bank is the specification with the lowest in-sample MAE (§5.5).
+### 1.3 Summary of Current Results (2011Q1 to 2026Q2, pro forma)
+Every bank has at least one specification that is cointegrated with the federal funds rate at the 5% level, although for Huntington and Old National only after re-specification. The selected model for each bank is the specification with the lowest in-sample MAE (§5.5). The rating is the governing many-start-date backtest rating (§5.6).
 
-| Bank | Selected specification | Speed of adjustment (λ) | Long-run deposit beta (θ) | In-sample MAE (pp) | Mean 8Q backtest MAE (pp) |
-| :--- | :--- | :-: | :-: | :-: | :-: |
-| First Horizon Bank | ARDL(3,2), case 4, AIC | -0.517 | 0.560 | 0.0607 | 0.140 |
-| Glacier Bank | Johansen VECM rank 1, k_ar_diff=1, det_order 1, AIC | -0.207 | 0.412 | 0.1157 | 0.248 |
-| Huntington National Bank | ARDL(4,4), case 3, AIC | -0.286 | 0.532 | 0.0713 | 0.176 |
-| KeyBank National Association | EG short-run ECM, no deterministic terms, AIC (ADF lag 1, ECM lag 3) | -0.184 | 0.495 | 0.0545 | 0.130 |
-| Manufacturers and Traders Trust Company | ARDL(2,1), case 3, AIC | -0.127 | 0.452 | 0.0521 | 0.174 |
-| Old National Bank | ARDL(3,1), case 3, AIC | -0.316 | 0.541 | 0.0858 | 0.201 |
-| SouthState Bank | Johansen VECM rank 1, k_ar_diff=2, det_order -1, AIC | -0.215 | 0.434 | 0.0588 | 0.104 |
+| Bank | Selected specification | Speed of adjustment (λ) | Long-run deposit beta (θ) | In-sample MAE (pp) | Many-start-date mean h-step MAE (pp) | Rating |
+| :--- | :--- | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | ARDL(3,4), case 4, AIC | -0.375 | 0.517 | 0.0469 | 0.242 | Green |
+| Glacier Bank | ARDL(3,1), case 4, BIC | -0.112 | 0.346 | 0.0292 | 0.207 | Amber |
+| Huntington National Bank | EG long run, no deterministic terms, AIC (ADF lag 1) | -0.313 | 0.469 | 0.0709 | 0.334 | Red |
+| KeyBank National Association | ARDL(4,4), case 1, AIC | -0.110 | 0.398 | 0.0317 | 0.280 | Red |
+| Manufacturers and Traders Trust Company | ARDL(2,1), case 4, AIC | -0.184 | 0.432 | 0.0383 | 0.218 | Green |
+| Old National Bank | Johansen VECM rank 1, k_ar_diff=1 (fixed), det_order -1 | -0.135 | 0.419 | 0.0414 | 0.263 | Green |
+| SouthState Bank | ARDL(4,3), case 1, AIC | -0.082 | 0.443 | 0.0336 | 0.264 | Green |
 
-All λ and θ estimates are significant at the 1% level. Long-run betas fall between 0.41 and 0.56.
+All λ and θ estimates are significant at the 5% level (all at 1% except KeyBank λ, p 0.010). Long-run betas fall between 0.35 and 0.52. Six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057).
 
 ---
 
@@ -76,7 +75,7 @@ Deposit betas feed interest-rate risk measurement (NII and EVE sensitivity), dep
 
 ### 2.3 Uses Outside Scope
 - Production pricing or regulatory capital decisions while the model is WIP.
-- Product-level or customer-segment deposit betas: the data is bank-level total interest expense over total deposits.
+- Product-level or customer-segment deposit betas: the data is bank-level deposit interest expense over total deposits.
 - Forecasts beyond 8 quarters, or under rate regimes outside the 2011 to 2026 sample (for example, negative rates).
 
 ### 2.4 Model Output
@@ -90,7 +89,7 @@ For each bank: the estimated one-step ECM (short-run coefficients, speed of adju
 
 | Role | Variable | Definition | Source |
 | :--- | :--- | :--- | :--- |
-| Dependent (y) | `rate_pf_clean` | Annualized quarterly interest expense ÷ annual average total deposits × 100, merger-adjusted (pro forma) | FDIC BankFind Suite, Financials API |
+| Dependent (y) | `rate_pf_clean` | 400 × quarterly deposit interest expense ÷ average of current and prior quarter-end total deposits, pro forma for mergers | FDIC BankFind Suite, Financials API |
 | Regressor (x) | `FFT` | Quarterly average of the monthly effective federal funds rate (%) | FRED series `FEDFUNDS` |
 
 ### 3.2 Model Form
@@ -107,69 +106,66 @@ $$\Delta y_t = \lambda\,(y_{t-1} - c - \theta x_{t-1}) + \sum_i \gamma_i \Delta 
 
 | Step | Component | Code | Output |
 | :-: | :--- | :--- | :--- |
-| 1 | Data pull and aggregation | `FDIC Fincancials pull and aggeregation.ipynb` | `consolidated_fdic_quarterly_financials_*.csv` |
-| 2 | Merger adjustment | `TargetBank_merger_adjusted_features.ipynb` | `*_merger_adjusted.csv`, `merger_events_*.csv`, `merger_adjustment_log.md` |
-| 3 | Stationarity tests (ADF/KPSS) | `EDA1_Stationarity_Tests.ipynb`, `Flagged Rates Analysis - ADF respecification.ipynb` | Vault documentation tables |
-| 4 | Structural breaks (Zivot-Andrews) | `Flagged Rate Analysis - Structural Breaks.ipynb` | Vault documentation |
-| 5 | Baseline cointegration tests | `Co-integration Tests.py` with `test_params.csv` | `Co-integration_results.csv` |
-| 6 | Cointegration re-specification grid | `FlaggedRates_co-integration_respecification.py` | `co-integration_respecification_results.csv` |
-| 7 | Model selection (test p < 0.05) | `ECM model selection.py` | `ECM model selection results.csv` |
-| 8 | Parameter selection (coef p < 0.05) | `ECM Param selection.py` | `ECM param selection results.csv` |
-| 9 | One-step ECM estimation | `ECM estimation.py` | `ECM estimation results.csv`, `estimation result summary.csv` |
-| 10 | Actual vs. predicted charts | `plotting_workflow.py`, `bank_plots.py` | `Actuals vs Predictions/<bank>/*.png` |
-| 11 | Rolling-origin MAE backtest | `MAE_Backtesting/run_backtest.py`, `backtest.py` | `MAE_Backtesting/output/` |
+| 1 | Data pull, rate construction and merger adjustment | `data_build/build_dataset.py` (supersedes `FDIC Fincancials pull and aggeregation.ipynb` and `TargetBank_merger_adjusted_features.ipynb`) | `consolidated_fdic_quarterly_financials_*.csv`, `merger_events_used.csv`, `merger_adjustment_log.md`, `data_build/raw/` |
+| 2 | Exploratory chart (Figure 1) | `EDA1_Stationarity_Tests.ipynb` | `docs/Historical Deposit Rates vs FFT.png` |
+| 3 | Baseline cointegration tests | `Co-integration Tests.py` with `test_params.csv` | `Co-integration_results.csv` |
+| 4 | Cointegration re-specification grid (all banks) | `FlaggedRates_co-integration_respecification.py` | `co-integration_respecification_results.csv` |
+| 5 | Model selection (test p < 0.05) | `ECM model selection.py` | `ECM model selection results.csv` |
+| 6 | Parameter selection (short-run coef p < 0.05) | `ECM Param selection.py` | `ECM param selection results.csv` |
+| 7 | One-step ECM estimation and lag pruning | `ECM estimation.py` | `ECM estimation results.csv`, `estimation result summary.csv` |
+| 8 | Backtests and ratings | `MAE_Backtesting/run_backtest.py`, `backtest.py` | `MAE_Backtesting/output/` |
+| 9 | Actual vs. predicted charts | `plotting_workflow.py`, `bank_plots.py` | `Actuals vs Predictions/<bank>/*.png` |
+| 10 | Unit-root and structural-break diagnostics | `diagnostics/stationarity_and_breaks.py` | `diagnostics/*.csv` |
+| 11 | Documentation figures | `docs/make_figures.py` | `docs/figures/` |
 
-Steps 7 to 9 are run together by `ECM workflow.py`.
+Steps 5 to 7 are run together by `ECM workflow.py`.
 
 ---
 
 ## 4. Data
 
 ### 4.1 Sources
-- **FDIC BankFind Suite, Financials endpoint** (`https://banks.data.fdic.gov/api/financials`). Fields: `CERT`, `REPDTE`, `EINTEXP` (total interest expense, year-to-date), `DEP` (total deposits). Quarterly Call Report data, pulled for 2008Q1 to 2026Q4. Each quarterly file covers every insured institution and was filtered to the seven banks in scope.
-- **FDIC BankFind Suite, History and Institutions endpoints** (`/api/history`, `/api/institutions`), used to identify merger events.
+- **FDIC BankFind Suite, Financials endpoint** (`https://banks.data.fdic.gov/api/financials`). Fields: `CERT`, `REPDTE`, `EDEPDOMQ` and `EDEPFORQ` (quarterly interest expense on domestic and foreign-office deposits), `DEP` (total deposits). Quarterly Call Report data, 2007 to 2026Q2.
+- **FDIC BankFind Suite, History endpoint** (`/api/history`), change codes 2xx (mergers, absorptions, whole-bank failure acquisitions), used to build the merger event list.
 - **FRED `FEDFUNDS`**: monthly effective federal funds rate, averaged to quarters (`FFT_2011-2026.csv`, `FFT_2008-2026.csv`).
+- Built by `data_build/build_dataset.py`. The raw pulls used for this version are cached in `data_build/raw/`.
 
 ### 4.2 Transformations
-1. **De-cumulation of interest expense.** Call Report interest expense is year-to-date. Quarterly interest expense is computed as the current year-to-date figure minus the prior quarter's figure (Q1 is used as reported).
-2. **Annualization.** Quarterly interest expense is annualized.
-3. **Average deposits.** Total deposits are converted to annual averages.
-4. **Deposit rate.** `deposit_rate = 100 × annualized interest expense ÷ annual average deposits`.
+1. **Quarterly deposit interest expense** is taken directly from FDIC's quarterly fields (`EDEPDOMQ` + `EDEPFORQ`). No year-to-date de-cumulation is needed.
+2. **Annualization:** × 4.
+3. **Average deposits:** mean of the current and previous quarter-end `DEP`. No calendar-year averaging, so there is no look-ahead.
+4. **Deposit rate:** `deposit_rate = 100 × 4 × deposit interest expense ÷ average deposits`.
 5. **Merger adjustment (pro forma).** See §4.3. The modeled series is `rate_pf_clean`.
-6. **Alignment.** Bank and FFT series are joined on quarterly periods. Rows with missing values are dropped.
+6. **Alignment.** Bank and FFT series are joined on quarterly periods.
 
 ### 4.3 Merger Adjustment Methodology
-- **Mode A (material):** acquisitions of 1.0% or more of the survivor's deposits. Interest expense and average deposits are adjusted to a pro forma basis (`ie_ann_pf`, `dep_avg_pf`, `rate_pf`).
-- **Mode B (sub-material):** acquisitions below 1.0%. Flagged only, intended for exclusion in downstream pricing models.
-- **Recorded validations** (`merger_adjustment_log.md`): the pro forma rate formula reproduces `rate_pf` to within 1e-12; there are no duplicate cert/quarter keys; baseline source columns are unchanged. The log counts 434 records evaluated, 6 Mode A adjustments and 2 Mode B flags.
+- **Event list:** every merger, absorption or whole-bank failure acquisition into a target bank since 2007, from FDIC `/history`, with real predecessor certs (`merger_events_used.csv`). Materiality = predecessor deposits ÷ survivor deposits at the predecessor's last pre-merger quarter.
+- **Mode A (≥ 1%):** full pro forma backfill. The predecessor's deposit interest expense and deposits are added to every pre-merger quarter of the survivor. In the merger quarter, the predecessor's last quarterly interest expense is added pro rata to the days before the effective date. Applied recursively to predecessors' own Mode A acquisitions.
+- **Mode B (< 1%):** flagged only; rows are kept in `rate_pf_clean`. In the main sample: Glacier/Treasure State Bank 2016Q3 (0.84%), KeyBank/KeyTrust 2014Q3 (0%), Old National/Old National Trust 2014Q3 (0%).
+- **Counts:** 73 events into the seven banks from 2011Q1 (70 Mode A, 3 Mode B); 92 since 2007; 300 predecessor-level events folded in.
+- **Validations** (`merger_adjustment_log.md`): pro forma rate reconstruction difference 0.0; no duplicate keys; no negative or missing rates.
 
-**Events listed in `merger_events_used.csv`:**
+**Corrected events from the earlier draft's event list** (the earlier list used placeholder certs and a uniform 5,000,000 deposit figure):
 
-| Predecessor | Survivor | Effective date | Mode listed | Appears as an adjustment in the 2011 to 2026 modeled data |
-| :--- | :--- | :-: | :-: | :--- |
-| First Niagara Bank | KeyBank National Association | 2016-08-01 | A | Yes: 2016Q3 (18% of deposits acquired), 2016Q4 rate adjusted |
-| FirstMerit Bank | Huntington National Bank | 2016-08-16 | A | **No** |
-| TCF National Bank | Huntington National Bank | 2021-06-09 | A | Yes: 2021Q2 (15%), 2021Q3 rate adjusted |
-| IBERIABANK | First Horizon Bank | 2020-07-02 | A | **No** |
-| CenterState Bank | SouthState Bank | 2020-06-08 | B | Flagged: 2020Q2 (0.5%), rate not changed |
-| Atlantic Capital Bank | SouthState Bank | 2022-03-01 | A | **No** |
-| First Midwest Bank | Old National Bank | 2022-02-15 | A | **No** |
-| People's United Bank | Manufacturers and Traders Trust Company | 2022-04-02 | A | Yes: 2022Q2 (28%), 2022Q3 rate adjusted |
-
-**Data quality findings (open, see §9):**
-- In `merger_events_used.csv`, the predecessor cert numbers for seven events are placeholders (11111, 22222, ...), and `deposits_at_last_pre_merger_quarter` is the same value (5,000,000) for every event. The materiality classification therefore does not rest on actual predecessor deposits.
-- The log's "6 Mode A adjustments" matches 6 adjusted bank-quarter *rows* (3 events × 2 quarters), not 6 events.
-- Mode B rows are not excluded from `rate_pf_clean`, which is the series used in modeling.
-- The adjustment changes only the quarter after the merger (largest change: KeyBank 2016Q4, -0.042 pp). Effects on the level of the series are small.
+| Predecessor | Survivor | FDIC cert | FDIC effective date | Last pre-merger deposits ($000) | % of survivor | Mode |
+| :--- | :--- | :-: | :-: | --: | --: | :-: |
+| First Niagara Bank | KeyBank | 16004 | 2016-10-08 | 27,347,485 | 34.2 | A |
+| FirstMerit Bank | Huntington | 13675 | 2016-08-16 | 21,074,218 | 36.8 | A |
+| TCF National Bank | Huntington | 28330 | 2021-06-09 | 39,975,492 | 37.5 | A |
+| IBERIABANK | First Horizon | 28100 | 2020-07-02 | 28,436,334 | 72.9 | A |
+| South State Bank (listed earlier as "CenterState Bank") | SouthState (former CenterState charter) | 13425 | 2020-06-08 | 12,393,605 | 87.7 | A (was B) |
+| Atlantic Capital Bank | SouthState | 35525 | 2022-03-01 | 3,335,446 | 9.5 | A |
+| First Midwest Bank | Old National | 3709 | 2022-02-16 | 17,578,256 | 94.1 | A |
+| People's United Bank | M&T | 27334 | 2022-04-02 | 53,542,021 | 41.6 | A |
 
 ### 4.4 Sample
 - Main: 2011Q1 to 2026Q2, 62 quarterly observations per bank.
-- Sensitivity: 2008Q1 to 2026Q3 (Appendix A1), with and without merger adjustment (Appendix A2).
+- Sensitivity: 2008Q1 to 2026Q2, 74 observations per bank (Appendix A.2).
 
 ### 4.5 Exploratory Review
-Figure 1 shows the series. Deposit rates track FFT with a lag and partial pass-through through the 2016 to 2019 tightening, the 2020 cut to the zero bound, and the 2022 to 2023 tightening. Glacier's rate dips to 0.14% in 2012Q1 and jumps to 1.50% in 2012Q2, a pattern consistent with an error in de-cumulating year-to-date interest expense. Huntington shows the same pattern: 2021Q1 interest expense is reported as 0 (rate 0.00%), followed by 0.24% in 2021Q2, the TCF merger quarter.
+Figure 1 shows the series. Deposit rates track FFT with a lag and partial pass-through through the 2016 to 2019 tightening, the 2020 cut to the zero bound, and the 2022 to 2023 tightening. Since late 2024, deposit rates have fallen more slowly than FFT. Glacier's rate sits well below its peers through both tightening cycles.
 
-Figure 1 is produced by the first cell of `EDA1_Stationarity_Tests.ipynb` from `rate_pf_clean` in `consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv` and `FFT_2011-2026.csv`, so it matches the modeled data. Bank rates use the left axis and FFT the right axis. The chart ends in 2026Q2, the last observed quarter. In v0.2 the notebook's end period was changed from 2026Q4 to 2026Q2, so the figure no longer shows two flat-filled quarters.
+Figure 1 is produced by the first cell of `EDA1_Stationarity_Tests.ipynb` from `rate_pf_clean` in `consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv` and `FFT_2011-2026.csv`. Bank rates use the left axis and FFT the right axis. The chart ends in 2026Q2, the last observed quarter.
 
 ![Historical deposit rates of the seven banks vs. FFT, 2011Q1 to 2026Q2](<docs/Historical Deposit Rates vs FFT.png>)
 
@@ -192,9 +188,10 @@ Deposit rates and policy rates are each non-stationary but are expected to share
   - ADF: regression `c` / `n` × lag selection AIC / BIC / t-stat.
   - KPSS: regression `c` / `ct` × bandwidth auto / long / short.
 - KPSS p-values come from a lookup table bounded at 0.10. A reported 0.100 means "at least 0.10".
+- Unit-root tests and Zivot-Andrews break tests are run for all banks and both samples by `diagnostics/stationarity_and_breaks.py`.
 
 ### 5.3 Structural Break Testing
-Zivot-Andrews tests with automatic lag selection were run on the flagged banks (§6).
+Zivot-Andrews tests (`c`, `t`, `ct`; AIC lags, max 4) are run on the levels of every bank's series (§6, Appendix A.3). Every series rejects a unit root once a 2022 level break is allowed, and FFT shows the same break (OI-20).
 
 ### 5.4 Cointegration Testing
 
@@ -206,456 +203,495 @@ Zivot-Andrews tests with automatic lag selection were run on the flagged banks (
 | ARDL bounds test (PSS) | Bounds F | I(1) upper-bound p-value | PSS cases 1 to 5; lags by AIC / BIC / HQIC (max 4); at least 1 lag of the regressor |
 
 - **Baseline run** (`Co-integration Tests.py`, all 7 banks): trend `c`, max lag 4, EG and ARDL lags by AIC, Johansen `det_order 0` with `k_ar_diff = 1`, ARDL case 3.
-- **Re-specification run** (`FlaggedRates_co-integration_respecification.py`): full grid for First Horizon, Glacier, KeyBank, M&T and SouthState. Huntington and Old National were **not** re-specified because they passed under the baseline.
+- **Re-specification run** (`FlaggedRates_co-integration_respecification.py`): full grid for all seven banks. On the rebuilt data, Huntington and Old National fail the baseline and qualify only through the grid.
 - Coefficient t- and p-values on levels regressors (EG step 1, VECM β) do not follow standard distributions when the series are I(1). They are descriptive only.
 
 ### 5.5 Model and Parameter Selection
 1. **Model screen:** keep every specification whose cointegration test p-value is below α = 0.05. A Johansen VECM takes the r ≤ 0 trace result of the same specification. A bounded Johansen p-value "<x" passes when x ≤ α.
-2. **Parameter screen:** within each surviving specification, keep terms with coefficient p-value < 0.05.
+2. **Parameter screen:** within each surviving specification, keep short-run terms with coefficient p-value < 0.05. Deterministic terms are set by the test specification (`n` / case 1 / det_order -1: none; `c` / cases 2–3 / det_order 0: constant; `ct` / cases 4–5 / det_order 1: constant and trend) and are not screened.
 3. **Mapping to a one-step ECM:** surviving deterministic terms, short-run lags, and the error-correction term (`ect.L1`, `y.L1` or VECM `D.y: ec1`) define the regressors. Specifications without a surviving error-correction term are dropped. `EG_LongRun` is treated as error-correcting by construction.
-4. **Estimation:** one-step OLS ECM (§3.2), with long-run coefficients and delta-method standard errors.
+4. **Estimation:** one-step OLS ECM (§3.2), with long-run coefficients and delta-method standard errors. Short-run lags with p ≥ 0.05 are then removed one at a time (largest p first) and the model refit. λ, the long-run regressor and the deterministic terms are never removed.
 5. **Champion choice:** lowest in-sample MAE of Δy per bank. Ties are broken EG > ARDL > Johansen, then file order.
 
 ### 5.6 Performance Testing (Backtest)
-- **Rolling-origin dynamic forecast:** with horizon N = 8 and last observation T = 2026Q2, origins run from T-8 to T-1. At each origin the champion specification is re-estimated on data up to that origin and forecast dynamically to T, with predicted y fed back as the lag and realized FFT used for the regressor.
-- **Metric:** MAE over the k quarters of each forecast window (1Q to 8Q). The minimum training window is 20 quarters.
+**Governing test: many-start-date backtest.**
+- At every start date from 2016Q1 to T-1 (T = 2026Q2), the champion specification is re-estimated on data up to that start date (expanding window) and forecast dynamically up to N quarters ahead, with predicted y fed back as the lag and realized FFT used for the regressor. The horizon N is a user input (`--horizon`, default 8Q).
+- **Metric:** h-step-ahead MAE, averaged over every start date with start + h ≤ T (34 start dates at 8Q, 41 at 1Q).
+- **Benchmark:** a no-change forecast (deposit rate held at its start-date value), scored the same way. Skill ratio = model h-step MAE ÷ no-change h-step MAE.
+- **Horizon bands, derived from N:** 1 to ⌈N/4⌉, ⌈N/4⌉+1 to ⌈N/2⌉, ⌈N/2⌉+1 to N (8Q: 1–2Q, 3–4Q, 5–8Q).
+- **Band limits, derived each run from the peer group:** green = the 75th percentile of the banks' band-average MAE, rounded up to 0.05; red = the 75th percentile of the banks' band-maximum MAE, rounded up to 0.05, and at least green + 0.05.
+- **Rating:** absolute test, Red if a band maximum exceeds red, Amber if a band average exceeds green; skill test, Red if any ratio ≥ 1.00, Amber if any ratio > 0.75. The rating is the worse of the two. With fewer than four banks, only the skill test applies.
+- The limits are relative to the peer group: by construction, about a quarter of banks exceed the green limit in each band. The skill test is the only absolute standard. Fixing the limits from a reference run is a candidate refinement.
+- Per-origin errors are cached (`MAE_Backtesting/output/cache/`) so that a shorter horizon reuses a longer run without refitting.
+
+**Supplementary test: single-window 8Q backtest.** For each k = 1 to 8, one forecast from start date T−k to T, with MAE averaged over its k quarters. Each kQ figure rests on one start date. Rated Green (mean ≤ 0.15 pp and below the no-change mean), Amber (mean 0.15–0.25 pp, or beats no-change on fewer than 6 of 8 horizons) or Red (mean > 0.25 pp, or any horizon > 0.50 pp).
 
 ### 5.7 Key Assumptions
 - FFT is weakly exogenous to each bank's deposit rate (single-equation ECM).
 - One cointegrating vector (rank 1) between the deposit rate and FFT.
 - Linear, symmetric pass-through: no asymmetry between rising and falling rates, and no threshold at the zero lower bound.
 - Parameters are stable over 2011 to 2026, apart from any deterministic trend.
-- Total interest expense ÷ total deposits is an adequate proxy for the deposit rate.
+- Deposit interest expense ÷ total deposits (interest-bearing and non-interest-bearing) is an adequate measure of the deposit rate, giving a total-deposit beta.
+- For projection, a deterministic trend in the long-run relation is frozen at its end-of-sample value.
 
 ---
 
 ## 6. Bank-Specific Development and Treatment
 
-Each subsection follows the same structure: data treatment, stationarity, structural breaks, cointegration, specifications estimated, champion model, and outcomes and issues. All results use 2011Q1 to 2026Q2 merger-adjusted data unless stated otherwise. Rates are in percentage points (pp).
+Each subsection follows the same structure: data treatment, stationarity, structural breaks, cointegration, specifications estimated, champion model, and outcomes and issues. All results use the 2011Q1 to 2026Q2 pro forma (merger-adjusted) series built from deposit interest expense (§4), unless stated otherwise. Rates are in percentage points (pp).
 
 ### 6.1 First Horizon Bank
 
 #### 6.1.1 Data Treatment
-- FDIC cert 4977. The IBERIABANK merger (2020-07-02) is listed as Mode A in `merger_events_used.csv`, but **no adjustment appears in the modeled data** (`adjustment_mode = none` in all 62 quarters). Open issue.
+- FDIC cert 4977. Pro forma for Mountain National (2013), TrustAtlantic (2015), Capital Bank Corporation (2017, 37%) and IBERIABANK (2020-07-02, 73%).
 
 #### 6.1.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF -1.061 (p 0.730), KPSS 0.640 (p 0.019): non-stationary | ADF -3.557 (p 0.0066), KPSS 0.095 (p 0.100): stationary |
-| 2011 to 2026 merger-adjusted (main) | ADF -1.980 (p 0.296), KPSS 0.640 (p 0.019): **non-stationary** | ADF -3.420 (p 0.0103), KPSS 0.103 (p 0.100): **stationary** |
-| 2008 to 2026 raw | ADF -1.805 (p 0.378), KPSS 0.245 (p 0.100): inconclusive | ADF -3.771 (p 0.0032), KPSS 0.500 (p 0.042): inconclusive |
-| 2008 to 2026 merger-adjusted | ADF -2.134 (p 0.231), KPSS 0.245 (p 0.100): inconclusive | ADF -3.614 (p 0.0055), KPSS 0.519 (p 0.037): inconclusive |
+| 2011Q1 to 2026Q2 (main) | ADF -2.373 (p 0.149), KPSS 0.558 (p 0.029): non-stationary | ADF -3.679 (p 0.0044), KPSS 0.112 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -2.868 (p 0.049), KPSS 0.284 (p ≥ 0.10): stationary | ADF -3.565 (p 0.0065), KPSS 0.366 (p 0.092): stationary |
 
-**Conclusion: I(1) under the default specification.** Not flagged.
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
+
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 6/6, KPSS I(1) 6/6.
+
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: I(0).
 
 #### 6.1.3 Structural Breaks
-Not tested.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.27, p 5.4e-04, break 2022Q3; `t`: -4.80, p 0.019, break 2021Q4; `ct`: -5.07, p 0.051, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.1.4 Cointegration
-- **Baseline:** EG long run p 0.252; EG short run p 0.347; Johansen trace r ≤ 0 = 26.61 (p < 0.01), r ≤ 1 = 4.40 (p < 0.05); ARDL(3,4) case 3 F = 3.68 (p 0.149). Only Johansen passes.
-- **Re-specification:** included in the grid as a precaution. Passing specifications include EG with `ct` (long run p 0.032; short run p 4.9e-06 under BIC and p 0.046 under t-stat), Johansen with `det_order` -1, 0 and 1, and ARDL cases 2 to 5 (F between 9.8 and 21.4, all p < 1e-05).
+- **Baseline:** EG long run p 0.264; EG short run p 0.424; Johansen trace r ≤ 0 = 21.59 (p < 0.01), r ≤ 1 = 2.93 (p < 0.10); ARDL(4,4) case 3 F = 3.54 (p 0.169). Only Johansen passes.
+- **Re-specification:** run for all seven banks (§5.4). Specifications that pass and reach estimation: Johansen `det_order` -1, 0, 1; EG short run `n`; EG long run `c`, `ct`; ARDL cases 1, 4, 5.
 
 #### 6.1.5 Specifications Estimated
-17 one-step ECMs (8 ARDL, 3 EG, 6 Johansen). In-sample MAE 0.0607 to 0.0922. Long-run beta 0.445 to 0.567.
+23 one-step ECMs (9 ARDL, 7 Johansen, 7 EG). In-sample MAE 0.0469 to 0.0798. Long-run beta 0.404 to 0.527.
 
-#### 6.1.6 Champion Model: ARDL(3,2), case 4 (unrestricted constant, restricted trend), AIC
-Bounds F = 14.77, p = 1.3e-08. Tied on in-sample MAE with the HQIC selection of the same lags; the tie-break kept the AIC row.
+#### 6.1.6 Champion Model: ARDL(3,4), case 4 (unrestricted constant, restricted trend), AIC
+Tied on in-sample MAE with the HQIC selection of the same lags and with case 5 under AIC and HQIC; the tie-break kept the case 4 AIC row. The deterministic terms follow the case 4 test specification (§5.5).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| const | 0.2248 | 4.61 | 2.7e-05 |
-| trend | -0.00571 | -3.76 | 4.4e-04 |
-| y.L1 (λ) | **-0.5170** | -6.23 | 8.8e-08 |
-| FFT.L1 | 0.2895 | 6.54 | 2.9e-08 |
-| D.y.L1 | 0.4878 | 4.88 | 1.1e-05 |
-| D.y.L2 | -0.2722 | -2.97 | 4.6e-03 |
-| D.FFT.L0 | 0.2057 | 3.77 | 4.2e-04 |
-| D.FFT.L1 | -0.1691 | -2.18 | 0.034 |
-| LR: const | 0.4349 | 6.96 | 6.3e-09 |
-| LR: trend | -0.01105 | -4.25 | 9.0e-05 |
-| **LR: FFT (θ)** | **0.5599** | 20.28 | 4.5e-26 |
+| const | 0.1266 | 2.83 | 0.0068 |
+| trend | -0.00400 | -2.83 | 0.0068 |
+| y.L1 (λ) | **-0.3747** | -4.21 | 1.1e-04 |
+| FFT.L1 | 0.1935 | 4.34 | 7.1e-05 |
+| D.y.L1 | 0.3469 | 3.35 | 0.0016 |
+| D.y.L2 | -0.4059 | -4.54 | 3.7e-05 |
+| D.FFT.L0 | 0.2171 | 5.08 | 5.9e-06 |
+| D.FFT.L1 | -0.1563 | -2.30 | 0.026 |
+| D.FFT.L3 | 0.1511 | 2.73 | 0.0087 |
+| LR: const | 0.3378 | 4.71 | 2.1e-05 |
+| LR: trend | -0.0107 | -3.71 | 5.3e-04 |
+| **LR: FFT (θ)** | **0.5165** | 16.88 | 4.6e-22 |
 
 ![First Horizon Bank: actual vs. predicted deposit rate, champion model](<docs/figures/First Horizon Bank - Actual vs Predicted.png>)
 
 *Figure 2: First Horizon Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.1.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.247, 0.121, 0.085, 0.066, 0.174, 0.140, 0.154, 0.137. Mean 0.140.
+- **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.100, 0.179, 0.227, 0.239, 0.283, 0.308, 0.312, 0.292. Worst skill ratio against the no-change forecast: 0.71 at 1Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.044, 0.030, 0.067, 0.096, 0.086, 0.177, 0.103; mean 0.087, no-change mean 0.307, beats no-change on 7/8 horizons (Green).
 
-![First Horizon Bank: rolling-origin 8Q backtest MAE](<docs/figures/First Horizon Bank - MAE Backtest 8Q.png>)
+![First Horizon Bank: 8Q backtest MAE by horizon](<docs/figures/First Horizon Bank - MAE Backtest 8Q.png>)
 
-*Figure 3: First Horizon Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 3: First Horizon Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- The long-run trend (-0.011 pp per quarter) lowers the equilibrium rate by about 0.68 pp over the sample. Projections beyond the sample will carry this trend forward, which may not be economically justified. A reviewer should assess whether the trend stands in for the unmodeled IBERIABANK merger.
-- The fastest adjustment in the peer set (λ = -0.52) means about half of any disequilibrium closes each quarter.
+- The long-run trend (-0.011 pp per quarter, p 0.0005) survives full pro forma adjustment for IBERIABANK and Capital Bank, so it does not stand in for an unmodeled merger. For projection it is frozen at its 2026Q2 value (§5.7). The best no-trend alternative has θ 0.467, in-sample MAE 0.0511 and holdout MAE 0.118, against 0.517, 0.0469 and 0.087 for this model.
+- λ = -0.37: about 37% of any disequilibrium closes each quarter, the fastest adjustment in the peer set.
+- The rating depends on the backtest horizon N: Green at 8Q, Amber at 4Q and 12Q, because the band edges move its 2Q error between bands (§5.6).
 
 ### 6.2 Glacier Bank
 
 #### 6.2.1 Data Treatment
-No merger events recorded. `adjustment_mode = none` throughout.
+- FDIC cert 30788. Pro forma for 25 Mode A events since 2011, including the 2012-04-30 consolidation of 10 affiliate charters (First Security Bank of Missoula, Mountain West Bank, Western Security Bank, 1ST BANK, Valley Bank of Helena, First Bank of Wyoming, Citizens Community Bank, Big Sky Western Bank, Bank of the San Juans, First Bank of Montana) and Altabank (2021, 19%). Treasure State Bank (2016, 0.84%) is Mode B.
+- The 2012Q1 dip (0.14%) and 2012Q2 spike (1.50%) in the earlier build came from the charter consolidation combined with calendar-year deposit averaging and year-to-date de-cumulation. Both are gone in the rebuilt series (0.487% and 0.494%).
 
 #### 6.2.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF -1.685 (p 0.439), KPSS 0.441 (p 0.060): insufficient evidence | ADF -3.515 (p 0.0076), KPSS 0.170 (p 0.100): stationary |
-| 2011 to 2026 merger-adjusted, default | ADF -1.063 (p 0.730), KPSS 0.443 (p 0.059): **inconclusive, flagged** | ADF -9.773 (p 7.0e-17), KPSS 0.169 (p 0.100): stationary |
-| 2008 to 2026 raw | ADF -3.440 (p 0.0097), KPSS 0.291 (p 0.100): stationary (I(0)) | ADF -4.211 (p 0.0006), KPSS 0.490 (p 0.044): inconclusive |
-| 2008 to 2026 merger-adjusted | ADF -3.871 (p 0.0023), KPSS 0.290 (p 0.100): stationary (I(0)) | ADF -4.894 (p 3.6e-05), KPSS 0.419 (p 0.069): stationary |
+| 2011Q1 to 2026Q2 (main) | ADF -1.226 (p 0.662), KPSS 0.447 (p 0.057): inconclusive | ADF -3.539 (p 0.0070), KPSS 0.223 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -1.749 (p 0.406), KPSS 0.295 (p ≥ 0.10): inconclusive | ADF -2.870 (p 0.049), KPSS 0.647 (p 0.018): inconclusive |
 
-**Re-specification (2011 to 2026 raw, ADF on levels):** no specification rejects a unit root (`c` p 0.373; `n` p 0.243 under AIC, BIC and t-stat).
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
 
-**Re-specification (2011 to 2026 merger-adjusted), selected ADF `c` / BIC and KPSS `c` / auto:**
-- I(0): ADF -1.047 (p 0.736); KPSS 0.466 (p 0.049). **Non-stationary.**
-- I(1): ADF -9.605 (p 1.9e-16); KPSS 0.176 (p 0.100). **Stationary.**
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 1/6, ADF I(1) 6/6, KPSS I(1) 6/6.
 
-**Robustness** (share of the six re-specifications supporting the conclusion): ADF I(0) 6/6, KPSS I(0) 5/6, ADF I(1) 5/6, KPSS I(1) 6/6.
-
-**Conclusion: I(1), conditional on specification.** The KPSS I(0) rejection is borderline (p 0.0494 under `c`/auto and `c`/short; 0.0499 under `ct`/long). `ct`/auto is clearer (p 0.010). In the longer 2008 to 2026 sample the levels series looks I(0).
+**Conclusion (main sample):** **Flagged:** the default specification is inconclusive on levels. 2008 to 2026 sample: flagged.
 
 #### 6.2.3 Structural Breaks
-Zivot-Andrews statistic -4.649, p 0.154 (critical values: 1% -5.58, 5% -5.07, 10% -4.83). Estimated break at 2011-09-30 (index 2). The test does not reject a unit root with a break.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -7.57, p 1.0e-05, break 2022Q4; `t`: -3.79, p 0.210, break 2021Q3; `ct`: -5.20, p 0.036, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.2.4 Cointegration
-- **Baseline:** none pass. EG long run p 0.338; EG short run p 0.843; Johansen trace r ≤ 0 = 13.12 (p > 0.10); ARDL(2,4) case 3 F = 2.49 (p 0.394).
-- **Re-specification:** Johansen with `det_order 1` (linear trend), k_ar_diff = 1 under every lag criterion: trace r ≤ 0 = 21.86 (p < 0.05), r ≤ 1 = 4.04 (p < 0.05). ARDL(2,1) cases 1 to 5 under BIC and HQIC, plus cases 4 and 5 under AIC: F between 5.65 and 10.71 (p 0.0002 to 0.0035). No EG specification passes.
-- The Johansen r ≤ 1 rejection, if taken literally, implies rank 2 (both series stationary). Rank 1 is imposed by assumption.
+- **Baseline:** none pass. EG long run p 0.353; Johansen trace r ≤ 0 = 13.17 (p > 0.10); ARDL(3,4) case 3 F = 2.95 (p 0.278).
+- **Re-specification:** Johansen `det_order 1`, k_ar_diff = 1 (BIC, fixed): r ≤ 0 = 20.31 (p < 0.05), r ≤ 1 = 5.64 (p < 0.05). ARDL(3,1) cases 4 and 5 under BIC (F 6.04, p 0.007; F 8.25, p 0.004).
+- The Johansen r ≤ 1 rejection, if taken literally, implies rank 2. Rank 1 is imposed by assumption.
 
 #### 6.2.5 Specifications Estimated
-17 one-step ECMs (12 ARDL, 5 Johansen). In-sample MAE 0.1157 to 0.1264, the highest in the peer set. Long-run beta 0.412 to 0.462.
+4 one-step ECMs (2 Johansen, 2 ARDL). In-sample MAE 0.0292 to 0.0310. Long-run beta 0.277 to 0.346.
 
-#### 6.2.6 Champion Model: Johansen VECM (rank 1), det_order 1 (linear trend), k_ar_diff = 1, AIC
-All five Johansen lag criteria give the same model. The deterministic terms did not survive the parameter screen, so the estimated ECM has **no constant or trend**, even though the cointegration test used a linear trend.
+#### 6.2.6 Champion Model: ARDL(3,1), case 4 (unrestricted constant, restricted trend), BIC
+The constant and trend are individually insignificant (p 0.106 and 0.103) but are kept because the case 4 test that qualifies the model includes them (§5.5).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.2068** | -3.01 | 4.0e-03 |
-| FFT.L1 | 0.0852 | 3.13 | 2.8e-03 |
-| D.y.L1 | -0.3260 | -2.93 | 4.9e-03 |
-| D.FFT.L1 | 0.2204 | 2.67 | 9.8e-03 |
-| **LR: FFT (θ)** | **0.4119** | 6.97 | 3.9e-09 |
+| const | 0.0265 | 1.64 | 0.106 |
+| trend | -0.00094 | -1.66 | 0.103 |
+| y.L1 (λ) | **-0.1123** | -3.65 | 6.0e-04 |
+| FFT.L1 | 0.0388 | 3.99 | 2.0e-04 |
+| D.y.L1 | 0.7268 | 6.15 | 1.1e-07 |
+| D.y.L2 | -0.2730 | -2.47 | 0.017 |
+| D.FFT.L0 | 0.0485 | 2.87 | 0.0059 |
+| LR: const | 0.2360 | 1.97 | 0.055 |
+| LR: trend | -0.00835 | -1.73 | 0.090 |
+| **LR: FFT (θ)** | **0.3459** | 6.05 | 1.6e-07 |
 
 ![Glacier Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Glacier Bank - Actual vs Predicted.png>)
 
 *Figure 4: Glacier Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.2.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.176, 0.274, 0.177, 0.152, 0.148, 0.279, 0.354, 0.429. Mean 0.248, the **worst in the peer set**, and errors grow with horizon.
+- **Governing rating (many-start-date backtest, §5.6): Amber** (skill ratio 0.96 at 3Q). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.047, 0.103, 0.156, 0.195, 0.238, 0.277, 0.306, 0.331. Worst skill ratio against the no-change forecast: 0.96 at 3Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.031, 0.021, 0.017, 0.116, 0.172, 0.150, 0.040; mean 0.080, no-change mean 0.119, beats no-change on 5/8 horizons (Amber).
 
-![Glacier Bank: rolling-origin 8Q backtest MAE](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
+![Glacier Bank: 8Q backtest MAE by horizon](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
 
-*Figure 5: Glacier Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 5: Glacier Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- The mismatch between the test's deterministic specification (linear trend) and the estimated ECM (none) needs review.
-- The 2012Q1 dip (0.14%) and 2012Q2 spike (1.50%) in the deposit rate are a candidate data anomaly and have not been investigated. The fitted series overshoots in the opposite direction in the following quarters (Figure 4).
-- The fitted rate turns negative (about -0.1%) around 2020Q4, which is not economically meaningful and reflects the model having no floor at zero.
-- Evidence on the order of integration is mixed across samples (§6.2.2).
+- The skill ratio is close to 1 (0.96 at 3Q): Glacier's rate moves little, so the no-change forecast is nearly as accurate as the model. This is the reason for the Amber rating.
+- The champion carries a long-run trend, frozen at its 2026Q2 value for projection (§5.7).
+- The levels series is flagged in both samples (KPSS I(0) p 0.057 in the main sample).
 
 ### 6.3 Huntington National Bank
 
 #### 6.3.1 Data Treatment
-- FDIC cert 6560. **TCF National Bank (2021-06-09), Mode A:** 15% of deposits acquired in 2021Q2. The 2021Q3 rate was adjusted from 0.0836 to 0.0778.
-- **FirstMerit Bank (2016-08-16), Mode A, is listed but not applied** in the modeled data. Open issue.
+- FDIC cert 6560. Pro forma for Fidelity Bank (2012), Advantage Bank (2014), FirstMerit (2016-08-16, 37%), TCF (2021-06-09, 38%), Veritex (2025-10-20, 6%) and Cadence Bank (2026-02-01, 24%).
+- The earlier build showed a 0.00% rate in 2021Q1 because FDIC total interest expense was negative that quarter (probably hedge income) and was clipped to zero. Deposit interest expense is positive (rebuilt rate 0.131%).
 
 #### 6.3.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF 0.917 (p 0.993), KPSS 0.574 (p 0.025): non-stationary | ADF -2.321 (p 0.165), KPSS 0.247 (p 0.100): **insufficient evidence** |
-| 2011 to 2026 merger-adjusted, default | ADF 0.952 (p 0.994), KPSS 0.645 (p 0.019): non-stationary | ADF -2.358 (p 0.154), KPSS 0.171 (p 0.100): **inconclusive, flagged** |
-| 2008 to 2026 raw | ADF -1.694 (p 0.434), KPSS 0.287 (p 0.100): inconclusive | ADF -1.943 (p 0.312), KPSS 0.546 (p 0.031): non-stationary |
-| 2008 to 2026 merger-adjusted | ADF -2.150 (p 0.225), KPSS 0.290 (p 0.100): inconclusive | ADF -5.327 (p 4.8e-06), KPSS 0.557 (p 0.029): inconclusive |
+| 2011Q1 to 2026Q2 (main) | ADF -1.595 (p 0.486), KPSS 0.589 (p 0.024): non-stationary | ADF -3.804 (p 0.0029), KPSS 0.158 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -1.690 (p 0.436), KPSS 0.280 (p ≥ 0.10): inconclusive | ADF -2.805 (p 0.058), KPSS 0.500 (p 0.042): non-stationary |
 
-**Re-specification (2011 to 2026 raw, ADF on levels):** no specification rejects a unit root (p 0.54 to 0.99).
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
 
-**Re-specification (2011 to 2026 merger-adjusted), selected ADF `c` / BIC and KPSS `c` / auto:**
-- I(0): ADF -1.032 (p 0.741); KPSS 0.585 (p 0.024). **Non-stationary.**
-- I(1): ADF -3.978 (p 0.0015); KPSS 0.181 (p 0.100). **Stationary.**
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 6/6, KPSS I(1) 6/6.
 
-**Robustness:** ADF I(0) 6/6, KPSS I(0) 4/6, **ADF I(1) 2/6**, KPSS I(1) 6/6.
-
-**Conclusion: I(1), conditional on specification.** First-difference stationarity holds only under BIC lag selection (`c` p 0.0015; `n` p 8.6e-05). AIC and t-stat fail (p 0.30 with a constant, 0.11 without). KPSS I(0) non-stationarity holds under auto and short bandwidths but not long (p 0.085).
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.3.3 Structural Breaks
-The Zivot-Andrews test **could not be run**: the auxiliary exogenous matrix is not full rank (12 columns, rank 11).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.34, p 4.7e-04, break 2022Q2; `t`: -5.41, p 0.0049, break 2021Q4; `ct`: -5.64, p 0.0082, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.3.4 Cointegration
-- **Baseline:** EG long run p 0.421; EG short run p 0.724 (both fail). Johansen trace r ≤ 0 = 22.33 (p < 0.01), r ≤ 1 = 3.33 (p < 0.10). ARDL(4,4) case 3 F = 9.40 (p 0.0003). Johansen and ARDL pass.
-- Not included in the re-specification grid.
+- **Baseline:** none pass at 5%. EG long run p 0.085; EG short run p 0.882; Johansen trace r ≤ 0 = 13.05 (p > 0.10); ARDL(4,3) case 3 F = 2.78 (p 0.318).
+- **Re-specification** (now run, OI-4): only EG long run with no deterministic terms passes (t -3.13, p 0.019 under AIC, BIC and t-stat). Johansen gives r ≤ 1 rejections only.
 
 #### 6.3.5 Specifications Estimated
-2 one-step ECMs (1 ARDL, 1 Johansen). In-sample MAE 0.0713 to 0.0750. Long-run beta 0.532 to 0.541.
+3 one-step ECMs (3 EG). In-sample MAE 0.0709 to 0.0709. Long-run beta 0.469 to 0.469.
 
-#### 6.3.6 Champion Model: ARDL(4,4), case 3 (unrestricted constant), AIC
+#### 6.3.6 Champion Model: Engle-Granger long run, trend `n`, AIC (ADF lag=1, ECM lag=3)
+All three passing specifications give the same one-step ECM. No short-run terms survive.
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.2858** | -4.69 | 1.9e-05 |
-| FFT.L1 | 0.1521 | 4.80 | 1.3e-05 |
-| D.y.L1 | -0.1170 | -1.07 | **0.291** |
-| D.FFT.L0 | 0.2514 | 6.48 | 3.1e-08 |
-| D.FFT.L3 | 0.1012 | 2.03 | 0.048 |
-| **LR: FFT (θ)** | **0.5320** | 25.16 | 3.8e-31 |
+| y.L1 (λ) | **-0.3133** | -7.97 | 6.2e-11 |
+| FFT.L1 | 0.1471 | 8.68 | 3.9e-12 |
+| **LR: FFT (θ)** | **0.4694** | 26.75 | 1.1e-34 |
 
 ![Huntington National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Huntington National Bank - Actual vs Predicted.png>)
 
 *Figure 6: Huntington National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.3.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.280, 0.161, 0.143, 0.184, 0.215, 0.143, 0.138, 0.141. Mean 0.176. The 1Q error is the highest in the peer set.
+- **Governing rating (many-start-date backtest, §5.6): Red** (3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.084, 0.160, 0.234, 0.307, 0.377, 0.442, 0.510, 0.559. Worst skill ratio against the no-change forecast: 0.74 at 1Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.101, 0.065, 0.163, 0.118, 0.094, 0.208, 0.424, 0.448; mean 0.203, no-change mean 0.231, beats no-change on 6/8 horizons (Amber).
 
-![Huntington National Bank: rolling-origin 8Q backtest MAE](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
+![Huntington National Bank: 8Q backtest MAE by horizon](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
 
-*Figure 7: Huntington National Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 7: Huntington National Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- `D.y.L1` survived the parameter screen in the UECM but is **not significant** (p 0.29) in the re-estimated one-step ECM. The model should be refit without it.
-- Stationarity of the first difference depends on lag selection, and the structural-break test failed.
-- The FirstMerit merger (2016) is not adjusted. The modeled series shows no visible level shift around 2016 (Figure 6), so the effect may be small, but this has not been confirmed.
-- No re-specification grid was run, so robustness of the cointegration result has not been assessed.
+- Cointegration rests on one specification family (OI-19).
+- Errors grow at long horizons. With no contemporaneous FFT term, the model passes rate cuts through too slowly (forecast 2.5% to 2.6% in 2024Q4 to 2025Q2 against an actual of 2.1% to 2.25%).
 
 ### 6.4 KeyBank National Association
 
 #### 6.4.1 Data Treatment
-- FDIC cert 17534. **First Niagara Bank (2016-08-01), Mode A:** 18% of deposits acquired in 2016Q3. The 2016Q4 rate was adjusted from 0.514 to 0.472.
+- FDIC cert 17534. Pro forma for First Niagara Bank (cert 16004, FDIC effective 2016-10-08, 34%). KeyTrust Company (2014, no deposits) is Mode B.
 
 #### 6.4.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF -2.320 (p 0.166), KPSS 0.637 (p 0.019): non-stationary | ADF -3.348 (p 0.013), KPSS 0.097 (p 0.100): stationary |
-| 2011 to 2026 merger-adjusted (main) | ADF -1.642 (p 0.461), KPSS 0.640 (p 0.019): **non-stationary** | ADF -3.552 (p 0.0068), KPSS 0.099 (p 0.100): **stationary** |
-| 2008 to 2026 raw | ADF -1.748 (p 0.407), KPSS 0.293 (p 0.100): inconclusive | ADF -2.946 (p 0.040), KPSS 0.402 (p 0.076): stationary |
-| 2008 to 2026 merger-adjusted | ADF -2.703 (p 0.073), KPSS 0.294 (p 0.100): inconclusive | ADF -3.229 (p 0.018), KPSS 0.400 (p 0.077): stationary |
+| 2011Q1 to 2026Q2 (main) | ADF -1.952 (p 0.308), KPSS 0.572 (p 0.025): non-stationary | ADF -3.732 (p 0.0037), KPSS 0.138 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -1.576 (p 0.496), KPSS 0.272 (p ≥ 0.10): inconclusive | ADF -2.855 (p 0.051), KPSS 0.459 (p 0.052): inconclusive |
 
-**Conclusion: I(1) under the default specification.** Not flagged.
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
+
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 6/6, KPSS I(1) 6/6.
+
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.4.3 Structural Breaks
-Not tested.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.81, p 1.0e-05, break 2022Q3; `t`: -4.67, p 0.024, break 2021Q4; `ct`: -4.93, p 0.076, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.4.4 Cointegration
-- **Baseline:** EG long run -3.499 (**p 0.033, pass**); EG short run p 0.143; Johansen trace r ≤ 0 = 15.05 (p < 0.10); ARDL(3,4) case 3 F = 4.69 (p 0.056).
-- **Re-specification:** broad support. EG with `n` passes under every lag rule (long run p 0.010 to 0.035; short run p 0.011 to 0.022), as do EG `c`/BIC and EG short run `ct`/BIC. Johansen passes with `det_order` -1 (k_ar_diff = 3) and 1 (k_ar_diff = 1 or 3), trace p < 0.05. ARDL(3,4) cases 1 and 2 and ARDL(2,1) cases 2 to 5 pass (p 0.001 to 0.046).
+- **Baseline:** EG long run p 0.198 (fails; the earlier build passed); Johansen trace r ≤ 0 = 13.78 (p < 0.10); ARDL(4,4) case 3 F = 3.39 (p 0.193).
+- **Re-specification:** broad support. Specifications that pass and reach estimation: EG long run `c`, `n`; EG short run `n`; Johansen `det_order` 1; ARDL cases 1, 3, 4, 5.
 
 #### 6.4.5 Specifications Estimated
-28 one-step ECMs (12 EG, 9 ARDL, 7 Johansen). In-sample MAE 0.0545 to 0.1095. Long-run beta **0.175 to 0.539**, the widest range in the peer set; the low end comes from EG long-run specifications.
+17 one-step ECMs (8 EG, 8 ARDL, 1 Johansen). In-sample MAE 0.0317 to 0.0612. Long-run beta 0.397 to 0.487.
 
-#### 6.4.6 Champion Model: Engle-Granger Short-Run ECM, trend `n`, AIC (ADF lag 1, ECM lag 3)
-EG short-run *t* = -3.135, p 0.019. Tied on in-sample MAE (0.054483) with EG short run t-stat/fixed `n` and ARDL(3,4) cases 1 and 2. The EG > ARDL tie-break selected this row.
+#### 6.4.6 Champion Model: ARDL(4,4), case 1 (no deterministic terms), AIC
+With deterministic terms matched to each test (§5.5), this model has the lowest in-sample MAE (0.0317). Under the earlier screening method, EG short run `n` (0.0316) would have won.
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.1839** | -3.93 | 2.5e-04 |
-| FFT.L1 | 0.0910 | 3.69 | 5.4e-04 |
-| D.y.L2 | -0.3121 | -2.79 | 7.4e-03 |
-| D.FFT.L0 | 0.2437 | 7.73 | 3.5e-10 |
-| D.FFT.L2 | 0.1967 | 3.83 | 3.5e-04 |
-| D.FFT.L3 | 0.1738 | 3.40 | 1.3e-03 |
-| **LR: FFT (θ)** | **0.4948** | 19.05 | 4.1e-25 |
+| y.L1 (λ) | **-0.1102** | -2.67 | 0.010 |
+| FFT.L1 | 0.0438 | 2.58 | 0.013 |
+| D.y.L1 | 0.5143 | 4.94 | 8.9e-06 |
+| D.y.L2 | -0.4424 | -3.15 | 0.0028 |
+| D.y.L3 | 0.2780 | 2.71 | 0.0091 |
+| D.FFT.L0 | 0.1207 | 5.70 | 6.0e-07 |
+| D.FFT.L2 | 0.0956 | 2.45 | 0.018 |
+| **LR: FFT (θ)** | **0.3975** | 13.68 | 1.1e-18 |
 
 ![KeyBank National Association: actual vs. predicted deposit rate, champion model](<docs/figures/KeyBank National Association - Actual vs Predicted.png>)
 
 *Figure 8: KeyBank National Association, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.4.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.098, 0.097, 0.103, 0.064, 0.078, 0.119, 0.285, 0.195. Mean 0.130.
+- **Governing rating (many-start-date backtest, §5.6): Red** (5-8Q max 0.533 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.054, 0.115, 0.172, 0.224, 0.294, 0.384, 0.464, 0.533. Worst skill ratio against the no-change forecast: 0.71 at 8Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.075, 0.026, 0.184, 0.060, 0.121, 0.171, 0.358, 0.123; mean 0.140, no-change mean 0.272, beats no-change on 7/8 horizons (Green).
 
-![KeyBank National Association: rolling-origin 8Q backtest MAE](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
+![KeyBank National Association: 8Q backtest MAE by horizon](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
 
-*Figure 9: KeyBank National Association, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 9: KeyBank National Association, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- An earlier 4Q backtest (`MAE_backtest_4Q.csv`) used a **different model**, EG long run `c`/AIC: 0.006, 0.197, 0.282, 0.254. It is not comparable to the champion and should be rerun or archived.
-- The wide beta range across passing specifications (0.17 to 0.54) is a model-risk signal: the beta depends on specification.
+- The 8Q-ahead error (0.533) is above the peer-derived red limit for the 5Q to 8Q band, which is the reason for the Red rating.
+- λ = -0.11: slow adjustment, so errors compound over long horizons.
+- The beta range across passing specifications narrowed to 0.40 to 0.49 after the rebuild (previously 0.18 to 0.54).
 
 ### 6.5 Manufacturers and Traders Trust Company (M&T)
 
 #### 6.5.1 Data Treatment
-- FDIC cert 588. **People's United Bank (2022-04-02), Mode A:** 28% of deposits acquired in 2022Q2, the largest event in scope. The 2022Q3 rate was adjusted from 0.212 to 0.186.
+- FDIC cert 588. Pro forma for Hudson City Savings Bank (2015-11-01, 24%) and People's United Bank (2022-04-02, 42%).
 
 #### 6.5.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF 1.797 (p 0.998), KPSS 0.629 (p 0.020): non-stationary | ADF -2.627 (p 0.088), KPSS 0.114 (p 0.100): **insufficient evidence** |
-| 2011 to 2026 merger-adjusted, default | ADF 1.870 (p 0.998), KPSS 0.631 (p 0.020): non-stationary | ADF -2.493 (p 0.117), KPSS 0.108 (p 0.100): **inconclusive, flagged** |
-| 2008 to 2026 raw | ADF -1.922 (p 0.322), KPSS 0.283 (p 0.100): inconclusive | ADF -4.707 (p 8.2e-05), KPSS 0.503 (p 0.041): inconclusive |
-| 2008 to 2026 merger-adjusted | ADF -1.408 (p 0.578), KPSS 0.285 (p 0.100): inconclusive | ADF -3.099 (p 0.027), KPSS 0.501 (p 0.042): inconclusive |
+| 2011Q1 to 2026Q2 (main) | ADF -2.098 (p 0.245), KPSS 0.528 (p 0.035): non-stationary | ADF -3.861 (p 0.0023), KPSS 0.127 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -1.652 (p 0.456), KPSS 0.264 (p ≥ 0.10): inconclusive | ADF -4.758 (p 6.5e-05), KPSS 0.457 (p 0.053): stationary |
 
-**Re-specification (2011 to 2026 raw, ADF on levels):** no specification rejects a unit root (p 0.34 to 1.00).
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
 
-**Re-specification (2011 to 2026 merger-adjusted), selected ADF `c` / t-stat and KPSS `c` / auto:**
-- I(0): ADF 2.764 (p 1.000); KPSS 0.574 (p 0.025). **Non-stationary.**
-- I(1): ADF -3.965 (p 0.0016); KPSS 0.115 (p 0.100). **Stationary.**
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 6/6, KPSS I(1) 6/6.
 
-**Robustness:** ADF I(0) 6/6, KPSS I(0) 4/6, **ADF I(1) 2/6**, KPSS I(1) 6/6.
-
-**Conclusion: I(1), conditional on specification.** `c`/t-stat was chosen over the `c`/BIC used for Glacier and Huntington because `c`/BIC narrowly misses at I(1) (p 0.0508). Only `c`/t-stat (p 0.0016) and `n`/BIC (p 0.0045) pass; `n`/AIC and `n`/t-stat (both p 0.0523) narrowly miss. KPSS I(0) does not hold under the long bandwidth (p 0.086).
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.5.3 Structural Breaks
-The Zivot-Andrews test **could not be run**: an array broadcast error (shape (52,) into (2,)), attributed to zero-bound values in the series.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.42, p 3.9e-04, break 2022Q3; `t`: -4.09, p 0.111, break 2021Q2; `ct`: -4.91, p 0.079, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.5.4 Cointegration
-- **Baseline:** EG long run p 0.151; EG short run p 0.421; Johansen trace r ≤ 0 = 11.32 (p > 0.10). **ARDL(2,1) case 3 F = 6.18 (p 0.0115), pass.**
-- **Re-specification:** EG long run `n` passes under AIC, BIC and t-stat (p 0.041). ARDL(2,1) passes in cases 1 to 5 under AIC, BIC and HQIC (F 4.12 to 7.10, p 0.005 to 0.034). Johansen `det_order 1` gives only r ≤ 1 rejections (p < 0.05) without an r ≤ 0 rejection, so no Johansen VECM survived.
+- **Baseline:** EG long run p 0.048 (pass); ARDL(2,1) case 3 F = 5.18 (p 0.034, pass); Johansen trace r ≤ 0 = 12.98 (p > 0.10).
+- **Re-specification:** specifications that pass and reach estimation: EG long run `c`, `n`; ARDL cases 1, 3, 4, 5; Johansen `det_order` 1.
 
 #### 6.5.5 Specifications Estimated
-18 one-step ECMs (15 ARDL, 3 EG). In-sample MAE 0.0521 to 0.0840. Long-run beta 0.452 to 0.460. All 15 ARDL specifications collapse to **the same estimated ECM** (MAE 0.052069), because no deterministic term survived the parameter screen.
+22 one-step ECMs (11 ARDL, 6 EG, 5 Johansen). In-sample MAE 0.0383 to 0.0654. Long-run beta 0.342 to 0.432.
 
-#### 6.5.6 Champion Model: ARDL(2,1), case 3 (unrestricted constant), AIC (baseline)
+#### 6.5.6 Champion Model: ARDL(2,1), case 4 (unrestricted constant, restricted trend), AIC
+The deterministic terms follow the case 4 test specification (§5.5).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.1267** | -3.27 | 1.8e-03 |
-| FFT.L1 | 0.0572 | 3.38 | 1.3e-03 |
-| D.y.L1 | 0.4433 | 5.38 | 1.5e-06 |
-| D.FFT.L0 | 0.1519 | 5.30 | 2.0e-06 |
-| **LR: FFT (θ)** | **0.4518** | 12.85 | 2.5e-18 |
+| const | 0.0556 | 2.38 | 0.021 |
+| trend | -0.00202 | -2.44 | 0.018 |
+| y.L1 (λ) | **-0.1835** | -3.91 | 2.6e-04 |
+| FFT.L1 | 0.0792 | 4.06 | 1.6e-04 |
+| D.y.L1 | 0.3335 | 3.81 | 3.6e-04 |
+| D.FFT.L0 | 0.1385 | 5.74 | 4.4e-07 |
+| LR: const | 0.3030 | 3.25 | 0.0020 |
+| LR: trend | -0.0110 | -2.83 | 0.0065 |
+| **LR: FFT (θ)** | **0.4316** | 10.25 | 2.9e-14 |
 
 ![Manufacturers and Traders Trust Company: actual vs. predicted deposit rate, champion model](<docs/figures/Manufacturers and Traders Trust Company - Actual vs Predicted.png>)
 
 *Figure 10: Manufacturers and Traders Trust Company, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.5.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.199, 0.089, 0.083, 0.061, **0.534**, 0.202, 0.096, 0.126. Mean 0.174.
+- **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.059, 0.117, 0.170, 0.211, 0.261, 0.290, 0.304, 0.329. Worst skill ratio against the no-change forecast: 0.62 at 3Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.107, 0.043, 0.065, 0.029, 0.335, 0.115, 0.069, 0.104; mean 0.108, no-change mean 0.235, beats no-change on 6/8 horizons (Green).
 
-![Manufacturers and Traders Trust Company: rolling-origin 8Q backtest MAE](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
+![Manufacturers and Traders Trust Company: 8Q backtest MAE by horizon](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
 
-*Figure 11: Manufacturers and Traders Trust Company, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 11: Manufacturers and Traders Trust Company, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- The 5Q window (origin 2025Q1) has a large error. Old National shows the same pattern, which points to a common shock around 2025Q2 that the FFT-only model does not capture.
-- The slowest adjustment in the peer set (λ = -0.127) means roughly 12.7% of any disequilibrium closes per quarter.
-- The constant in a case 3 specification was dropped by the parameter screen. The champion is effectively a no-intercept model.
+- The large single-window error at 5Q is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (OI-8). Over 37 start dates the 5-step-ahead MAE is 0.26 pp.
+- The champion carries a long-run trend (-0.011 pp per quarter, p 0.0065), frozen at its 2026Q2 value for projection (§5.7).
 
 ### 6.6 Old National Bank
 
 #### 6.6.1 Data Treatment
-- FDIC cert 3832. **First Midwest Bank (2022-02-15)** is listed as Mode A but **no adjustment appears in the modeled data**. Open issue.
+- FDIC cert 3832. Pro forma for 13 Mode A events since 2011, including Integra Bank (2011 failure, 28%), AnchorBank (2016, 21%), First Midwest (2022-02-16, 94%), CapStar (2024, 7%) and Bremer Bank (2025-05-01, 32%). Old National Trust Company (2014, no deposits) is Mode B.
+- The 2025Q2 drop in the earlier build was a data artifact (unadjusted Bremer merger plus calendar-year deposit averaging) and is fixed.
 
 #### 6.6.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF -1.473 (p 0.547), KPSS 0.648 (p 0.018): non-stationary | ADF -3.211 (p 0.019), KPSS 0.198 (p 0.100): stationary |
-| 2011 to 2026 merger-adjusted (main) | ADF -1.206 (p 0.671), KPSS 0.651 (p 0.018): **non-stationary** | ADF -2.969 (p 0.038), KPSS 0.233 (p 0.100): **stationary** |
-| 2008 to 2026 raw | ADF -1.199 (p 0.674), KPSS 0.326 (p 0.100): inconclusive | ADF -5.177 (p 9.8e-06), KPSS 0.530 (p 0.035): inconclusive |
-| 2008 to 2026 merger-adjusted | ADF -1.986 (p 0.293), KPSS 0.328 (p 0.100): inconclusive | ADF -2.631 (p 0.087), KPSS 0.607 (p 0.022): non-stationary |
+| 2011Q1 to 2026Q2 (main) | ADF -1.401 (p 0.582), KPSS 0.549 (p 0.031): non-stationary | ADF -3.779 (p 0.0031), KPSS 0.194 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -2.236 (p 0.194), KPSS 0.274 (p ≥ 0.10): inconclusive | ADF -2.878 (p 0.048), KPSS 0.551 (p 0.030): inconclusive |
 
-**Conclusion: I(1) under the default specification** in the main sample. The I(1) ADF p-value (0.038) is the closest to the threshold among the unflagged banks.
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
+
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 6/6, KPSS I(1) 6/6.
+
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.6.3 Structural Breaks
-Not tested.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.21, p 6.1e-04, break 2022Q3; `t`: -4.31, p 0.065, break 2022Q1; `ct`: -4.26, p 0.335, break 2019Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.6.4 Cointegration
-- **Baseline:** EG long run p 0.245; EG short run p 0.801 (both fail). Johansen trace r ≤ 0 = 18.27 (p < 0.05), r ≤ 1 = 2.33 (p > 0.10): rank 1 is supported cleanly. **ARDL(3,1) case 3 F = 17.12 (p 4.3e-08).**
-- Not included in the re-specification grid.
+- **Baseline:** none pass at 5%. EG long run p 0.379; Johansen trace r ≤ 0 = 15.49 (p < 0.10); ARDL(4,4) case 3 F = 2.85 (p 0.302).
+- **Re-specification** (now run, OI-4): EG long run `n` / BIC (p 0.0077); Johansen `det_order -1`, k_ar_diff = 1 (r ≤ 0 = 13.91, p < 0.05).
 
 #### 6.6.5 Specifications Estimated
-2 one-step ECMs (1 ARDL, 1 Johansen). In-sample MAE 0.0858 to 0.0912. Long-run beta 0.521 to 0.541.
+2 one-step ECMs (1 EG, 1 Johansen). In-sample MAE 0.0414 to 0.0585. Long-run beta 0.419 to 0.429.
 
-#### 6.6.6 Champion Model: ARDL(3,1), case 3 (unrestricted constant), AIC
+#### 6.6.6 Champion Model: Johansen VECM (rank 1), det_order -1 (none), k_ar_diff = 1, fixed
+Johansen trace r ≤ 0 = 13.91 (p < 0.05).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.3156** | -5.64 | 6.0e-07 |
-| FFT.L1 | 0.1708 | 6.23 | 6.7e-08 |
-| D.y.L2 | -0.2429 | -2.42 | 0.019 |
-| D.FFT.L0 | 0.1697 | 3.39 | 1.3e-03 |
-| **LR: FFT (θ)** | **0.5412** | 19.24 | 4.3e-26 |
+| y.L1 (λ) | **-0.1354** | -3.49 | 9.4e-04 |
+| FFT.L1 | 0.0567 | 3.56 | 7.5e-04 |
+| D.y.L1 | 0.3063 | 2.83 | 0.0064 |
+| D.FFT.L1 | 0.1024 | 3.20 | 0.0022 |
+| **LR: FFT (θ)** | **0.4191** | 13.85 | 9.8e-20 |
 
 ![Old National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Old National Bank - Actual vs Predicted.png>)
 
 *Figure 12: Old National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.6.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.058, 0.092, 0.054, 0.105, **0.539**, 0.223, 0.339, 0.196. Mean 0.201.
+- **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.067, 0.132, 0.182, 0.230, 0.300, 0.359, 0.396, 0.437. Worst skill ratio against the no-change forecast: 0.67 at 2Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.106, 0.052, 0.191, 0.094, 0.364, 0.173, 0.289, 0.114; mean 0.173, no-change mean 0.207, beats no-change on 6/8 horizons (Amber).
 
-![Old National Bank: rolling-origin 8Q backtest MAE](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
+![Old National Bank: 8Q backtest MAE by horizon](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
 
-*Figure 13: Old National Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 13: Old National Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- Large errors at 5Q to 7Q (origins 2024Q3 to 2025Q1) coincide with the M&T error spike. The actual rate drops to about 1.85% in 2025Q2 and rebounds to about 2.6% in 2025Q3 (Figure 12). Every forecast window that includes 2025Q2 is affected. This one-quarter reversal should be checked as a possible data artifact.
-- The unapplied First Midwest merger (2022) falls inside the rate-hiking cycle and may bias the post-2022 relationship.
-- No re-specification grid was run.
+- The large single-window error at 5Q comes from one start date (2025Q1) and is the shared easing-cycle effect (OI-8).
 
 ### 6.7 SouthState Bank
 
 #### 6.7.1 Data Treatment
-- FDIC cert 33555. **CenterState Bank (2020-06-08): Mode B**, 0.5% of deposits acquired in 2020Q2. Flagged but **not excluded** from `rate_pf_clean`.
-- **Atlantic Capital Bank (2022-03-01)** is listed as Mode A but **not applied** in the modeled data. Open issue.
-- Note: under the 1.0% materiality rule CenterState is classified as sub-material, which follows from the placeholder deposit value (§4.3), not from actual deposits.
+- FDIC cert 33555, the former CenterState Bank charter. Pro forma for 19 Mode A events since 2011, including South State Bank (cert 13425, 2020-06-08, 88%; previously mislabelled as CenterState, Mode B, 0.5%), Atlantic Capital (2022-03-01, 9%) and Independent Bank (2025-01-01, 40%).
 
 #### 6.7.2 Stationarity
 
-| Sample | Levels I(0) | First difference I(1) |
+| Sample (pro forma) | Levels I(0) | First difference I(1) |
 | :--- | :--- | :--- |
-| 2011 to 2026 raw | ADF -1.464 (p 0.551), KPSS 0.633 (p 0.020): non-stationary | ADF -4.274 (p 0.0005), KPSS 0.212 (p 0.100): stationary |
-| 2011 to 2026 merger-adjusted (main) | ADF -0.972 (p 0.763), KPSS 0.633 (p 0.020): **non-stationary** | ADF -4.488 (p 0.0002), KPSS 0.239 (p 0.100): **stationary** |
-| 2008 to 2026 raw | ADF -1.966 (p 0.302), KPSS 0.293 (p 0.100): inconclusive | ADF -12.412 (p 4.3e-23), KPSS 0.476 (p 0.047): inconclusive |
-| 2008 to 2026 merger-adjusted | ADF -1.829 (p 0.366), KPSS 0.287 (p 0.100): inconclusive | ADF -13.100 (p 1.7e-24), KPSS 0.355 (p 0.097): stationary |
+| 2011Q1 to 2026Q2 (main) | ADF -2.033 (p 0.272), KPSS 0.517 (p 0.038): non-stationary | ADF -3.725 (p 0.0038), KPSS 0.207 (p ≥ 0.10): stationary |
+| 2008Q1 to 2026Q2 | ADF -1.810 (p 0.375), KPSS 0.278 (p ≥ 0.10): inconclusive | ADF -3.452 (p 0.0093), KPSS 0.593 (p 0.023): inconclusive |
 
-**Conclusion: I(1) under the default specification.** Not flagged.
+Default specification: ADF `c` / AIC and KPSS `c` / auto.
+
+**Robustness** (share of the six re-specifications agreeing with the default, main sample): ADF I(0) 6/6, KPSS I(0) 2/6, ADF I(1) 5/6, KPSS I(1) 6/6.
+
+**Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.7.3 Structural Breaks
-Not tested.
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.23, p 5.8e-04, break 2022Q3; `t`: -4.43, p 0.048, break 2021Q3; `ct`: -5.21, p 0.035, break 2022Q4. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
 
 #### 6.7.4 Cointegration
-- **Baseline:** EG long run p 0.383; EG short run p 0.955 (both fail). Johansen trace r ≤ 0 = 24.81 (p < 0.01), r ≤ 1 = 4.17 (p < 0.05). ARDL(4,4) case 3 F = 10.12 (p 0.0001).
-- **Re-specification:** the strongest support in the peer set. EG short run with ECM lag 0 under BIC passes for `n`, `c` and `ct` (p 3.6e-05 to 0.0045). Johansen passes for every `det_order` and lag criterion (trace p < 0.01 or < 0.05). ARDL passes in every case and criterion (F 6.75 to 22.15, p < 0.001).
-- Under `det_order` 0 and 1 the r ≤ 1 statistic also rejects, which taken literally points to rank 2.
+- **Baseline:** EG long run p 0.312; Johansen trace r ≤ 0 = 14.06 (p < 0.10); ARDL(4,3) case 3 F = 3.50 (p 0.174).
+- **Re-specification:** specifications that pass and reach estimation: Johansen `det_order` -1, 0; ARDL cases 1, 4, 5.
 
 #### 6.7.5 Specifications Estimated
-31 one-step ECMs (15 ARDL, 3 EG, 13 Johansen). In-sample MAE 0.0588 to 0.0650, the tightest range in the peer set. Long-run beta 0.407 to 0.482.
+7 one-step ECMs (5 ARDL, 2 Johansen). In-sample MAE 0.0336 to 0.0437. Long-run beta 0.424 to 0.524.
 
-#### 6.7.6 Champion Model: Johansen VECM (rank 1), det_order -1 (none), k_ar_diff = 2, AIC
-Trace r ≤ 0 = 16.58 (p < 0.01). Tied on in-sample MAE with the FPE selection and with `det_order 0` (AIC and FPE); file order kept this row.
+#### 6.7.6 Champion Model: ARDL(4,3), case 1 (no deterministic terms), AIC
+No deterministic terms (case 1).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.2145** | -3.88 | 2.8e-04 |
-| FFT.L1 | 0.0930 | 4.40 | 5.1e-05 |
-| D.y.L2 | -0.2556 | -2.39 | 0.020 |
-| D.FFT.L2 | 0.1360 | 2.84 | 6.3e-03 |
-| **LR: FFT (θ)** | **0.4338** | 13.87 | 1.3e-19 |
+| y.L1 (λ) | **-0.0816** | -2.72 | 0.0090 |
+| FFT.L1 | 0.0361 | 2.78 | 0.0076 |
+| D.y.L1 | 0.7917 | 5.85 | 3.8e-07 |
+| D.y.L2 | -0.6669 | -4.04 | 1.8e-04 |
+| D.y.L3 | 0.2762 | 2.72 | 0.0090 |
+| D.FFT.L0 | 0.1849 | 6.83 | 1.1e-08 |
+| D.FFT.L1 | -0.1443 | -3.13 | 0.0029 |
+| D.FFT.L2 | 0.1447 | 3.54 | 8.6e-04 |
+| **LR: FFT (θ)** | **0.4428** | 11.20 | 3.1e-15 |
 
 ![SouthState Bank: actual vs. predicted deposit rate, champion model](<docs/figures/SouthState Bank - Actual vs Predicted.png>)
 
 *Figure 14: SouthState Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.7.7 Outcomes Analysis and Issues
-- 8Q backtest MAE (1Q to 8Q): 0.136, 0.073, 0.071, 0.110, 0.125, 0.140, 0.093, 0.087. Mean 0.104, the **best and most stable in the peer set**.
+- **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.061, 0.134, 0.202, 0.262, 0.312, 0.355, 0.384, 0.406. Worst skill ratio against the no-change forecast: 0.70 at 3Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.077, 0.091, 0.057, 0.124, 0.392, 0.126, 0.314, 0.129; mean 0.164, no-change mean 0.182, beats no-change on 5/8 horizons (Amber).
 
-![SouthState Bank: rolling-origin 8Q backtest MAE](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
+![SouthState Bank: 8Q backtest MAE by horizon](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
 
-*Figure 15: SouthState Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+*Figure 15: SouthState Bank, single-window 8Q backtest MAE by horizon (one start date per horizon), champion model.*
 
-- The champion has no contemporaneous FFT term. Pass-through starts after two quarters.
-- The unapplied Atlantic Capital merger (2022) is an open data issue.
+- λ = -0.08 is the slowest adjustment in the peer set.
+- Shares the easing-cycle error at the 2025Q1 start date (OI-8).
 
 ---
 
 ## 7. Outcomes Analysis: Peer Comparison
 
-### 7.1 Rolling-Origin 8Q Backtest (MAE, pp)
+### 7.1 Many-Start-Date Backtest (governing; h-step MAE, pp)
+Start dates every quarter from 2016Q1, expanding estimation window, dynamic forecasts with realized FFT. Each h-step figure averages 34 (8Q) to 41 (1Q) start dates.
 
-| Bank | 1Q | 2Q | 3Q | 4Q | 5Q | 6Q | 7Q | 8Q | Mean |
-| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| First Horizon Bank | 0.247 | 0.121 | 0.085 | 0.066 | 0.174 | 0.140 | 0.154 | 0.137 | 0.140 |
-| Glacier Bank | 0.176 | 0.274 | 0.177 | 0.152 | 0.148 | 0.279 | 0.354 | 0.429 | 0.248 |
-| Huntington National Bank | 0.280 | 0.161 | 0.143 | 0.184 | 0.215 | 0.143 | 0.138 | 0.141 | 0.176 |
-| KeyBank National Association | 0.098 | 0.097 | 0.103 | 0.064 | 0.078 | 0.119 | 0.285 | 0.195 | 0.130 |
-| Manufacturers and Traders Trust Company | 0.199 | 0.089 | 0.083 | 0.061 | 0.534 | 0.202 | 0.096 | 0.126 | 0.174 |
-| Old National Bank | 0.058 | 0.092 | 0.054 | 0.105 | 0.539 | 0.223 | 0.339 | 0.196 | 0.201 |
-| SouthState Bank | 0.136 | 0.073 | 0.071 | 0.110 | 0.125 | 0.140 | 0.093 | 0.087 | 0.104 |
+| Bank | 1Q | 2Q | 3Q | 4Q | 5Q | 6Q | 7Q | 8Q | Mean | No-change mean | Worst skill ratio | Rating |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.100 | 0.179 | 0.227 | 0.239 | 0.283 | 0.308 | 0.312 | 0.292 | 0.242 | 0.539 | 0.71 | **Green** |
+| Glacier Bank | 0.047 | 0.103 | 0.156 | 0.195 | 0.238 | 0.277 | 0.306 | 0.331 | 0.207 | 0.235 | 0.96 | **Amber** |
+| Huntington National Bank | 0.084 | 0.160 | 0.234 | 0.307 | 0.377 | 0.442 | 0.510 | 0.559 | 0.334 | 0.467 | 0.74 | **Red** |
+| KeyBank National Association | 0.054 | 0.115 | 0.172 | 0.224 | 0.294 | 0.384 | 0.464 | 0.533 | 0.280 | 0.448 | 0.71 | **Red** |
+| Manufacturers and Traders Trust Company | 0.059 | 0.117 | 0.170 | 0.211 | 0.261 | 0.290 | 0.304 | 0.329 | 0.218 | 0.394 | 0.62 | **Green** |
+| Old National Bank | 0.067 | 0.132 | 0.182 | 0.230 | 0.300 | 0.359 | 0.396 | 0.437 | 0.263 | 0.404 | 0.67 | **Green** |
+| SouthState Bank | 0.061 | 0.134 | 0.202 | 0.262 | 0.312 | 0.355 | 0.384 | 0.406 | 0.264 | 0.413 | 0.70 | **Green** |
 
-Each kQ forecast window runs from origin + 1 to 2026Q2. Because the windows overlap, the horizons are not independent tests.
+Band limits for N = 8, derived from this run (§5.6):
 
-### 7.2 Observations
-- Out-of-sample MAE is about 2 to 3 times in-sample MAE for every bank. This is expected given dynamic forecasting, but it shows that in-sample MAE is a weak criterion for choosing the champion.
-- Long-run betas cluster in two groups: about 0.53 to 0.56 (First Horizon, Huntington, Old National) and about 0.41 to 0.50 (Glacier, SouthState, M&T, KeyBank).
-- No performance thresholds (acceptance criteria) have been defined yet.
+| Band | Green limit (band average) | Red limit (band maximum) |
+| :-: | :-: | :-: |
+| 1-2Q | 0.15 | 0.20 |
+| 3-4Q | 0.25 | 0.30 |
+| 5-8Q | 0.40 | 0.50 |
 
-### 7.3 Benchmarking
-No challenger or benchmark model has been built yet, such as a static OLS beta, a cycle-specific beta, or an asymmetric ECM. Open item.
+### 7.2 Single-Window 8Q Backtest (supplementary; MAE, pp)
+Each column is one forecast window, starting at T−k and ending at 2026Q2, with MAE averaged over its k quarters. Each column therefore rests on a single start date, and the windows overlap.
+
+| Bank | 1Q | 2Q | 3Q | 4Q | 5Q | 6Q | 7Q | 8Q | Mean | No-change mean | Rating |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.094 | 0.044 | 0.030 | 0.067 | 0.096 | 0.086 | 0.177 | 0.103 | 0.087 | 0.307 | Green |
+| Glacier Bank | 0.094 | 0.031 | 0.021 | 0.017 | 0.116 | 0.172 | 0.150 | 0.040 | 0.080 | 0.119 | Amber |
+| Huntington National Bank | 0.101 | 0.065 | 0.163 | 0.118 | 0.094 | 0.208 | 0.424 | 0.448 | 0.203 | 0.231 | Amber |
+| KeyBank National Association | 0.075 | 0.026 | 0.184 | 0.060 | 0.121 | 0.171 | 0.358 | 0.123 | 0.140 | 0.272 | Green |
+| Manufacturers and Traders Trust Company | 0.107 | 0.043 | 0.065 | 0.029 | 0.335 | 0.115 | 0.069 | 0.104 | 0.108 | 0.235 | Green |
+| Old National Bank | 0.106 | 0.052 | 0.191 | 0.094 | 0.364 | 0.173 | 0.289 | 0.114 | 0.173 | 0.207 | Amber |
+| SouthState Bank | 0.077 | 0.091 | 0.057 | 0.124 | 0.392 | 0.126 | 0.314 | 0.129 | 0.164 | 0.182 | Amber |
+
+### 7.3 Observations
+- Over 34 to 41 start dates per horizon, h-step errors rise smoothly from 0.05 to 0.10 pp at 1Q to 0.29 to 0.56 pp at 8Q, and every champion beats the no-change forecast at every horizon.
+- Governing ratings: First Horizon, M&T, Old National and SouthState Green; Glacier Amber (skill ratio 0.96 at 3Q); Huntington and KeyBank Red (long-horizon errors above the peer-derived red limit).
+- M&T, SouthState and Old National share a large error in the single window starting 2025Q1 (the "5Q" column of §7.2), where the models over-predict the post-cut decline in deposit rates (OI-8). It is one start date, not a horizon effect: over 37 start dates the 5-step error is 0.26 to 0.31 pp for these banks.
+- Out-of-sample MAE is several times in-sample MAE. In-sample MAE fell for every bank after the rebuild (now 0.029 to 0.071), mostly because the de-cumulation and denominator artifacts are gone.
+- Long-run betas range from 0.35 (Glacier) to 0.52 (First Horizon); the other five lie between 0.40 and 0.47.
+
+### 7.4 Benchmarking
+The no-change forecast (deposit rate held at its start-date value) is the benchmark in both backtests. No challenger model has been built yet (OI-11). The proposed challengers are a static or cycle-specific OLS beta, an asymmetric ECM (triggered by OI-8), and an ECM with a 2022 regime dummy (OI-20).
 
 ---
 
@@ -664,18 +700,21 @@ No challenger or benchmark model has been built yet, such as a static OLS beta, 
 | # | Limitation | Affected banks | Impact |
 | :-: | :--- | :--- | :--- |
 | L1 | Short sample (62 quarters, 2011Q1 to 2026Q2) lowers the power of unit-root and cointegration tests | All | High |
-| L2 | Stationarity classification depends on the specification; specifications were selected to give a consistent I(0)/I(1) result | Glacier, Huntington, M&T | High |
-| L3 | Results are not robust to the 2008 to 2026 sample (Appendix A1 and A2) | All | Medium |
-| L4 | Merger adjustment uses placeholder inputs; four Mode A events are not applied; Mode B rows are not excluded | First Horizon, Huntington, Old National, SouthState (missing events); all (inputs) | High |
-| L5 | The deposit rate is total interest expense ÷ deposits, which includes interest on borrowings and other non-deposit liabilities | All | Medium |
-| L6 | Linear, symmetric pass-through. No asymmetry or zero-lower-bound nonlinearity, although 2011 to 2015 and 2020 to 2021 sit at the zero bound | All | Medium |
-| L7 | Post-selection inference: coefficients screened on p < 0.05 and then re-estimated, so p-values are optimistic | All | Medium |
-| L8 | Champion chosen on in-sample MAE, with ties broken mechanically; many specifications collapse to the same ECM | All (especially M&T, SouthState, KeyBank) | Medium |
-| L9 | Johansen p-values are bounds; r ≤ 1 rejections (implying rank 2) are overridden by assuming rank 1 | First Horizon, Glacier, SouthState, KeyBank | Medium |
+| L2 | Stationarity classification depends on the specification; Glacier remains flagged (KPSS I(0) p 0.057), and all series reject a unit root once a 2022 level break is allowed (OI-20) | All, esp. Glacier | High |
+| L3 | Results are not robust to the 2008 to 2026 sample: six banks are inconclusive on levels and First Horizon looks I(0) (Appendix A.2) | All | Medium |
+| L4 | Pro forma merger adjustment assumes the combined franchise priced like the sum of its parts before the merger; merger-quarter interest is pro-rated by days; predecessors without FDIC Call Reports (none so far) would be skipped | All | Low to medium |
+| L5 | The deposit rate is deposit interest expense over total deposits: a total-deposit (not interest-bearing-deposit) beta that does not separate product mix | All | Low |
+| L6 | Linear, symmetric pass-through. The 2025 backtest shows the models over-predict deposit-rate declines after cuts (OI-8) | All | High |
+| L7 | Post-selection inference: short-run terms screened and pruned on p < 0.05, so p-values are optimistic | All | Medium |
+| L8 | Champion chosen on in-sample MAE (OI-9 deferred); several specifications still collapse to the same ECM | All | Medium |
+| L9 | Johansen p-values are bounds; r ≤ 1 rejections (implying rank 2) are overridden by assuming rank 1 | Glacier, Huntington, First Horizon | Medium |
 | L10 | Single regressor (FFT). No competitive, liquidity or balance-sheet drivers | All | Medium |
-| L11 | Zivot-Andrews break tests failed to run or were not run | Huntington, M&T (failed); four other banks (not run) | Medium |
-| L12 | The deterministic terms used in the cointegration test differ from those in the estimated ECM | Glacier, M&T | Low to medium |
+| L11 | Zivot-Andrews is univariate; no cointegration test allowing a break (Gregory-Hansen) has been run | All | Medium |
+| L12 | Glacier's champion keeps an insignificant constant and trend because its case 4 test requires them | Glacier | Low |
 | L13 | KPSS p-values are truncated at 0.10 | All | Low |
+| L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet | First Horizon, M&T, Glacier | Medium |
+| L15 | Huntington cointegration rests on one specification family (OI-19) | Huntington | High |
+| L16 | Backtest limits are percentiles of the peer group, so the absolute test is a relative standard; the single-window backtest has one start date per horizon | All | Medium |
 
 ---
 
@@ -687,33 +726,42 @@ No independent validation has been performed. The items below should be resolved
 ### 9.2 Open Issues Log
 
 | ID | Issue | Bank(s) | Priority | Status |
-| :-: | :--- | :--- | :-: | :-: |
-| OI-1 | Replace placeholder predecessor certs and deposits in `merger_events_used.csv` with actual FDIC values; re-derive materiality | All with events | High | Open |
-| OI-2 | Apply the four missing Mode A adjustments (FirstMerit, IBERIABANK, Atlantic Capital, First Midwest), or document why they were excluded | Huntington, First Horizon, SouthState, Old National | High | Open |
-| OI-3 | Decide on Mode B treatment: exclude the flagged quarters, or document why they are kept | SouthState | Medium | Open |
-| OI-4 | Run the cointegration re-specification grid for Huntington and Old National | Huntington, Old National | Medium | Open |
-| OI-5 | Fix Zivot-Andrews failures (rank deficiency; zero-bound values) and extend the break tests to all banks | All | Medium | Open |
-| OI-6 | Refit the Huntington champion without the insignificant `D.y.L1` | Huntington | Medium | Open |
-| OI-7 | Reconcile the deterministic terms between the cointegration test and the estimated ECM | Glacier, M&T | Medium | Open |
-| OI-8 | Investigate the shared 5Q backtest error spike (origin 2025Q1), including Old National's 2025Q2 one-quarter drop | M&T, Old National | Medium | Open |
-| OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Open |
-| OI-10 | Define acceptance thresholds for backtest MAE | All | Medium | Open |
-| OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM) | All | Medium | Open |
-| OI-12 | Rerun or archive the stale KeyBank 4Q backtest, which used a non-champion model | KeyBank | Low | Open |
-| OI-13 | Investigate the Glacier 2012Q1 dip and 2012Q2 spike (possible de-cumulation error) | Glacier | Medium | Open |
-| OI-14 | Assess whether the First Horizon long-run trend is economically justified for projection | First Horizon | Medium | Open |
-| OI-15 | Isolate deposit interest expense from total interest expense, if Call Report detail allows | All | Medium | Open |
-| OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Open |
-| OI-17 | Regenerate Figure 1 from the modeled dataset; the earlier version showed a Huntington series that did not match `rate_pf_clean` | Huntington | Low | Closed (v0.2): regenerated from `EDA1_Stationarity_Tests.ipynb` on the current data |
+| :-: | :--- | :--- | :-: | :--- |
+| OI-1 | Replace placeholder predecessor certs and deposits with actual FDIC values; re-derive materiality | All with events | High | Closed: real certs and deposits from FDIC (`merger_events_used.csv`) |
+| OI-2 | Apply the missing Mode A adjustments | All with events | High | Closed: every ≥ 1% event since 2007 applied as pro forma backfill |
+| OI-3 | Decide on Mode B treatment | Glacier, KeyBank, Old National | Medium | Closed: Mode B rows kept (3 events, all < 1%) |
+| OI-4 | Run the cointegration re-specification grid for Huntington and Old National | Huntington, Old National | Medium | Closed: the grid runs all seven banks |
+| OI-5 | Fix Zivot-Andrews failures and extend the break tests to all banks | All | Medium | Closed: runs for all banks; see OI-20 |
+| OI-6 | Refit models with insignificant short-run terms | Huntington, all | Medium | Closed: short-run lags pruned in the one-step ECM |
+| OI-7 | Reconcile the deterministic terms between the cointegration test and the estimated ECM | Glacier, M&T, KeyBank, SouthState | Medium | Closed: deterministic terms follow the test specification |
+| OI-8 | Investigate the shared error at the 2025Q1 start date, including Old National's 2025Q2 drop | M&T, Old National, SouthState | Medium | Partially closed: the Old National data artifact is fixed; the shared error is a model effect (symmetric pass-through), carried to OI-11 |
+| OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Deferred to the validator: in-sample MAE retained; a validation-window comparison is recorded in `docs/open_issue_resolutions.md` |
+| OI-10 | Define acceptance thresholds for backtest MAE | All | Medium | Closed: superseded for the governing rating by OI-22; single-window ratings kept as a supplementary view |
+| OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM, 2022 regime dummy) | All | High | Open: the asymmetric ECM is now a priority (OI-8) |
+| OI-12 | Rerun or archive the stale KeyBank 4Q backtest | KeyBank | Low | Closed: deleted |
+| OI-13 | Investigate the Glacier 2012Q1 dip and 2012Q2 spike | Glacier | Medium | Closed: rate rebuilt from quarterly fields with a two-point deposit average |
+| OI-14 | Assess whether long-run trends are economically justified for projection | First Horizon, M&T, Glacier | Medium | Closed: trend kept for estimation; frozen at its end-of-sample value in projection (L14) |
+| OI-15 | Isolate deposit interest expense from total interest expense | All | Medium | Closed: deposit interest expense only |
+| OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Partially closed: results produced (`diagnostics/unit_root_grid.csv`, Appendix A.2); the vault note is not yet updated |
+| OI-17 | Regenerate Figure 1 from the modeled dataset | All | Low | Closed: regenerated from `EDA1_Stationarity_Tests.ipynb`, 2011Q1 to 2026Q2 |
+| OI-18 | Update Appendix A with the rebuilt unit-root results | All | Medium | Closed: Appendix A regenerated from `diagnostics/` |
+| OI-19 | Huntington cointegration rests on a single specification family (EG long run, no deterministic terms, p 0.019); assess robustness and whether Huntington stays in scope | Huntington | High | Open |
+| OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Open |
+| OI-21 | FFT input carries 2026Q3 and 2026Q4 at 3.67, and 2026Q4 is not complete; refresh before the next cycle | All | Low | Open |
+| OI-22 | The single-window backtest has one start date per horizon | All | Medium | Closed: many-start-date backtest with horizon-aware, peer-derived limits and a skill test; validator to confirm the relative-limit design |
 
 ---
 
 ## 10. Implementation and Reproducibility
 
 ### 10.1 Environment
-Python with `pandas`, `numpy`, `statsmodels` (ADF, KPSS, `coint_johansen`, `VECM`, `ARDL`/`UECM`, `mackinnonp`), `scipy` and `matplotlib`. Jupyter notebooks are used for data pulls, merger adjustment and stationarity work. Package versions are not pinned yet; a `requirements.txt` should be added.
+Python with `pandas`, `numpy`, `statsmodels` (ADF, KPSS, `coint_johansen`, `VECM`, `ARDL`/`UECM`, `mackinnonp`), `scipy` and `matplotlib`. `data_build/build_dataset.py` replaces the data-pull and merger-adjustment notebooks; `EDA1_Stationarity_Tests.ipynb` produces Figure 1. Package versions are not pinned yet; a `requirements.txt` should be added.
 
 ### 10.2 Execution
+
+```bash
+python data_build/build_dataset.py
+```
 
 ```bash
 python "Co-integration Tests.py" consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv FFT_2011-2026.csv test_params.csv
@@ -728,14 +776,29 @@ python "ECM workflow.py"
 ```
 
 ```bash
-python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All
+python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --first-origin 2016Q1
 ```
+
+```bash
+python plotting_workflow.py
+```
+
+```bash
+python diagnostics/stationarity_and_breaks.py
+```
+
+```bash
+python docs/make_figures.py
+```
+
+`python data_build/build_dataset.py --refresh` re-downloads the FDIC data instead of using the cached snapshot.
 
 ### 10.3 Controls
 - Scripts exit with an error and stop at the first failing step (`ECM workflow.py`).
 - Banks that fail are logged and skipped in the backtest; the exit code is 2 if any were skipped.
 - Merger adjustment checks are recorded in `merger_adjustment_log.md`.
-- Gaps: no unit tests, no version pinning, and no data snapshot hashing.
+- The FDIC snapshot used for a run is cached in `data_build/raw/` and committed with the outputs. The backtest cache is keyed on a hash of each bank's input data.
+- Gaps: no unit tests and no version pinning.
 
 ---
 
@@ -746,314 +809,54 @@ python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All
 | Model owner | Shivam Panda |
 | Model inventory registration | Not registered (WIP) |
 | Independent validation | Not performed |
-| Ongoing monitoring plan | Not defined. Proposed: quarterly refresh after each Call Report cycle, with backtest MAE tracked against thresholds (OI-10) |
+| Ongoing monitoring plan | Not defined. Proposed: quarterly refresh after each Call Report cycle, with the many-start-date backtest rated against the horizon-aware limits and skill test (§5.6) |
 | Change management | Git version control (`Panda5130/Deposit-Beta`) |
 
 ---
 
 ## Appendix A: Stationarity Test Detail
 
-### A.0 Main Sample: 2011Q1 to 2026Q2 (raw, before merger adjustment)
+All tests use the rebuilt pro forma series (`rate_pf_clean`). Default specification: ADF `c` / AIC and KPSS `c` / auto. Robustness counts the share of the six alternative specifications that agree with the default conclusion (ADF: `c` / `n` × AIC / BIC / t-stat; KPSS: `c` / `ct` × auto / long / short). KPSS p-values are bounded at 0.01 and 0.10. All 336 individual results are in `diagnostics/unit_root_grid.csv`; produced by `diagnostics/stationarity_and_breaks.py`.
 
-**Levels I(0):**
+### A.1 Main Sample: 2011Q1 to 2026Q2
 
-| Bank Name | Test | Q-statistic | p-value | PASS/FAIL |
-| :--- | :-: | :-: | :-: | :-: |
-| First Horizon Bank | ADF | -1.060903 | 0.730409 | FAIL |
-| First Horizon Bank | KPSS | 0.640311 | 0.018972 | PASS |
-| Glacier Bank | ADF | -1.684885 | 0.438916 | FAIL |
-| Glacier Bank | KPSS | 0.440720 | 0.059603 | FAIL |
-| Huntington National Bank | ADF | 0.916821 | 0.993306 | FAIL |
-| Huntington National Bank | KPSS | 0.573670 | 0.025074 | PASS |
-| KeyBank National Association | ADF | -2.320130 | 0.165558 | FAIL |
-| KeyBank National Association | KPSS | 0.636798 | 0.019291 | PASS |
-| Manufacturers and Traders Trust Company | ADF | 1.796809 | 0.998343 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS | 0.629025 | 0.019998 | PASS |
-| Old National Bank | ADF | -1.472862 | 0.546891 | FAIL |
-| Old National Bank | KPSS | 0.647564 | 0.018312 | PASS |
-| SouthState Bank | ADF | -1.463703 | 0.551385 | FAIL |
-| SouthState Bank | KPSS | 0.632615 | 0.019671 | PASS |
+| Bank | I(0) ADF p | I(0) KPSS p | I(0) verdict | I(0) robustness (ADF / KPSS) | I(1) ADF p | I(1) KPSS p | I(1) verdict | I(1) robustness (ADF / KPSS) | Classification |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.149 | 0.029 | non-stationary | 6/6 / 2/6 | 0.0044 | ≥ 0.10 | stationary | 6/6 / 6/6 | **I(1)** |
+| Glacier Bank | 0.662 | 0.057 | inconclusive | 6/6 / 1/6 | 0.0070 | ≥ 0.10 | stationary | 6/6 / 6/6 | **flagged** |
+| Huntington National Bank | 0.486 | 0.024 | non-stationary | 6/6 / 2/6 | 0.0029 | ≥ 0.10 | stationary | 6/6 / 6/6 | **I(1)** |
+| KeyBank National Association | 0.308 | 0.025 | non-stationary | 6/6 / 2/6 | 0.0037 | ≥ 0.10 | stationary | 6/6 / 6/6 | **I(1)** |
+| Manufacturers and Traders Trust Company | 0.245 | 0.035 | non-stationary | 6/6 / 2/6 | 0.0023 | ≥ 0.10 | stationary | 6/6 / 6/6 | **I(1)** |
+| Old National Bank | 0.582 | 0.031 | non-stationary | 6/6 / 2/6 | 0.0031 | ≥ 0.10 | stationary | 6/6 / 6/6 | **I(1)** |
+| SouthState Bank | 0.272 | 0.038 | non-stationary | 6/6 / 2/6 | 0.0038 | ≥ 0.10 | stationary | 5/6 / 6/6 | **I(1)** |
 
-**First difference I(1):**
+### A.2 Extended Sample: 2008Q1 to 2026Q2
 
-| Bank Name | Test | Q-statistic | p-value | PASS/FAIL |
-| :--- | :-- | --: | --: | :-- |
-| First Horizon Bank | ADF (Diff) | -3.557292 | 0.006632 | PASS |
-| First Horizon Bank | KPSS (Diff) | 0.094867 | 0.100000 | FAIL |
-| Glacier Bank | ADF (Diff) | -3.515144 | 0.007607 | PASS |
-| Glacier Bank | KPSS (Diff) | 0.169815 | 0.100000 | FAIL |
-| Huntington National Bank | ADF (Diff) | -2.320805 | 0.165346 | FAIL |
-| Huntington National Bank | KPSS (Diff) | 0.246826 | 0.100000 | FAIL |
-| KeyBank National Association | ADF (Diff) | -3.348473 | 0.012846 | PASS |
-| KeyBank National Association | KPSS (Diff) | 0.096688 | 0.100000 | FAIL |
-| Manufacturers and Traders Trust Company | ADF (Diff) | -2.626846 | 0.087575 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS (Diff) | 0.114222 | 0.100000 | FAIL |
-| Old National Bank | ADF (Diff) | -3.210515 | 0.019384 | PASS |
-| Old National Bank | KPSS (Diff) | 0.197643 | 0.100000 | FAIL |
-| SouthState Bank | ADF (Diff) | -4.273840 | 0.000493 | PASS |
-| SouthState Bank | KPSS (Diff) | 0.211500 | 0.100000 | FAIL |
+| Bank | I(0) ADF p | I(0) KPSS p | I(0) verdict | I(0) robustness (ADF / KPSS) | I(1) ADF p | I(1) KPSS p | I(1) verdict | I(1) robustness (ADF / KPSS) | Classification |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.049 | ≥ 0.10 | stationary | 3/6 / 3/6 | 0.0065 | 0.092 | stationary | 5/6 / 6/6 | **I(0)** |
+| Glacier Bank | 0.406 | ≥ 0.10 | inconclusive | 3/6 / 3/6 | 0.049 | 0.018 | inconclusive | 6/6 / 5/6 | **flagged** |
+| Huntington National Bank | 0.436 | ≥ 0.10 | inconclusive | 6/6 / 3/6 | 0.058 | 0.042 | non-stationary | 3/6 / 5/6 | **flagged** |
+| KeyBank National Association | 0.496 | ≥ 0.10 | inconclusive | 6/6 / 3/6 | 0.051 | 0.052 | inconclusive | 5/6 / 6/6 | **flagged** |
+| Manufacturers and Traders Trust Company | 0.456 | ≥ 0.10 | inconclusive | 6/6 / 3/6 | 6.5e-05 | 0.053 | stationary | 6/6 / 6/6 | **flagged** |
+| Old National Bank | 0.194 | ≥ 0.10 | inconclusive | 6/6 / 3/6 | 0.048 | 0.030 | inconclusive | 6/6 / 5/6 | **flagged** |
+| SouthState Bank | 0.375 | ≥ 0.10 | inconclusive | 6/6 / 3/6 | 0.0093 | 0.023 | inconclusive | 6/6 / 5/6 | **flagged** |
 
-**Flagged-bank ADF re-specification (levels):**
+In the extended sample, First Horizon looks I(0) (ADF p 0.049) and the other six banks are inconclusive on levels. The main-sample I(1) classification is therefore not robust to the longer sample (L3).
 
-| Bank | Regression | Lag selection | Q-stat | p-value |
-| :--- | :-: | :-: | :-: | :-: |
-| Glacier Bank | c | AIC | -1.815232 | 0.372926 |
-| Glacier Bank | n | AIC | -1.107472 | 0.243035 |
-| Glacier Bank | c | BIC | -1.815232 | 0.372926 |
-| Glacier Bank | n | BIC | -1.107472 | 0.243035 |
-| Glacier Bank | c | t-stat | -1.815232 | 0.372926 |
-| Glacier Bank | n | t-stat | -1.107472 | 0.243035 |
-| Huntington National Bank | c | AIC | 0.825702 | 0.992040 |
-| Huntington National Bank | n | AIC | 1.288890 | 0.949505 |
-| Huntington National Bank | c | BIC | -1.467271 | 0.549635 |
-| Huntington National Bank | n | BIC | -0.381929 | 0.543925 |
-| Huntington National Bank | c | t-stat | 0.825702 | 0.992040 |
-| Huntington National Bank | n | t-stat | 1.081504 | 0.926678 |
-| Manufacturers and Traders Trust Company | c | AIC | 3.848277 | 1.000000 |
-| Manufacturers and Traders Trust Company | n | AIC | 2.731905 | 0.999282 |
-| Manufacturers and Traders Trust Company | c | BIC | 3.848277 | 1.000000 |
-| Manufacturers and Traders Trust Company | n | BIC | -0.873958 | 0.339627 |
-| Manufacturers and Traders Trust Company | c | t-stat | 3.848277 | 1.000000 |
-| Manufacturers and Traders Trust Company | n | t-stat | 2.731905 | 0.999282 |
+### A.3 Zivot-Andrews Structural Break Tests, 2011Q1 to 2026Q2
 
-### A.1 Extended Sample: 2008Q1 to 2026Q3 (raw)
-All banks show mixed or insufficient evidence for I(0). Results on first differences are also inconclusive.
+| Bank | `c`: stat, p, break | `t`: stat, p, break | `ct`: stat, p, break |
+| :--- | :-: | :-: | :-: |
+| First Horizon Bank | -6.27, 5.4e-04, 2022Q3 | -4.80, 0.019, 2021Q4 | -5.07, 0.051, 2023Q1 |
+| Glacier Bank | -7.57, 1.0e-05, 2022Q4 | -3.79, 0.210, 2021Q3 | -5.20, 0.036, 2023Q1 |
+| Huntington National Bank | -6.34, 4.7e-04, 2022Q2 | -5.41, 0.0049, 2021Q4 | -5.64, 0.0082, 2022Q3 |
+| KeyBank National Association | -6.81, 1.0e-05, 2022Q3 | -4.67, 0.024, 2021Q4 | -4.93, 0.076, 2022Q3 |
+| Manufacturers and Traders Trust Company | -6.42, 3.9e-04, 2022Q3 | -4.09, 0.111, 2021Q2 | -4.91, 0.079, 2022Q3 |
+| Old National Bank | -6.21, 6.1e-04, 2022Q3 | -4.31, 0.065, 2022Q1 | -4.26, 0.335, 2019Q3 |
+| SouthState Bank | -6.23, 5.8e-04, 2022Q3 | -4.43, 0.048, 2021Q3 | -5.21, 0.035, 2022Q4 |
 
-| Bank Name | Test | Test Statistic | p-value | Result |
-| :--- | :-: | :-: | :-: | :-: |
-| First Horizon Bank | ADF | -1.805291 | 0.377838 | FAIL |
-| First Horizon Bank | KPSS | 0.244523 | 0.100000 | FAIL |
-| Glacier Bank | ADF | -3.440396 | 0.009656 | PASS |
-| Glacier Bank | KPSS | 0.290829 | 0.100000 | FAIL |
-| Huntington National Bank | ADF | -1.693522 | 0.434453 | FAIL |
-| Huntington National Bank | KPSS | 0.287357 | 0.100000 | FAIL |
-| KeyBank National Association | ADF | -1.747726 | 0.406705 | FAIL |
-| KeyBank National Association | KPSS | 0.292908 | 0.100000 | FAIL |
-| Manufacturers and Traders Trust Company | ADF | -1.922125 | 0.321726 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS | 0.282536 | 0.100000 | FAIL |
-| Old National Bank | ADF | -1.199373 | 0.673865 | FAIL |
-| Old National Bank | KPSS | 0.326018 | 0.100000 | FAIL |
-| SouthState Bank | ADF | -1.966362 | 0.301514 | FAIL |
-| SouthState Bank | KPSS | 0.292720 | 0.100000 | FAIL |
-
-| Bank Name | Test | Test Statistic | p-value | Result |
-| :--- | :-: | :-: | :-: | :-: |
-| First Horizon Bank | ADF (Diff) | -3.771440 | 3.213421e-03 | PASS |
-| First Horizon Bank | KPSS (Diff) | 0.499750 | 4.172303e-02 | PASS |
-| Glacier Bank | ADF (Diff) | -4.210950 | 6.313356e-04 | PASS |
-| Glacier Bank | KPSS (Diff) | 0.490107 | 4.389475e-02 | PASS |
-| Huntington National Bank | ADF (Diff) | -1.943275 | 3.119850e-01 | FAIL |
-| Huntington National Bank | KPSS (Diff) | 0.546272 | 3.124503e-02 | PASS |
-| KeyBank National Association | ADF (Diff) | -2.945576 | 4.029910e-02 | PASS |
-| KeyBank National Association | KPSS (Diff) | 0.402187 | 7.621240e-02 | FAIL |
-| Manufacturers and Traders Trust Company | ADF (Diff) | -4.706779 | 8.171940e-05 | PASS |
-| Manufacturers and Traders Trust Company | KPSS (Diff) | 0.502988 | 4.099363e-02 | PASS |
-| Old National Bank | ADF (Diff) | -5.176730 | 9.806538e-06 | PASS |
-| Old National Bank | KPSS (Diff) | 0.530131 | 3.488047e-02 | PASS |
-| SouthState Bank | ADF (Diff) | -12.412110 | 4.320502e-23 | PASS |
-| SouthState Bank | KPSS (Diff) | 0.476047 | 4.706158e-02 | PASS |
-
-### A.2 Merger-Adjusted Samples
-
-#### A.2.1 2008 to 2026, Merger-Adjusted
-
-**I(0):**
-
-| Bank Name | Test | Q-Stat | P-Value | Pass/Fail |
-| :--- | :-- | :-- | :-- | :-- |
-| Manufacturers and Traders Trust Company | ADF | -1.407901 | 0.578482 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS | 0.284572 | 0.100000 | FAIL |
-| Old National Bank | ADF | -1.986054 | 0.292721 | FAIL |
-| Old National Bank | KPSS | 0.327791 | 0.100000 | FAIL |
-| First Horizon Bank | ADF | -2.133826 | 0.231132 | FAIL |
-| First Horizon Bank | KPSS | 0.244639 | 0.100000 | FAIL |
-| Huntington National Bank | ADF | -2.149955 | 0.224907 | FAIL |
-| Huntington National Bank | KPSS | 0.289711 | 0.100000 | FAIL |
-| KeyBank National Association | ADF | -2.703219 | 0.073483 | FAIL |
-| KeyBank National Association | KPSS | 0.293966 | 0.100000 | FAIL |
-| Glacier Bank | ADF | -3.871115 | 0.002258 | PASS |
-| Glacier Bank | KPSS | 0.289632 | 0.100000 | FAIL |
-| SouthState Bank | ADF | -1.829126 | 0.366100 | FAIL |
-| SouthState Bank | KPSS | 0.286655 | 0.100000 | FAIL |
-
-**I(1):**
-
-| Bank Name | Test | Q-Stat | P-Value | Pass/Fail |
-| :--- | :-- | :-- | :-- | :-- |
-| Manufacturers and Traders Trust Company | ADF (Diff) | -3.098538 | 2.666160e-02 | PASS |
-| Manufacturers and Traders Trust Company | KPSS (Diff) | 0.500608 | 4.152962e-02 | PASS |
-| Old National Bank | ADF (Diff) | -2.631116 | 8.673520e-02 | FAIL |
-| Old National Bank | KPSS (Diff) | 0.606700 | 2.202732e-02 | PASS |
-| First Horizon Bank | ADF (Diff) | -3.614234 | 5.494670e-03 | PASS |
-| First Horizon Bank | KPSS (Diff) | 0.518592 | 3.747927e-02 | PASS |
-| Huntington National Bank | ADF (Diff) | -5.327346 | 4.804869e-06 | PASS |
-| Huntington National Bank | KPSS (Diff) | 0.556937 | 2.884296e-02 | PASS |
-| KeyBank National Association | ADF (Diff) | -3.229156 | 1.835786e-02 | PASS |
-| KeyBank National Association | KPSS (Diff) | 0.400140 | 7.709483e-02 | FAIL |
-| Glacier Bank | ADF (Diff) | -4.894380 | 3.576351e-05 | PASS |
-| Glacier Bank | KPSS (Diff) | 0.419413 | 6.878748e-02 | FAIL |
-| SouthState Bank | ADF (Diff) | -13.099538 | 1.721277e-24 | PASS |
-| SouthState Bank | KPSS (Diff) | 0.355030 | 9.653858e-02 | FAIL |
-
-KeyBank, Glacier and SouthState show I(1) stationarity with inconclusive evidence for I(0). Old National shows non-stationarity at I(1) and inconclusive evidence for I(0). The other banks show insufficient or inconclusive evidence at both orders. The ADF re-specification for this sample has not been documented yet (OI-16).
-
-#### A.2.2 2011 to 2026, Merger-Adjusted (main modeling sample)
-
-**I(0), default specification:**
-
-| Bank Name | Test | Q-Stat | P-Value | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Manufacturers and Traders Trust Company | ADF | 1.870028 | 0.998478 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS | 0.631062 | 0.019813 | PASS |
-| Old National Bank | ADF | -1.206334 | 0.670865 | FAIL |
-| Old National Bank | KPSS | 0.651021 | 0.017998 | PASS |
-| First Horizon Bank | ADF | -1.979647 | 0.295568 | FAIL |
-| First Horizon Bank | KPSS | 0.639535 | 0.019042 | PASS |
-| Huntington National Bank | ADF | 0.952043 | 0.993733 | FAIL |
-| Huntington National Bank | KPSS | 0.645216 | 0.018526 | PASS |
-| KeyBank National Association | ADF | -1.641734 | 0.461355 | FAIL |
-| KeyBank National Association | KPSS | 0.639624 | 0.019034 | PASS |
-| Glacier Bank | ADF | -1.062503 | 0.729791 | FAIL |
-| Glacier Bank | KPSS | 0.443122 | 0.058568 | FAIL |
-| SouthState Bank | ADF | -0.971912 | 0.763370 | FAIL |
-| SouthState Bank | KPSS | 0.633147 | 0.019623 | PASS |
-
-**I(1), default specification:**
-
-| Bank Name | Test | Q-Stat | P-Value | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Manufacturers and Traders Trust Company | ADF (Diff) | -2.492835 | 1.172274e-01 | FAIL |
-| Manufacturers and Traders Trust Company | KPSS (Diff) | 0.107946 | 1.000000e-01 | FAIL |
-| Old National Bank | ADF (Diff) | -2.969027 | 3.788989e-02 | PASS |
-| Old National Bank | KPSS (Diff) | 0.232648 | 1.000000e-01 | FAIL |
-| First Horizon Bank | ADF (Diff) | -3.420248 | 1.028770e-02 | PASS |
-| First Horizon Bank | KPSS (Diff) | 0.103450 | 1.000000e-01 | FAIL |
-| Huntington National Bank | ADF (Diff) | -2.357536 | 1.540820e-01 | FAIL |
-| Huntington National Bank | KPSS (Diff) | 0.170974 | 1.000000e-01 | FAIL |
-| KeyBank National Association | ADF (Diff) | -3.551664 | 6.755268e-03 | PASS |
-| KeyBank National Association | KPSS (Diff) | 0.098900 | 1.000000e-01 | FAIL |
-| Glacier Bank | ADF (Diff) | -9.773145 | 7.048406e-17 | PASS |
-| Glacier Bank | KPSS (Diff) | 0.169244 | 1.000000e-01 | FAIL |
-| SouthState Bank | ADF (Diff) | -4.488455 | 2.063040e-04 | PASS |
-| SouthState Bank | KPSS (Diff) | 0.239026 | 1.000000e-01 | FAIL |
-
-**ADF re-specification, I(0):**
-
-| Bank | Regression | Lag selection | Q-stat | p-value |
-| --- | --- | --- | --- | --- |
-| Glacier Bank | c | AIC | -1.750662 | 0.405217 |
-| Glacier Bank | n | AIC | -0.712748 | 0.407239 |
-| Glacier Bank | c | BIC | -1.047006 | 0.735736 |
-| Glacier Bank | n | BIC | -0.530700 | 0.483464 |
-| Glacier Bank | c | t-stat | -1.750662 | 0.405217 |
-| Glacier Bank | n | t-stat | -0.712748 | 0.407239 |
-| Huntington National Bank | c | AIC | 2.574499 | 0.999070 |
-| Huntington National Bank | n | AIC | 2.439859 | 0.997643 |
-| Huntington National Bank | c | BIC | -1.031970 | 0.741426 |
-| Huntington National Bank | n | BIC | -0.283604 | 0.582380 |
-| Huntington National Bank | c | t-stat | 2.574499 | 0.999070 |
-| Huntington National Bank | n | t-stat | 2.439859 | 0.997643 |
-| Manufacturers and Traders Trust Company | c | AIC | 2.764095 | 1.000000 |
-| Manufacturers and Traders Trust Company | n | AIC | 2.421510 | 0.997479 |
-| Manufacturers and Traders Trust Company | c | BIC | -1.833185 | 0.364115 |
-| Manufacturers and Traders Trust Company | n | BIC | -0.937330 | 0.313498 |
-| Manufacturers and Traders Trust Company | c | t-stat | 2.764095 | 1.000000 |
-| Manufacturers and Traders Trust Company | n | t-stat | 2.421510 | 0.997479 |
-
-**ADF re-specification, I(1):**
-
-| Bank | Regression | Lag selection | Q-stat | p-value |
-| --- | --- | --- | --- | --- |
-| Glacier Bank | c | AIC | -2.639751 | 8.505659e-02 |
-| Glacier Bank | n | AIC | -2.760372 | 5.625891e-03 |
-| Glacier Bank | c | BIC | -9.605240 | 1.873819e-16 |
-| Glacier Bank | n | BIC | -9.679696 | 5.102918e-17 |
-| Glacier Bank | c | t-stat | -3.558846 | 6.598327e-03 |
-| Glacier Bank | n | t-stat | -3.584903 | 3.554124e-04 |
-| Huntington National Bank | c | AIC | -1.966777 | 3.013276e-01 |
-| Huntington National Bank | n | AIC | -1.577809 | 1.079110e-01 |
-| Huntington National Bank | c | BIC | -3.978251 | 1.528774e-03 |
-| Huntington National Bank | n | BIC | -3.960377 | 8.561507e-05 |
-| Huntington National Bank | c | t-stat | -1.966777 | 3.013276e-01 |
-| Huntington National Bank | n | t-stat | -1.577809 | 1.079110e-01 |
-| Manufacturers and Traders Trust Company | c | AIC | -2.288571 | 1.756804e-01 |
-| Manufacturers and Traders Trust Company | n | AIC | -1.920927 | 5.225037e-02 |
-| Manufacturers and Traders Trust Company | c | BIC | -2.855342 | 5.079298e-02 |
-| Manufacturers and Traders Trust Company | n | BIC | -2.835059 | 4.479075e-03 |
-| Manufacturers and Traders Trust Company | c | t-stat | -3.965140 | 1.604461e-03 |
-| Manufacturers and Traders Trust Company | n | t-stat | -1.920927 | 5.225037e-02 |
-
-**KPSS re-specification, I(0):**
-
-| Bank | Regression | Bandwidth | Q-stat | p-value |
-| --- | --- | --- | --- | --- |
-| Glacier Bank | c | auto | 0.465840 | 0.049360 |
-| Glacier Bank | ct | auto | 0.242657 | 0.010000 |
-| Glacier Bank | c | long | 0.264913 | 0.100000 |
-| Glacier Bank | ct | long | 0.146123 | 0.049898 |
-| Glacier Bank | c | short | 0.465840 | 0.049360 |
-| Glacier Bank | ct | short | 0.242657 | 0.010000 |
-| Huntington National Bank | c | auto | 0.585036 | 0.023997 |
-| Huntington National Bank | ct | auto | 0.193670 | 0.018374 |
-| Huntington National Bank | c | long | 0.382595 | 0.084657 |
-| Huntington National Bank | ct | long | 0.130534 | 0.078641 |
-| Huntington National Bank | c | short | 0.678562 | 0.015494 |
-| Huntington National Bank | ct | short | 0.193670 | 0.018374 |
-| Manufacturers and Traders Trust Company | c | auto | 0.573902 | 0.025022 |
-| Manufacturers and Traders Trust Company | ct | auto | 0.187843 | 0.020559 |
-| Manufacturers and Traders Trust Company | c | long | 0.380546 | 0.085541 |
-| Manufacturers and Traders Trust Company | ct | long | 0.126572 | 0.085978 |
-| Manufacturers and Traders Trust Company | c | short | 0.663984 | 0.016820 |
-| Manufacturers and Traders Trust Company | ct | short | 0.187843 | 0.020559 |
-
-**KPSS re-specification, I(1):**
-
-| Bank | Regression | Bandwidth | Q-stat | p-value |
-| --- | --- | --- | --- | --- |
-| Glacier Bank | c | auto | 0.176341 | 0.1 |
-| Glacier Bank | ct | auto | 0.066651 | 0.1 |
-| Glacier Bank | c | long | 0.165459 | 0.1 |
-| Glacier Bank | ct | long | 0.076851 | 0.1 |
-| Glacier Bank | c | short | 0.160084 | 0.1 |
-| Glacier Bank | ct | short | 0.062276 | 0.1 |
-| Huntington National Bank | c | auto | 0.181045 | 0.1 |
-| Huntington National Bank | ct | auto | 0.055112 | 0.1 |
-| Huntington National Bank | c | long | 0.179397 | 0.1 |
-| Huntington National Bank | ct | long | 0.065291 | 0.1 |
-| Huntington National Bank | c | short | 0.181045 | 0.1 |
-| Huntington National Bank | ct | short | 0.055112 | 0.1 |
-| Manufacturers and Traders Trust Company | c | auto | 0.115464 | 0.1 |
-| Manufacturers and Traders Trust Company | ct | auto | 0.052761 | 0.1 |
-| Manufacturers and Traders Trust Company | c | long | 0.129636 | 0.1 |
-| Manufacturers and Traders Trust Company | ct | long | 0.066783 | 0.1 |
-| Manufacturers and Traders Trust Company | c | short | 0.115464 | 0.1 |
-| Manufacturers and Traders Trust Company | ct | short | 0.052761 | 0.1 |
-
-**Final classification (2011 to 2026 merger-adjusted):**
-
-| Bank Name | Order | ADF Spec | ADF Q-stat | ADF p-value | KPSS Spec | KPSS Q-stat | KPSS p-value | Conclusion |
-| :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| First Horizon Bank | I(0) | default | -1.979647 | 0.295568 | default | 0.639535 | 0.019042 | Non-Stationary |
-| First Horizon Bank | I(1) | default | -3.420248 | 1.028770e-02 | default | 0.103450 | 0.100000 | Stationary |
-| Old National Bank | I(0) | default | -1.206334 | 0.670865 | default | 0.651021 | 0.017998 | Non-Stationary |
-| Old National Bank | I(1) | default | -2.969027 | 3.788989e-02 | default | 0.232648 | 0.100000 | Stationary |
-| KeyBank National Association | I(0) | default | -1.641734 | 0.461355 | default | 0.639624 | 0.019034 | Non-Stationary |
-| KeyBank National Association | I(1) | default | -3.551664 | 6.755268e-03 | default | 0.098900 | 0.100000 | Stationary |
-| SouthState Bank | I(0) | default | -0.971912 | 0.763370 | default | 0.633147 | 0.019623 | Non-Stationary |
-| SouthState Bank | I(1) | default | -4.488455 | 2.063040e-04 | default | 0.239026 | 0.100000 | Stationary |
-| Glacier Bank | I(0) | c / BIC | -1.047006 | 0.735736 | c / auto | 0.465840 | 0.049360 | Non-Stationary |
-| Glacier Bank | I(1) | c / BIC | -9.605240 | 1.873819e-16 | c / auto | 0.176341 | 0.100000 | Stationary |
-| Huntington National Bank | I(0) | c / BIC | -1.031970 | 0.741426 | c / auto | 0.585036 | 0.023997 | Non-Stationary |
-| Huntington National Bank | I(1) | c / BIC | -3.978251 | 1.528774e-03 | c / auto | 0.181045 | 0.100000 | Stationary |
-| Manufacturers and Traders Trust Company | I(0) | c / t-stat | 2.764095 | 1.000000 | c / auto | 0.573902 | 0.025022 | Non-Stationary |
-| Manufacturers and Traders Trust Company | I(1) | c / t-stat | -3.965140 | 1.604461e-03 | c / auto | 0.115464 | 0.100000 | Stationary |
-
-**Specification choice for flagged banks:**
-- The constant (`c`) is kept in every ADF choice. The levels have a nonzero mean, so dropping it would bias the I(0) test toward non-stationarity.
-- Within each bank and test, the same specification is used for I(0) and I(1).
-- KPSS uses `c` / auto for all three banks. Every `c` / auto I(1) result has p = 0.100.
-- Glacier and Huntington use ADF `c` / BIC. M&T uses `c` / t-stat, because `c` / BIC narrowly misses at I(1) (p = 0.0508).
-- Uniform alternative: ADF `n` / BIC for all three banks gives the same classification. It is not preferred, because removing the constant on levels favors the non-stationary I(0) result.
+FFT itself gives ZA `c` = -5.49, p 0.004, break 2022Q1. The break in the deposit rates mirrors the break in the regressor (OI-20).
 
 ---
 
@@ -1067,6 +870,11 @@ KeyBank, Glacier and SouthState show I(1) stationarity with inconclusive evidenc
 | MAE stability summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
 | Full coefficient tables, all estimated ECMs | `ECM estimation results.csv` |
 | In-sample MAE, all estimated ECMs | `estimation result summary.csv` |
-| Merger event inputs and log | `merger_events_raw.csv`, `merger_events_used.csv`, `merger_adjustment_log.md` |
+| Merger event inputs and log | `merger_events_used.csv`, `merger_adjustment_log.md` (`merger_events_raw.csv` is from the superseded notebook) |
+| Data build and FDIC snapshot | `data_build/build_dataset.py`, `data_build/raw/*.csv` |
+| Unit-root and break diagnostics | `diagnostics/*.csv` |
+| Many-start-date backtest, limits and ratings | `MAE_Backtesting/output/backtest_multiorigin_8Q.csv`, `backtest_multiorigin_limits_8Q.csv`, `backtest_multiorigin_assessment_8Q.csv` |
+| Single-window ratings | `MAE_Backtesting/output/backtest_assessment_8Q.csv` |
+| Open-issue resolution record | `docs/open_issue_resolutions.md` |
 
 ---
