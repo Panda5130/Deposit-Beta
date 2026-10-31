@@ -1,9 +1,9 @@
 bank_name,test_name,IC/selected lag,trend type,origin,n_obs,beta,beta_se,beta_p,lambda
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q2,52,0.3717252878088851,0.06044917852663991,1.4820512186409077e-07,-0.08943736358666146
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q3,53,0.3822599290175259,0.05225487604033181,2.1575374476343706e-09,-0.08916084074019631
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q4,54,0.35763130089376266,0.04754359555146073,9.177427401794128e-10,-0.08890064705831045
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q1,55,0.303181663567872,0.05058460908892505,2.099344015705629e-07,-0.08663560389584926
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q2,56,0.38292771593627367,0.03771344200286581,6.124089864363029e-14,-0.10640142075942492
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q3,57,0.38309150225258937,0.036007623958363835,9.218534801898463e-15,-0.10634642496931172
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q4,58,0.37259664932858205,0.03380856876378484,1.959798424116293e-15,-0.1082597194149294
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2026Q1,59,0.35862668705917883,0.0326886949552309,1.8189737670773123e-15,-0.1073908621386213
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2024Q2,53,0.5128791261962471,0.0555687814879465,2.2220058252711983e-12,-0.15260635430446295
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2024Q3,54,0.48944869100172234,0.04596120594903063,1.4463495554172543e-14,-0.15981982886398244
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2024Q4,55,0.4643137187223157,0.039308087776921,2.430949580396226e-16,-0.16542129417518542
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2025Q1,56,0.4234735822921559,0.031704669880026015,1.3470097705820263e-18,-0.1844920460388004
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2025Q2,57,0.4244245893520823,0.030489520468235963,1.6596272635060878e-19,-0.18405291181681066
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2025Q3,58,0.42351878584609054,0.02894474752960217,1.3034135843672199e-20,-0.1845268916176006
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2025Q4,59,0.416119901943496,0.02690113319575823,7.125053850487231e-22,-0.18716031031528763
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2026Q1,60,0.40360433176453525,0.024697475964534213,3.5662572175691953e-23,-0.19401707351809228

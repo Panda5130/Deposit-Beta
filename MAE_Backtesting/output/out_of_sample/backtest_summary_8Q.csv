@@ -7,14 +7,14 @@ First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),6Q,2024Q4,2025Q1,2026Q2,6,0.18698058763694983,0.4095192103560037
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),7Q,2024Q3,2024Q4,2026Q2,7,0.44978731743521955,0.6384719993159383
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),8Q,2024Q2,2024Q3,2026Q2,8,0.32543783694287387,0.4121646780900303
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),1Q,2026Q1,2026Q2,2026Q2,1,0.09428347619939093,0.005717732211062865
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2Q,2025Q4,2026Q1,2026Q2,2,0.0588234979755774,0.19268757541904968
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),3Q,2025Q3,2025Q4,2026Q2,3,0.13196610117040777,0.24961448655070106
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),4Q,2025Q2,2025Q3,2026Q2,4,0.09813027588651357,0.17855910957705717
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),5Q,2025Q1,2025Q2,2026Q2,5,0.35390913922849887,0.13313071317630473
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),6Q,2024Q4,2025Q1,2026Q2,6,0.05747283674573326,0.3408713864048123
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),7Q,2024Q3,2024Q4,2026Q2,7,0.12442270960195818,0.42331885572182465
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),8Q,2024Q2,2024Q3,2026Q2,8,0.06838818653088607,0.359224905468615
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.023434303650743837,0.005717732211062865
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.15991825744148835,0.19268757541904968
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.18040110371621587,0.24961448655070106
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.14256749551977504,0.17855910957705717
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.11039582167557054,0.13313071317630473
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.319375901984128,0.3408713864048123
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.4007545203317012,0.42331885572182465
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.44286302284745593,0.359224905468615
 Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),1Q,2026Q1,2026Q2,2026Q2,1,0.10221580245079931,0.008155630610091391
 Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),2Q,2025Q4,2026Q1,2026Q2,2,0.042198302159934364,0.10706437502589294
 Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),3Q,2025Q3,2025Q4,2026Q2,3,0.033151445381123835,0.10223196953149623
@@ -39,19 +39,19 @@ KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),6Q,2024Q4,2025Q1,2026Q2,6,0.17540620273058405,0.3438134563033286
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),7Q,2024Q3,2024Q4,2026Q2,7,0.2553665169877741,0.507183864874183
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),8Q,2024Q2,2024Q3,2026Q2,8,0.06368980187241438,0.34689539543064096
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.10140904603222856,0.07401528576812288
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.06498599785505332,0.10276471983005642
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.1634291972234009,0.24277218935021497
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.11751751831327767,0.1711247961038102
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.09414763309367466,0.13538508237256983
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.20788633075769544,0.28275184130444225
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.42397851832519745,0.4635901233992888
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.44778269280735084,0.3770573702701552
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.0394746852682748,0.008998567646757216
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.07494023798242566,0.13037497016414412
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.1851224102154816,0.2624058278595061
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.11835016326090986,0.1630723871553898
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.09411766146635392,0.12216234005592401
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.24090052592527056,0.2959729063105349
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.43444571729716236,0.40906516933511167
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.382432172149451,0.2677639206002307
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.09417771305773837,0.07401528576812288
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.13190070695046907,0.10276471983005642
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.0688104750445561,0.24277218935021497
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.048581625745668267,0.1711247961038102
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.18717612032534747,0.13538508237256983
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.28738019406077664,0.28275184130444225
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.169496550141243,0.4635901233992888
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.2144623046402309,0.3770573702701552
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),1Q,2026Q1,2026Q2,2026Q2,1,0.10649370266233005,0.008998567646757216
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2Q,2025Q4,2026Q1,2026Q2,2,0.05219876815179114,0.13037497016414412
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),3Q,2025Q3,2025Q4,2026Q2,3,0.19073970806525953,0.2624058278595061
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),4Q,2025Q2,2025Q3,2026Q2,4,0.09419267960824601,0.1630723871553898
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),5Q,2025Q1,2025Q2,2026Q2,5,0.36429066265970156,0.12216234005592401
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),6Q,2024Q4,2025Q1,2026Q2,6,0.17307840899383253,0.2959729063105349
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),7Q,2024Q3,2024Q4,2026Q2,7,0.2889053361910015,0.40906516933511167
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),8Q,2024Q2,2024Q3,2026Q2,8,0.1139890249565221,0.2677639206002307
