@@ -4,7 +4,7 @@ Resolution notes for root cause RC1: every champion ECM is linear and symmetric,
 
 - Code: `model_form/` (`gregory_hansen.py`, `challengers.py`, `run_model_form.py`). It calls `MAE_Backtesting/backtest.py` and reads `Beta_Backtesting/output/`, and edits neither.
 - Outputs: `model_form/output/`.
-- Status: WIP. Nothing here has been folded into `WIP Regional Banking Deposit Beta Analyses.md`. The **Huntington scope decision is pending with the user** (§4).
+- Status: WIP. Nothing here has been folded into `WIP Regional Banking Deposit Beta Analyses.md`. **Huntington scope decision (user, 2026-10-31): option A**, keep in scope with a caveat and re-specify the champion (§4). The re-specification itself is not done here; it needs the pipeline change in OI-24.
 
 ```bash
 python model_form/run_model_form.py --reps 2000 --first-origin 2016Q1 --horizon 8
@@ -29,7 +29,7 @@ A full run takes about 8 minutes, most of it on the Gregory-Hansen simulation. T
    - Adding a contemporaneous ΔFFT term to the champion ECM gives **Green, mean 0.240**, the best Huntington result. The term was never available to the pipeline: an EG long-run specification enters the one-step ECM with no short-run terms.
    - The asymmetric ECM also gives Green.
    - The cointegration evidence remains weak. It rests on one specification family, and Gregory-Hansen does not support it. EG without deterministic terms fails in 5 of the 15 sample windows tested, every one of which ends by 2021Q4 (windows ending in 2024 or later all pass). The long-run beta drifts from 0.551 to 0.465 across origins.
-   - **Recommendation: keep Huntington in scope with a caveat and a re-specified champion.** The decision is the user's (§4).
+   - **Decision (user, 2026-10-31): keep Huntington in scope with a caveat and a re-specified champion** (option A, §4).
 
 ---
 
@@ -276,7 +276,7 @@ The 2022–24 up-cycle beta is the highest in every bank. In the current down cy
 - So no D.FFT or D.y lag was ever offered for screening. §6.3.6's "no short-run terms survive" describes this construction, not a test result.
 - This is a pipeline gap. It also affects any other champion from the EG long-run family; none is a champion today.
 
-**Options for the scope decision (decision pending with the user):**
+**Options for the scope decision.** The user chose **A** on 2026-10-31.
 
 | Option | What it means | Consequences |
 | :--- | :--- | :--- |
@@ -284,7 +284,7 @@ The 2022–24 up-cycle beta is the highest in every bank. In the current down cy
 | B. Keep in scope, champion unchanged | Report the current champion as Red, with the caveat | No code change. Huntington stays Red, and the evidence that a better specification exists goes unused. |
 | C. Remove from scope | Drop Huntington from the peer set until cointegration is robust | Six banks. The peer limits change. The analysis loses one of the two highest 2022–24 cycle betas (0.448, level with First Horizon). |
 
-**Recommendation: A.**
+**Recommendation: A** (chosen).
 - **The Red rating is a specification problem.** One missing short-run term and the symmetric adjustment explain it, and both are fixable.
 - **The remaining weakness is the long-run evidence,** which no model form fixes. That is a caveat for the validator, not grounds for exclusion. The beta is stable in sign and stays between 0.465 and 0.551 across origins.
 - **h1 is preferred to a1 for simplicity:** it is linear, one extra term, and has the lower MAE. A combined h1 + a1 form has not been tested.
@@ -293,7 +293,7 @@ The 2022–24 up-cycle beta is the highest in every bank. In the current down cy
 
 ## 5. Replacement text for `WIP Regional Banking Deposit Beta Analyses.md`
 
-The main session folds these in. Text in [brackets] depends on the Huntington decision. OI-24 and OI-25 are provisional numbers; renumber them if another thread has used them.
+The main session folds these in. The Huntington text reflects the user's decision (option A, 2026-10-31). OI-24 and OI-25 are provisional numbers; renumber them if another thread has used them.
 
 ### §5.3 Structural Break Testing
 
@@ -319,7 +319,7 @@ The bullets below follow the existing **Baseline** and **Re-specification** bull
 - **6.6.4 Old National:** **Gregory-Hansen:** no rejection at 5%. ADF\* C −3.85 (2024Q1), C/T −4.60 (2024Q1), C/S −4.01 (2021Q3), C/S/T −4.53 (2024Q1).
 - **6.7.4 SouthState:** **Gregory-Hansen:** no rejection at 5%. ADF\* C −3.82 (2024Q1), C/T −4.41 (2024Q1), C/S −3.87 (2024Q1), C/S/T −4.37 (2024Q1).
 
-[If option A is chosen, §6.3.6 and §6.3.7 also need the re-specified champion's coefficient table and backtest. Those are produced once the pipeline change or override is agreed.]
+Option A was chosen, so §6.3.6 and §6.3.7 will also need the re-specified champion's coefficient table and backtest. Those come from the pipeline change in OI-24; until then, §6.3.7 can add: "Scope decision (2026-10-31): Huntington stays in scope with a caveat. The champion is to be re-specified with a contemporaneous ΔFFT term, which tests Green in the many-start-date backtest (mean h-step MAE 0.240, `model_form/`) (OI-19, OI-24)."
 
 ### §7.4 Benchmarking
 
@@ -357,7 +357,7 @@ The bullets below follow the existing **Baseline** and **Re-specification** bull
 | L2 | Stationarity classification depends on the specification. Glacier remains flagged (KPSS I(0) p 0.057). All series reject a unit root once a 2022 level break is allowed, but the break is common to FFT and cancels in the cointegrating relation: Gregory-Hansen finds no break in the relationship (§5.3). | All, esp. Glacier | Medium |
 | L6 | Linear, symmetric pass-through. Downward adjustment is slower than upward for six of seven banks (significant for Huntington; 10% for Old National and SouthState). An asymmetric-λ challenger improves those three but not the peer set (§7.4). The 2025Q1 start-date error comes mainly from short-run momentum terms extrapolating the 2025Q1 fall, which asymmetric λ does not address (OI-8). | All, esp. Huntington, Old National, SouthState | High |
 | L11 | Cointegration with one unknown break (Gregory-Hansen, four forms) does not reject at 5% for any bank on ADF\* (finite-sample critical values, T = 62). With 62 quarters the test has low power, and two or more breaks are not tested. | All | Low |
-| L15 | Huntington cointegration rests on one specification family (EG long run, no deterministic terms) and on post-2022 data: the test fails in every window ending in 2019Q4 and in 2021Q4 windows starting in 2013 or later. GH finds no break. The long-run beta drifts down across origins (0.551 to 0.465). [Option A: the champion is re-specified with a contemporaneous ΔFFT term, Green. Option B: the champion is Red.] (OI-19) | Huntington | High |
+| L15 | Huntington cointegration rests on one specification family (EG long run, no deterministic terms) and on post-2022 data: the test fails in every window ending in 2019Q4 and in 2021Q4 windows starting in 2013 or later. GH finds no break. The long-run beta drifts down across origins (0.551 to 0.465). Kept in scope with this caveat (decision 2026-10-31); the champion is to be re-specified with a contemporaneous ΔFFT term, which tests Green (OI-19, OI-24) | Huntington | High |
 
 ### §9.2 Open Issues Log: rows replaced
 
@@ -365,7 +365,7 @@ The bullets below follow the existing **Baseline** and **Re-specification** bull
 | :-: | :--- | :--- | :-: | :--- |
 | OI-8 | Investigate the shared error at the 2025Q1 start date, including Old National's 2025Q2 drop | M&T, Old National, SouthState | Medium | Partially closed: the data artifact is fixed. Asymmetric λ does not remove the error (§7.4). The cause is lagged-Δy momentum extrapolating the 2025Q1 fall (`model_form/output/oi8_decomposition_2025Q1.csv`). Open for asymmetric or damped short-run dynamics. |
 | OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM, 2022 regime dummy) | All | High | Closed: seven challengers scored on the many-start-date backtest (§7.4, `model_form/`). None replaces the champions peer-wide. Asymmetric λ is a per-bank candidate for Huntington, Old National and SouthState. ([#2](https://github.com/Panda5130/Deposit-Beta/issues/2)) |
-| OI-19 | Huntington cointegration rests on a single specification family; assess robustness and whether Huntington stays in scope | Huntington | High | [Decision pending. Evidence in `docs/resolutions/model_form.md` §4. Recommended: keep in scope with a caveat and re-specify the champion (contemporaneous ΔFFT term: Green, mean h-step MAE 0.240).] ([#4](https://github.com/Panda5130/Deposit-Beta/issues/4)) |
+| OI-19 | Huntington cointegration rests on a single specification family; assess robustness and whether Huntington stays in scope | Huntington | High | Decided 2026-10-31: kept in scope with a caveat (one specification family; post-2022 identification; beta drift). The champion is to be re-specified with a contemporaneous ΔFFT term (Green, mean h-step MAE 0.240); open until that lands (OI-24). Evidence in `docs/resolutions/model_form.md` §4. ([#4](https://github.com/Panda5130/Deposit-Beta/issues/4)) |
 | OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Closed: Gregory-Hansen (C, C/T, C/S, C/S/T) finds no break-cointegration at 5% for any bank on ADF\* (T = 62 simulated critical values; one Zt\* rejection, Glacier C/T). A 2022 level dummy in the ECM does not improve forecasts (§5.3, §7.4). ([#5](https://github.com/Panda5130/Deposit-Beta/issues/5)) |
 | OI-24 (new) | EG long-run specifications enter the one-step ECM with no short-run terms: the step-2 output carries only ADF residual lags, so D.FFT and D.y lags are never screened | Huntington (champion), any EG long-run specification | High | Open: Huntington's champion gains Green with D.FFT.L0 |
 | OI-25 (new) | Damp or make asymmetric the short-run (lagged Δy) dynamics so a sharp one-quarter fall is not extrapolated once FFT is flat | M&T, Old National, SouthState | Medium | Open (from OI-8) |
@@ -422,7 +422,7 @@ Drafts only. Post them only after the user approves.
 >   - (B) keep in scope with the current champion, Red;
 >   - (C) remove from scope.
 >
-> [Decision: …]. Write-up: `docs/resolutions/model_form.md` §4.
+> **Decision (2026-10-31): A.** Huntington stays in scope with the cointegration caveat, and the champion is to be re-specified with D.FFT.L0. That requires the pipeline to offer short-run terms to EG long-run specifications (new OI-24). This issue stays open until the re-specified champion is estimated and documented in §6.3. Write-up: `docs/resolutions/model_form.md` §4.
 
 ---
 
