@@ -27,6 +27,7 @@
 | Version | Date | Description |
 | :--- | :--- | :--- |
 | 0.1 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the development code and outputs in the repository. |
+| 0.2 (WIP) | 2026-10-30 | Added actual-vs-predicted and 8Q backtest figures for each bank's champion model; corrected the Glacier anomaly dates; added the Old National 2025Q2 observation; regenerated Figure 1 from `EDA1_Stationarity_Tests.ipynb`, trimmed to 2026Q2 (OI-17 closed); removed §1.4 (Key Open Issues); each item is tracked in §8 and §9; noted Huntington's zero 2021Q1 interest expense. |
 
 ---
 
@@ -61,13 +62,6 @@ All seven deposit-rate series are classified as I(1) once flagged banks are re-s
 | SouthState Bank | Johansen VECM rank 1, k_ar_diff=2, det_order -1, AIC | -0.215 | 0.434 | 0.0588 | 0.104 |
 
 All λ and θ estimates are significant at the 1% level. Long-run betas fall between 0.41 and 0.56.
-
-### 1.4 Key Open Issues (detail in §8 and §9)
-1. Merger adjustment inputs contain placeholder values, and four of the eight listed Mode A events do not appear as adjustments in the modeled dataset.
-2. Stationarity for Glacier, Huntington and M&T depends on the test specification chosen.
-3. Model selection uses in-sample MAE after screening coefficients on p-values, which overstates in-sample fit and makes reported p-values post-selection.
-4. Out-of-sample errors are large at some horizons (M&T and Old National above 0.53 pp at the 5Q horizon).
-5. The deposit-rate proxy uses total interest expense, which includes interest on non-deposit liabilities.
 
 ---
 
@@ -173,9 +167,13 @@ Steps 7 to 9 are run together by `ECM workflow.py`.
 - Sensitivity: 2008Q1 to 2026Q3 (Appendix A1), with and without merger adjustment (Appendix A2).
 
 ### 4.5 Exploratory Review
-The figure below shows the series. Deposit rates track FFT with a lag and partial pass-through through the 2016 to 2019 tightening, the 2020 cut to the zero bound, and the 2022 to 2023 tightening. Huntington's deposit rate stays above its peers from 2011 to 2016. Glacier's rate shows an isolated spike in 2012Q1.
+Figure 1 shows the series. Deposit rates track FFT with a lag and partial pass-through through the 2016 to 2019 tightening, the 2020 cut to the zero bound, and the 2022 to 2023 tightening. Glacier's rate dips to 0.14% in 2012Q1 and jumps to 1.50% in 2012Q2, a pattern consistent with an error in de-cumulating year-to-date interest expense. Huntington shows the same pattern: 2021Q1 interest expense is reported as 0 (rate 0.00%), followed by 0.24% in 2021Q2, the TCF merger quarter.
 
-![Historical deposit rates of the seven banks vs. FFT, 2011Q1 to 2026Q4](<docs/Historical Deposit Rates vs FFT.png>)
+Figure 1 is produced by the first cell of `EDA1_Stationarity_Tests.ipynb` from `rate_pf_clean` in `consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv` and `FFT_2011-2026.csv`, so it matches the modeled data. Bank rates use the left axis and FFT the right axis. The chart ends in 2026Q2, the last observed quarter. In v0.2 the notebook's end period was changed from 2026Q4 to 2026Q2, so the figure no longer shows two flat-filled quarters.
+
+![Historical deposit rates of the seven banks vs. FFT, 2011Q1 to 2026Q2](<docs/Historical Deposit Rates vs FFT.png>)
+
+*Figure 1: Historical deposit rates (`rate_pf_clean`, left axis) of the seven banks vs. the federal funds rate (right axis), 2011Q1 to 2026Q2. Source: `EDA1_Stationarity_Tests.ipynb`.*
 
 ---
 
@@ -278,8 +276,17 @@ Bounds F = 14.77, p = 1.3e-08. Tied on in-sample MAE with the HQIC selection of 
 | LR: trend | -0.01105 | -4.25 | 9.0e-05 |
 | **LR: FFT (θ)** | **0.5599** | 20.28 | 4.5e-26 |
 
+![First Horizon Bank: actual vs. predicted deposit rate, champion model](<docs/figures/First Horizon Bank - Actual vs Predicted.png>)
+
+*Figure 2: First Horizon Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.1.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.247, 0.121, 0.085, 0.066, 0.174, 0.140, 0.154, 0.137. Mean 0.140.
+
+![First Horizon Bank: rolling-origin 8Q backtest MAE](<docs/figures/First Horizon Bank - MAE Backtest 8Q.png>)
+
+*Figure 3: First Horizon Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - The long-run trend (-0.011 pp per quarter) lowers the equilibrium rate by about 0.68 pp over the sample. Projections beyond the sample will carry this trend forward, which may not be economically justified. A reviewer should assess whether the trend stands in for the unmodeled IBERIABANK merger.
 - The fastest adjustment in the peer set (λ = -0.52) means about half of any disequilibrium closes each quarter.
 
@@ -329,10 +336,20 @@ All five Johansen lag criteria give the same model. The deterministic terms did 
 | D.FFT.L1 | 0.2204 | 2.67 | 9.8e-03 |
 | **LR: FFT (θ)** | **0.4119** | 6.97 | 3.9e-09 |
 
+![Glacier Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Glacier Bank - Actual vs Predicted.png>)
+
+*Figure 4: Glacier Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.2.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.176, 0.274, 0.177, 0.152, 0.148, 0.279, 0.354, 0.429. Mean 0.248, the **worst in the peer set**, and errors grow with horizon.
+
+![Glacier Bank: rolling-origin 8Q backtest MAE](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
+
+*Figure 5: Glacier Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - The mismatch between the test's deterministic specification (linear trend) and the estimated ECM (none) needs review.
-- The 2012Q1 spike in the deposit rate is a candidate data anomaly and has not been investigated.
+- The 2012Q1 dip (0.14%) and 2012Q2 spike (1.50%) in the deposit rate are a candidate data anomaly and have not been investigated. The fitted series overshoots in the opposite direction in the following quarters (Figure 4).
+- The fitted rate turns negative (about -0.1%) around 2020Q4, which is not economically meaningful and reflects the model having no floor at zero.
 - Evidence on the order of integration is mixed across samples (§6.2.2).
 
 ### 6.3 Huntington National Bank
@@ -381,11 +398,20 @@ The Zivot-Andrews test **could not be run**: the auxiliary exogenous matrix is n
 | D.FFT.L3 | 0.1012 | 2.03 | 0.048 |
 | **LR: FFT (θ)** | **0.5320** | 25.16 | 3.8e-31 |
 
+![Huntington National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Huntington National Bank - Actual vs Predicted.png>)
+
+*Figure 6: Huntington National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.3.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.280, 0.161, 0.143, 0.184, 0.215, 0.143, 0.138, 0.141. Mean 0.176. The 1Q error is the highest in the peer set.
+
+![Huntington National Bank: rolling-origin 8Q backtest MAE](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
+
+*Figure 7: Huntington National Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - `D.y.L1` survived the parameter screen in the UECM but is **not significant** (p 0.29) in the re-estimated one-step ECM. The model should be refit without it.
 - Stationarity of the first difference depends on lag selection, and the structural-break test failed.
-- Huntington's rate stayed well above its peers from 2011 to 2016, possibly linked to the unadjusted FirstMerit merger.
+- The FirstMerit merger (2016) is not adjusted. The modeled series shows no visible level shift around 2016 (Figure 6), so the effect may be small, but this has not been confirmed.
 - No re-specification grid was run, so robustness of the cointegration result has not been assessed.
 
 ### 6.4 KeyBank National Association
@@ -427,8 +453,17 @@ EG short-run *t* = -3.135, p 0.019. Tied on in-sample MAE (0.054483) with EG sho
 | D.FFT.L3 | 0.1738 | 3.40 | 1.3e-03 |
 | **LR: FFT (θ)** | **0.4948** | 19.05 | 4.1e-25 |
 
+![KeyBank National Association: actual vs. predicted deposit rate, champion model](<docs/figures/KeyBank National Association - Actual vs Predicted.png>)
+
+*Figure 8: KeyBank National Association, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.4.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.098, 0.097, 0.103, 0.064, 0.078, 0.119, 0.285, 0.195. Mean 0.130.
+
+![KeyBank National Association: rolling-origin 8Q backtest MAE](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
+
+*Figure 9: KeyBank National Association, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - An earlier 4Q backtest (`MAE_backtest_4Q.csv`) used a **different model**, EG long run `c`/AIC: 0.006, 0.197, 0.282, 0.254. It is not comparable to the champion and should be rerun or archived.
 - The wide beta range across passing specifications (0.17 to 0.54) is a model-risk signal: the beta depends on specification.
 
@@ -476,8 +511,17 @@ The Zivot-Andrews test **could not be run**: an array broadcast error (shape (52
 | D.FFT.L0 | 0.1519 | 5.30 | 2.0e-06 |
 | **LR: FFT (θ)** | **0.4518** | 12.85 | 2.5e-18 |
 
+![Manufacturers and Traders Trust Company: actual vs. predicted deposit rate, champion model](<docs/figures/Manufacturers and Traders Trust Company - Actual vs Predicted.png>)
+
+*Figure 10: Manufacturers and Traders Trust Company, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.5.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.199, 0.089, 0.083, 0.061, **0.534**, 0.202, 0.096, 0.126. Mean 0.174.
+
+![Manufacturers and Traders Trust Company: rolling-origin 8Q backtest MAE](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
+
+*Figure 11: Manufacturers and Traders Trust Company, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - The 5Q window (origin 2025Q1) has a large error. Old National shows the same pattern, which points to a common shock around 2025Q2 that the FFT-only model does not capture.
 - The slowest adjustment in the peer set (λ = -0.127) means roughly 12.7% of any disequilibrium closes per quarter.
 - The constant in a case 3 specification was dropped by the parameter screen. The champion is effectively a no-intercept model.
@@ -518,9 +562,18 @@ Not tested.
 | D.FFT.L0 | 0.1697 | 3.39 | 1.3e-03 |
 | **LR: FFT (θ)** | **0.5412** | 19.24 | 4.3e-26 |
 
+![Old National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Old National Bank - Actual vs Predicted.png>)
+
+*Figure 12: Old National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.6.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.058, 0.092, 0.054, 0.105, **0.539**, 0.223, 0.339, 0.196. Mean 0.201.
-- Large errors at 5Q to 7Q (origins 2024Q3 to 2025Q1) coincide with the M&T error spike.
+
+![Old National Bank: rolling-origin 8Q backtest MAE](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
+
+*Figure 13: Old National Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
+- Large errors at 5Q to 7Q (origins 2024Q3 to 2025Q1) coincide with the M&T error spike. The actual rate drops to about 1.85% in 2025Q2 and rebounds to about 2.6% in 2025Q3 (Figure 12). Every forecast window that includes 2025Q2 is affected. This one-quarter reversal should be checked as a possible data artifact.
 - The unapplied First Midwest merger (2022) falls inside the rate-hiking cycle and may bias the post-2022 relationship.
 - No re-specification grid was run.
 
@@ -564,8 +617,17 @@ Trace r ≤ 0 = 16.58 (p < 0.01). Tied on in-sample MAE with the FPE selection a
 | D.FFT.L2 | 0.1360 | 2.84 | 6.3e-03 |
 | **LR: FFT (θ)** | **0.4338** | 13.87 | 1.3e-19 |
 
+![SouthState Bank: actual vs. predicted deposit rate, champion model](<docs/figures/SouthState Bank - Actual vs Predicted.png>)
+
+*Figure 14: SouthState Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+
 #### 6.7.7 Outcomes Analysis and Issues
 - 8Q backtest MAE (1Q to 8Q): 0.136, 0.073, 0.071, 0.110, 0.125, 0.140, 0.093, 0.087. Mean 0.104, the **best and most stable in the peer set**.
+
+![SouthState Bank: rolling-origin 8Q backtest MAE](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
+
+*Figure 15: SouthState Bank, rolling-origin dynamic-forecast MAE by horizon, 8Q backtest, champion model.*
+
 - The champion has no contemporaneous FFT term. Pass-through starts after two quarters.
 - The unapplied Atlantic Capital merger (2022) is an open data issue.
 
@@ -633,15 +695,16 @@ No independent validation has been performed. The items below should be resolved
 | OI-5 | Fix Zivot-Andrews failures (rank deficiency; zero-bound values) and extend the break tests to all banks | All | Medium | Open |
 | OI-6 | Refit the Huntington champion without the insignificant `D.y.L1` | Huntington | Medium | Open |
 | OI-7 | Reconcile the deterministic terms between the cointegration test and the estimated ECM | Glacier, M&T | Medium | Open |
-| OI-8 | Investigate the shared 5Q backtest error spike (origin 2025Q1) | M&T, Old National | Medium | Open |
+| OI-8 | Investigate the shared 5Q backtest error spike (origin 2025Q1), including Old National's 2025Q2 one-quarter drop | M&T, Old National | Medium | Open |
 | OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Open |
 | OI-10 | Define acceptance thresholds for backtest MAE | All | Medium | Open |
 | OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM) | All | Medium | Open |
 | OI-12 | Rerun or archive the stale KeyBank 4Q backtest, which used a non-champion model | KeyBank | Low | Open |
-| OI-13 | Investigate the Glacier 2012Q1 deposit-rate spike | Glacier | Low | Open |
+| OI-13 | Investigate the Glacier 2012Q1 dip and 2012Q2 spike (possible de-cumulation error) | Glacier | Medium | Open |
 | OI-14 | Assess whether the First Horizon long-run trend is economically justified for projection | First Horizon | Medium | Open |
 | OI-15 | Isolate deposit interest expense from total interest expense, if Call Report detail allows | All | Medium | Open |
 | OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Open |
+| OI-17 | Regenerate Figure 1 from the modeled dataset; the earlier version showed a Huntington series that did not match `rate_pf_clean` | Huntington | Low | Closed (v0.2): regenerated from `EDA1_Stationarity_Tests.ipynb` on the current data |
 
 ---
 
@@ -998,14 +1061,12 @@ KeyBank, Glacier and SouthState show I(1) stationarity with inconclusive evidenc
 
 | Artifact | Location |
 | :--- | :--- |
+| Figures included in this document (champion models only) | `docs/figures/` |
 | Actual vs. predicted charts, every estimated specification | `Actuals vs Predictions/<bank>/` |
-| Backtest bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` |
-| Backtest summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
+| MAE stability bar charts and tables | `MAE_Backtesting/output/<bank>/MAE_backtest_8Q.{png,csv}` |
+| MAE stability summary, all banks | `MAE_Backtesting/output/backtest_summary_8Q.csv` |
 | Full coefficient tables, all estimated ECMs | `ECM estimation results.csv` |
 | In-sample MAE, all estimated ECMs | `estimation result summary.csv` |
 | Merger event inputs and log | `merger_events_raw.csv`, `merger_events_used.csv`, `merger_adjustment_log.md` |
-| Source analysis notes | Obsidian vault `Modeling/Deposit Beta/Documentation.md` |
 
 ---
-
-*End of document. WORK IN PROGRESS: not validated, not approved for use.*
