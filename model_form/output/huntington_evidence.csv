@@ -1,0 +1,13 @@
+item,result,source
+Baseline cointegration,fails all four at 5% (EG long run p 0.085),§6.3.4
+Re-specification grid,"only EG long run, no deterministic terms (p 0.019)",§6.3.4
+EG `n` by sample window,10 of 15 windows pass at 5%; p from 0.005 to 0.694,huntington_eg_subsamples.csv
+Gregory-Hansen C (level shift),"ADF* -3.79, break 2023Q4, reject 5% (T=62 sim): False",gregory_hansen_summary.csv
+Gregory-Hansen C/S (regime shift),"ADF* -3.96, break 2021Q3, reject 5% (T=62 sim): False",gregory_hansen_summary.csv
+Asymmetry by sign of ect (a1),"lambda+ -0.118, lambda- -0.459, Wald p 0.000",asymmetry_tests.csv
+Asymmetry easing vs. other (a2),"easing -0.409, other -0.310, Wald p 0.629",asymmetry_tests.csv
+2022Q3 level dummy (c),"delta 0.136 (p 0.031), long-run shift 0.437, theta 0.386 vs. 0.469",dummy_ecm.csv
+Rolling-origin beta,"0.551 (2024Q2) to 0.465 (2026Q1), falling at 5 of 7 steps",Beta_Backtesting/output/Huntington National Bank/
+Champion many-start-date rating,Red (3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50),assessment_fixed_limits_8Q.csv
+Best challenger rating,a0: Red (mean 0.334); a1: Green (mean 0.264); a2: Red (mean 0.348); b1: Red (mean 0.448); b2: Red (mean 0.348); b3: Red (mean 0.311); c: Red (mean 0.386); c': Red (mean 0.379),assessment_fixed_limits_8Q.csv
+Champion + D.FFT.L0 (h1),"coef 0.209 (p 0.000); mean h-step MAE 0.240, rating Green",huntington_h1_multiorigin_8Q.csv
