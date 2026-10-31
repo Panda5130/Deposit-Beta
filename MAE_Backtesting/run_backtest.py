@@ -2,13 +2,20 @@
 
 Usage (all arguments optional; defaults point at the files in the project folder):
     python MAE_Backtesting/run_backtest.py [--horizon 8Q] [--bank-name NAME|All]
-        [--model "test_name | IC/selected lag | trend type"] [--min-train 20]
-        [--summary FILE] [--estimates FILE] [--dependents FILE] [--independents FILE]
+        [--model "test_name | IC/selected lag | trend type"] [--select in-sample|out-of-sample]
+        [--first-origin 2016Q1] [--no-cache] [--min-train 20] [--summary FILE] [--estimates FILE] [--dependents FILE] [--independents FILE]
         [--y COLUMN] [--x COLUMN] [--group-column COLUMN] [--out-dir DIR]
 
 --bank-name All (the default) runs every bank in "estimation result summary.csv". --model
 picks the specification for a single bank; without it the bank's lowest in-sample MAE model
-is used (ties broken EG > ARDL > Johansen). See backtest.py for the method. Output layout:
+is used (ties broken EG > ARDL > Johansen). See backtest.py for the method.
+
+--select out-of-sample (optional; the default stays in-sample) backtests instead each bank's
+out-of-sample pick (backtest.select_model_oos): admissible models ranked by mean many-origin
+h-step MAE from --first-origin (default 2016Q1 in this mode), most parsimonious within one SE
+of the best. It writes to <out-dir> = MAE_Backtesting/output/out_of_sample by default, caches
+errors per model (cache/<bank>__<model id>.csv), and adds selection_oos_scores_<N>Q.csv: every
+model's lambda, theta, admissibility, score, SE and whether it was picked. Output layout:
 
     <out-dir>/                          default: MAE_Backtesting/output
         <bank_name>/
@@ -65,7 +72,7 @@ def resolve_banks(name, summary, group_column):
 
 def multi_errors(backtest, cache, first_origin, horizon, no_cache=False):
     """Per-origin errors for one bank: from the cache when a stored run covers horizon."""
-    key = (backtest.bank, backtest.model, first_origin, backtest.data_hash())
+    key = (backtest.bank, backtest.model, first_origin, backtest.data_hash(), backtest.spec())
     errors = None if no_cache else cache.load(*key, horizon)
     if errors is None:
         errors = backtest.multi_errors(first_origin)
@@ -76,19 +83,28 @@ def multi_errors(backtest, cache, first_origin, horizon, no_cache=False):
     return errors[bt.ERROR_COLUMNS]
 
 
+def choose_model(args, summary, estimates, data, bank, cache, horizon, model=None):
+    """(model, scores): the in-sample champion (scores None) or the out-of-sample pick."""
+    if args.select == "in-sample":
+        return bt.select_model(summary, bank, model, args.group_column), None
+    scores = bt.oos_scores(summary, estimates, data, bank, cache, args.first_origin, horizon, args.y, args.x,
+                           args.group_column, args.min_train)
+    return bt.select_model_oos(scores)
+
+
 def peer_errors(summary, estimates, source, cache, args, horizon, exclude):
-    """Cached errors of the other banks, if they match their current data and champion."""
+    """Cached errors of the other banks, if they match their current data and model choice."""
     peers = {}
     for bank in resolve_banks("All", summary, args.group_column):
         if bank in exclude:
             continue
         try:
-            model = bt.select_model(summary, bank, None, args.group_column)
-            rows = bt.bank_rows(estimates, bank, args.group_column)
             data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
+            model, _ = choose_model(args, summary, estimates, data, bank, cache, horizon)
+            rows = bt.bank_rows(estimates, bank, args.group_column)
             peer = bt.MAEBacktest(bank, model, horizon, data, rows[bt.model_mask(rows, model)], args.y, args.x,
                                   args.min_train)
-            errors = cache.load(bank, model, args.first_origin, peer.data_hash(), horizon)
+            errors = cache.load(bank, model, args.first_origin, peer.data_hash(), peer.spec(), horizon)
         except Exception:
             errors = None
         if errors is not None:
@@ -138,9 +154,13 @@ def main(argv=None):
     parser.add_argument("--y", default=bt.bp.DEFAULTS["y"], help="dependent column")
     parser.add_argument("--x", default=bt.bp.DEFAULTS["x"], help="regressor column")
     parser.add_argument("--group-column", default=bt.bp.DEFAULTS["group_column"])
-    parser.add_argument("--out-dir", default=bt.HERE / "output")
+    parser.add_argument("--out-dir", default=None,
+                        help="default: MAE_Backtesting/output (in-sample) or output/out_of_sample")
+    parser.add_argument("--select", choices=["in-sample", "out-of-sample"], default="in-sample",
+                        help="model choice when --model is not given (default: in-sample MAE)")
     parser.add_argument("--first-origin", default=None,
-                        help="also run the many-origin backtest from this quarter, e.g. 2016Q1")
+                        help="also run the many-origin backtest from this quarter, e.g. 2016Q1 "
+                             "(default with --select out-of-sample: 2016Q1)")
     parser.add_argument("--no-cache", action="store_true", help="recompute the many-origin errors")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", stream=sys.stdout)
@@ -154,25 +174,32 @@ def main(argv=None):
         banks = resolve_banks(args.bank_name, summary, args.group_column)
         if args.model is not None and len(banks) > 1:
             raise ValueError("--model applies to one bank; give --bank-name too")
+        if args.model is not None and args.select == "out-of-sample":
+            raise ValueError("give --model or --select out-of-sample, not both")
         estimates = bt.bp.load_estimates(args.estimates, args.group_column)
         source = bt.bp.load_source(args.dependents, args.independents)
     except (FileNotFoundError, ValueError) as e:
         log.error("%s", e)
         return 1
 
-    out_dir = Path(args.out_dir)
+    oos = args.select == "out-of-sample"
+    if oos:
+        args.first_origin = args.first_origin or "2016Q1"
+    out_dir = Path(args.out_dir or (bt.HERE / "output" / "out_of_sample" if oos else bt.HERE / "output"))
     stem = f"MAE_backtest_{horizon}Q"
-    log.info("backtesting %d bank(s) over %dQ into %s", len(banks), horizon, out_dir)
-    cache = bt.ErrorCache(out_dir / "cache")
-    results, multi, skipped = [], {}, 0
+    log.info("backtesting %d bank(s) over %dQ into %s (%s model choice)", len(banks), horizon, out_dir, args.select)
+    cache = bt.ErrorCache(out_dir / "cache", per_model=oos)
+    results, multi, scores, skipped = [], {}, [], 0
     for i, bank in enumerate(banks, start=1):
         try:
-            model = bt.select_model(summary, bank, args.model, args.group_column)
+            data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
+            model, bank_scores = choose_model(args, summary, estimates, data, bank, cache, horizon, args.model)
+            if bank_scores is not None:
+                scores.append(bank_scores)
             rows = bt.bank_rows(estimates, bank, args.group_column)
             spec_rows = rows[bt.model_mask(rows, model)]
             if spec_rows.empty:
                 raise ValueError(f"model {' | '.join(model)} has no coefficients in the estimates")
-            data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
             backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train)
             result = backtest.run()
             if args.first_origin:
@@ -196,6 +223,9 @@ def main(argv=None):
         assessment.to_csv(out_dir / f"backtest_assessment_{horizon}Q.csv", index=False)
     if multi:
         write_multi(multi, args, summary, estimates, source, cache, horizon, out_dir)
+    if scores:
+        suffix = "" if args.bank_name.strip().lower() == "all" else "_" + bt.bp.INVALID_CHARS_RE.sub("-", banks[0])
+        pd.concat(scores).to_csv(out_dir / f"selection_oos_scores_{horizon}Q{suffix}.csv", index=False)
     log.info("done: %d chart(s) in %s, %d bank(s) skipped", len(results), out_dir, skipped)
     return 2 if skipped else 0
 

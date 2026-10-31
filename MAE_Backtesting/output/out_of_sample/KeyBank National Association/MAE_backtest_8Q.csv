@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),1Q,2026Q1,2026Q2,2026Q2,1,0.10976621656557795,0.017822103793244004
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2Q,2025Q4,2026Q1,2026Q2,2,0.043737368375590724,0.22694000667259573
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),3Q,2025Q3,2025Q4,2026Q2,3,0.1897474530412185,0.31703890322111383
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),4Q,2025Q2,2025Q3,2026Q2,4,0.06475438269663808,0.21595586958291296
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),5Q,2025Q1,2025Q2,2026Q2,5,0.1398141625293789,0.19655612617482507
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),6Q,2024Q4,2025Q1,2026Q2,6,0.17540620273058405,0.3438134563033286
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),7Q,2024Q3,2024Q4,2026Q2,7,0.2553665169877741,0.507183864874183
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),8Q,2024Q2,2024Q3,2026Q2,8,0.06368980187241438,0.34689539543064096

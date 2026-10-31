@@ -1,0 +1,8 @@
+bank_name,model,mean_mae,max_mae,naive_mean_mae,horizons_beating_naive,rating
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),0.20369015690599762,0.44978731743521955,0.30725909084977554,7/8,Amber
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1) | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",0.12342452791737075,0.35390913922849887,0.23539059556617845,6/8,Green
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),0.15936772435746685,0.30633902293804605,0.11914642165272131,3/8,Amber
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",0.1583464515897553,0.3777459853213556,0.1816093156492901,4/8,Amber
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",0.13028526309989708,0.2553665169877741,0.27152571575660556,7/8,Green
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",0.20264211680098487,0.44778269280735084,0.23118267604983256,6/8,Amber
+Old National Bank,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",0.1962229466956662,0.43444571729716236,0.20747701114094982,5/8,Amber

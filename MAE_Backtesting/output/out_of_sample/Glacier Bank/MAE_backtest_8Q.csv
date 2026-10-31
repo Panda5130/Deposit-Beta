@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),1Q,2026Q1,2026Q2,2026Q2,1,0.10221580245079931,0.008155630610091391
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),2Q,2025Q4,2026Q1,2026Q2,2,0.042198302159934364,0.10706437502589294
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),3Q,2025Q3,2025Q4,2026Q2,3,0.033151445381123835,0.10223196953149623
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),4Q,2025Q2,2025Q3,2026Q2,4,0.10172882425173979,0.08203868821011423
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),5Q,2025Q1,2025Q2,2026Q2,5,0.2528457167857997,0.09040633454332521
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),6Q,2024Q4,2025Q1,2026Q2,6,0.2902564788368513,0.16921218610481722
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),7Q,2024Q3,2024Q4,2026Q2,7,0.14620620205544052,0.22987716419607535
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),8Q,2024Q2,2024Q3,2026Q2,8,0.30633902293804605,0.16418502499995793

@@ -1,0 +1,9 @@
+horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name
+1Q,2016Q1,2026Q1,41,0.054993493749702735,0.09673865360753066,Manufacturers and Traders Trust Company
+2Q,2016Q1,2025Q4,40,0.11541836596178241,0.19037530020288618,Manufacturers and Traders Trust Company
+3Q,2016Q1,2025Q3,39,0.16966524341722328,0.2755372697749369,Manufacturers and Traders Trust Company
+4Q,2016Q1,2025Q2,38,0.21202558046548906,0.365956922951884,Manufacturers and Traders Trust Company
+5Q,2016Q1,2025Q1,37,0.2550001144143355,0.4523280035695679,Manufacturers and Traders Trust Company
+6Q,2016Q1,2024Q4,36,0.2950134763322445,0.5288070680141643,Manufacturers and Traders Trust Company
+7Q,2016Q1,2024Q3,35,0.33438756016100957,0.592352290074264,Manufacturers and Traders Trust Company
+8Q,2016Q1,2024Q2,34,0.3663545489612632,0.6528694619302765,Manufacturers and Traders Trust Company
