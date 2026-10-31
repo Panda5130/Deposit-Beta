@@ -712,7 +712,7 @@ The no-change forecast (deposit rate held at its start-date value) is the benchm
 | L11 | Zivot-Andrews is univariate; no cointegration test allowing a break (Gregory-Hansen) has been run | All | Medium |
 | L12 | Glacier's champion keeps an insignificant constant and trend because its case 4 test requires them | Glacier | Low |
 | L13 | KPSS p-values are truncated at 0.10 | All | Low |
-| L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet | First Horizon, M&T, Glacier | Medium |
+| L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet ([#7](https://github.com/Panda5130/Deposit-Beta/issues/7)) | First Horizon, M&T, Glacier | Medium |
 | L15 | Huntington cointegration rests on one specification family (OI-19) | Huntington | High |
 | L16 | Backtest limits are percentiles of the peer group, so the absolute test is a relative standard; the single-window backtest has one start date per horizon | All | Medium |
 
@@ -724,6 +724,7 @@ The no-change forecast (deposit rate held at its start-date value) is the benchm
 No independent validation has been performed. The items below should be resolved before the model is submitted for validation.
 
 ### 9.2 Open Issues Log
+Items still open are tracked as GitHub issues on `Panda5130/Deposit-Beta`, linked in the Status column.
 
 | ID | Issue | Bank(s) | Priority | Status |
 | :-: | :--- | :--- | :-: | :--- |
@@ -735,20 +736,20 @@ No independent validation has been performed. The items below should be resolved
 | OI-6 | Refit models with insignificant short-run terms | Huntington, all | Medium | Closed: short-run lags pruned in the one-step ECM |
 | OI-7 | Reconcile the deterministic terms between the cointegration test and the estimated ECM | Glacier, M&T, KeyBank, SouthState | Medium | Closed: deterministic terms follow the test specification |
 | OI-8 | Investigate the shared error at the 2025Q1 start date, including Old National's 2025Q2 drop | M&T, Old National, SouthState | Medium | Partially closed: the Old National data artifact is fixed; the shared error is a model effect (symmetric pass-through), carried to OI-11 |
-| OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Deferred to the validator: in-sample MAE retained; a validation-window comparison is recorded in `docs/open_issue_resolutions.md` |
+| OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Deferred to the validator: in-sample MAE retained; a validation-window comparison is recorded in `docs/open_issue_resolutions.md` ([#1](https://github.com/Panda5130/Deposit-Beta/issues/1)) |
 | OI-10 | Define acceptance thresholds for backtest MAE | All | Medium | Closed: superseded for the governing rating by OI-22; single-window ratings kept as a supplementary view |
-| OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM, 2022 regime dummy) | All | High | Open: the asymmetric ECM is now a priority (OI-8) |
+| OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM, 2022 regime dummy) | All | High | Open: the asymmetric ECM is now a priority (OI-8) ([#2](https://github.com/Panda5130/Deposit-Beta/issues/2)) |
 | OI-12 | Rerun or archive the stale KeyBank 4Q backtest | KeyBank | Low | Closed: deleted |
 | OI-13 | Investigate the Glacier 2012Q1 dip and 2012Q2 spike | Glacier | Medium | Closed: rate rebuilt from quarterly fields with a two-point deposit average |
 | OI-14 | Assess whether long-run trends are economically justified for projection | First Horizon, M&T, Glacier | Medium | Closed: trend kept for estimation; frozen at its end-of-sample value in projection (L14) |
 | OI-15 | Isolate deposit interest expense from total interest expense | All | Medium | Closed: deposit interest expense only |
-| OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Partially closed: results produced (`diagnostics/unit_root_grid.csv`, Appendix A.2); the vault note is not yet updated |
+| OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Partially closed: results produced (`diagnostics/unit_root_grid.csv`, Appendix A.2); the vault note is not yet updated ([#3](https://github.com/Panda5130/Deposit-Beta/issues/3)) |
 | OI-17 | Regenerate Figure 1 from the modeled dataset | All | Low | Closed: regenerated from `EDA1_Stationarity_Tests.ipynb`, 2011Q1 to 2026Q2 |
 | OI-18 | Update Appendix A with the rebuilt unit-root results | All | Medium | Closed: Appendix A regenerated from `diagnostics/` |
-| OI-19 | Huntington cointegration rests on a single specification family (EG long run, no deterministic terms, p 0.019); assess robustness and whether Huntington stays in scope | Huntington | High | Open |
-| OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Open |
-| OI-21 | FFT input carries 2026Q3 and 2026Q4 at 3.67, and 2026Q4 is not complete; refresh before the next cycle | All | Low | Open |
-| OI-22 | The single-window backtest has one start date per horizon | All | Medium | Closed: many-start-date backtest with horizon-aware, peer-derived limits and a skill test; validator to confirm the relative-limit design |
+| OI-19 | Huntington cointegration rests on a single specification family (EG long run, no deterministic terms, p 0.019); assess robustness and whether Huntington stays in scope | Huntington | High | Open ([#4](https://github.com/Panda5130/Deposit-Beta/issues/4)) |
+| OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Open ([#5](https://github.com/Panda5130/Deposit-Beta/issues/5)) |
+| OI-21 | FFT input carries 2026Q3 and 2026Q4 at 3.67, and 2026Q4 is not complete; refresh before the next cycle | All | Low | Open ([#6](https://github.com/Panda5130/Deposit-Beta/issues/6)) |
+| OI-22 | The single-window backtest has one start date per horizon | All | Medium | Closed: many-start-date backtest with horizon-aware, peer-derived limits and a skill test; validator to confirm the relative-limit design; fixed reference-run limits are on hold ([#8](https://github.com/Panda5130/Deposit-Beta/issues/8)) |
 
 ---
 

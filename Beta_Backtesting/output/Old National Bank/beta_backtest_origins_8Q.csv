@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,origin,n_obs,beta,beta_se,beta_p,lambda
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2024Q2,52,0.4104651772844714,0.06900066048477671,3.002543320597035e-07,-0.08435133879521259
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2024Q3,53,0.4515522675311021,0.0683678189531999,2.717992054813032e-08,-0.07992533328368373
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2024Q4,54,0.36847371597216955,0.05548387135202384,2.1870572949279254e-08,-0.1034642691122922
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2025Q1,55,0.3374684427840746,0.052093656918754304,3.6312996834718016e-08,-0.09968745504004736
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2025Q2,56,0.42101722735553376,0.038998365967754835,6.913141756039286e-15,-0.11934768787160618
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2025Q3,57,0.43269124548153276,0.04010378733755913,5.523529241045561e-15,-0.11364350959761874
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2025Q4,58,0.4062283417935745,0.03321482729880993,3.44057581964395e-17,-0.13462981501673427
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),2026Q1,59,0.40522250169622903,0.03088593640415071,1.4119777469513197e-18,-0.13444021187213362
