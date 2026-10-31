@@ -18,7 +18,13 @@ is used (ties broken EG > ARDL > Johansen). See backtest.py for the method. Outp
         backtest_assessment_<N>Q.csv    Green/Amber/Red rating per bank (only with --bank-name All)
         backtest_multiorigin_<N>Q.csv   with --first-origin: h-step MAE over every origin from
                                         that quarter (expanding window), n_windows per horizon
-        backtest_multiorigin_assessment_<N>Q.csv   the same ratings applied to those MAEs
+        backtest_multiorigin_limits_<N>Q.csv       horizon-band green/red limits from this run
+        backtest_multiorigin_assessment_<N>Q.csv   band avg/max, worst skill ratio, rating, reason
+        cache/<bank_name>.csv           per-origin errors, reused by later runs with horizon <= N
+
+With --first-origin and a single --bank-name, the band limits use the other banks' cached
+errors (same first origin, current data and champion), and the limits/assessment files get
+the bank name as a suffix; with fewer than 4 banks only the skill-ratio test is applied.
 
 A bank that cannot be backtested is logged and skipped; the others still run. Exit code: 0
 when every bank ran, 2 when some were skipped, 1 when the arguments or inputs were invalid.
@@ -55,6 +61,63 @@ def resolve_banks(name, summary, group_column):
     return match
 
 
+def multi_errors(backtest, cache, first_origin, horizon, no_cache=False):
+    """Per-origin errors for one bank: from the cache when a stored run covers horizon."""
+    key = (backtest.bank, backtest.model, first_origin, backtest.data_hash())
+    errors = None if no_cache else cache.load(*key, horizon)
+    if errors is None:
+        errors = backtest.multi_errors(first_origin)
+        cache.store(*key, horizon, errors)
+        log.info("%s: many-origin errors computed (%d origins)", backtest.bank, errors.origin.nunique())
+    else:
+        log.info("%s: many-origin errors reused from cache", backtest.bank)
+    return errors[bt.ERROR_COLUMNS]
+
+
+def peer_errors(summary, estimates, source, cache, args, horizon, exclude):
+    """Cached errors of the other banks, if they match their current data and champion."""
+    peers = {}
+    for bank in resolve_banks("All", summary, args.group_column):
+        if bank in exclude:
+            continue
+        try:
+            model = bt.select_model(summary, bank, None, args.group_column)
+            rows = bt.bank_rows(estimates, bank, args.group_column)
+            data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
+            peer = bt.MAEBacktest(bank, model, horizon, data, rows[bt.model_mask(rows, model)], args.y, args.x,
+                                  args.min_train)
+            errors = cache.load(bank, model, args.first_origin, peer.data_hash(), horizon)
+        except Exception:
+            errors = None
+        if errors is not None:
+            peers[bank] = errors
+    return peers
+
+
+def write_multi(multi, args, summary, estimates, source, cache, horizon, out_dir):
+    tables = {bank: bt.summarise_errors(errors, horizon) for bank, (_, errors) in multi.items()}
+    peers = {bank: bt.summarise_errors(e, horizon)
+             for bank, e in peer_errors(summary, estimates, source, cache, args, horizon, multi).items()}
+    limits, assessment = bt.assess_multi({**peers, **tables}, horizon)
+    assessment = assessment[assessment.bank_name.isin(list(multi))].copy()
+    assessment.insert(1, "model", assessment.bank_name.map(lambda b: " | ".join(multi[b][0])))
+    assessment.insert(2, "min_windows", assessment.bank_name.map(lambda b: int(tables[b].n_windows.min())))
+    for bank, table in tables.items():
+        bank_dir = out_dir / bt.bp.INVALID_CHARS_RE.sub("-", bank)
+        table.assign(bank_name=bank).to_csv(bank_dir / f"MAE_backtest_multiorigin_{horizon}Q.csv", index=False)
+    run_all = args.bank_name.strip().lower() == "all"
+    suffix = "" if run_all else "_" + bt.bp.INVALID_CHARS_RE.sub("-", next(iter(multi)))
+    if run_all:
+        pd.concat([t.assign(bank_name=b, model=" | ".join(multi[b][0])) for b, t in tables.items()]).to_csv(
+            out_dir / f"backtest_multiorigin_{horizon}Q.csv", index=False)
+    limits.to_csv(out_dir / f"backtest_multiorigin_limits_{horizon}Q{suffix}.csv", index=False)
+    assessment.to_csv(out_dir / f"backtest_multiorigin_assessment_{horizon}Q{suffix}.csv", index=False)
+    log.info("many-origin limits from %d bank(s): %s", int(limits.n_banks.iloc[0]),
+             "; ".join(f"{r.band} {r.green:.2f}/{r.red:.2f}" for r in limits.itertuples()))
+    for r in assessment.itertuples():
+        log.info("  %s: %s%s", r.bank_name, r.rating, f" ({r.reason})" if r.reason else "")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Rolling-origin MAE backtest bar charts.")
     parser.add_argument("--horizon", default="8Q", help="backtest horizon in quarters, e.g. 8Q")
@@ -73,6 +136,7 @@ def main(argv=None):
     parser.add_argument("--out-dir", default=bt.HERE / "output")
     parser.add_argument("--first-origin", default=None,
                         help="also run the many-origin backtest from this quarter, e.g. 2016Q1")
+    parser.add_argument("--no-cache", action="store_true", help="recompute the many-origin errors")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", stream=sys.stdout)
 
@@ -94,7 +158,8 @@ def main(argv=None):
     out_dir = Path(args.out_dir)
     stem = f"MAE_backtest_{horizon}Q"
     log.info("backtesting %d bank(s) over %dQ into %s", len(banks), horizon, out_dir)
-    results, multi, skipped = [], [], 0
+    cache = bt.ErrorCache(out_dir / "cache")
+    results, multi, skipped = [], {}, 0
     for i, bank in enumerate(banks, start=1):
         try:
             model = bt.select_model(summary, bank, args.model, args.group_column)
@@ -106,7 +171,7 @@ def main(argv=None):
             backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train)
             result = backtest.run()
             if args.first_origin:
-                multi.append((bank, model, backtest.run_multi(args.first_origin)))
+                multi[bank] = (model, multi_errors(backtest, cache, args.first_origin, horizon, args.no_cache))
         except Exception as e:
             log.warning("[%d/%d] %s skipped: %s", i, len(banks), bank, e)
             skipped += 1
@@ -124,12 +189,8 @@ def main(argv=None):
         assessment = pd.DataFrame([{"bank_name": r.bank, "model": " | ".join(r.model), **bt.assess(r.table)}
                                    for r in results])
         assessment.to_csv(out_dir / f"backtest_assessment_{horizon}Q.csv", index=False)
-    if multi and args.bank_name.strip().lower() == "all":
-        pd.concat([t.assign(bank_name=b, model=" | ".join(m)) for b, m, t in multi]).to_csv(
-            out_dir / f"backtest_multiorigin_{horizon}Q.csv", index=False)
-        pd.DataFrame([{"bank_name": b, "model": " | ".join(m), "min_windows": int(t.n_windows.min()),
-                       **bt.assess(t)} for b, m, t in multi]).to_csv(
-            out_dir / f"backtest_multiorigin_assessment_{horizon}Q.csv", index=False)
+    if multi:
+        write_multi(multi, args, summary, estimates, source, cache, horizon, out_dir)
     log.info("done: %d chart(s) in %s, %d bank(s) skipped", len(results), out_dir, skipped)
     return 2 if skipped else 0
 

@@ -17,7 +17,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | OI-7 | Resolved | Estimated ECMs carry the deterministic terms of their cointegration test; 0 mismatches (was 17 of 78) |
 | OI-8 | Partially resolved | Old National's 2025Q2 drop was a data artifact (fixed). The shared error at the single 2025Q1 start date (labelled "5Q") remains and is a model effect (symmetric pass-through), going to OI-11. It is a start-date effect, not a horizon effect (OI-22) |
 | OI-9 | Deferred (user decision) | In-sample MAE rule retained for now; validation-window comparison recorded as evidence |
-| OI-10 | Resolved | Green/Amber/Red thresholds adopted and implemented (`backtest_assessment_8Q.csv`) |
+| OI-10 | Resolved | Single-window thresholds implemented (`backtest_assessment_8Q.csv`); superseded for the governing rating by the horizon-aware rule in OI-22 |
 | OI-11 | Deferred | No challenger built; scope and the specific trigger (OI-8) documented |
 | OI-12 | Resolved | Stale KeyBank 4Q backtest deleted |
 | OI-13 | Resolved | Glacier 2012 anomaly was the calendar-year deposit average plus YTD de-cumulation across a charter consolidation; fixed by the rebuild |
@@ -26,7 +26,7 @@ Nothing on this branch has been pushed to GitHub or copied to the Obsidian vault
 | OI-16 | Partially resolved | 2008–2026 merger-adjusted ADF/KPSS grid produced (`diagnostics/unit_root_grid.csv`); the vault placeholders still need to be filled by hand |
 | OI-17 | Resolved | Figure 1 regenerated from the modeled dataset (`docs/figures_rebuild/`) |
 | New | Open | OI-18 to OI-21: see §3 |
-| OI-22 | Partially resolved | Many-start-date backtest implemented (34–41 windows per horizon). Under it, the OI-10 thresholds give 3 Amber and 4 Red, so the thresholds need re-calibrating for the new metric (user decision pending) |
+| OI-22 | Resolved (user-approved design) | Many-start-date backtest (34–41 windows per horizon) rated with horizon-aware limits derived each run from N and the peer results: First Horizon, M&T, Old National and SouthState Green; Glacier Amber; Huntington and KeyBank Red |
 
 ## 1. Decisions taken with the user (2026-10-30)
 
@@ -233,7 +233,7 @@ Validation-window selection wins for 2 banks, loses for 3 and ties for 2. The va
 | Old National | 0.173 | 0.364 | 0.207 | 6/8 | Amber |
 | Huntington | 0.203 | 0.448 | 0.231 | 6/8 | Amber |
 
-**Caveat:** these ratings rest on one forecast window per horizon (the last 8 start dates, all in the 2024–26 easing). Under the many-start-date backtest (OI-22), the same rules give 3 Amber and 4 Red. The thresholds have to be re-calibrated for whichever metric is adopted.
+**Caveat:** these ratings rest on one forecast window per horizon (the last 8 start dates, all in the 2024–26 easing). They are kept as a supplementary view. The governing rating is now the many-start-date, horizon-aware assessment in OI-22.
 
 ### OI-11: Benchmark / challenger models
 
@@ -294,7 +294,7 @@ Summary for 2008–2026 merger-adjusted, default spec (ADF c/AIC, KPSS c/auto):
 
 ### OI-22: Backtest has one forecast window per horizon
 
-**Status: Partially resolved.** The many-start-date backtest is implemented. The choice of metric and thresholds is pending a user decision. The champion rule is unchanged.
+**Status: Resolved (design approved by the user via the documentation session, 2026-10-30).** The many-start-date backtest is implemented and rated with horizon-aware, data-derived thresholds. The champion rule is unchanged.
 
 **Issue:** in `backtest_summary_8Q.csv`, the kQ row is the single window from origin T−k to 2026Q2, with MAE averaged over its k quarters. Every horizon therefore rests on one start date, and the 8 rows overlap. The old §1.4 wording ("M&T and Old National above 0.53 pp at the 5Q horizon") described one start date (2025Q1), not a 5-quarter horizon effect.
 
@@ -318,9 +318,44 @@ Summary for 2008–2026 merger-adjusted, default spec (ADF c/AIC, KPSS c/auto):
 - Errors now rise smoothly with horizon, as they should. The single-window 5Q spike disappears.
 - Every champion beats the no-change forecast at every horizon (8/8 for all banks). Under the single-window backtest, Glacier and SouthState did so on only 5/8.
 - The levels are higher than the single-window numbers for two reasons. h-step errors are point errors at step h, not averages over steps 1..h. And the start dates now include the 2016–19 and 2022–23 tightening cycles, when deposit rates moved fastest.
-- **Re-check of the OI-10 thresholds:** applied unchanged to these MAEs, the ratings are First Horizon, M&T and Glacier Amber; SouthState, KeyBank, Huntington and Old National Red (mean > 0.25 pp, or the 8Q error > 0.50 for KeyBank and Huntington). The ±0.15/0.25/0.50 levels were set against single-window averages and do not carry over to h-step errors. **The thresholds do not hold as they stand.**
+- **Re-check of the original OI-10 thresholds:** applied unchanged to these MAEs, the fixed 0.15/0.25/0.50 levels gave 3 Amber and 4 Red. They were set against single-window averages and do not carry over to h-step errors, so they are replaced for this table by the rule below.
 
-**Open decision (user):** which metric governs acceptance, and at what levels. Options: (1) keep the single-window ratings and report the many-start-date table as supporting evidence; (2) switch to the many-start-date metric and re-set thresholds, for example by horizon band (1–2Q, 3–4Q, 5–8Q) or relative to no-change; (3) both, with the benchmark condition carrying most of the weight. The champion rule (OI-9) has not been touched.
+**Horizon-aware thresholds (implemented in `backtest.py::assess_multi`):**
+1. **Bands from N** (`--horizon`, default 8Q): e1 = ceil(N/4), e2 = ceil(N/2); bands 1..e1, e1+1..e2, e2+1..N, with empty bands dropped. N=8 gives 1–2Q, 3–4Q, 5–8Q; N=4 gives 1Q, 2Q, 3–4Q; N=12 gives 1–3Q, 4–6Q, 7–12Q; N=1 gives a single band.
+2. **Per bank and band:** avg = mean of the h-step MAEs in the band; max = the largest h-step MAE in the band.
+3. **Limits per band across the banks in the run:** up(v) = ceil(v / 0.05) × 0.05, with float noise guarded. green = up(P75 of the banks' band avg); red = max(up(P75 of the banks' band max), green + 0.05).
+4. **Absolute test:** Red if band max > red, Amber if band avg > green, else Green. The bank's absolute rating is its worst band.
+5. **Skill test:** ratio = model h-step MAE ÷ no-change h-step MAE at each horizon. Red if any ratio ≥ 1.00, Amber if any ratio > 0.75, else Green.
+6. **Rating** = the worse of the two tests. If fewer than 4 banks have results, only the skill test is applied, and the output says so.
+
+**Outputs:** `backtest_multiorigin_limits_<N>Q.csv` (band, h_from, h_to, green, red, n_banks); `backtest_multiorigin_assessment_<N>Q.csv` (band avg/max, worst skill ratio and horizon, absolute and skill ratings, final rating, and the reason for any Amber or Red); per-bank `MAE_backtest_multiorigin_<N>Q.csv`.
+
+**Speed:** per-origin errors (h, origin, err, naive) are stored in `MAE_Backtesting/output/cache/<bank>.csv`, keyed by bank, model, first origin, a hash of the bank's input data, and run horizon. A run with horizon ≤ the stored one slices h ≤ N and does no refit. With `--bank-name <one bank>`, the limits use the other banks' cached errors, provided those still match their current data and champion. The limits are one groupby over about N×7 rows. Timings on this machine: first N=8 run 49s (refits); N=4 and N=8 reusing the cache 8–10s, almost all of it the single-window backtest; N=12 needs a refit, 50s.
+
+**Results, N = 8 (`--first-origin 2016Q1`, 7 banks).** These reproduce the hand-computed check exactly.
+
+| Band | green | red |
+| :-: | :-: | :-: |
+| 1–2Q | 0.15 | 0.20 |
+| 3–4Q | 0.25 | 0.30 |
+| 5–8Q | 0.40 | 0.50 |
+
+| Bank | 1–2Q avg / max | 3–4Q avg / max | 5–8Q avg / max | Worst skill ratio | Rating | Reason |
+| :--- | :-: | :-: | :-: | :-: | :-: | :--- |
+| First Horizon Bank | 0.139 / 0.179 | 0.233 / 0.239 | 0.299 / 0.312 | 0.71 (1Q) | Green | |
+| Glacier Bank | 0.075 / 0.103 | 0.175 / 0.195 | 0.288 / 0.331 | 0.96 (3Q) | Amber | skill ratio 0.96 at 3Q |
+| Huntington National Bank | 0.122 / 0.160 | 0.271 / 0.307 | 0.472 / 0.559 | 0.74 (1Q) | Red | 3–4Q max 0.307 > 0.30; 5–8Q max 0.559 > 0.50 |
+| KeyBank National Association | 0.085 / 0.115 | 0.198 / 0.224 | 0.419 / 0.533 | 0.71 (8Q) | Red | 5–8Q max 0.533 > 0.50 |
+| Manufacturers and Traders Trust Company | 0.088 / 0.117 | 0.190 / 0.211 | 0.296 / 0.329 | 0.62 (3Q) | Green | |
+| Old National Bank | 0.099 / 0.132 | 0.206 / 0.230 | 0.373 / 0.437 | 0.67 (2Q) | Green | |
+| SouthState Bank | 0.098 / 0.134 | 0.232 / 0.262 | 0.364 / 0.406 | 0.70 (3Q) | Green | |
+
+**Other horizons (same start dates, run to a scratch folder, not committed):**
+- N = 4: bands 1Q / 2Q / 3–4Q, limits 0.10/0.15, 0.15/0.20, 0.25/0.30. Ratings: KeyBank, M&T, Old National and SouthState Green; First Horizon Amber (2Q avg 0.179 > 0.15); Glacier Amber (skill 0.96); Huntington Red (3–4Q max 0.307 > 0.30).
+- N = 12: bands 1–3Q / 4–6Q / 7–12Q, limits 0.15/0.25, 0.35/0.40, 0.60/0.70. Ratings: M&T, Old National and SouthState Green; First Horizon Amber (1–3Q avg 0.168 > 0.15); Glacier Amber (skill 0.96); Huntington Red (4–6Q max 0.442 > 0.40); KeyBank Red (7–12Q max 0.907 > 0.70; skill 0.96 at 12Q).
+- First Horizon's rating depends on N (Green at 8, Amber at 4 and 12), because the band edges move its 2Q error between bands. That is a property of the banding, not of the model.
+
+**Caveat (for the validator):** the absolute limits are percentile-based and so relative to the peer group. By construction, about a quarter of banks exceed the green limit in each band. The absolute test is therefore a peer comparison, not a fixed accuracy standard. The skill-ratio test is the only absolute check. The validator should confirm this design or anchor the limits to fixed levels later.
 
 ### New issues raised by this work
 
@@ -349,17 +384,17 @@ All numbers below come from the rebuilt outputs on this branch.
 
 ### §1.3 Summary of Current Results (replace table and following sentence)
 
-| Bank | Selected specification | λ | θ | In-sample MAE (pp) | Mean 8Q backtest MAE (pp) | Rating |
+| Bank | Selected specification | λ | θ | In-sample MAE (pp) | Mean 8Q backtest MAE (pp) | Rating (OI-22) |
 | :--- | :--- | :-: | :-: | :-: | :-: | :-: |
 | First Horizon Bank | ARDL(3,4), case 4, AIC | -0.375 | 0.517 | 0.0469 | 0.087 | Green |
 | Glacier Bank | ARDL(3,1), case 4, BIC | -0.112 | 0.346 | 0.0292 | 0.080 | Amber |
-| Huntington National Bank | EG long run, no deterministic terms, AIC (ADF lag 1) | -0.313 | 0.469 | 0.0709 | 0.203 | Amber |
-| KeyBank National Association | ARDL(4,4), case 1, AIC | -0.110 | 0.398 | 0.0317 | 0.140 | Green |
+| Huntington National Bank | EG long run, no deterministic terms, AIC (ADF lag 1) | -0.313 | 0.469 | 0.0709 | 0.203 | Red |
+| KeyBank National Association | ARDL(4,4), case 1, AIC | -0.110 | 0.398 | 0.0317 | 0.140 | Red |
 | Manufacturers and Traders Trust Company | ARDL(2,1), case 4, AIC | -0.184 | 0.432 | 0.0383 | 0.108 | Green |
-| Old National Bank | Johansen VECM rank 1, k_ar_diff=1 (fixed), det_order -1 | -0.135 | 0.419 | 0.0414 | 0.173 | Amber |
-| SouthState Bank | ARDL(4,3), case 1, AIC | -0.082 | 0.443 | 0.0336 | 0.164 | Amber |
+| Old National Bank | Johansen VECM rank 1, k_ar_diff=1 (fixed), det_order -1 | -0.135 | 0.419 | 0.0414 | 0.173 | Green |
+| SouthState Bank | ARDL(4,3), case 1, AIC | -0.082 | 0.443 | 0.0336 | 0.164 | Green |
 
-All λ and θ estimates are significant at the 5% level (all at 1% except KeyBank λ, p 0.010). Long-run betas fall between 0.35 and 0.52. On the rebuilt data, six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057).
+All λ and θ estimates are significant at the 5% level (all at 1% except KeyBank λ, p 0.010). Long-run betas fall between 0.35 and 0.52. On the rebuilt data, six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057). The Rating column is the governing many-start-date, horizon-aware rating (OI-22). The "(Green)"/"(Amber)" labels next to the 8Q MAEs in the §6.x replacement text below are the supplementary single-window ratings; for Huntington, KeyBank, Old National and SouthState they differ from the governing rating, so use the OI-22 rating wherever the doc states a single rating.
 
 ### §1.4 Key Open Issues
 
@@ -395,7 +430,7 @@ Deposit rates track FFT with a lag and partial pass-through through the 2016–2
 - §5.2: "Unit-root tests and Zivot-Andrews break tests are run for all banks by `diagnostics/stationarity_and_breaks.py`."
 - §5.5 item 2: "Parameter screen: within each surviving specification, keep short-run terms with coefficient p-value < 0.05. Deterministic terms are set by the test specification (n / case 1 / det_order -1: none; c / cases 2–3 / det_order 0: constant; ct / cases 4–5 / det_order 1: constant and trend) and are not screened."
 - §5.5 new item 4b: "Refinement: in the one-step ECM, short-run lags with p ≥ 0.05 are removed one at a time (largest p first) and the model refit."
-- §5.6 add: "Each window's MAE is compared with a no-change forecast (y held at its origin value). Ratings: Green, mean MAE ≤ 0.15 pp and below the no-change mean; Amber, mean 0.15–0.25 pp or beats no-change on fewer than 6 of 8 horizons; Red, mean > 0.25 pp or any horizon > 0.50 pp. Each kQ figure is one forecast window from a single start date (T−k); it is not an average over many start dates. A many-start-date h-step backtest (origins from 2016Q1, expanding window, 34–41 windows per horizon) is reported alongside (OI-22); the thresholds are calibrated to the single-window figures only."
+- §5.6 add: "Each window's MAE is compared with a no-change forecast (y held at its origin value). Ratings: Green, mean MAE ≤ 0.15 pp and below the no-change mean; Amber, mean 0.15–0.25 pp or beats no-change on fewer than 6 of 8 horizons; Red, mean > 0.25 pp or any horizon > 0.50 pp. Each kQ figure is one forecast window from a single start date (T−k); it is not an average over many start dates. A many-start-date h-step backtest (origins from 2016Q1, expanding window, 34–41 windows per horizon) is reported alongside (OI-22); the thresholds are calibrated to the single-window figures only. The governing test is the many-start-date backtest: start dates from 2016Q1 with an expanding window, h-step MAE per horizon, rated in horizon bands (1..ceil(N/4), ..ceil(N/2), ..N) against limits derived each run (green = P75 of the banks' band averages, red = P75 of band maxima, both rounded up to 0.05, red ≥ green + 0.05), together with a skill test against the no-change forecast (Red if any ratio ≥ 1.00, Amber if any > 0.75). The limits are relative to the peer group."
 - §5.7 add: "For projection, a deterministic trend in the long-run relation is frozen at its end-of-sample value."
 
 ### §6 bank sections (data-treatment, cointegration, champion and outcomes paragraphs)
@@ -477,7 +512,7 @@ Add above the table: "Each column is one forecast window, starting at T−k and 
 
 - Out-of-sample MAE is about 2 to 5 times in-sample MAE. In-sample MAE fell for every bank after the rebuild (now 0.029–0.071), mostly because the de-cumulation and denominator artifacts are gone.
 - Long-run betas range from 0.35 (Glacier) to 0.52 (First Horizon); the other five lie between 0.40 and 0.47.
-- Acceptance thresholds are defined (§5.6): 3 Green, 4 Amber, 0 Red.
+- Governing ratings (many-start-date, horizon-aware, §5.6 / OI-22): First Horizon, M&T, Old National and SouthState Green; Glacier Amber (skill ratio 0.96 at 3Q); Huntington and KeyBank Red (long-horizon errors above the peer-derived red limit). The single-window ratings in the table above (3 Green, 4 Amber) are supplementary.
 - M&T, SouthState and Old National share a large error in the window starting 2025Q1 (the "5Q" column), where the models over-predict the post-cut decline in deposit rates (OI-8). It is one start date, not a horizon effect: over 37 start dates the 5-step error is 0.26–0.31 pp for these banks (§7.1b, OI-22).
 - Over 34–41 start dates per horizon (§7.1b), h-step errors rise smoothly from 0.05–0.10 pp at 1Q to 0.29–0.56 pp at 8Q, and every champion beats the no-change forecast at every horizon.
 
@@ -500,7 +535,7 @@ Add above the table: "Each column is one forecast window, starting at T−k and 
 | L13 | KPSS p-values are truncated at 0.10 | All | Low |
 | L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet | First Horizon, M&T, Glacier | Medium |
 | L15 | Huntington cointegration rests on one specification family (OI-19) | Huntington | High |
-| L16 | The headline 8Q backtest has one forecast window (one start date) per horizon, all in the 2024–26 easing; horizon-level MAEs and the Green/Amber/Red ratings rest on single windows. The many-start-date backtest (OI-22) gives higher h-step errors and does not meet the current thresholds | All | Medium |
+| L16 | The headline 8Q backtest has one forecast window (one start date) per horizon, all in the 2024–26 easing. Ratings now come from the many-start-date backtest (OI-22), whose limits are percentiles of the peer group: a relative standard, not a fixed accuracy level | All | Medium |
 
 ### §9.2 Open Issues Log (replace Status column; add rows)
 
@@ -515,7 +550,7 @@ Add above the table: "Each column is one forecast window, starting at T−k and 
 | OI-7 | Closed: deterministic terms follow the test specification |
 | OI-8 | Partially closed: Old National 2025Q2 data artifact fixed; the shared error at the single 2025Q1 start date is a model effect, moved to OI-11 |
 | OI-9 | Deferred: in-sample MAE retained; validation-window comparison recorded |
-| OI-10 | Closed, subject to OI-22: thresholds adopted for the single-window backtest |
+| OI-10 | Closed: superseded for the governing rating by the horizon-aware rule in OI-22; single-window ratings kept as a supplementary view |
 | OI-11 | Open: asymmetric ECM now a priority (OI-8) |
 | OI-12 | Closed: stale 4Q backtest deleted |
 | OI-13 | Closed: rate rebuilt from quarterly fields with a 2-point deposit average |
@@ -527,7 +562,7 @@ Add above the table: "Each column is one forecast window, starting at T−k and 
 | OI-19 | Open (new), High: Huntington cointegration robustness |
 | OI-20 | Open (new): cointegration allowing a 2022 break |
 | OI-21 | Open (new), Low: refresh FFT; 2026Q4 not yet complete |
-| OI-22 | Partially closed (new): many-start-date backtest implemented; acceptance metric and thresholds to be re-set (user decision) |
+| OI-22 | Closed (new): many-start-date backtest with horizon-aware, peer-derived limits and skill test; validator to confirm the relative-limit design |
 
 ### §10 Implementation (additions)
 
