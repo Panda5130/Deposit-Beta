@@ -1,301 +1,301 @@
-h,origin,err,naive,model,first_origin,data_hash,run_horizon
-1,2016Q1,0.034921450872873905,0.01533450583428489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2016Q1,0.04068601912595973,0.007610539093921315,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2016Q1,0.10350470896188002,0.027740350353125,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2016Q1,0.11360155240926244,0.029598866452927586,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2016Q1,0.16284153575934707,0.0572394833919975,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2016Q1,0.23700150718738222,0.08276939462913321,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2016Q1,0.3554400865113626,0.11666500473216321,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2016Q1,0.4572950451898108,0.14722445716583968,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2016Q2,0.032577258875556125,0.022945044928206204,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2016Q2,0.0069339577216719905,0.012405844518840109,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2016Q2,0.032007671828402556,0.014264360618642696,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2016Q2,0.04276487279273383,0.04190497755771261,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2016Q2,0.05989757233716125,0.06743488879484832,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2016Q2,0.059431033009181844,0.10133049889787832,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2016Q2,0.07341769975200846,0.1318899513315548,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2016Q2,0.0468095357530432,0.21431483023370512,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2016Q3,0.050826884311344356,0.03535088944704631,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2016Q3,0.047874746158398485,0.0372094055468489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2016Q3,0.07090861875492765,0.06485002248591881,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2016Q3,0.10348086443666024,0.09037993372305453,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2016Q3,0.1673276218642399,0.12427554382608452,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2016Q3,0.21718428575817442,0.154834996259761,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2016Q3,0.3158957760384897,0.23725987516191133,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2016Q3,0.4475524007561289,0.3378697852788765,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2016Q4,0.03540473508151806,0.0018585160998025874,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2016Q4,0.05153637339872297,0.0294991330388725,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2016Q4,0.07116865930232708,0.055029044276008215,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2016Q4,0.0689968732010589,0.08892465437903821,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2016Q4,0.08760956975812922,0.11948410681271468,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2016Q4,0.06708265275490749,0.201908985714865,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2016Q4,0.024146925347105608,0.3025188958318302,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2016Q4,0.02082299680532651,0.4177263902030359,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2017Q1,0.00936814804070571,0.027640616939069912,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2017Q1,0.01234805616310447,0.05317052817620563,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2017Q1,0.027814029027943554,0.08706613827923562,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2017Q1,0.031972945759595084,0.11762559071291209,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2017Q1,0.08135398377504122,0.20005046961506243,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2017Q1,0.1492458559687802,0.30066037973202764,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2017Q1,0.2253615474244126,0.41586787410323334,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2017Q1,0.27820033483529694,0.5063577156855861,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2017Q2,0.0033810132806145754,0.025529911237135716,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2017Q2,0.006108413635041943,0.05942552134016571,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2017Q2,0.0036418280977495443,0.08998497377384218,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2017Q2,0.04519573041431851,0.17240985267599251,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2017Q2,0.10456034200234343,0.2730197627929577,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2017Q2,0.1711659848732876,0.3882272571641634,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2017Q2,0.21403709262555637,0.47871709874651613,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2017Q2,0.24017701594031238,0.542594980107471,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2017Q3,0.012183829943615276,0.033895610103029994,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2017Q3,0.011710593627505761,0.06445506253670646,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2017Q3,0.05555161527331548,0.1468799414388568,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2017Q3,0.11801643478914908,0.24748985155582198,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2017Q3,0.18769080564783036,0.3626973459270277,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2017Q3,0.23435764951095422,0.4531871875093804,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2017Q3,0.2648271514074665,0.5170650688703353,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2017Q3,0.24638313342522955,0.5152438535783657,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2017Q4,0.005203582818397612,0.03055945243367647,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2017Q4,0.03390325658989357,0.1129843313358268,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2017Q4,0.08830755475956498,0.213594241452792,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2017Q4,0.15079714185651788,0.3288017358239977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2017Q4,0.18714207977539932,0.4192915774063504,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2017Q4,0.2039802385505386,0.48316945876730527,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2017Q4,0.17042333014052902,0.4813482434753357,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2017Q4,0.0740617161879703,0.3885766839250944,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2018Q1,0.041166191983110834,0.08242487890215033,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2018Q1,0.09739849415272678,0.18303478901911552,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2018Q1,0.1619113586430429,0.2982422833903212,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2018Q1,0.20036198764561408,0.38873212497267395,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2018Q1,0.21910364466994348,0.4526100063336288,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2018Q1,0.1869513047093566,0.45078879104165925,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2018Q1,0.09104474404757013,0.35801723149141795,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2018Q1,0.016670871745647298,0.2349724160099329,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2018Q2,0.04260449836887714,0.10060991011696518,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2018Q2,0.09366140496009867,0.21581740448817088,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2018Q2,0.11840043306900072,0.3063072460705236,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2018Q2,0.1250282189317774,0.37018512743147847,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2018Q2,0.08417689610559087,0.3683639121395089,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2018Q2,0.013984607801004079,0.2755923525892676,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2018Q2,0.11988162517864387,0.15254753710778257,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2018Q2,0.32145242727307605,0.12555632513578224,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2018Q3,0.0297268150047012,0.1152074943712057,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2018Q3,0.0318340072112725,0.20569733595355844,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2018Q3,0.009234843763912592,0.2695752173145133,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2018Q3,0.06535890272560119,0.26775400202254374,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2018Q3,0.20220874213251971,0.17498244247230244,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2018Q3,0.3310282474195859,0.05193762699081739,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2018Q3,0.5691896290701288,0.22616623525274743,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2018Q3,0.6222681563112281,0.36866544386583333,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2018Q4,0.016581993705189646,0.09048984158235274,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2018Q4,0.05510294255713444,0.15436772294330758,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2018Q4,0.1451525535463516,0.15254650765133804,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2018Q4,0.29675692981442003,0.059774948101096737,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2018Q4,0.4375389800487799,0.06326986738038831,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2018Q4,0.6839522512859402,0.3413737296239531,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2018Q4,0.7385740229885249,0.48387293823703903,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2018Q4,0.7163991738781945,0.5564827368924163,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2019Q1,0.025507798272008997,0.06387788136095485,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2019Q1,0.10183106451828317,0.0620566660689853,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2019Q1,0.23711072799448496,0.030714893481256,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2019Q1,0.3654042097201463,0.15375970896274105,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2019Q1,0.5941220981558086,0.43186357120630586,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2019Q1,0.6482214021343314,0.5743627798193918,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2019Q1,0.6319835275819266,0.6469725784747691,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2019Q1,0.57432150167323,0.6702926227818585,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2019Q2,0.05378841740752982,0.0018212152919695468,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2019Q2,0.16162886582969216,0.09459277484221085,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2019Q2,0.27087788271652136,0.2176375903236959,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2019Q2,0.4653914231763954,0.4957414525672607,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2019Q2,0.5229427420940568,0.6382406611803466,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2019Q2,0.5180441839754597,0.7108504598357239,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2019Q2,0.47259766376307455,0.7341705041428134,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2019Q2,0.4243865958740621,0.7464623321637246,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2019Q3,0.053713004168286616,0.0927715595502413,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2019Q3,0.12570349157307437,0.21581637503172635,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2019Q3,0.25494752323768327,0.49392023727529116,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2019Q3,0.31316061369266923,0.6364194458883771,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2019Q3,0.32575344315828253,0.7090292445437544,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2019Q3,0.300864939661039,0.7323492888508438,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2019Q3,0.2724271610382155,0.744641116871755,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2019Q3,0.24510087529451166,0.7494406322206285,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2019Q4,0.029472806391584783,0.12304481548148505,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2019Q4,0.09593511119387427,0.40114867772504986,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2019Q4,0.13526428091114703,0.5436478863381358,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2019Q4,0.15040834388868296,0.6162576849935131,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2019Q4,0.13730756608572847,0.6395777293006025,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2019Q4,0.12380652064875448,0.6518695573215137,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2019Q4,0.1127843963390453,0.6566690726703872,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2019Q4,0.10235027019978418,0.6606220958702257,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2020Q1,0.03977547318956137,0.2781038622435648,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2020Q1,0.05106346210923346,0.4206030708566507,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2020Q1,0.049531148409606277,0.493212869512028,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2020Q1,0.030764530103258005,0.5165329138191175,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2020Q1,0.019363523693422965,0.5288247418400287,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2020Q1,0.015128319476305295,0.5336242571889022,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2020Q1,0.014083109114163439,0.5375772803887406,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2020Q1,0.018520181404066964,0.5378611614659518,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2020Q2,0.007482090973801231,0.14249920861308588,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2020Q2,0.017838999119403107,0.21510900726846316,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2020Q2,0.040548379096951706,0.23842905157555266,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2020Q2,0.053465228391960176,0.2507208795964639,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2020Q2,0.057398920153126955,0.2555203949453374,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2020Q2,0.05792703118895538,0.2594734181451759,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2020Q2,0.05183581282723903,0.259757299222387,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2020Q2,0.04040105476457033,0.24180908020588926,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2020Q3,0.00418493432251707,0.0726097986553773,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2020Q3,0.023042190432933755,0.09592984296246679,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2020Q3,0.034178580574049794,0.108221670983378,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2020Q3,0.03777839069659464,0.1130211863322515,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2020Q3,0.03908463778184032,0.11697420953209,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2020Q3,0.034238850009086344,0.11725809060930109,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2020Q3,0.05790596767035254,0.0993098715928034,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2020Q3,0.24858900085525276,0.00405366918368269,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2020Q4,0.016561173669450174,0.023320044307089498,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2020Q4,0.026552703965379634,0.0356118723280007,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2020Q4,0.02967801058120848,0.0404113876768742,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2020Q4,0.03092171783294666,0.0443644108767127,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2020Q4,0.026209734698728747,0.0446482919539238,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2020Q4,0.0658696877934505,0.0267000729374261,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2020Q4,0.25634891601534443,0.07666346783905999,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2020Q4,0.3083434375799149,0.4248546436263529,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2021Q1,0.0015960462395131006,0.012291828020911201,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2021Q1,0.0006991329307034222,0.017091343369784705,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2021Q1,0.0002456558665792641,0.021044366569623205,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2021Q1,0.004945196422117701,0.021328247646834303,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2021Q1,0.0965532011356434,0.0033800286303366026,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2021Q1,0.28501563936642343,0.09998351214614948,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2021Q1,0.33277890412010747,0.4481746879334424,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2021Q1,0.23777286257974695,0.895548563672702,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2021Q2,0.0016913820096697424,0.004799515348873504,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2021Q2,0.0025226403768209907,0.008752538548712004,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2021Q2,0.007867149159303914,0.009036419625923102,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2021Q2,0.09942985644486442,0.008911799390574598,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2021Q2,0.287635490574048,0.11227534016706069,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2021Q2,0.33499335450564616,0.4604665159543536,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2021Q2,0.23950823338888816,0.9078403916936132,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2021Q2,0.017718592699054847,1.3933671161245178,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2021Q3,8.7749320819841e-06,0.0039530231998385,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2021Q3,0.0049511281197914675,0.004236904277049598,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2021Q3,0.09644508807350093,0.013711314739448102,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2021Q3,0.2848401345892611,0.11707485551593419,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2021Q3,0.33254648133017184,0.4652660313032271,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2021Q3,0.23748934068700833,0.9126399070424867,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2021Q3,0.016223866327810033,1.3981666314733914,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2021Q3,0.2224092563245128,1.8201194535321632,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2021Q4,0.0049642112956455875,0.00028388107721109834,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2021Q4,0.09645962106697377,0.017664337939286602,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2021Q4,0.28485407365660526,0.1210278787157727,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2021Q4,0.33255874215534253,0.4692190545030656,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2021Q4,0.2374995362006297,0.9165929302423251,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2021Q4,0.016231536764214294,1.4021196546732297,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2021Q4,0.22240467176411238,1.8240724767320016,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2021Q4,0.29243486058014523,2.0010799127237013,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2022Q1,0.08928445150051963,0.0179482190164977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2022Q1,0.27712287848934314,0.12131175979298378,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2022Q1,0.32517629429398254,0.4695029355802767,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2022Q1,0.2309342021709696,0.9168768113195362,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2022Q1,0.010887658556288482,1.402403535750441,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2022Q1,0.22615513816614463,1.8243563578092128,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2022Q1,0.29433561797185015,2.0013637938009126,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2022Q1,0.3105257748261723,2.0742125614777307,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2022Q2,0.11651706813576262,0.10336354077648609,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2022Q2,0.11028007185624478,0.451554716563779,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2022Q2,0.010541192173323166,0.8989285923030386,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2022Q2,0.23452134193906526,1.3844553167339433,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2022Q2,0.46203787652769934,1.8064081387927151,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2022Q2,0.5124013871723128,1.9834155747844149,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2022Q2,0.5082676864578615,2.056264342461233,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2022Q2,0.5525513828989608,2.1483558055221947,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2022Q3,0.12168514842621664,0.3481911757872929,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2022Q3,0.3271471400600825,0.7955650515265524,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2022Q3,0.6044513379326995,1.2810917759574572,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2022Q3,0.8641647908065018,1.703044598016229,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2022Q3,0.9317133809234981,1.8800520340079288,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2022Q3,0.9380950560786516,1.952900801684747,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2022Q3,0.9923993083186182,2.0449922647457086,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2022Q3,1.109456556011782,2.1741795798580674,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2022Q4,0.10490297148846917,0.4473738757392596,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2022Q4,0.30341871364895345,0.9329006001701642,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2022Q4,0.5021091026863593,1.3548534222289361,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2022Q4,0.5239273975583234,1.531860858220636,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2022Q4,0.4956209674242962,1.604709625897454,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2022Q4,0.5222595096446392,1.696801088958416,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2022Q4,0.6178483819536718,1.8259884040707748,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2022Q4,0.4610757251212825,1.6135017874565878,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2023Q1,0.09621718228044518,0.4855267244309046,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2023Q1,0.20571993008032718,0.9074795464896764,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2023Q1,0.15830802477034522,1.0844869824813763,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2023Q1,0.08448465802684613,1.1573357501581945,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2023Q1,0.08883012146246028,1.2494272132191564,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2023Q1,0.18162423037653586,1.3786145283315152,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2023Q1,0.037401818598439274,1.1661279117173282,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2023Q1,0.035907823911303316,0.984779816731347,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2023Q2,0.0031223537627316222,0.4219528220587718,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2023Q2,0.15045359518758072,0.5989602580504716,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2023Q2,0.320554026945183,0.6718090257272897,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2023Q2,0.3958502823988246,0.7639004887882517,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2023Q2,0.36296808154443916,0.8930878039006105,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2023Q2,0.5472513828907637,0.6806011872864235,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2023Q2,0.6346930687882457,0.49925309230044235,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2023Q2,0.5703302317392158,0.45960070811961784,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2023Q3,0.15733060949072142,0.17700743599169977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2023Q3,0.3315989169661657,0.2498562036685179,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2023Q3,0.41122187553170253,0.34194766672947985,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2023Q3,0.38257279380991793,0.47113498184183866,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2023Q3,0.570732198981251,0.25864836522765167,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2023Q3,0.6614417998469047,0.07730027024167052,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2023Q3,0.5995849812187679,0.037647886060846014,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2023Q3,0.4474453807216763,0.08129450172669084,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2023Q4,6.092811095737005e-05,0.07284876767681814,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2023Q4,0.09866232433091016,0.16494023073778008,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2023Q4,0.29573592330936593,0.2941275458501389,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2023Q4,0.2494713772349113,0.0816409292359519,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2023Q4,0.269174245488252,0.09970716575002925,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2023Q4,0.40554887878495816,0.13935954993085375,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2023Q4,0.5922533937165844,0.09571293426500893,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2023Q4,0.5727370202653488,0.2614584997043923,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2024Q1,0.0987900558182151,0.09209146306096194,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2024Q1,0.295929365088468,0.22127877817332076,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2024Q1,0.24972018083401526,0.00879216155913376,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2024Q1,0.2694670176416494,0.17255593342684739,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2024Q1,0.40587230054126455,0.2122083176076719,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2024Q1,0.592590750996288,0.16856170194182707,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2024Q1,0.5730694898574333,0.3343072673812104,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2024Q1,0.48364830769503553,0.5523362221571841,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2024Q2,0.10169843100776399,0.1291873151123588,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2024Q2,0.02674010499211077,0.08329930150182818,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2024Q2,0.07716549674652295,0.2646473964878093,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2024Q2,0.002849495968149096,0.30429978066863383,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2024Q2,0.15210874763801274,0.260653165002789,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2024Q2,0.11813001704120896,0.42639873044217236,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2024Q2,0.03223293306595143,0.6444276852181461,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-8,2024Q2,0.11260502793119032,0.6622497890113901,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2024Q3,0.20845966147378236,0.212486616614187,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2024Q3,0.3241923959360751,0.39383471160016814,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2024Q3,0.29704426743956547,0.43348709578099265,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2024Q3,0.1865259138147468,0.3898404801151478,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2024Q3,0.24346073892373266,0.5555860455545312,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2024Q3,0.340737890664492,0.7736150003305049,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-7,2024Q3,0.2632732329592553,0.7914371041237489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2024Q4,0.034579489375447414,0.18134809498598115,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2024Q4,0.15887072193397533,0.22100047916680565,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2024Q4,0.32248925502035597,0.17735386350096083,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2024Q4,0.28680817922031476,0.3430994289403442,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2024Q4,0.18726656550932064,0.5611283837163179,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-6,2024Q4,0.24474169605699636,0.5789504875095619,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2025Q1,0.0956848740054026,0.03965238418082451,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2025Q1,0.23865358012239613,0.0039942314850203164,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2025Q1,0.19088642047149995,0.16175133395436303,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2025Q1,0.08573883905442492,0.37978028873033676,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-5,2025Q1,0.14231175995524814,0.39760239252358076,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2025Q2,0.08329185201126776,0.04364661566584482,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2025Q2,0.005316543946067398,0.12209894977353852,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2025Q2,0.11202521452633141,0.34012790454951225,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-4,2025Q2,0.05741781534664714,0.35795000834275625,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2025Q3,0.11909827599605838,0.16574556543938335,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2025Q3,0.25319512435033764,0.3837745202153571,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-3,2025Q3,0.2020579888575358,0.4015966240086011,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2025Q4,0.07822940555923852,0.21802895477597373,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-2,2025Q4,0.009618842354275126,0.23585105856921773,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
-1,2026Q1,0.11003359690864722,0.017822103793244004,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,8
+h,origin,err,naive,model,first_origin,data_hash,spec,run_horizon
+1,2016Q1,0.034921450872873905,0.01533450583428489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2016Q1,0.04068601912595973,0.007610539093921315,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2016Q1,0.10350470896188002,0.027740350353125,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2016Q1,0.11360155240926244,0.029598866452927586,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2016Q1,0.16284153575934707,0.0572394833919975,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2016Q1,0.23700150718738222,0.08276939462913321,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2016Q1,0.3554400865113626,0.11666500473216321,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2016Q1,0.4572950451898108,0.14722445716583968,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2016Q2,0.032577258875556125,0.022945044928206204,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2016Q2,0.0069339577216719905,0.012405844518840109,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2016Q2,0.032007671828402556,0.014264360618642696,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2016Q2,0.04276487279273383,0.04190497755771261,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2016Q2,0.05989757233716125,0.06743488879484832,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2016Q2,0.059431033009181844,0.10133049889787832,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2016Q2,0.07341769975200846,0.1318899513315548,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2016Q2,0.0468095357530432,0.21431483023370512,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2016Q3,0.050826884311344356,0.03535088944704631,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2016Q3,0.047874746158398485,0.0372094055468489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2016Q3,0.07090861875492765,0.06485002248591881,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2016Q3,0.10348086443666024,0.09037993372305453,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2016Q3,0.1673276218642399,0.12427554382608452,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2016Q3,0.21718428575817442,0.154834996259761,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2016Q3,0.3158957760384897,0.23725987516191133,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2016Q3,0.4475524007561289,0.3378697852788765,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2016Q4,0.03540473508151806,0.0018585160998025874,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2016Q4,0.05153637339872297,0.0294991330388725,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2016Q4,0.07116865930232708,0.055029044276008215,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2016Q4,0.0689968732010589,0.08892465437903821,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2016Q4,0.08760956975812922,0.11948410681271468,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2016Q4,0.06708265275490749,0.201908985714865,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2016Q4,0.024146925347105608,0.3025188958318302,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2016Q4,0.02082299680532651,0.4177263902030359,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2017Q1,0.00936814804070571,0.027640616939069912,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2017Q1,0.01234805616310447,0.05317052817620563,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2017Q1,0.027814029027943554,0.08706613827923562,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2017Q1,0.031972945759595084,0.11762559071291209,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2017Q1,0.08135398377504122,0.20005046961506243,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2017Q1,0.1492458559687802,0.30066037973202764,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2017Q1,0.2253615474244126,0.41586787410323334,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2017Q1,0.27820033483529694,0.5063577156855861,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2017Q2,0.0033810132806145754,0.025529911237135716,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2017Q2,0.006108413635041943,0.05942552134016571,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2017Q2,0.0036418280977495443,0.08998497377384218,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2017Q2,0.04519573041431851,0.17240985267599251,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2017Q2,0.10456034200234343,0.2730197627929577,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2017Q2,0.1711659848732876,0.3882272571641634,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2017Q2,0.21403709262555637,0.47871709874651613,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2017Q2,0.24017701594031238,0.542594980107471,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2017Q3,0.012183829943615276,0.033895610103029994,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2017Q3,0.011710593627505761,0.06445506253670646,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2017Q3,0.05555161527331548,0.1468799414388568,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2017Q3,0.11801643478914908,0.24748985155582198,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2017Q3,0.18769080564783036,0.3626973459270277,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2017Q3,0.23435764951095422,0.4531871875093804,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2017Q3,0.2648271514074665,0.5170650688703353,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2017Q3,0.24638313342522955,0.5152438535783657,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2017Q4,0.005203582818397612,0.03055945243367647,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2017Q4,0.03390325658989357,0.1129843313358268,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2017Q4,0.08830755475956498,0.213594241452792,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2017Q4,0.15079714185651788,0.3288017358239977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2017Q4,0.18714207977539932,0.4192915774063504,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2017Q4,0.2039802385505386,0.48316945876730527,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2017Q4,0.17042333014052902,0.4813482434753357,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2017Q4,0.0740617161879703,0.3885766839250944,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2018Q1,0.041166191983110834,0.08242487890215033,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2018Q1,0.09739849415272678,0.18303478901911552,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2018Q1,0.1619113586430429,0.2982422833903212,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2018Q1,0.20036198764561408,0.38873212497267395,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2018Q1,0.21910364466994348,0.4526100063336288,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2018Q1,0.1869513047093566,0.45078879104165925,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2018Q1,0.09104474404757013,0.35801723149141795,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2018Q1,0.016670871745647298,0.2349724160099329,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2018Q2,0.04260449836887714,0.10060991011696518,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2018Q2,0.09366140496009867,0.21581740448817088,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2018Q2,0.11840043306900072,0.3063072460705236,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2018Q2,0.1250282189317774,0.37018512743147847,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2018Q2,0.08417689610559087,0.3683639121395089,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2018Q2,0.013984607801004079,0.2755923525892676,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2018Q2,0.11988162517864387,0.15254753710778257,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2018Q2,0.32145242727307605,0.12555632513578224,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2018Q3,0.0297268150047012,0.1152074943712057,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2018Q3,0.0318340072112725,0.20569733595355844,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2018Q3,0.009234843763912592,0.2695752173145133,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2018Q3,0.06535890272560119,0.26775400202254374,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2018Q3,0.20220874213251971,0.17498244247230244,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2018Q3,0.3310282474195859,0.05193762699081739,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2018Q3,0.5691896290701288,0.22616623525274743,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2018Q3,0.6222681563112281,0.36866544386583333,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2018Q4,0.016581993705189646,0.09048984158235274,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2018Q4,0.05510294255713444,0.15436772294330758,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2018Q4,0.1451525535463516,0.15254650765133804,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2018Q4,0.29675692981442003,0.059774948101096737,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2018Q4,0.4375389800487799,0.06326986738038831,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2018Q4,0.6839522512859402,0.3413737296239531,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2018Q4,0.7385740229885249,0.48387293823703903,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2018Q4,0.7163991738781945,0.5564827368924163,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2019Q1,0.025507798272008997,0.06387788136095485,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2019Q1,0.10183106451828317,0.0620566660689853,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2019Q1,0.23711072799448496,0.030714893481256,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2019Q1,0.3654042097201463,0.15375970896274105,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2019Q1,0.5941220981558086,0.43186357120630586,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2019Q1,0.6482214021343314,0.5743627798193918,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2019Q1,0.6319835275819266,0.6469725784747691,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2019Q1,0.57432150167323,0.6702926227818585,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2019Q2,0.05378841740752982,0.0018212152919695468,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2019Q2,0.16162886582969216,0.09459277484221085,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2019Q2,0.27087788271652136,0.2176375903236959,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2019Q2,0.4653914231763954,0.4957414525672607,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2019Q2,0.5229427420940568,0.6382406611803466,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2019Q2,0.5180441839754597,0.7108504598357239,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2019Q2,0.47259766376307455,0.7341705041428134,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2019Q2,0.4243865958740621,0.7464623321637246,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2019Q3,0.053713004168286616,0.0927715595502413,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2019Q3,0.12570349157307437,0.21581637503172635,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2019Q3,0.25494752323768327,0.49392023727529116,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2019Q3,0.31316061369266923,0.6364194458883771,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2019Q3,0.32575344315828253,0.7090292445437544,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2019Q3,0.300864939661039,0.7323492888508438,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2019Q3,0.2724271610382155,0.744641116871755,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2019Q3,0.24510087529451166,0.7494406322206285,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2019Q4,0.029472806391584783,0.12304481548148505,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2019Q4,0.09593511119387427,0.40114867772504986,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2019Q4,0.13526428091114703,0.5436478863381358,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2019Q4,0.15040834388868296,0.6162576849935131,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2019Q4,0.13730756608572847,0.6395777293006025,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2019Q4,0.12380652064875448,0.6518695573215137,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2019Q4,0.1127843963390453,0.6566690726703872,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2019Q4,0.10235027019978418,0.6606220958702257,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2020Q1,0.03977547318956137,0.2781038622435648,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2020Q1,0.05106346210923346,0.4206030708566507,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2020Q1,0.049531148409606277,0.493212869512028,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2020Q1,0.030764530103258005,0.5165329138191175,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2020Q1,0.019363523693422965,0.5288247418400287,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2020Q1,0.015128319476305295,0.5336242571889022,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2020Q1,0.014083109114163439,0.5375772803887406,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2020Q1,0.018520181404066964,0.5378611614659518,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2020Q2,0.007482090973801231,0.14249920861308588,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2020Q2,0.017838999119403107,0.21510900726846316,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2020Q2,0.040548379096951706,0.23842905157555266,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2020Q2,0.053465228391960176,0.2507208795964639,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2020Q2,0.057398920153126955,0.2555203949453374,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2020Q2,0.05792703118895538,0.2594734181451759,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2020Q2,0.05183581282723903,0.259757299222387,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2020Q2,0.04040105476457033,0.24180908020588926,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2020Q3,0.00418493432251707,0.0726097986553773,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2020Q3,0.023042190432933755,0.09592984296246679,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2020Q3,0.034178580574049794,0.108221670983378,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2020Q3,0.03777839069659464,0.1130211863322515,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2020Q3,0.03908463778184032,0.11697420953209,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2020Q3,0.034238850009086344,0.11725809060930109,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2020Q3,0.05790596767035254,0.0993098715928034,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2020Q3,0.24858900085525276,0.00405366918368269,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2020Q4,0.016561173669450174,0.023320044307089498,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2020Q4,0.026552703965379634,0.0356118723280007,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2020Q4,0.02967801058120848,0.0404113876768742,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2020Q4,0.03092171783294666,0.0443644108767127,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2020Q4,0.026209734698728747,0.0446482919539238,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2020Q4,0.0658696877934505,0.0267000729374261,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2020Q4,0.25634891601534443,0.07666346783905999,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2020Q4,0.3083434375799149,0.4248546436263529,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2021Q1,0.0015960462395131006,0.012291828020911201,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2021Q1,0.0006991329307034222,0.017091343369784705,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2021Q1,0.0002456558665792641,0.021044366569623205,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2021Q1,0.004945196422117701,0.021328247646834303,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2021Q1,0.0965532011356434,0.0033800286303366026,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2021Q1,0.28501563936642343,0.09998351214614948,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2021Q1,0.33277890412010747,0.4481746879334424,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2021Q1,0.23777286257974695,0.895548563672702,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2021Q2,0.0016913820096697424,0.004799515348873504,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2021Q2,0.0025226403768209907,0.008752538548712004,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2021Q2,0.007867149159303914,0.009036419625923102,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2021Q2,0.09942985644486442,0.008911799390574598,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2021Q2,0.287635490574048,0.11227534016706069,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2021Q2,0.33499335450564616,0.4604665159543536,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2021Q2,0.23950823338888816,0.9078403916936132,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2021Q2,0.017718592699054847,1.3933671161245178,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2021Q3,8.7749320819841e-06,0.0039530231998385,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2021Q3,0.0049511281197914675,0.004236904277049598,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2021Q3,0.09644508807350093,0.013711314739448102,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2021Q3,0.2848401345892611,0.11707485551593419,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2021Q3,0.33254648133017184,0.4652660313032271,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2021Q3,0.23748934068700833,0.9126399070424867,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2021Q3,0.016223866327810033,1.3981666314733914,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2021Q3,0.2224092563245128,1.8201194535321632,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2021Q4,0.0049642112956455875,0.00028388107721109834,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2021Q4,0.09645962106697377,0.017664337939286602,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2021Q4,0.28485407365660526,0.1210278787157727,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2021Q4,0.33255874215534253,0.4692190545030656,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2021Q4,0.2374995362006297,0.9165929302423251,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2021Q4,0.016231536764214294,1.4021196546732297,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2021Q4,0.22240467176411238,1.8240724767320016,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2021Q4,0.29243486058014523,2.0010799127237013,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2022Q1,0.08928445150051963,0.0179482190164977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2022Q1,0.27712287848934314,0.12131175979298378,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2022Q1,0.32517629429398254,0.4695029355802767,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2022Q1,0.2309342021709696,0.9168768113195362,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2022Q1,0.010887658556288482,1.402403535750441,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2022Q1,0.22615513816614463,1.8243563578092128,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2022Q1,0.29433561797185015,2.0013637938009126,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2022Q1,0.3105257748261723,2.0742125614777307,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2022Q2,0.11651706813576262,0.10336354077648609,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2022Q2,0.11028007185624478,0.451554716563779,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2022Q2,0.010541192173323166,0.8989285923030386,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2022Q2,0.23452134193906526,1.3844553167339433,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2022Q2,0.46203787652769934,1.8064081387927151,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2022Q2,0.5124013871723128,1.9834155747844149,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2022Q2,0.5082676864578615,2.056264342461233,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2022Q2,0.5525513828989608,2.1483558055221947,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2022Q3,0.12168514842621664,0.3481911757872929,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2022Q3,0.3271471400600825,0.7955650515265524,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2022Q3,0.6044513379326995,1.2810917759574572,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2022Q3,0.8641647908065018,1.703044598016229,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2022Q3,0.9317133809234981,1.8800520340079288,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2022Q3,0.9380950560786516,1.952900801684747,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2022Q3,0.9923993083186182,2.0449922647457086,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2022Q3,1.109456556011782,2.1741795798580674,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2022Q4,0.10490297148846917,0.4473738757392596,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2022Q4,0.30341871364895345,0.9329006001701642,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2022Q4,0.5021091026863593,1.3548534222289361,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2022Q4,0.5239273975583234,1.531860858220636,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2022Q4,0.4956209674242962,1.604709625897454,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2022Q4,0.5222595096446392,1.696801088958416,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2022Q4,0.6178483819536718,1.8259884040707748,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2022Q4,0.4610757251212825,1.6135017874565878,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2023Q1,0.09621718228044518,0.4855267244309046,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2023Q1,0.20571993008032718,0.9074795464896764,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2023Q1,0.15830802477034522,1.0844869824813763,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2023Q1,0.08448465802684613,1.1573357501581945,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2023Q1,0.08883012146246028,1.2494272132191564,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2023Q1,0.18162423037653586,1.3786145283315152,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2023Q1,0.037401818598439274,1.1661279117173282,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2023Q1,0.035907823911303316,0.984779816731347,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2023Q2,0.0031223537627316222,0.4219528220587718,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2023Q2,0.15045359518758072,0.5989602580504716,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2023Q2,0.320554026945183,0.6718090257272897,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2023Q2,0.3958502823988246,0.7639004887882517,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2023Q2,0.36296808154443916,0.8930878039006105,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2023Q2,0.5472513828907637,0.6806011872864235,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2023Q2,0.6346930687882457,0.49925309230044235,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2023Q2,0.5703302317392158,0.45960070811961784,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2023Q3,0.15733060949072142,0.17700743599169977,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2023Q3,0.3315989169661657,0.2498562036685179,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2023Q3,0.41122187553170253,0.34194766672947985,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2023Q3,0.38257279380991793,0.47113498184183866,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2023Q3,0.570732198981251,0.25864836522765167,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2023Q3,0.6614417998469047,0.07730027024167052,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2023Q3,0.5995849812187679,0.037647886060846014,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2023Q3,0.4474453807216763,0.08129450172669084,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2023Q4,6.092811095737005e-05,0.07284876767681814,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2023Q4,0.09866232433091016,0.16494023073778008,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2023Q4,0.29573592330936593,0.2941275458501389,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2023Q4,0.2494713772349113,0.0816409292359519,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2023Q4,0.269174245488252,0.09970716575002925,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2023Q4,0.40554887878495816,0.13935954993085375,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2023Q4,0.5922533937165844,0.09571293426500893,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2023Q4,0.5727370202653488,0.2614584997043923,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2024Q1,0.0987900558182151,0.09209146306096194,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2024Q1,0.295929365088468,0.22127877817332076,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2024Q1,0.24972018083401526,0.00879216155913376,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2024Q1,0.2694670176416494,0.17255593342684739,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2024Q1,0.40587230054126455,0.2122083176076719,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2024Q1,0.592590750996288,0.16856170194182707,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2024Q1,0.5730694898574333,0.3343072673812104,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2024Q1,0.48364830769503553,0.5523362221571841,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2024Q2,0.10169843100776399,0.1291873151123588,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2024Q2,0.02674010499211077,0.08329930150182818,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2024Q2,0.07716549674652295,0.2646473964878093,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2024Q2,0.002849495968149096,0.30429978066863383,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2024Q2,0.15210874763801274,0.260653165002789,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2024Q2,0.11813001704120896,0.42639873044217236,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2024Q2,0.03223293306595143,0.6444276852181461,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+8,2024Q2,0.11260502793119032,0.6622497890113901,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2024Q3,0.20845966147378236,0.212486616614187,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2024Q3,0.3241923959360751,0.39383471160016814,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2024Q3,0.29704426743956547,0.43348709578099265,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2024Q3,0.1865259138147468,0.3898404801151478,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2024Q3,0.24346073892373266,0.5555860455545312,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2024Q3,0.340737890664492,0.7736150003305049,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+7,2024Q3,0.2632732329592553,0.7914371041237489,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2024Q4,0.034579489375447414,0.18134809498598115,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2024Q4,0.15887072193397533,0.22100047916680565,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2024Q4,0.32248925502035597,0.17735386350096083,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2024Q4,0.28680817922031476,0.3430994289403442,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2024Q4,0.18726656550932064,0.5611283837163179,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+6,2024Q4,0.24474169605699636,0.5789504875095619,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2025Q1,0.0956848740054026,0.03965238418082451,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2025Q1,0.23865358012239613,0.0039942314850203164,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2025Q1,0.19088642047149995,0.16175133395436303,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2025Q1,0.08573883905442492,0.37978028873033676,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+5,2025Q1,0.14231175995524814,0.39760239252358076,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2025Q2,0.08329185201126776,0.04364661566584482,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2025Q2,0.005316543946067398,0.12209894977353852,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2025Q2,0.11202521452633141,0.34012790454951225,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+4,2025Q2,0.05741781534664714,0.35795000834275625,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2025Q3,0.11909827599605838,0.16574556543938335,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2025Q3,0.25319512435033764,0.3837745202153571,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+3,2025Q3,0.2020579888575358,0.4015966240086011,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2025Q4,0.07822940555923852,0.21802895477597373,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+2,2025Q4,0.009618842354275126,0.23585105856921773,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8
+1,2026Q1,0.11003359690864722,0.017822103793244004,"ARDL bounds F (ARDL(2,1), case 3) | BIC / ARDL(2,1) | c - case 3 (unrestricted constant)",2016Q1,62a470335d9bcd70,D.FFT.L0 + D.rate_pf_clean.L1 + FFT.L1 + const + rate_pf_clean.L1,8

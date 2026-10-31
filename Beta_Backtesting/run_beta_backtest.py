@@ -91,7 +91,7 @@ class BetaStabilityRun:
 
     def multi_betas(self, backtest):
         """Betas at every origin from --first-origin: from the cache when a stored run matches."""
-        key = (backtest.bank, backtest.model, self.args.first_origin, backtest.data_hash())
+        key = (backtest.bank, backtest.model, self.args.first_origin, backtest.data_hash(), backtest.spec())
         betas = None if self.args.no_cache else self.cache.load(*key)
         if betas is None:
             betas = backtest.origin_betas(self.args.first_origin)

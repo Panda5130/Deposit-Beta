@@ -72,7 +72,7 @@ def resolve_banks(name, summary, group_column):
 
 def multi_errors(backtest, cache, first_origin, horizon, no_cache=False):
     """Per-origin errors for one bank: from the cache when a stored run covers horizon."""
-    key = (backtest.bank, backtest.model, first_origin, backtest.data_hash())
+    key = (backtest.bank, backtest.model, first_origin, backtest.data_hash(), backtest.spec())
     errors = None if no_cache else cache.load(*key, horizon)
     if errors is None:
         errors = backtest.multi_errors(first_origin)
@@ -104,7 +104,7 @@ def peer_errors(summary, estimates, source, cache, args, horizon, exclude):
             rows = bt.bank_rows(estimates, bank, args.group_column)
             peer = bt.MAEBacktest(bank, model, horizon, data, rows[bt.model_mask(rows, model)], args.y, args.x,
                                   args.min_train)
-            errors = cache.load(bank, model, args.first_origin, peer.data_hash(), horizon)
+            errors = cache.load(bank, model, args.first_origin, peer.data_hash(), peer.spec(), horizon)
         except Exception:
             errors = None
         if errors is not None:

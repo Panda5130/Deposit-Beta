@@ -146,14 +146,14 @@ def assess_multi(table, rated_from=RATED_FROM):
 
 class BetaCache(bt.ErrorCache):
     """Per-origin betas stored per bank (bt.ErrorCache layout and key: model, first_origin,
-    data hash). A beta does not depend on the horizon, so any stored run is reused whole."""
+    data hash, spec). A beta does not depend on the horizon, so any stored run is reused whole."""
 
-    def load(self, bank, model, first_origin, data_hash):
-        e = self.read(bank, model, first_origin, data_hash)
+    def load(self, bank, model, first_origin, data_hash, spec):
+        e = self.read(bank, model, first_origin, data_hash, spec)
         return None if e is None else e[ORIGIN_COLUMNS]
 
-    def store(self, bank, model, first_origin, data_hash, betas):
-        self.write(bank, model, first_origin, data_hash, betas[ORIGIN_COLUMNS])
+    def store(self, bank, model, first_origin, data_hash, spec, betas):
+        self.write(bank, model, first_origin, data_hash, spec, betas[ORIGIN_COLUMNS])
 
 
 class BetaPlotter:

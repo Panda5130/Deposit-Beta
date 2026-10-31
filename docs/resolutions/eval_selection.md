@@ -39,7 +39,7 @@ New outputs:
 | `Beta_Backtesting/output/<bank>/beta_backtest_multiorigin.csv` / `.png` | θ, SE, λ at each start date 2016Q1–2026Q1, with its deviation from the full-sample θ; chart with ±2 SE, ±20% band, unrated window shaded, rating |
 | `Beta_Backtesting/output/beta_backtest_multiorigin_all_banks.csv` / `.png` | All banks; small multiples |
 | `Beta_Backtesting/output/beta_backtest_multiorigin_assessment.csv` | Per-bank rating (rated window, θ range, largest deviation as a share and in SEs, failing start dates, reason) |
-| `Beta_Backtesting/output/cache/` | Per-origin θ, reused while model, first origin and data match |
+| `Beta_Backtesting/output/cache/` | Per-origin θ, reused while model, fitted terms, first origin and data match |
 | `MAE_Backtesting/output/out_of_sample/` | The full MAE backtest of the out-of-sample picks (same layout as `output/`), `selection_oos_scores_8Q.csv`, `selection_comparison_8Q.csv` / `.png`, per-model error cache |
 | `Beta_Backtesting/output/out_of_sample/` | The beta backtest of the out-of-sample picks, including its assessment |
 
@@ -162,7 +162,27 @@ Observations:
 - **MAE backtest.** `python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --first-origin 2016Q1` reused every bank's cache. It gives the §7.1 ratings (First Horizon, M&T, Old National, SouthState Green; Glacier Amber; Huntington, KeyBank Red), and every committed file under `MAE_Backtesting/output/` (CSV and PNG) is byte-identical (`git status` clean).
 - **Default beta backtest.** `python Beta_Backtesting/run_beta_backtest.py` leaves every committed file under `Beta_Backtesting/output/` byte-identical.
 - **Overlap check.** With `--first-origin 2016Q1`, the start dates 2024Q2–2026Q1 equal the committed `beta_backtest_origins_8Q.csv` for all seven banks (`DataFrame.equals`, max difference 0).
-- **Cache.** The second run of each command reports "reused from cache". The existing MAE cache files load unchanged under the refactored `ErrorCache`.
+- **Cache.** The second run of each command reports "reused from cache".
+- **Cache key now includes the fitted terms** (added after the OI-24 thread flagged the gap).
+  - Every cache (`ErrorCache`, the per-model cache, `BetaCache`) is keyed on model label, first origin, data hash and `spec`: the sorted fitted terms.
+  - Before this, a model that kept its label but changed terms (Huntington under OI-24) would silently reuse stale errors.
+  - Cache files written before the change have no `spec` column and are treated as stale. All caches were rebuilt once:
+    - Every in-sample result CSV and chart came out byte-identical.
+    - The out-of-sample outputs differ only in the last one or two of 16 significant digits, from re-reading cached values. Models, ratings and every reported figure are unchanged.
+
+### 4.1 Interaction with OI-24 (branch `claude/pensive-nightingale-b5db07`, not merged here)
+
+OI-24 gives `EG_LongRun` specifications their `EG_ShortRun` lags in `ECM model selection.py`. That changes the estimates the backtests read, and every result in §3 is for the estimates on `main`. If OI-24 is merged, it changes champions:
+
+| Bank | Change under OI-24 | MAE rating (mean MAE) |
+| :--- | :--- | :-: |
+| Huntington | Same label, new terms | Red → Green (0.334 → 0.221) |
+| Old National | Johansen VECM → EG long run, `n`, BIC | |
+| KeyBank | Moves to an EG label for the identical regression (EG > ARDL tie-break) | |
+
+After a merge, rerun the five commands in §2. The spec-keyed caches recompute only what changed. Then refresh §3.1–§3.3, the Huntington, Old National and KeyBank bullets in §5, and the draft comments.
+
+The OI-24 run also tightens the peer-derived MAE limits, and First Horizon goes Green → Red with unchanged errors. That is evidence for fixed reference-run limits (#8, on hold), not addressed here.
 
 ## 5. Replacement text for the WIP doc
 

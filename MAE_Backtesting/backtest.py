@@ -159,10 +159,11 @@ def oos_scores(summary, estimates, data, bank, cache, first_origin, horizon, y=b
             key = tuple(sorted(terms))
             if key not in scored:
                 backtest = MAEBacktest(bank, model, horizon, data, spec_rows, y, x, min_train)
-                errors = cache.load(bank, model, first_origin, backtest.data_hash(), horizon)
+                cache_key = (bank, model, first_origin, backtest.data_hash(), backtest.spec())
+                errors = cache.load(*cache_key, horizon)
                 if errors is None:
                     errors = backtest.multi_errors(first_origin)
-                    cache.store(bank, model, first_origin, backtest.data_hash(), horizon, errors)
+                    cache.store(*cache_key, horizon, errors)
                 errors = errors[ERROR_COLUMNS]
                 per_origin = errors.groupby("origin").err.agg(["mean", "size"])
                 complete = per_origin.loc[per_origin["size"] == horizon, "mean"]
@@ -226,7 +227,8 @@ class MAEBacktest:
                  min_train=20):
         self.bank, self.model, self.horizon = bank, tuple(model), int(horizon)
         self.data, self.y, self.x, self.min_train = data, y, x, min_train
-        self.det, self.levels, self.short_run = spec_from_terms(model_terms(spec_rows), y, x)
+        self.terms = model_terms(spec_rows)
+        self.det, self.levels, self.short_run = spec_from_terms(self.terms, y, x)
         if len(data) - self.horizon < min_train:
             raise ValueError(f"{len(data)} observations leave {len(data) - self.horizon} for training "
                              f"before the first origin; need at least {min_train}")
@@ -280,6 +282,10 @@ class MAEBacktest:
     def data_hash(self):
         return f"{int(pd.util.hash_pandas_object(self.data, index=True).sum()) & (2**64 - 1):016x}"
 
+    def spec(self):
+        """The fitted terms, so a cache entry goes stale when a model keeps its label but changes terms."""
+        return " + ".join(sorted(self.terms))
+
     def mae(self):
         t = self.run().table
         return pd.Series(t["mae"].values, index=[f"{r.horizon_q} ({r.start}-{r.end})" for r in t.itertuples()])
@@ -314,7 +320,8 @@ def model_id(model):
 class ErrorCache:
     """Per-origin errors stored per bank, reused by any run with horizon <= the stored one.
 
-    One CSV per bank, tagged with model, first_origin, data hash and run horizon. The h-step
+    One CSV per bank, tagged with model, first_origin, data hash, spec (the fitted terms) and
+    run horizon. The h-step
     errors for h <= N do not depend on N, so a longer stored run is sliced, not refit.
     With per_model=True there is one CSV per (bank, model), so several of a bank's models
     can be cached side by side (out-of-sample selection).
@@ -327,32 +334,32 @@ class ErrorCache:
         name = bp.INVALID_CHARS_RE.sub('-', bank)
         return self.dir / (f"{name}__{model_id(model)}.csv" if self.per_model else f"{name}.csv")
 
-    def read(self, bank, model, first_origin, data_hash):
+    def read(self, bank, model, first_origin, data_hash, spec):
         """Stored rows for the bank and model, or None if missing or stale."""
         path = self.path(bank, model)
         if not path.exists():
             return None
-        e = pd.read_csv(path, dtype={"origin": str, "first_origin": str, "data_hash": str, "model": str})
+        e = pd.read_csv(path, dtype={"origin": str, "first_origin": str, "data_hash": str, "model": str, "spec": str})
         key = e.iloc[0]
         if (key.model != " | ".join(model) or key.first_origin != str(pd.Period(first_origin, "Q"))
-                or key.data_hash != data_hash):
+                or key.data_hash != data_hash or key.get("spec") != spec):
             return None
         return e
 
-    def write(self, bank, model, first_origin, data_hash, rows, **tags):
+    def write(self, bank, model, first_origin, data_hash, spec, rows, **tags):
         self.dir.mkdir(parents=True, exist_ok=True)
         rows.assign(model=" | ".join(model), first_origin=str(pd.Period(first_origin, "Q")),
-                    data_hash=data_hash, **tags).to_csv(self.path(bank, model), index=False)
+                    data_hash=data_hash, spec=spec, **tags).to_csv(self.path(bank, model), index=False)
 
-    def load(self, bank, model, first_origin, data_hash, horizon):
+    def load(self, bank, model, first_origin, data_hash, spec, horizon):
         """Stored errors for the bank (h <= horizon), or None if missing, stale or too short."""
-        e = self.read(bank, model, first_origin, data_hash)
+        e = self.read(bank, model, first_origin, data_hash, spec)
         if e is None or e.iloc[0].run_horizon < horizon:
             return None
         return e[e.h <= horizon].reset_index(drop=True)
 
-    def store(self, bank, model, first_origin, data_hash, horizon, errors):
-        self.write(bank, model, first_origin, data_hash, errors, run_horizon=horizon)
+    def store(self, bank, model, first_origin, data_hash, spec, horizon, errors):
+        self.write(bank, model, first_origin, data_hash, spec, errors, run_horizon=horizon)
 
 
 def up(v):
