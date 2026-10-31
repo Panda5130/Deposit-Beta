@@ -1,0 +1,64 @@
+bank_name,model,model_label,mean_mae,naive_mean_mae,worst_skill_ratio,worst_skill_h,absolute_rating,skill_rating,rating,reason
+First Horizon Bank,champion,Champion,0.24230438963687903,0.5388297407205038,0.7085783409651566,1Q,Green,Green,Green,
+Manufacturers and Traders Trust Company,champion,Champion,0.21769437100658776,0.3943706212656889,0.6167221398589072,3Q,Green,Green,Green,
+Glacier Bank,champion,Champion,0.20659366071162696,0.23498126585960316,0.9604056284652684,3Q,Green,Amber,Amber,skill ratio 0.96 at 3Q
+SouthState Bank,champion,Champion,0.26438206654814433,0.41261056029802445,0.6979158035297075,3Q,Green,Green,Green,
+KeyBank National Association,champion,Champion,0.2799547402350199,0.4477283924719472,0.7107168753324303,8Q,Red,Green,Red,5-8Q max 0.533 > red 0.50
+Huntington National Bank,champion,Champion,0.3342131641884295,0.46670912764817724,0.7425238941717585,1Q,Red,Green,Red,3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50
+Old National Bank,champion,Champion,0.26293943574798506,0.4036881498310716,0.6737715050123322,2Q,Green,Green,Green,
+First Horizon Bank,a0,Two-step ECM (symmetric control),0.24038716194314674,0.5388297407205038,0.7037031571960648,1Q,Green,Green,Green,
+Manufacturers and Traders Trust Company,a0,Two-step ECM (symmetric control),0.2164046882847987,0.3943706212656889,0.6172402355363965,3Q,Green,Green,Green,
+Glacier Bank,a0,Two-step ECM (symmetric control),0.20470201883327402,0.23498126585960316,0.9583908956584885,3Q,Green,Amber,Amber,skill ratio 0.96 at 3Q
+SouthState Bank,a0,Two-step ECM (symmetric control),0.26438206654814433,0.41261056029802445,0.6979158035297073,3Q,Green,Green,Green,
+KeyBank National Association,a0,Two-step ECM (symmetric control),0.2799547402350197,0.4477283924719472,0.7107168753324294,8Q,Red,Green,Red,5-8Q max 0.533 > red 0.50
+Huntington National Bank,a0,Two-step ECM (symmetric control),0.3342131641884295,0.46670912764817724,0.7425238941717589,1Q,Red,Green,Red,3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50
+Old National Bank,a0,Two-step ECM (symmetric control),0.2629394357479851,0.4036881498310716,0.6737715050123327,2Q,Green,Green,Green,
+First Horizon Bank,a1,Asymmetric ECM (lambda by sign of ect),0.30213012710996995,0.5388297407205038,0.7271680537060727,1Q,Amber,Green,Amber,3-4Q avg 0.261 > green 0.25; 5-8Q avg 0.402 > green 0.40
+Manufacturers and Traders Trust Company,a1,Asymmetric ECM (lambda by sign of ect),0.21994754573948444,0.3943706212656889,0.64244007841112,3Q,Green,Green,Green,
+Glacier Bank,a1,Asymmetric ECM (lambda by sign of ect),0.2607037435462044,0.23498126585960316,1.1985649626804822,8Q,Green,Red,Red,skill ratio 1.20 at 8Q
+SouthState Bank,a1,Asymmetric ECM (lambda by sign of ect),0.25037323866892314,0.41261056029802445,0.6454720521823004,3Q,Green,Green,Green,
+KeyBank National Association,a1,Asymmetric ECM (lambda by sign of ect),0.3012613938792307,0.4477283924719472,0.7871709423604679,8Q,Red,Amber,Red,5-8Q max 0.591 > red 0.50; skill ratio 0.79 at 8Q
+Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect),0.26396722486193225,0.46670912764817724,0.659518016915601,1Q,Green,Green,Green,
+Old National Bank,a1,Asymmetric ECM (lambda by sign of ect),0.2462770428216598,0.4036881498310716,0.640424088859567,7Q,Green,Green,Green,
+First Horizon Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.4978364136214646,0.5388297407205038,1.4331761023267058,8Q,Red,Red,Red,3-4Q max 0.308 > red 0.30; 5-8Q max 1.283 > red 0.50; skill ratio 1.43 at 8Q
+Manufacturers and Traders Trust Company,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.21113692109218832,0.3943706212656889,0.6451703099829224,3Q,Green,Green,Green,
+Glacier Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.21874407380992,0.23498126585960316,0.9743714499980511,3Q,Green,Amber,Amber,skill ratio 0.97 at 3Q
+SouthState Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.27266703490771405,0.41261056029802445,0.6863195423597214,8Q,Green,Green,Green,
+KeyBank National Association,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.2921274419191407,0.4477283924719472,0.77747361184259,8Q,Red,Amber,Red,5-8Q max 0.583 > red 0.50; skill ratio 0.78 at 8Q
+Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.347842302654532,0.46670912764817724,0.7625463816427216,8Q,Red,Amber,Red,3-4Q max 0.312 > red 0.30; 5-8Q max 0.599 > red 0.50; skill ratio 0.76 at 8Q
+Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT),0.4356412746526058,0.4036881498310716,1.4321895097425066,8Q,Red,Red,Red,3-4Q avg 0.261 > green 0.25; 5-8Q max 0.980 > red 0.50; skill ratio 1.43 at 8Q
+First Horizon Bank,b1,Static OLS beta (levels),0.4569531469279613,0.5388297407205038,2.0506066508298533,1Q,Red,Red,Red,1-2Q max 0.345 > red 0.20; 3-4Q max 0.445 > red 0.30; 5-8Q max 0.600 > red 0.50; skill ratio 2.05 at 1Q
+Manufacturers and Traders Trust Company,b1,Static OLS beta (levels),0.4143912096775303,0.3943706212656889,2.6647476818564524,1Q,Red,Red,Red,1-2Q max 0.305 > red 0.20; 3-4Q max 0.395 > red 0.30; 5-8Q max 0.562 > red 0.50; skill ratio 2.66 at 1Q
+Glacier Bank,b1,Static OLS beta (levels),0.375402148823791,0.23498126585960316,4.335039441495896,1Q,Red,Red,Red,1-2Q max 0.284 > red 0.20; 3-4Q max 0.358 > red 0.30; 5-8Q max 0.501 > red 0.50; skill ratio 4.34 at 1Q
+SouthState Bank,b1,Static OLS beta (levels),0.5176212448835062,0.41261056029802445,3.031802900599191,1Q,Red,Red,Red,1-2Q max 0.376 > red 0.20; 3-4Q max 0.494 > red 0.30; 5-8Q max 0.708 > red 0.50; skill ratio 3.03 at 1Q
+KeyBank National Association,b1,Static OLS beta (levels),0.43108340076384394,0.4477283924719472,2.4644914099461044,1Q,Red,Red,Red,1-2Q max 0.323 > red 0.20; 3-4Q max 0.417 > red 0.30; 5-8Q max 0.570 > red 0.50; skill ratio 2.46 at 1Q
+Huntington National Bank,b1,Static OLS beta (levels),0.44767338669440626,0.46670912764817724,2.4937268023616515,1Q,Red,Red,Red,1-2Q max 0.333 > red 0.20; 3-4Q max 0.428 > red 0.30; 5-8Q max 0.602 > red 0.50; skill ratio 2.49 at 1Q
+Old National Bank,b1,Static OLS beta (levels),0.49467399471428647,0.4036881498310716,3.007899395419643,1Q,Red,Red,Red,1-2Q max 0.362 > red 0.20; 3-4Q max 0.474 > red 0.30; 5-8Q max 0.670 > red 0.50; skill ratio 3.01 at 1Q
+First Horizon Bank,b2,Static OLS beta (applied to FFT change),0.38896028135258937,0.5388297407205038,0.7905341111746806,2Q,Red,Amber,Red,1-2Q max 0.206 > red 0.20; 3-4Q max 0.350 > red 0.30; 5-8Q max 0.639 > red 0.50; skill ratio 0.79 at 2Q
+Manufacturers and Traders Trust Company,b2,Static OLS beta (applied to FFT change),0.33749203093847724,0.3943706212656889,0.8930218725445579,8Q,Red,Amber,Red,3-4Q max 0.302 > red 0.30; 5-8Q max 0.583 > red 0.50; skill ratio 0.89 at 8Q
+Glacier Bank,b2,Static OLS beta (applied to FFT change),0.2654299976978898,0.23498126585960316,1.178707777870911,8Q,Green,Red,Red,skill ratio 1.18 at 8Q
+SouthState Bank,b2,Static OLS beta (applied to FFT change),0.40827728184322093,0.41261056029802445,1.0295825423261467,8Q,Red,Red,Red,3-4Q max 0.373 > red 0.30; 5-8Q max 0.706 > red 0.50; skill ratio 1.03 at 8Q
+KeyBank National Association,b2,Static OLS beta (applied to FFT change),0.3437416058003219,0.4477283924719472,0.7930714495540132,2Q,Red,Amber,Red,3-4Q max 0.312 > red 0.30; 5-8Q max 0.579 > red 0.50; skill ratio 0.79 at 2Q
+Huntington National Bank,b2,Static OLS beta (applied to FFT change),0.3482312644494067,0.46670912764817724,0.7713252674365069,8Q,Red,Amber,Red,3-4Q max 0.311 > red 0.30; 5-8Q max 0.606 > red 0.50; skill ratio 0.77 at 8Q
+Old National Bank,b2,Static OLS beta (applied to FFT change),0.37478927529842143,0.4036881498310716,0.9563709970551025,8Q,Red,Amber,Red,3-4Q max 0.330 > red 0.30; 5-8Q max 0.655 > red 0.50; skill ratio 0.96 at 8Q
+First Horizon Bank,b3,Cycle-specific betas,0.37776866794188774,0.5388297407205038,0.8410291622571062,2Q,Red,Amber,Red,1-2Q max 0.219 > red 0.20; 3-4Q max 0.380 > red 0.30; 5-8Q max 0.553 > red 0.50; skill ratio 0.84 at 2Q
+Manufacturers and Traders Trust Company,b3,Cycle-specific betas,0.2854331217997179,0.3943706212656889,0.8226568067833854,3Q,Green,Amber,Amber,skill ratio 0.82 at 3Q
+Glacier Bank,b3,Cycle-specific betas,0.20365699976742085,0.23498126585960316,0.8899143793886329,2Q,Green,Amber,Amber,skill ratio 0.89 at 2Q
+SouthState Bank,b3,Cycle-specific betas,0.3333623532999582,0.41261056029802445,0.9513432218396533,3Q,Red,Amber,Red,3-4Q max 0.337 > red 0.30; 5-8Q max 0.511 > red 0.50; skill ratio 0.95 at 3Q
+KeyBank National Association,b3,Cycle-specific betas,0.3187077591172396,0.4477283924719472,0.8369643623684245,3Q,Red,Amber,Red,3-4Q max 0.328 > red 0.30; 5-8Q avg 0.425 > green 0.40; skill ratio 0.84 at 3Q
+Huntington National Bank,b3,Cycle-specific betas,0.3112186906793202,0.46670912764817724,0.7471116018708714,3Q,Red,Green,Red,3-4Q max 0.305 > red 0.30; 5-8Q avg 0.424 > green 0.40
+Old National Bank,b3,Cycle-specific betas,0.31270238508026266,0.4036881498310716,0.8822614822637704,3Q,Red,Amber,Red,3-4Q max 0.309 > red 0.30; 5-8Q avg 0.423 > green 0.40; skill ratio 0.88 at 3Q
+First Horizon Bank,c,Champion ECM + 2022 level dummy,0.3184652513918895,0.5388297407205038,0.729884483082913,2Q,Red,Green,Red,3-4Q max 0.306 > red 0.30; 5-8Q avg 0.423 > green 0.40
+Manufacturers and Traders Trust Company,c,Champion ECM + 2022 level dummy,0.21430329494380612,0.3943706212656889,0.6163923261354497,2Q,Green,Green,Green,
+Glacier Bank,c,Champion ECM + 2022 level dummy,0.22136276655202836,0.23498126585960316,0.9630577836178789,7Q,Green,Amber,Amber,skill ratio 0.96 at 7Q
+SouthState Bank,c,Champion ECM + 2022 level dummy,0.2966748547882745,0.41261056029802445,0.7524614376967209,5Q,Amber,Amber,Amber,5-8Q avg 0.418 > green 0.40; skill ratio 0.75 at 5Q
+KeyBank National Association,c,Champion ECM + 2022 level dummy,0.30157079452053565,0.4477283924719472,0.7780347920943751,8Q,Red,Amber,Red,5-8Q max 0.584 > red 0.50; skill ratio 0.78 at 8Q
+Huntington National Bank,c,Champion ECM + 2022 level dummy,0.3861872642304473,0.46670912764817724,0.8457711298681598,1Q,Red,Amber,Red,3-4Q max 0.358 > red 0.30; 5-8Q max 0.635 > red 0.50; skill ratio 0.85 at 1Q
+Old National Bank,c,Champion ECM + 2022 level dummy,0.30818962202626093,0.4036881498310716,0.7936098175472847,7Q,Red,Amber,Red,5-8Q max 0.532 > red 0.50; skill ratio 0.79 at 7Q
+First Horizon Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.25109928737127885,0.5388297407205038,0.7218645156107716,1Q,Green,Green,Green,
+Manufacturers and Traders Trust Company,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.21512966074092488,0.3943706212656889,0.6191784430218926,3Q,Green,Green,Green,
+Glacier Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.20144568633901738,0.23498126585960316,0.9581579294374425,3Q,Green,Amber,Amber,skill ratio 0.96 at 3Q
+SouthState Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.27528642427154504,0.41261056029802445,0.7555975026316322,3Q,Green,Amber,Amber,skill ratio 0.76 at 3Q
+KeyBank National Association,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.2948719143177305,0.4477283924719472,0.7396549001176999,8Q,Red,Green,Red,5-8Q max 0.555 > red 0.50
+Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.37910681012057434,0.46670912764817724,0.8227714688893387,7Q,Red,Amber,Red,3-4Q max 0.347 > red 0.30; 5-8Q max 0.637 > red 0.50; skill ratio 0.82 at 7Q
+Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity),0.2900561188597788,0.4036881498310716,0.7598639291091267,7Q,Red,Amber,Red,5-8Q max 0.507 > red 0.50; skill ratio 0.76 at 7Q
