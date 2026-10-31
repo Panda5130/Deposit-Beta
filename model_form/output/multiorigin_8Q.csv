@@ -39,22 +39,22 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.3839715285605392,0.5957875959082232,KeyBank National Association,champion,Champion
 7Q,2016Q1,2024Q3,35,0.46352231160480983,0.6780992577006397,KeyBank National Association,champion,Champion
 8Q,2016Q1,2024Q2,34,0.5333107844388691,0.7503842992181924,KeyBank National Association,champion,Champion
-1Q,2016Q1,2026Q1,41,0.08415540223378204,0.11333696180599336,Huntington National Bank,champion,Champion
-2Q,2016Q1,2025Q4,40,0.15992283095273974,0.22190907254387562,Huntington National Bank,champion,Champion
-3Q,2016Q1,2025Q3,39,0.23442054599435977,0.326792772310167,Huntington National Bank,champion,Champion
-4Q,2016Q1,2025Q2,38,0.3067139794974372,0.4267986983838833,Huntington National Bank,champion,Champion
-5Q,2016Q1,2025Q1,37,0.37713802955302045,0.5289211073775706,Huntington National Bank,champion,Champion
-6Q,2016Q1,2024Q4,36,0.44237372198289077,0.6208651877578079,Huntington National Bank,champion,Champion
-7Q,2016Q1,2024Q3,35,0.5100403395336025,0.709420825654502,Huntington National Bank,champion,Champion
-8Q,2016Q1,2024Q2,34,0.5589404637596034,0.7856283953516178,Huntington National Bank,champion,Champion
-1Q,2016Q1,2026Q1,41,0.06659987725325042,0.10220104919402323,Old National Bank,champion,Champion
-2Q,2016Q1,2025Q4,40,0.13216595793058505,0.19615842603519718,Old National Bank,champion,Champion
-3Q,2016Q1,2025Q3,39,0.18243319930464016,0.28093796975992436,Old National Bank,champion,Champion
-4Q,2016Q1,2025Q2,38,0.22998432915009923,0.36820046581496324,Old National Bank,champion,Champion
-5Q,2016Q1,2025Q1,37,0.29965449147917,0.45236129461287194,Old National Bank,champion,Champion
-6Q,2016Q1,2024Q4,36,0.35930747549728853,0.534046731588582,Old National Bank,champion,Champion
-7Q,2016Q1,2024Q3,35,0.3964411885478756,0.6112278474838353,Old National Bank,champion,Champion
-8Q,2016Q1,2024Q2,34,0.43692896682097127,0.6843714141591756,Old National Bank,champion,Champion
+1Q,2016Q1,2026Q1,41,0.04167892427947453,0.11333696180599336,Huntington National Bank,champion,Champion
+2Q,2016Q1,2025Q4,40,0.09699404159639502,0.22190907254387562,Huntington National Bank,champion,Champion
+3Q,2016Q1,2025Q3,39,0.14808386265863563,0.326792772310167,Huntington National Bank,champion,Champion
+4Q,2016Q1,2025Q2,38,0.19885056226201314,0.4267986983838833,Huntington National Bank,champion,Champion
+5Q,2016Q1,2025Q1,37,0.2549574926128423,0.5289211073775706,Huntington National Bank,champion,Champion
+6Q,2016Q1,2024Q4,36,0.30719657228969255,0.6208651877578079,Huntington National Bank,champion,Champion
+7Q,2016Q1,2024Q3,35,0.33884509396693446,0.709420825654502,Huntington National Bank,champion,Champion
+8Q,2016Q1,2024Q2,34,0.38084923694031636,0.7856283953516178,Huntington National Bank,champion,Champion
+1Q,2016Q1,2026Q1,41,0.04714825473057872,0.10220104919402323,Old National Bank,champion,Champion
+2Q,2016Q1,2025Q4,40,0.116761388837288,0.19615842603519718,Old National Bank,champion,Champion
+3Q,2016Q1,2025Q3,39,0.17933253994095424,0.28093796975992436,Old National Bank,champion,Champion
+4Q,2016Q1,2025Q2,38,0.22471594264587602,0.36820046581496324,Old National Bank,champion,Champion
+5Q,2016Q1,2025Q1,37,0.28643298336583384,0.45236129461287194,Old National Bank,champion,Champion
+6Q,2016Q1,2024Q4,36,0.34935029369021176,0.534046731588582,Old National Bank,champion,Champion
+7Q,2016Q1,2024Q3,35,0.38245091869250886,0.6112278474838353,Old National Bank,champion,Champion
+8Q,2016Q1,2024Q2,34,0.40516231481388537,0.6843714141591756,Old National Bank,champion,Champion
 1Q,2016Q1,2026Q1,41,0.09886730689040513,0.1404957557450021,First Horizon Bank,a0,Two-step ECM (symmetric control)
 2Q,2016Q1,2025Q4,40,0.17736509924863225,0.26083614349043777,First Horizon Bank,a0,Two-step ECM (symmetric control)
 3Q,2016Q1,2025Q3,39,0.22480125298226766,0.3679852925954338,First Horizon Bank,a0,Two-step ECM (symmetric control)
@@ -95,22 +95,22 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.3839715285605394,0.5957875959082232,KeyBank National Association,a0,Two-step ECM (symmetric control)
 7Q,2016Q1,2024Q3,35,0.46352231160480906,0.6780992577006397,KeyBank National Association,a0,Two-step ECM (symmetric control)
 8Q,2016Q1,2024Q2,34,0.5333107844388685,0.7503842992181924,KeyBank National Association,a0,Two-step ECM (symmetric control)
-1Q,2016Q1,2026Q1,41,0.0841554022337821,0.11333696180599336,Huntington National Bank,a0,Two-step ECM (symmetric control)
-2Q,2016Q1,2025Q4,40,0.15992283095273976,0.22190907254387562,Huntington National Bank,a0,Two-step ECM (symmetric control)
-3Q,2016Q1,2025Q3,39,0.23442054599435977,0.326792772310167,Huntington National Bank,a0,Two-step ECM (symmetric control)
-4Q,2016Q1,2025Q2,38,0.3067139794974372,0.4267986983838833,Huntington National Bank,a0,Two-step ECM (symmetric control)
-5Q,2016Q1,2025Q1,37,0.3771380295530205,0.5289211073775706,Huntington National Bank,a0,Two-step ECM (symmetric control)
-6Q,2016Q1,2024Q4,36,0.44237372198289077,0.6208651877578079,Huntington National Bank,a0,Two-step ECM (symmetric control)
-7Q,2016Q1,2024Q3,35,0.5100403395336025,0.709420825654502,Huntington National Bank,a0,Two-step ECM (symmetric control)
-8Q,2016Q1,2024Q2,34,0.5589404637596034,0.7856283953516178,Huntington National Bank,a0,Two-step ECM (symmetric control)
-1Q,2016Q1,2026Q1,41,0.06659987725325049,0.10220104919402323,Old National Bank,a0,Two-step ECM (symmetric control)
-2Q,2016Q1,2025Q4,40,0.13216595793058517,0.19615842603519718,Old National Bank,a0,Two-step ECM (symmetric control)
-3Q,2016Q1,2025Q3,39,0.18243319930464028,0.28093796975992436,Old National Bank,a0,Two-step ECM (symmetric control)
-4Q,2016Q1,2025Q2,38,0.22998432915009936,0.36820046581496324,Old National Bank,a0,Two-step ECM (symmetric control)
-5Q,2016Q1,2025Q1,37,0.29965449147917006,0.45236129461287194,Old National Bank,a0,Two-step ECM (symmetric control)
-6Q,2016Q1,2024Q4,36,0.35930747549728864,0.534046731588582,Old National Bank,a0,Two-step ECM (symmetric control)
-7Q,2016Q1,2024Q3,35,0.3964411885478757,0.6112278474838353,Old National Bank,a0,Two-step ECM (symmetric control)
-8Q,2016Q1,2024Q2,34,0.43692896682097127,0.6843714141591756,Old National Bank,a0,Two-step ECM (symmetric control)
+1Q,2016Q1,2026Q1,41,0.04167892427947458,0.11333696180599336,Huntington National Bank,a0,Two-step ECM (symmetric control)
+2Q,2016Q1,2025Q4,40,0.09699404159639498,0.22190907254387562,Huntington National Bank,a0,Two-step ECM (symmetric control)
+3Q,2016Q1,2025Q3,39,0.14808386265863568,0.326792772310167,Huntington National Bank,a0,Two-step ECM (symmetric control)
+4Q,2016Q1,2025Q2,38,0.1988505622620132,0.4267986983838833,Huntington National Bank,a0,Two-step ECM (symmetric control)
+5Q,2016Q1,2025Q1,37,0.25495749261284245,0.5289211073775706,Huntington National Bank,a0,Two-step ECM (symmetric control)
+6Q,2016Q1,2024Q4,36,0.3071965722896925,0.6208651877578079,Huntington National Bank,a0,Two-step ECM (symmetric control)
+7Q,2016Q1,2024Q3,35,0.33884509396693463,0.709420825654502,Huntington National Bank,a0,Two-step ECM (symmetric control)
+8Q,2016Q1,2024Q2,34,0.3808492369403166,0.7856283953516178,Huntington National Bank,a0,Two-step ECM (symmetric control)
+1Q,2016Q1,2026Q1,41,0.047148254730578765,0.10220104919402323,Old National Bank,a0,Two-step ECM (symmetric control)
+2Q,2016Q1,2025Q4,40,0.11676138883728804,0.19615842603519718,Old National Bank,a0,Two-step ECM (symmetric control)
+3Q,2016Q1,2025Q3,39,0.17933253994095444,0.28093796975992436,Old National Bank,a0,Two-step ECM (symmetric control)
+4Q,2016Q1,2025Q2,38,0.22471594264587622,0.36820046581496324,Old National Bank,a0,Two-step ECM (symmetric control)
+5Q,2016Q1,2025Q1,37,0.286432983365834,0.45236129461287194,Old National Bank,a0,Two-step ECM (symmetric control)
+6Q,2016Q1,2024Q4,36,0.3493502936902122,0.534046731588582,Old National Bank,a0,Two-step ECM (symmetric control)
+7Q,2016Q1,2024Q3,35,0.3824509186925094,0.6112278474838353,Old National Bank,a0,Two-step ECM (symmetric control)
+8Q,2016Q1,2024Q2,34,0.4051623148138861,0.6843714141591756,Old National Bank,a0,Two-step ECM (symmetric control)
 1Q,2016Q1,2026Q1,41,0.10216402525905695,0.1404957557450021,First Horizon Bank,a1,Asymmetric ECM (lambda by sign of ect)
 2Q,2016Q1,2025Q4,40,0.18561889457512842,0.26083614349043777,First Horizon Bank,a1,Asymmetric ECM (lambda by sign of ect)
 3Q,2016Q1,2025Q3,39,0.24481774294480582,0.3679852925954338,First Horizon Bank,a1,Asymmetric ECM (lambda by sign of ect)
@@ -151,22 +151,22 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.4153089858392222,0.5957875959082232,KeyBank National Association,a1,Asymmetric ECM (lambda by sign of ect)
 7Q,2016Q1,2024Q3,35,0.5056156831472491,0.6780992577006397,KeyBank National Association,a1,Asymmetric ECM (lambda by sign of ect)
 8Q,2016Q1,2024Q2,34,0.5906807159480838,0.7503842992181924,KeyBank National Association,a1,Asymmetric ECM (lambda by sign of ect)
-1Q,2016Q1,2026Q1,41,0.07474776829352794,0.11333696180599336,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-2Q,2016Q1,2025Q4,40,0.13933810042190203,0.22190907254387562,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-3Q,2016Q1,2025Q3,39,0.197657277710827,0.326792772310167,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-4Q,2016Q1,2025Q2,38,0.2522029146175725,0.4267986983838833,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-5Q,2016Q1,2025Q1,37,0.3020444928476451,0.5289211073775706,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-6Q,2016Q1,2024Q4,36,0.34574562454426816,0.6208651877578079,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-7Q,2016Q1,2024Q3,35,0.38196221032840466,0.709420825654502,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-8Q,2016Q1,2024Q2,34,0.4180394101313104,0.7856283953516178,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-1Q,2016Q1,2026Q1,41,0.06357716734127355,0.10220104919402323,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-2Q,2016Q1,2025Q4,40,0.11763322686270924,0.19615842603519718,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-3Q,2016Q1,2025Q3,39,0.1594877334309266,0.28093796975992436,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-4Q,2016Q1,2025Q2,38,0.2002962445805951,0.36820046581496324,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-5Q,2016Q1,2025Q1,37,0.27473043304280664,0.45236129461287194,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-6Q,2016Q1,2024Q4,36,0.33354285169271813,0.534046731588582,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-7Q,2016Q1,2024Q3,35,0.3914450373104296,0.6112278474838353,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
-8Q,2016Q1,2024Q2,34,0.4295036483118193,0.6843714141591756,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+1Q,2016Q1,2026Q1,41,0.040362243148427034,0.11333696180599336,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+2Q,2016Q1,2025Q4,40,0.09426770483993378,0.22190907254387562,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+3Q,2016Q1,2025Q3,39,0.13838033770620292,0.326792772310167,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+4Q,2016Q1,2025Q2,38,0.18822336018878563,0.4267986983838833,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+5Q,2016Q1,2025Q1,37,0.24496645785457288,0.5289211073775706,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+6Q,2016Q1,2024Q4,36,0.29911952958777704,0.6208651877578079,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+7Q,2016Q1,2024Q3,35,0.333504296095098,0.709420825654502,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+8Q,2016Q1,2024Q2,34,0.37400036656998714,0.7856283953516178,Huntington National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+1Q,2016Q1,2026Q1,41,0.049773100857142955,0.10220104919402323,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+2Q,2016Q1,2025Q4,40,0.10905778194655444,0.19615842603519718,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+3Q,2016Q1,2025Q3,39,0.17117466537290668,0.28093796975992436,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+4Q,2016Q1,2025Q2,38,0.2135099110820476,0.36820046581496324,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+5Q,2016Q1,2025Q1,37,0.2799058547182043,0.45236129461287194,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+6Q,2016Q1,2024Q4,36,0.3454726868197309,0.534046731588582,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+7Q,2016Q1,2024Q3,35,0.3906310605368612,0.6112278474838353,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
+8Q,2016Q1,2024Q2,34,0.41855837797456114,0.6843714141591756,Old National Bank,a1,Asymmetric ECM (lambda by sign of ect)
 1Q,2016Q1,2026Q1,41,0.10310275602481812,0.1404957557450021,First Horizon Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
 2Q,2016Q1,2025Q4,40,0.19567453852070787,0.26083614349043777,First Horizon Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
 3Q,2016Q1,2025Q3,39,0.2631486702595193,0.3679852925954338,First Horizon Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
@@ -207,22 +207,22 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.3950288406817759,0.5957875959082232,KeyBank National Association,a2,Asymmetric ECM (lambda by easing vs. other FFT)
 7Q,2016Q1,2024Q3,35,0.4836982116797877,0.6780992577006397,KeyBank National Association,a2,Asymmetric ECM (lambda by easing vs. other FFT)
 8Q,2016Q1,2024Q2,34,0.5834039913831388,0.7503842992181924,KeyBank National Association,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-1Q,2016Q1,2026Q1,41,0.08267897852285949,0.11333696180599336,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-2Q,2016Q1,2025Q4,40,0.1591314994977247,0.22190907254387562,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-3Q,2016Q1,2025Q3,39,0.23732539006592915,0.326792772310167,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-4Q,2016Q1,2025Q2,38,0.31233663861224187,0.4267986983838833,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-5Q,2016Q1,2025Q1,37,0.38814110588170797,0.5289211073775706,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-6Q,2016Q1,2024Q4,36,0.4644623824524127,0.6208651877578079,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-7Q,2016Q1,2024Q3,35,0.5395843360122263,0.709420825654502,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-8Q,2016Q1,2024Q2,34,0.5990780901911537,0.7856283953516178,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-1Q,2016Q1,2026Q1,41,0.06673022342982586,0.10220104919402323,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-2Q,2016Q1,2025Q4,40,0.14509146202976192,0.19615842603519718,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-3Q,2016Q1,2025Q3,39,0.22302399443791218,0.28093796975992436,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-4Q,2016Q1,2025Q2,38,0.29852935279044784,0.36820046581496324,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-5Q,2016Q1,2025Q1,37,0.41446338351382583,0.45236129461287194,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-6Q,2016Q1,2024Q4,36,0.5718438486003493,0.534046731588582,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-7Q,2016Q1,2024Q3,35,0.7852983722923079,0.6112278474838353,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
-8Q,2016Q1,2024Q2,34,0.9801495601264155,0.6843714141591756,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+1Q,2016Q1,2026Q1,41,0.038700213711556,0.11333696180599336,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+2Q,2016Q1,2025Q4,40,0.08611977890996173,0.22190907254387562,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+3Q,2016Q1,2025Q3,39,0.12162894816868339,0.326792772310167,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+4Q,2016Q1,2025Q2,38,0.16846964575808343,0.4267986983838833,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+5Q,2016Q1,2025Q1,37,0.2331147865695146,0.5289211073775706,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+6Q,2016Q1,2024Q4,36,0.29000339682930176,0.6208651877578079,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+7Q,2016Q1,2024Q3,35,0.33034526199728187,0.709420825654502,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+8Q,2016Q1,2024Q2,34,0.37657242823152515,0.7856283953516178,Huntington National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+1Q,2016Q1,2026Q1,41,0.04586320377464574,0.10220104919402323,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+2Q,2016Q1,2025Q4,40,0.11349821425838169,0.19615842603519718,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+3Q,2016Q1,2025Q3,39,0.16942940288789876,0.28093796975992436,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+4Q,2016Q1,2025Q2,38,0.22265818182258088,0.36820046581496324,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+5Q,2016Q1,2025Q1,37,0.2962629309587105,0.45236129461287194,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+6Q,2016Q1,2024Q4,36,0.374228501112635,0.534046731588582,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+7Q,2016Q1,2024Q3,35,0.43686586040208364,0.6112278474838353,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
+8Q,2016Q1,2024Q2,34,0.5157326416784124,0.6843714141591756,Old National Bank,a2,Asymmetric ECM (lambda by easing vs. other FFT)
 1Q,2016Q1,2026Q1,41,0.28810153114406784,0.1404957557450021,First Horizon Bank,b1,Static OLS beta (levels)
 2Q,2016Q1,2025Q4,40,0.34548170662691957,0.26083614349043777,First Horizon Bank,b1,Static OLS beta (levels)
 3Q,2016Q1,2025Q3,39,0.3989034361873732,0.3679852925954338,First Horizon Bank,b1,Static OLS beta (levels)
@@ -431,22 +431,22 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.4138891956731178,0.5957875959082232,KeyBank National Association,c,Champion ECM + 2022 level dummy
 7Q,2016Q1,2024Q3,35,0.5085635283010385,0.6780992577006397,KeyBank National Association,c,Champion ECM + 2022 level dummy
 8Q,2016Q1,2024Q2,34,0.5838250922331096,0.7503842992181924,KeyBank National Association,c,Champion ECM + 2022 level dummy
-1Q,2016Q1,2026Q1,41,0.09585713024247948,0.11333696180599336,Huntington National Bank,c,Champion ECM + 2022 level dummy
-2Q,2016Q1,2025Q4,40,0.18630832018700202,0.22190907254387562,Huntington National Bank,c,Champion ECM + 2022 level dummy
-3Q,2016Q1,2025Q3,39,0.2751275393678879,0.326792772310167,Huntington National Bank,c,Champion ECM + 2022 level dummy
-4Q,2016Q1,2025Q2,38,0.3582866792535592,0.4267986983838833,Huntington National Bank,c,Champion ECM + 2022 level dummy
-5Q,2016Q1,2025Q1,37,0.43883443683067336,0.5289211073775706,Huntington National Bank,c,Champion ECM + 2022 level dummy
-6Q,2016Q1,2024Q4,36,0.5133422703921579,0.6208651877578079,Huntington National Bank,c,Champion ECM + 2022 level dummy
-7Q,2016Q1,2024Q3,35,0.5865572786548499,0.709420825654502,Huntington National Bank,c,Champion ECM + 2022 level dummy
-8Q,2016Q1,2024Q2,34,0.635184458914969,0.7856283953516178,Huntington National Bank,c,Champion ECM + 2022 level dummy
-1Q,2016Q1,2026Q1,41,0.06836034804458836,0.10220104919402323,Old National Bank,c,Champion ECM + 2022 level dummy
-2Q,2016Q1,2025Q4,40,0.13686353673895219,0.19615842603519718,Old National Bank,c,Champion ECM + 2022 level dummy
-3Q,2016Q1,2025Q3,39,0.20639290260228554,0.28093796975992436,Old National Bank,c,Champion ECM + 2022 level dummy
-4Q,2016Q1,2025Q2,38,0.26631430146403706,0.36820046581496324,Old National Bank,c,Champion ECM + 2022 level dummy
-5Q,2016Q1,2025Q1,37,0.3505811922515151,0.45236129461287194,Old National Bank,c,Champion ECM + 2022 level dummy
-6Q,2016Q1,2024Q4,36,0.4201040153569595,0.534046731588582,Old National Bank,c,Champion ECM + 2022 level dummy
-7Q,2016Q1,2024Q3,35,0.48507642052146605,0.6112278474838353,Old National Bank,c,Champion ECM + 2022 level dummy
-8Q,2016Q1,2024Q2,34,0.5318242592302836,0.6843714141591756,Old National Bank,c,Champion ECM + 2022 level dummy
+1Q,2016Q1,2026Q1,41,0.041292045032221926,0.11333696180599336,Huntington National Bank,c,Champion ECM + 2022 level dummy
+2Q,2016Q1,2025Q4,40,0.09735638446767661,0.22190907254387562,Huntington National Bank,c,Champion ECM + 2022 level dummy
+3Q,2016Q1,2025Q3,39,0.15268118475786488,0.326792772310167,Huntington National Bank,c,Champion ECM + 2022 level dummy
+4Q,2016Q1,2025Q2,38,0.21015652037129134,0.4267986983838833,Huntington National Bank,c,Champion ECM + 2022 level dummy
+5Q,2016Q1,2025Q1,37,0.2842264960008656,0.5289211073775706,Huntington National Bank,c,Champion ECM + 2022 level dummy
+6Q,2016Q1,2024Q4,36,0.35002093606507456,0.6208651877578079,Huntington National Bank,c,Champion ECM + 2022 level dummy
+7Q,2016Q1,2024Q3,35,0.3941029938056326,0.709420825654502,Huntington National Bank,c,Champion ECM + 2022 level dummy
+8Q,2016Q1,2024Q2,34,0.43024005371546914,0.7856283953516178,Huntington National Bank,c,Champion ECM + 2022 level dummy
+1Q,2016Q1,2026Q1,41,0.05074885284124987,0.10220104919402323,Old National Bank,c,Champion ECM + 2022 level dummy
+2Q,2016Q1,2025Q4,40,0.11897416112991013,0.19615842603519718,Old National Bank,c,Champion ECM + 2022 level dummy
+3Q,2016Q1,2025Q3,39,0.1813534197039135,0.28093796975992436,Old National Bank,c,Champion ECM + 2022 level dummy
+4Q,2016Q1,2025Q2,38,0.2535088591638433,0.36820046581496324,Old National Bank,c,Champion ECM + 2022 level dummy
+5Q,2016Q1,2025Q1,37,0.34072571306896016,0.45236129461287194,Old National Bank,c,Champion ECM + 2022 level dummy
+6Q,2016Q1,2024Q4,36,0.4175565359875113,0.534046731588582,Old National Bank,c,Champion ECM + 2022 level dummy
+7Q,2016Q1,2024Q3,35,0.48156995962054094,0.6112278474838353,Old National Bank,c,Champion ECM + 2022 level dummy
+8Q,2016Q1,2024Q2,34,0.5261732755564333,0.6843714141591756,Old National Bank,c,Champion ECM + 2022 level dummy
 1Q,2016Q1,2026Q1,41,0.10141890066623521,0.1404957557450021,First Horizon Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
 2Q,2016Q1,2025Q4,40,0.18361654984217324,0.26083614349043777,First Horizon Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
 3Q,2016Q1,2025Q3,39,0.23369451823880333,0.3679852925954338,First Horizon Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
@@ -487,19 +487,19 @@ horizon_q,first_origin,last_origin,n_windows,mae,naive_mae,bank_name,model,model
 6Q,2016Q1,2024Q4,36,0.4038267004459859,0.5957875959082232,KeyBank National Association,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
 7Q,2016Q1,2024Q3,35,0.4844797559488547,0.6780992577006397,KeyBank National Association,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
 8Q,2016Q1,2024Q2,34,0.5550254238881223,0.7503842992181924,KeyBank National Association,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-1Q,2016Q1,2026Q1,41,0.08809509510559373,0.11333696180599336,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-2Q,2016Q1,2025Q4,40,0.1757276957040935,0.22190907254387562,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-3Q,2016Q1,2025Q3,39,0.26196669685607127,0.326792772310167,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-4Q,2016Q1,2025Q2,38,0.3473795871744685,0.4267986983838833,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-5Q,2016Q1,2025Q1,37,0.43060967118662125,0.5289211073775706,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-6Q,2016Q1,2024Q4,36,0.5088589798857498,0.6208651877578079,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-7Q,2016Q1,2024Q3,35,0.5836912147844421,0.709420825654502,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-8Q,2016Q1,2024Q2,34,0.6365255402675544,0.7856283953516178,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-1Q,2016Q1,2026Q1,41,0.06575274290216815,0.10220104919402323,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-2Q,2016Q1,2025Q4,40,0.1311254074440404,0.19615842603519718,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-3Q,2016Q1,2025Q3,39,0.190947555433673,0.28093796975992436,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-4Q,2016Q1,2025Q2,38,0.245861446888843,0.36820046581496324,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-5Q,2016Q1,2025Q1,37,0.3202096339482674,0.45236129461287194,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-6Q,2016Q1,2024Q4,36,0.39486728869108056,0.534046731588582,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-7Q,2016Q1,2024Q3,35,0.46444999376998114,0.6112278474838353,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
-8Q,2016Q1,2024Q2,34,0.5072348818001767,0.6843714141591756,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+1Q,2016Q1,2026Q1,41,0.04289428455803179,0.11333696180599336,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+2Q,2016Q1,2025Q4,40,0.09996294771795532,0.22190907254387562,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+3Q,2016Q1,2025Q3,39,0.1534263175400128,0.326792772310167,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+4Q,2016Q1,2025Q2,38,0.20698564156096547,0.4267986983838833,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+5Q,2016Q1,2025Q1,37,0.26460285198705613,0.5289211073775706,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+6Q,2016Q1,2024Q4,36,0.3163361235285268,0.6208651877578079,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+7Q,2016Q1,2024Q3,35,0.34651016120492384,0.709420825654502,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+8Q,2016Q1,2024Q2,34,0.38914704329344996,0.7856283953516178,Huntington National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+1Q,2016Q1,2026Q1,41,0.04881382504090116,0.10220104919402323,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+2Q,2016Q1,2025Q4,40,0.12358539325011435,0.19615842603519718,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+3Q,2016Q1,2025Q3,39,0.19079747546047243,0.28093796975992436,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+4Q,2016Q1,2025Q2,38,0.2391582791330104,0.36820046581496324,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+5Q,2016Q1,2025Q1,37,0.3034702635378239,0.45236129461287194,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+6Q,2016Q1,2024Q4,36,0.36640059524965274,0.534046731588582,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+7Q,2016Q1,2024Q3,35,0.3988213202692251,0.6112278474838353,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)
+8Q,2016Q1,2024Q2,34,0.42257514671206536,0.6843714141591756,Old National Bank,c',Champion ECM + level dummy from 2022Q1 (sensitivity)

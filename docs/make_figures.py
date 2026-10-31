@@ -6,10 +6,10 @@ Usage:
 Writes:
     <bank> - Actual vs Predicted.png                 champion's plot from "Actuals vs Predictions"
     <bank> - MAE Backtest 8Q.png                     many-start-date backtest chart from MAE_Backtesting/output
-    <bank> - Beta Backtest 8Q.png                    rolling-origin long-run beta chart from Beta_Backtesting/output
-    All Banks - Beta Backtest 8Q.png                 mean long-run beta by horizon, all banks
+    <bank> - Beta Backtest.png                       long-run beta at every start date from 2016Q1 (Beta_Backtesting/output)
+    All Banks - Beta Backtest.png                    the same, all banks
 Run after "ECM workflow.py", plotting_workflow.py and MAE_Backtesting/run_backtest.py --first-origin 2016Q1
-and Beta_Backtesting/run_beta_backtest.py.
+and Beta_Backtesting/run_beta_backtest.py --first-origin 2016Q1.
 Figure 1 (docs/Historical Deposit Rates vs FFT.png) is produced by EDA1_Stationarity_Tests.ipynb.
 """
 
@@ -39,10 +39,10 @@ def main(argv=None):
         shutil.copy(ROOT / "Actuals vs Predictions" / folder / name, out / f"{bank} - Actual vs Predicted.png")
         shutil.copy(ROOT / "MAE_Backtesting" / "output" / folder / "MAE_backtest_multiorigin_8Q.png",
                     out / f"{bank} - MAE Backtest 8Q.png")
-        shutil.copy(ROOT / "Beta_Backtesting" / "output" / folder / "beta_backtest_8Q.png",
-                    out / f"{bank} - Beta Backtest 8Q.png")
-    shutil.copy(ROOT / "Beta_Backtesting" / "output" / "beta_backtest_all_banks_8Q.png",
-                out / "All Banks - Beta Backtest 8Q.png")
+        shutil.copy(ROOT / "Beta_Backtesting" / "output" / folder / "beta_backtest_multiorigin.png",
+                    out / f"{bank} - Beta Backtest.png")
+    shutil.copy(ROOT / "Beta_Backtesting" / "output" / "beta_backtest_multiorigin_all_banks.png",
+                out / "All Banks - Beta Backtest.png")
     return 0
 
 
