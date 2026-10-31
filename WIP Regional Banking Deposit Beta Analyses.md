@@ -27,6 +27,7 @@
 | Version | Date | Description |
 | :--- | :--- | :--- |
 | 0 (WIP) | 2026-10-30 | First SR 11-7 style draft, built from the vault documentation and the repository's code and outputs. Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures, with many-start-date backtest bar charts (model vs. no-change, with band limits); Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9 (OI-1 to OI-22). |
+| 0.1 (WIP) | 2026-10-31 | Added the rolling-origin long-run beta stability backtest (`Beta_Backtesting/`): method (§5.6), per-bank results and figures (§6.x.7), peer comparison (§7.5), limitation L17 and OI-23. Linked the remaining open issues to GitHub issues #1 to #8. |
 
 ---
 
@@ -60,7 +61,7 @@ Every bank has at least one specification that is cointegrated with the federal 
 | Old National Bank | Johansen VECM rank 1, k_ar_diff=1 (fixed), det_order -1 | -0.135 | 0.419 | 0.0414 | 0.263 | Green |
 | SouthState Bank | ARDL(4,3), case 1, AIC | -0.082 | 0.443 | 0.0336 | 0.264 | Green |
 
-All λ and θ estimates are significant at the 5% level (all at 1% except KeyBank λ, p 0.010). Long-run betas fall between 0.35 and 0.52. Six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057).
+All λ and θ estimates are significant at the 5% level (all at 1% except KeyBank λ, p 0.010). Long-run betas fall between 0.35 and 0.52. Six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057). Re-estimated at the eight origins 2024Q2 to 2026Q1, each bank's θ deviates from its full-sample value by at most 0.025 (First Horizon) to 0.135 (KeyBank) (§7.5).
 
 ---
 
@@ -79,7 +80,7 @@ Deposit betas feed interest-rate risk measurement (NII and EVE sensitivity), dep
 - Forecasts beyond 8 quarters, or under rate regimes outside the 2011 to 2026 sample (for example, negative rates).
 
 ### 2.4 Model Output
-For each bank: the estimated one-step ECM (short-run coefficients, speed of adjustment λ, long-run coefficients θ with delta-method standard errors), in-sample MAE, and rolling-origin dynamic-forecast MAE by horizon.
+For each bank: the estimated one-step ECM (short-run coefficients, speed of adjustment λ, long-run coefficients θ with delta-method standard errors), in-sample MAE, rolling-origin dynamic-forecast MAE by horizon, and the long-run beta re-estimated at rolling origins.
 
 ---
 
@@ -114,6 +115,7 @@ $$\Delta y_t = \lambda\,(y_{t-1} - c - \theta x_{t-1}) + \sum_i \gamma_i \Delta 
 | 6 | Parameter selection (short-run coef p < 0.05) | `ECM Param selection.py` | `ECM param selection results.csv` |
 | 7 | One-step ECM estimation and lag pruning | `ECM estimation.py` | `ECM estimation results.csv`, `estimation result summary.csv` |
 | 8 | Backtests and ratings | `MAE_Backtesting/run_backtest.py`, `backtest.py` | `MAE_Backtesting/output/` |
+| 8b | Long-run beta stability backtest | `Beta_Backtesting/run_beta_backtest.py`, `beta_backtest.py` | `Beta_Backtesting/output/` |
 | 9 | Actual vs. predicted charts | `plotting_workflow.py`, `bank_plots.py` | `Actuals vs Predictions/<bank>/*.png` |
 | 10 | Unit-root and structural-break diagnostics | `diagnostics/stationarity_and_breaks.py` | `diagnostics/*.csv` |
 | 11 | Documentation figures | `docs/make_figures.py` | `docs/figures/` |
@@ -224,6 +226,8 @@ Zivot-Andrews tests (`c`, `t`, `ct`; AIC lags, max 4) are run on the levels of e
 - The limits are relative to the peer group: by construction, about a quarter of banks exceed the green limit in each band. The skill test is the only absolute standard. Fixing the limits from a reference run is a candidate refinement.
 - Per-origin errors are cached (`MAE_Backtesting/output/cache/`) so that a shorter horizon reuses a longer run without refitting.
 
+**Parameter stability test: rolling-origin long-run beta.** With horizon N (default 8) and last quarter T, the champion specification is re-estimated at each origin T−N to T−1 on data up to that origin (expanding window, the same fit as the MAE backtest), and θ = −β(FFT.L1)/λ, its delta-method standard error and λ are recorded. For each horizon kQ the chart shows the mean θ over origins T−k to T−1, with min-max whiskers and the full-sample θ as reference; the table reports the largest absolute deviation from the full-sample θ, in pp, as a share of θ, and in origin standard errors. This is a descriptive diagnostic; no acceptance threshold is set yet (OI-23).
+
 **Supplementary test: single-window 8Q backtest.** For each k = 1 to 8, one forecast from start date T−k to T, with MAE averaged over its k quarters. Each kQ figure rests on one start date. Rated Green (mean ≤ 0.15 pp and below the no-change mean), Amber (mean 0.15–0.25 pp, or beats no-change on fewer than 6 of 8 horizons) or Red (mean > 0.25 pp, or any horizon > 0.50 pp).
 
 ### 5.7 Key Assumptions
@@ -302,6 +306,12 @@ Tied on in-sample MAE with the HQIC selection of the same lags and with case 5 u
 - λ = -0.37: about 37% of any disequilibrium closes each quarter, the fastest adjustment in the peer set.
 - The rating depends on the backtest horizon N: Green at 8Q, Amber at 4Q and 12Q, because the band edges move its 2Q error between bands (§5.6).
 
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.494 to 0.542 against the full-sample 0.517. The largest deviation is 0.025 (5%) at 2024Q3, 0.63 origin standard errors. The most stable beta in the peer set.
+
+![First Horizon Bank: rolling-origin long-run beta](<docs/figures/First Horizon Bank - Beta Backtest 8Q.png>)
+
+*Figure 4: First Horizon Bank, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
+
 ### 6.2 Glacier Bank
 
 #### 6.2.1 Data Treatment
@@ -350,7 +360,7 @@ The constant and trend are individually insignificant (p 0.106 and 0.103) but ar
 
 ![Glacier Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Glacier Bank - Actual vs Predicted.png>)
 
-*Figure 4: Glacier Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 5: Glacier Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.2.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Amber** (skill ratio 0.96 at 3Q). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.047, 0.103, 0.156, 0.195, 0.238, 0.277, 0.306, 0.331. Worst skill ratio against the no-change forecast: 0.96 at 3Q.
@@ -358,11 +368,17 @@ The constant and trend are individually insignificant (p 0.106 and 0.103) but ar
 
 ![Glacier Bank: many-start-date backtest MAE by horizon](<docs/figures/Glacier Bank - MAE Backtest 8Q.png>)
 
-*Figure 5: Glacier Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 6: Glacier Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The skill ratio is close to 1 (0.96 at 3Q): Glacier's rate moves little, so the no-change forecast is nearly as accurate as the model. This is the reason for the Amber rating.
 - The champion carries a long-run trend, frozen at its 2026Q2 value for projection (§5.7).
 - The levels series is flagged in both samples (KPSS I(0) p 0.057 in the main sample).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.294 to 0.383 against the full-sample 0.346. The largest deviation is 0.052 (15%) at 2024Q4, 0.92 origin standard errors. Every origin estimate is within one origin standard error of the full-sample value.
+
+![Glacier Bank: rolling-origin long-run beta](<docs/figures/Glacier Bank - Beta Backtest 8Q.png>)
+
+*Figure 7: Glacier Bank, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ### 6.3 Huntington National Bank
 
@@ -404,7 +420,7 @@ All three passing specifications give the same one-step ECM. No short-run terms 
 
 ![Huntington National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Huntington National Bank - Actual vs Predicted.png>)
 
-*Figure 6: Huntington National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 8: Huntington National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.3.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Red** (3-4Q max 0.307 > red 0.30; 5-8Q max 0.559 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.084, 0.160, 0.234, 0.307, 0.377, 0.442, 0.510, 0.559. Worst skill ratio against the no-change forecast: 0.74 at 1Q.
@@ -412,10 +428,16 @@ All three passing specifications give the same one-step ECM. No short-run terms 
 
 ![Huntington National Bank: many-start-date backtest MAE by horizon](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
 
-*Figure 7: Huntington National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 9: Huntington National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - Cointegration rests on one specification family (OI-19).
 - Errors grow at long horizons. With no contemporaneous FFT term, the model passes rate cuts through too slowly (forecast 2.5% to 2.6% in 2024Q4 to 2025Q2 against an actual of 2.1% to 2.25%).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.465 to 0.551 against the full-sample 0.469. The largest deviation is 0.082 (17%) at 2024Q2, 2.06 origin standard errors. The estimates fall steadily from 0.551 (2024Q2) to 0.465 (2026Q1). It is the only bank with an origin estimate more than two standard errors from the full-sample value, which adds to the robustness concern in OI-19.
+
+![Huntington National Bank: rolling-origin long-run beta](<docs/figures/Huntington National Bank - Beta Backtest 8Q.png>)
+
+*Figure 10: Huntington National Bank, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ### 6.4 KeyBank National Association
 
@@ -461,7 +483,7 @@ With deterministic terms matched to each test (§5.5), this model has the lowest
 
 ![KeyBank National Association: actual vs. predicted deposit rate, champion model](<docs/figures/KeyBank National Association - Actual vs Predicted.png>)
 
-*Figure 8: KeyBank National Association, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 11: KeyBank National Association, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.4.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Red** (5-8Q max 0.533 > red 0.50). h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.054, 0.115, 0.172, 0.224, 0.294, 0.384, 0.464, 0.533. Worst skill ratio against the no-change forecast: 0.71 at 8Q.
@@ -469,11 +491,17 @@ With deterministic terms matched to each test (§5.5), this model has the lowest
 
 ![KeyBank National Association: many-start-date backtest MAE by horizon](<docs/figures/KeyBank National Association - MAE Backtest 8Q.png>)
 
-*Figure 9: KeyBank National Association, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 12: KeyBank National Association, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The 8Q-ahead error (0.533) is above the peer-derived red limit for the 5Q to 8Q band, which is the reason for the Red rating.
 - λ = -0.11: slow adjustment, so errors compound over long horizons.
 - The beta range across passing specifications narrowed to 0.40 to 0.49 after the rebuild (previously 0.18 to 0.54).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.354 to 0.532 against the full-sample 0.398. The largest deviation is 0.135 (34%) at 2024Q3, 1.18 origin standard errors. The largest swing in the peer set: 0.532 at 2024Q3 and 0.354 one quarter later. Both are within 1.2 origin standard errors, because the early estimates are imprecise (standard error up to 0.114).
+
+![KeyBank National Association: rolling-origin long-run beta](<docs/figures/KeyBank National Association - Beta Backtest 8Q.png>)
+
+*Figure 13: KeyBank National Association, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ### 6.5 Manufacturers and Traders Trust Company (M&T)
 
@@ -520,7 +548,7 @@ The deterministic terms follow the case 4 test specification (§5.5).
 
 ![Manufacturers and Traders Trust Company: actual vs. predicted deposit rate, champion model](<docs/figures/Manufacturers and Traders Trust Company - Actual vs Predicted.png>)
 
-*Figure 10: Manufacturers and Traders Trust Company, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 14: Manufacturers and Traders Trust Company, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.5.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.059, 0.117, 0.170, 0.211, 0.261, 0.290, 0.304, 0.329. Worst skill ratio against the no-change forecast: 0.62 at 3Q.
@@ -528,10 +556,16 @@ The deterministic terms follow the case 4 test specification (§5.5).
 
 ![Manufacturers and Traders Trust Company: many-start-date backtest MAE by horizon](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
 
-*Figure 11: Manufacturers and Traders Trust Company, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 15: Manufacturers and Traders Trust Company, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The large single-window error at 5Q is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (OI-8). Over 37 start dates the 5-step-ahead MAE is 0.26 pp.
 - The champion carries a long-run trend (-0.011 pp per quarter, p 0.0065), frozen at its 2026Q2 value for projection (§5.7).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.366 to 0.431 against the full-sample 0.432. The largest deviation is 0.065 (15%) at 2025Q1, 1.53 origin standard errors. The 2025Q1 origin dips to 0.366; later origins return to 0.42–0.43.
+
+![Manufacturers and Traders Trust Company: rolling-origin long-run beta](<docs/figures/Manufacturers and Traders Trust Company - Beta Backtest 8Q.png>)
+
+*Figure 16: Manufacturers and Traders Trust Company, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ### 6.6 Old National Bank
 
@@ -575,7 +609,7 @@ Johansen trace r ≤ 0 = 13.91 (p < 0.05).
 
 ![Old National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Old National Bank - Actual vs Predicted.png>)
 
-*Figure 12: Old National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 17: Old National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.6.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.067, 0.132, 0.182, 0.230, 0.300, 0.359, 0.396, 0.437. Worst skill ratio against the no-change forecast: 0.67 at 2Q.
@@ -583,9 +617,15 @@ Johansen trace r ≤ 0 = 13.91 (p < 0.05).
 
 ![Old National Bank: many-start-date backtest MAE by horizon](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
 
-*Figure 13: Old National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 18: Old National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - The large single-window error at 5Q comes from one start date (2025Q1) and is the shared easing-cycle effect (OI-8).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.337 to 0.452 against the full-sample 0.419. The largest deviation is 0.082 (19%) at 2025Q1, 1.57 origin standard errors. The estimates dip to 0.368 and 0.337 at the 2024Q4 and 2025Q1 origins, at the turn of the easing cycle (OI-8), then return to 0.41–0.43.
+
+![Old National Bank: rolling-origin long-run beta](<docs/figures/Old National Bank - Beta Backtest 8Q.png>)
+
+*Figure 19: Old National Bank, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ### 6.7 SouthState Bank
 
@@ -632,7 +672,7 @@ No deterministic terms (case 1).
 
 ![SouthState Bank: actual vs. predicted deposit rate, champion model](<docs/figures/SouthState Bank - Actual vs Predicted.png>)
 
-*Figure 14: SouthState Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
+*Figure 20: SouthState Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.7.7 Outcomes Analysis and Issues
 - **Governing rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.061, 0.134, 0.202, 0.262, 0.312, 0.355, 0.384, 0.406. Worst skill ratio against the no-change forecast: 0.70 at 3Q.
@@ -640,10 +680,16 @@ No deterministic terms (case 1).
 
 ![SouthState Bank: many-start-date backtest MAE by horizon](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
 
-*Figure 15: SouthState Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
+*Figure 21: SouthState Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - λ = -0.08 is the slowest adjustment in the peer set.
 - Shares the easing-cycle error at the 2025Q1 start date (OI-8).
+
+- **Long-run beta stability (§5.6):** re-estimated at the eight origins 2024Q2 to 2026Q1, θ ranges from 0.330 to 0.524 against the full-sample 0.443. The largest deviation is 0.113 (25%) at 2025Q1, 1.27 origin standard errors. The estimates swing from 0.524 (2024Q3) to 0.330 (2025Q1) before settling at 0.40–0.44.
+
+![SouthState Bank: rolling-origin long-run beta](<docs/figures/SouthState Bank - Beta Backtest 8Q.png>)
+
+*Figure 22: SouthState Bank, rolling-origin long-run beta θ: mean over origins T−k to T−1 for each horizon kQ, with min-max whiskers and the full-sample θ (dashed), champion model.*
 
 ---
 
@@ -693,6 +739,29 @@ Each column is one forecast window, starting at T−k and ending at 2026Q2, with
 ### 7.4 Benchmarking
 The no-change forecast (deposit rate held at its start-date value) is the benchmark in both backtests. No challenger model has been built yet (OI-11). The proposed challengers are a static or cycle-specific OLS beta, an asymmetric ECM (triggered by OI-8), and an ECM with a 2022 regime dummy (OI-20).
 
+### 7.5 Long-Run Beta Stability (rolling origin, 8Q)
+Each champion is re-estimated at the eight origins 2024Q2 to 2026Q1 (expanding window), and the long-run beta θ is compared with the full-sample estimate through 2026Q2 (`Beta_Backtesting/`).
+
+| Bank | Full-sample θ | Mean θ, 8 origins | Range over origins | Largest deviation (share of full-sample θ) | At origin | Largest deviation in origin SEs |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon Bank | 0.517 | 0.511 | 0.494 to 0.542 | 0.025 (5%) | 2024Q3 | 0.63 |
+| Glacier Bank | 0.346 | 0.335 | 0.294 to 0.383 | 0.052 (15%) | 2024Q4 | 0.92 |
+| Huntington National Bank | 0.469 | 0.495 | 0.465 to 0.551 | 0.082 (17%) | 2024Q2 | 2.06 |
+| KeyBank National Association | 0.398 | 0.413 | 0.354 to 0.532 | 0.135 (34%) | 2024Q3 | 1.18 |
+| Manufacturers and Traders Trust Company | 0.432 | 0.410 | 0.366 to 0.431 | 0.065 (15%) | 2025Q1 | 1.53 |
+| Old National Bank | 0.419 | 0.404 | 0.337 to 0.452 | 0.082 (19%) | 2025Q1 | 1.57 |
+| SouthState Bank | 0.443 | 0.428 | 0.330 to 0.524 | 0.113 (25%) | 2025Q1 | 1.27 |
+
+![All banks: rolling-origin mean long-run beta by horizon](<docs/figures/All Banks - Beta Backtest 8Q.png>)
+
+*Figure 23: Rolling-origin mean long-run beta θ by horizon (mean over origins T−k to T−1), all banks.*
+
+- The ordering of the banks' betas is stable across origins: First Horizon highest (about 0.51), Huntington next (0.47–0.49), Glacier lowest (about 0.33), and the other four between 0.39 and 0.43.
+- First Horizon (5%) and Glacier (15%, all within one standard error) are the most stable. KeyBank (34%) and SouthState (25%) move most.
+- Most banks' estimates dip at the 2024Q4 and 2025Q1 origins, when the easing cycle had just started, and recover at later origins. This matches the easing-cycle forecast error in OI-8.
+- Huntington is the only bank whose estimate drifts in one direction, and the only one with an origin estimate more than two standard errors from the full-sample value.
+- No acceptance threshold has been set for beta stability (OI-23).
+
 ---
 
 ## 8. Model Limitations and Assumptions
@@ -715,6 +784,7 @@ The no-change forecast (deposit rate held at its start-date value) is the benchm
 | L14 | Deterministic trends in the First Horizon, M&T and Glacier champions are frozen at their end-of-sample value for projection; the overlay has no code yet ([#7](https://github.com/Panda5130/Deposit-Beta/issues/7)) | First Horizon, M&T, Glacier | Medium |
 | L15 | Huntington cointegration rests on one specification family (OI-19) | Huntington | High |
 | L16 | Backtest limits are percentiles of the peer group, so the absolute test is a relative standard; the single-window backtest has one start date per horizon | All | Medium |
+| L17 | The beta stability backtest covers only eight origins (2024Q2 to 2026Q1), all in the late hiking plateau and the easing cycle, and has no acceptance threshold | All | Medium |
 
 ---
 
@@ -750,6 +820,7 @@ Items still open are tracked as GitHub issues on `Panda5130/Deposit-Beta`, linke
 | OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Open ([#5](https://github.com/Panda5130/Deposit-Beta/issues/5)) |
 | OI-21 | FFT input carries 2026Q3 and 2026Q4 at 3.67, and 2026Q4 is not complete; refresh before the next cycle | All | Low | Open ([#6](https://github.com/Panda5130/Deposit-Beta/issues/6)) |
 | OI-22 | The single-window backtest has one start date per horizon | All | Medium | Closed: many-start-date backtest with horizon-aware, peer-derived limits and a skill test; validator to confirm the relative-limit design; fixed reference-run limits are on hold ([#8](https://github.com/Panda5130/Deposit-Beta/issues/8)) |
+| OI-23 | Set an acceptance threshold for long-run beta stability (for example, the largest deviation within two origin standard errors, or within a set share of θ) and extend the origins back to 2016Q1 to cover a full cycle | All | Medium | Open |
 
 ---
 
@@ -778,6 +849,10 @@ python "ECM workflow.py"
 
 ```bash
 python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --first-origin 2016Q1
+```
+
+```bash
+python Beta_Backtesting/run_beta_backtest.py --horizon 8Q --bank-name All
 ```
 
 ```bash
@@ -876,6 +951,7 @@ FFT itself gives ZA `c` = -5.49, p 0.004, break 2022Q1. The break in the deposit
 | Unit-root and break diagnostics | `diagnostics/*.csv` |
 | Many-start-date backtest, limits and ratings | `MAE_Backtesting/output/backtest_multiorigin_8Q.csv`, `backtest_multiorigin_limits_8Q.csv`, `backtest_multiorigin_assessment_8Q.csv` |
 | Single-window ratings | `MAE_Backtesting/output/backtest_assessment_8Q.csv` |
+| Long-run beta stability: per-origin estimates, per-horizon summary and charts | `Beta_Backtesting/output/<bank>/beta_backtest_origins_8Q.csv`, `beta_backtest_8Q.{csv,png}`; `Beta_Backtesting/output/beta_backtest_summary_8Q.csv`, `beta_backtest_all_banks_8Q.png` |
 | Open-issue resolution record | `docs/open_issue_resolutions.md` |
 
 ---
