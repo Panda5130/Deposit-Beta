@@ -1,301 +1,301 @@
-h,origin,err,naive,model,first_origin,data_hash,run_horizon
-1,2016Q1,0.025410646089035843,0.0014875114244159993,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2016Q1,0.05617154867360602,0.004454717113028889,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2016Q1,0.09212463525200668,0.0011389312405827856,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2016Q1,0.12076054995615315,0.008705024522802612,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2016Q1,0.16517951037771503,0.031198538236655693,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2016Q1,0.24247659203624128,0.05582790576896421,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2016Q1,0.34783595729153727,0.07617972825424471,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2016Q1,0.4277137007908393,0.11986665303549168,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2016Q2,0.031977624942649496,0.0029672056886128895,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2016Q2,0.06585804512963592,0.00034858018383321365,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2016Q2,0.08999544590587483,0.007217513098386613,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2016Q2,0.11208790302630825,0.029711026812239694,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2016Q2,0.16942183328011012,0.05434039434454821,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2016Q2,0.25948020464605104,0.07469221682982871,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2016Q2,0.3382078043878462,0.11837914161107568,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2016Q2,0.35611205827567044,0.2209268098238412,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2016Q3,0.01939737516896753,0.003315785872446103,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2016Q3,0.030530987700853968,0.004250307409773724,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2016Q3,0.04270560575551438,0.026743821123626804,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2016Q3,0.0752787139780342,0.05137318865593532,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2016Q3,0.12902248524226223,0.07172501114121582,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2016Q3,0.16240741341520054,0.1154119359224628,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2016Q3,0.14519192581235957,0.2179596041352283,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2016Q3,0.18564663426601968,0.2813260234276091,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2016Q4,0.004725826290130325,0.007566093282219827,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2016Q4,0.0118009404265573,0.030059606996072907,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2016Q4,0.033942247208264,0.05468897452838142,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2016Q4,0.07234659904693658,0.07504079701366193,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2016Q4,0.08665371771343627,0.1187277217949089,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2016Q4,0.05303866464499918,0.2212753900076744,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2016Q4,0.07384225558282353,0.2846418093000552,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2016Q4,0.09624479642394212,0.3532899549560794,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2017Q1,0.00545690427063758,0.02249351371385308,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2017Q1,0.025344118071249755,0.047122881246161596,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2017Q1,0.060824724371862815,0.0674747037314421,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2017Q1,0.07193920618990873,0.11116162851268907,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2017Q1,0.03512540983796081,0.21370929672545458,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2017Q1,0.05210207994127669,0.27707571601783537,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2017Q1,0.07011637690316719,0.34572386167385954,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2017Q1,0.09059886392583527,0.42411454976033797,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2017Q2,0.016885132515083445,0.024629367532308516,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2017Q2,0.05007852760060666,0.04498119001758902,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2017Q2,0.060586233681342805,0.08866811479883599,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2017Q2,0.021319334280305025,0.1912157830116015,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2017Q2,0.035266225652426764,0.2545822023039823,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2017Q2,0.05132561049453399,0.3232303479600065,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2017Q2,0.06883687642313752,0.4016210360464849,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2017Q2,0.09892895379362154,0.4725186512870768,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2017Q3,0.024430527156051596,0.020351822485280502,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2017Q3,0.027457261921203513,0.06403874726652747,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2017Q3,0.020361323704051304,0.16658641547929298,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2017Q3,0.016525494459109336,0.22995283477167378,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2017Q3,0.01101898491136466,0.29860098042769795,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2017Q3,0.005308252351483245,0.37699166851417637,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2017Q3,0.012807780815250469,0.4478892837547683,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2017Q3,0.08490442497271444,0.45788291092972894,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2017Q4,0.014125876184709563,0.04368692478124697,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2017Q4,0.07454695475222106,0.14623459299401248,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2017Q4,0.08480008049500998,0.20960101228639327,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2017Q4,0.09796938948903805,0.27824915794241745,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2017Q4,0.11080936613584824,0.35663984602889587,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2017Q4,0.11541865489862269,0.4275374612694878,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2017Q4,0.06929565399706883,0.43753108844444843,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2017Q4,0.04428807552812375,0.3606835225371451,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2018Q1,0.05502435378554338,0.10254766821276551,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2018Q1,0.060109419464102976,0.1659140875051463,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2018Q1,0.0645742967139668,0.23456223316117047,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2018Q1,0.06961193030523649,0.3129529212476489,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2018Q1,0.06301699687526219,0.3838505364882408,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2018Q1,0.0018560376517864352,0.39384416366320146,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2018Q1,0.12884896249887956,0.3169965977558981,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2018Q1,0.2551273036359869,0.21084426853760402,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2018Q2,0.01952083462169041,0.0633664192923808,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2018Q2,0.03524566694449016,0.13201456494840497,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2018Q2,0.05083779736030258,0.2104052530348834,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2018Q2,0.07925798450736876,0.2813028682754753,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2018Q2,0.16156902037924292,0.29129649545043595,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2018Q2,0.3098280103474981,0.2144489295431326,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2018Q2,0.4462810395966459,0.10829660032483851,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2018Q2,0.6866659361897217,0.13750156132244878,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2018Q3,0.007569297795165908,0.06864814565602417,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2018Q3,0.016427145646175867,0.1470388337425026,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2018Q3,0.037140877158222674,0.2179364489830945,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2018Q3,0.11046279957198346,0.22793007615805516,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2018Q3,0.24941743445425302,0.1510825102507518,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2018Q3,0.37691963114351956,0.04493018103245772,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2018Q3,0.6126640610461961,0.20086798061482958,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2018Q3,0.6075125352069692,0.2779353165606136,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2018Q4,0.006618510980511028,0.07839068808647842,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2018Q4,0.024359178372928114,0.14928830332707033,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2018Q4,0.09357448253443834,0.159281930502031,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2018Q4,0.22778323622012753,0.08243436459472764,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2018Q4,0.3497011657554673,0.023717964623566457,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2018Q4,0.5826215303269943,0.26951612627085375,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2018Q4,0.5715792664749808,0.34658346221663777,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2018Q4,0.5593459302590487,0.4170310221711159,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2019Q1,0.015921762979710152,0.0708976152405919,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2019Q1,0.08355056668630478,0.08089124241555257,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2019Q1,0.216307599778357,0.0040436765082492165,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2019Q1,0.33704032256695315,0.10210865271004488,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2019Q1,0.569572940759056,0.3479068143573322,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2019Q1,0.5583096092769992,0.4249741503031162,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2019Q1,0.5476428939527446,0.4954217102575943,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2019Q1,0.508732158979289,0.5287644786331219,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2019Q2,0.05940363112092517,0.009993627174960662,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2019Q2,0.18268581139164175,0.06685393873234269,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2019Q2,0.2912956475100913,0.17300626795063678,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2019Q2,0.5172304089752188,0.4188044295979241,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2019Q2,0.49114729864685885,0.4958717655437081,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2019Q2,0.48780780174480565,0.5663193254981862,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2019Q2,0.45595213215683733,0.5996620938737138,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2019Q2,0.4137448866537029,0.6159665134487881,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2019Q3,0.08421255099170011,0.07684756590730335,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2019Q3,0.14005210673851431,0.18299989512559744,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2019Q3,0.3359957777053397,0.42879805677288474,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2019Q3,0.23725041590064816,0.5058653927186687,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2019Q3,0.2613683531753975,0.5763129526731469,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2019Q3,0.2548085973767982,0.6096557210486745,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2019Q3,0.23457370787128903,0.6259601406237487,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2019Q3,0.2079491169403809,0.6323671861307094,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2019Q4,0.021759391629276315,0.1061523292182941,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2019Q4,0.11237142538701561,0.3519504908655814,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2019Q4,0.07413558982163149,0.4290178268113654,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2019Q4,0.07554829688015605,0.4994653867658435,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2019Q4,0.06453980764876709,0.5328081551413711,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2019Q4,0.057198716757109934,0.5491125747164454,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2019Q4,0.055765741672972644,0.5555196202234061,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2019Q4,0.04865410664002724,0.5606303171208998,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2020Q1,0.15149940513187832,0.2457981616472873,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2020Q1,0.017259646801961348,0.3228654975930713,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2020Q1,0.004011973027546828,0.3933130575475494,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2020Q1,0.008440757564883994,0.426655825923077,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2020Q1,0.011501634641183978,0.4429602454981513,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2020Q1,0.007044448835668779,0.44936729100511197,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2020Q1,0.008001101633039825,0.4544779879026057,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2020Q1,0.007869148663810346,0.4618683056575109,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2020Q2,0.2990436522341674,0.07706733594578402,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2020Q2,0.5108798889902283,0.1475148959002621,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2020Q2,0.6869448430263819,0.1808576642757897,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2020Q2,0.8203341507770393,0.197162083850864,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2020Q2,0.9143497702541445,0.2035691293578247,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2020Q2,0.9651982811617172,0.2086798262553184,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2020Q2,0.9828257212866774,0.21607014401022362,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2020Q2,0.988334411479131,0.2040039649086286,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2020Q3,0.03362137218904296,0.07044755995447807,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2020Q3,0.04334361370965255,0.10379032833000569,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2020Q3,0.04145757165669847,0.12009474790507998,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2020Q3,0.032639781911006874,0.12650179341204068,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2020Q3,0.027211876143928712,0.13161249030953437,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2020Q3,0.024048138545562384,0.1390028080644396,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2020Q3,0.006619159299730212,0.12693662896284458,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2020Q3,0.036981796472191436,0.029901825983910474,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2020Q4,0.005066855291020397,0.03334276837552762,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2020Q4,0.011291104474418667,0.04964718795060191,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2020Q4,0.01920800932319522,0.05605423345756261,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2020Q4,0.021995117824616578,0.06116493035505631,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2020Q4,0.02096718500711192,0.06855524810996151,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2020Q4,0.03499207174748291,0.05648906900836652,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2020Q4,0.08897486525293874,0.0405457339705676,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2020Q4,0.24340490034641615,0.31825799198065474,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2021Q1,0.00407060799059851,0.016304419575074294,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2021Q1,0.01137820084426601,0.02271146508203499,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2021Q1,0.014257225938779719,0.027822161979528692,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2021Q1,0.013746524375920235,0.035212479734433894,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2021Q1,0.028318310537120826,0.0231463006328389,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2021Q1,0.08127591735372047,0.07388850234609522,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2021Q1,0.23237813546926972,0.3516007603561824,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2021Q1,0.40445202677806047,0.7024454527345598,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2021Q2,0.005845735909880856,0.006407045506960696,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2021Q2,0.008444019053593751,0.011517742404454398,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2021Q2,0.008202112160270295,0.0189080601593596,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2021Q2,0.023215509489493052,0.006841881057764607,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2021Q2,0.0761792864582878,0.09019292192116951,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2021Q2,0.22659108336345002,0.3679051799312567,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2021Q2,0.3978488418705283,0.718749872309634,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2021Q2,0.642550948195941,1.13276966570306,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2021Q3,0.0005631467129621481,0.005110696897493702,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2021Q3,1.599225026746587e-05,0.012501014652398904,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2021Q3,0.015441977448048705,0.0004348355508039109,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2021Q3,0.06887401289360276,0.0965999674281302,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2021Q3,0.2195266053943527,0.3743122254382174,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2021Q3,0.3909883978605878,0.7251569178165947,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2021Q3,0.636112319692666,1.1391767112100206,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2021Q3,0.9695259728036989,1.6112477944818708,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2021Q4,0.0007410286424136964,0.007390317754905201,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2021Q4,0.014655444950640445,0.004675861346689791,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2021Q4,0.06811312533878176,0.10171066432562391,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2021Q4,0.2187968971781606,0.37942292233571107,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2021Q4,0.3902944942721612,0.7302676147140885,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2021Q4,0.6354707303008577,1.1442874081075143,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2021Q4,0.9689467349622397,1.6163584913793645,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2021Q4,1.1312450160468046,1.8881560539455837,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2022Q1,0.015650854122542343,0.012066179101594993,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2022Q1,0.069135732188879,0.10910098208052911,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2022Q1,0.21973999915140857,0.3868132400906163,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2022Q1,0.39111859060763077,0.7376579324689937,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2022Q1,0.6361751907005502,1.1516777258624196,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2022Q1,0.9695434584964937,1.6237488091342698,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2022Q1,1.1317479163560424,1.895546371700489,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2022Q1,1.1416963137251117,1.9853409155171282,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2022Q2,0.047072862096948304,0.09703480297893412,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2022Q2,0.19427565169305544,0.3747470609890213,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2022Q2,0.36389165664132,0.7255917533673987,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2022Q2,0.6090763664189311,1.1396115467608245,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2022Q2,0.9437808981518638,1.6116826300326748,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2022Q2,1.1077962050528745,1.883480192598894,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2022Q2,1.1197458783107903,1.9732747364155332,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2022Q2,1.1550002472817504,2.064753342229958,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2022Q3,0.09330732891246835,0.27771225801008714,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2022Q3,0.2137614205408357,0.6285569503884646,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2022Q3,0.43591504642242185,1.0425767437818905,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2022Q3,0.7654940526569902,1.5146478270537407,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2022Q3,0.9316237080281038,1.78644538961996,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2022Q3,0.9503804016125277,1.8762399334365991,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2022Q3,0.9923569300195239,1.967718539251024,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2022Q3,1.0731837692858732,2.0879426760083466,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2022Q4,0.06753041732903597,0.3508446923783774,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2022Q4,0.2750370455901484,0.7648644857718032,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2022Q4,0.6038453437565925,1.2369355690436534,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2022Q4,0.7707376098543395,1.5087331316098727,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2022Q4,0.7935731136918556,1.5985276754265119,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2022Q4,0.8378884336236787,1.6900062812409367,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2022Q4,0.9180070001049556,1.8102304179982593,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2022Q4,0.738140191246291,1.6548563112150347,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2023Q1,0.1802817499582683,0.4140197933934259,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2023Q1,0.494666834737163,0.8860908766652761,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2023Q1,0.6535614015121487,1.1578884392314954,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2023Q1,0.6725935963926086,1.2476829830481346,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2023Q1,0.7159793385027089,1.3391615888625594,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2023Q1,0.7964452928568833,1.4593857256198821,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2023Q1,0.6178031562630866,1.3040116188366575,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2023Q1,0.44807231955442184,1.0597007745186064,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2023Q2,0.18419976568422425,0.4720710832718502,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2023Q2,0.25856379300445154,0.7438686458380694,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2023Q2,0.22448228153598815,0.8336631896547086,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2023Q2,0.24134820881287622,0.9251417954691334,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2023Q2,0.3145231485431679,1.0453659322264561,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2023Q2,0.13684498893992902,0.8899918254432315,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2023Q2,0.042158821388875944,0.6456809811251807,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2023Q2,0.07796688938722696,0.6871588294671198,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2023Q3,0.12743934805089818,0.27179756256621923,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2023Q3,0.3538156022495933,0.36159210638285844,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2023Q3,0.49919675359543225,0.45307071219728323,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2023Q3,0.5477044767218127,0.5732948489546059,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2023Q3,0.8088714327436306,0.4179207421713813,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2023Q3,1.0575552686875314,0.17360989785333047,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2023Q3,0.9598634173177527,0.2150877461952696,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2023Q3,0.8170117515464383,0.2825517136737492,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2023Q4,0.09442331601432308,0.0897945438166392,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2023Q4,0.11812970660808197,0.181273149631064,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2023Q4,0.06550473842674176,0.3014972863883867,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2023Q4,0.24885777970918488,0.14612317960516208,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2023Q4,0.4314608183360906,0.09818766471288876,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2023Q4,0.2963754751475616,0.05670981637094963,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2023Q4,0.15089536000853654,0.010754151107529974,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2023Q4,0.25873393047445137,0.16473502997588008,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2024Q1,0.04585640670188784,0.0914786058144248,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2024Q1,0.1484670472734826,0.21170274257174748,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2024Q1,0.0003863883435890614,0.056328635788522874,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2024Q1,0.1548888546400191,0.18798220852952796,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2024Q1,0.003233138607766195,0.14650436018758883,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2024Q1,0.14786955549789105,0.07904039270910923,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2024Q1,0.03880213161507995,0.2545295737925193,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2024Q1,0.0003026021572098969,0.389403827780042,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2024Q2,0.068940521529254,0.12022413675732269,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2024Q2,0.10416993486016457,0.03514997002590192,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2024Q2,0.27739474280154464,0.27946081434395276,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2024Q2,0.1394279548855848,0.23798296600201363,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2024Q2,0.0012187211463023928,0.17051899852353403,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2024Q2,0.1149038556660289,0.3460081796069441,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2024Q2,0.156913314776993,0.4808824335944668,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-8,2024Q2,0.048943153986304555,0.4718838659477096,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2024Q3,0.21824442683592338,0.1553741067832246,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2024Q3,0.42102459659992264,0.39968495110127544,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2024Q3,0.3037899437415925,0.3582071027593363,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2024Q3,0.17801143988387258,0.2907431352808567,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2024Q3,0.30396449030816997,0.46623231636426676,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2024Q3,0.351304098904349,0.6011065703517895,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-7,2024Q3,0.2459983570631803,0.5921080027050323,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2024Q4,0.06801200614141978,0.24431084431805083,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2024Q4,0.1279116691867832,0.2028329959761117,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2024Q4,0.29368244486266404,0.1353690284976321,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2024Q4,0.1822587634813413,0.31085820958104216,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2024Q4,0.1349599630971159,0.4457324635685649,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-6,2024Q4,0.231645607193671,0.43673389592180767,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2025Q1,0.24895282933717455,0.04147784834193913,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2025Q1,0.4528915087484344,0.10894181582041873,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2025Q1,0.36494608642095305,0.06654736526299132,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2025Q1,0.32799037947370113,0.20142161925051405,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-5,2025Q1,0.42667250931824463,0.19242305160375683,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2025Q2,0.06279977768617617,0.0674639674784796,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2025Q2,0.09805483353609667,0.10802521360493045,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2025Q2,0.15647501041404266,0.24289946759245318,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-4,2025Q2,0.059441096796668536,0.23390089994569596,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2025Q3,0.18227003475520953,0.17548918108341005,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2025Q3,0.2447053570620219,0.3103634350709328,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-3,2025Q3,0.14524373237854715,0.30136486742417556,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2025Q4,0.006227568941431061,0.13487425398752273,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-2,2025Q4,0.09816996736215122,0.1258756863407655,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
-1,2026Q1,0.10649370266233005,0.008998567646757216,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),2016Q1,448a7fd675f9ad01,8
+h,origin,err,naive,model,first_origin,data_hash,spec,run_horizon
+1,2016Q1,0.035669313899779065,0.0014875114244159993,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2016Q1,0.03703529848712725,0.004454717113028889,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2016Q1,0.07713963881872635,0.0011389312405827856,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2016Q1,0.11276344193823001,0.008705024522802612,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2016Q1,0.16954113598833523,0.031198538236655693,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2016Q1,0.2298825180668369,0.05582790576896421,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2016Q1,0.309262103448524,0.07617972825424471,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2016Q1,0.36919606095856267,0.11986665303549168,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2016Q2,0.000609029063076999,0.0029672056886128895,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2016Q2,0.01765866795379284,0.00034858018383321365,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2016Q2,0.036501538743954176,0.007217513098386613,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2016Q2,0.050002547071661546,0.029711026812239694,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2016Q2,0.06215942730932,0.05434039434454821,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2016Q2,0.08335025180789629,0.07469221682982871,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2016Q2,0.10147498299720598,0.11837914161107568,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2016Q2,0.08009225662534708,0.2209268098238412,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2016Q3,0.018399756987884375,0.003315785872446103,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2016Q3,0.03760088435382877,0.004250307409773724,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2016Q3,0.05138218381814122,0.026743821123626804,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2016Q3,0.06433740382761854,0.05137318865593532,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2016Q3,0.08644485620374232,0.07172501114121582,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2016Q3,0.10565982472836938,0.1154119359224628,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2016Q3,0.08507697781090223,0.2179596041352283,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2016Q3,0.10245707797658221,0.2813260234276091,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2016Q4,0.00212160758464941,0.007566093282219827,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2016Q4,0.010286092072317649,0.030059606996072907,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2016Q4,0.026432425885737798,0.05468897452838142,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2016Q4,0.047617841136133376,0.07504079701366193,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2016Q4,0.08875165782005265,0.1187277217949089,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2016Q4,0.18773975960655603,0.2212753900076744,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2016Q4,0.25603052183557296,0.2846418093000552,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2016Q4,0.3293737036503452,0.3532899549560794,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2017Q1,0.014423421512087309,0.02249351371385308,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2017Q1,0.03373844079661523,0.047122881246161596,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2017Q1,0.05849200499699464,0.0674747037314421,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2017Q1,0.10519991918114563,0.11116162851268907,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2017Q1,0.21128892898144822,0.21370929672545458,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2017Q1,0.2879050865212799,0.27707571601783537,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2017Q1,0.37200967919392547,0.34572386167385954,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2017Q1,0.4771124219260361,0.42411454976033797,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2017Q2,0.007354205421310767,0.024629367532308516,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2017Q2,0.013905976708427137,0.04498119001758902,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2017Q2,0.04131790064962071,0.08866811479883599,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2017Q2,0.11880795628830809,0.1912157830116015,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2017Q2,0.1618584240214353,0.2545822023039823,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2017Q2,0.20706210677829195,0.3232303479600065,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2017Q2,0.2640490198373975,0.4016210360464849,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2017Q2,0.3297346801368153,0.4725186512870768,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2017Q3,0.0011752267744795097,0.020351822485280502,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2017Q3,0.02117444967058979,0.06403874726652747,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2017Q3,0.09165289534982574,0.16658641547929298,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2017Q3,0.12407520372689618,0.22995283477167378,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2017Q3,0.15769772705165475,0.29860098042769795,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2017Q3,0.20187717577451297,0.37699166851417637,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2017Q3,0.25191432929882307,0.4478892837547683,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2017Q3,0.2611401992717981,0.45788291092972894,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2017Q4,0.019194717546575313,0.04368692478124697,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2017Q4,0.08834171752636438,0.14623459299401248,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2017Q4,0.11910458004185065,0.20960101228639327,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2017Q4,0.1507862800772765,0.27824915794241745,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2017Q4,0.19238130243787055,0.35663984602889587,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2017Q4,0.23914258272364014,0.4275374612694878,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2017Q4,0.24423250336398095,0.43753108844444843,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2017Q4,0.1947899902154433,0.3606835225371451,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2018Q1,0.058242390860903825,0.10254766821276551,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2018Q1,0.07243794690769367,0.1659140875051463,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2018Q1,0.0818995506414873,0.23456223316117047,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2018Q1,0.100011837077838,0.3129529212476489,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2018Q1,0.11681896506135403,0.3838505364882408,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2018Q1,0.08385108696067234,0.39384416366320146,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2018Q1,0.010733587548065526,0.3169965977558981,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2018Q1,0.12732645626329442,0.21084426853760402,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2018Q2,0.011996901823419892,0.0633664192923808,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2018Q2,0.04088826262480061,0.13201456494840497,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2018Q2,0.08283403216955532,0.2104052530348834,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2018Q2,0.12193675990299269,0.2813028682754753,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2018Q2,0.23348347568758132,0.29129649545043595,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2018Q2,0.4294380124722017,0.2144489295431326,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2018Q2,0.6526566503421166,0.10829660032483851,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2018Q2,1.0031609092140195,0.13750156132244878,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2018Q3,0.024125891319782378,0.06864814565602417,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2018Q3,0.05589702321879608,0.1470388337425026,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2018Q3,0.08169900693200427,0.2179364489830945,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2018Q3,0.1783396566669626,0.22793007615805516,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2018Q3,0.3538684891730438,0.1510825102507518,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2018Q3,0.5554605892865422,0.04493018103245772,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2018Q3,0.8772962523972049,0.20086798061482958,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2018Q3,0.9869951512271598,0.2779353165606136,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2018Q4,0.024942171989734363,0.07839068808647842,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2018Q4,0.03634311949497748,0.14928830332707033,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2018Q4,0.11139678008663378,0.159281930502031,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2018Q4,0.26652901004310336,0.08243436459472764,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2018Q4,0.4386499150564629,0.023717964623566457,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2018Q4,0.7323291818809107,0.26951612627085375,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2018Q4,0.8019470400848572,0.34658346221663777,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2018Q4,0.9656352910961356,0.4170310221711159,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2019Q1,0.0028742746388866758,0.0708976152405919,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2019Q1,0.050468104464164165,0.08089124241555257,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2019Q1,0.17223722920104312,0.0040436765082492165,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2019Q1,0.31897504971481705,0.10210865271004488,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2019Q1,0.5634832819985466,0.3479068143573322,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2019Q1,0.6271560499334261,0.4249741503031162,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2019Q1,0.7627665721778555,0.4954217102575943,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2019Q1,0.7259882310548568,0.5287644786331219,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2019Q2,0.055828748387256266,0.009993627174960662,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2019Q2,0.1814071958811575,0.06685393873234269,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2019Q2,0.33140455949212455,0.17300626795063678,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2019Q2,0.5806923090423526,0.4188044295979241,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2019Q2,0.6457136263870515,0.4958717655437081,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2019Q2,0.7807131194308649,0.5663193254981862,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2019Q2,0.7422753444457924,0.5996620938737138,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2019Q2,0.6972713748603938,0.6159665134487881,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2019Q3,0.06979685919019407,0.07684756590730335,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2019Q3,0.15461032298421973,0.18299989512559744,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2019Q3,0.31848903994831346,0.42879805677288474,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2019Q3,0.3297528910129363,0.5058653927186687,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2019Q3,0.438126727779074,0.5763129526731469,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2019Q3,0.4194979670638665,0.6096557210486745,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2019Q3,0.3965831919359295,0.6259601406237487,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2019Q3,0.3641591459047361,0.6323671861307094,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2019Q4,0.024077319698094457,0.1061523292182941,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2019Q4,0.09541919269700178,0.3519504908655814,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2019Q4,0.051539119698079616,0.4290178268113654,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2019Q4,0.09735032654689388,0.4994653867658435,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2019Q4,0.09080490069216764,0.5328081551413711,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2019Q4,0.07704186096739099,0.5491125747164454,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2019Q4,0.06588378454559368,0.5555196202234061,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2019Q4,0.055745219688019224,0.5606303171208998,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2020Q1,0.05292662862110897,0.2457981616472873,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2020Q1,0.033492495033747044,0.3228654975930713,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2020Q1,0.0204074859936475,0.3933130575475494,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2020Q1,0.0431483647547248,0.426655825923077,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2020Q1,0.06509182453581719,0.4429602454981513,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2020Q1,0.079308014984811,0.44936729100511197,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2020Q1,0.08734780370196721,0.4544779879026057,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2020Q1,0.08451080079148934,0.4618683056575109,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2020Q2,0.09783340989373321,0.07706733594578402,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2020Q2,0.15450851228558402,0.1475148959002621,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2020Q2,0.2315766592441521,0.1808576642757897,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2020Q2,0.3001656989464634,0.197162083850864,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2020Q2,0.35539633036706364,0.2035691293578247,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2020Q2,0.39823903505929015,0.2086798262553184,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2020Q2,0.42036959863398116,0.21607014401022362,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2020Q2,0.3682463948007637,0.2040039649086286,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2020Q3,0.0015023423534620828,0.07044755995447807,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2020Q3,0.007272318260287389,0.10379032833000569,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2020Q3,0.0030093215447507676,0.12009474790507998,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2020Q3,0.002001232030404393,0.12650179341204068,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2020Q3,0.001405063075498758,0.13161249030953437,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2020Q3,0.007173063159639448,0.1390028080644396,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2020Q3,0.09479236834595568,0.12693662896284458,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2020Q3,0.2525773264763089,0.029901825983910474,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2020Q4,0.005269749238184462,0.03334276837552762,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2020Q4,0.000665289088794041,0.04964718795060191,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2020Q4,0.00039018617682019807,0.05605423345756261,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2020Q4,0.0037501076751260687,0.06116493035505631,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2020Q4,0.004973220296110317,0.06855524810996151,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2020Q4,0.092548460026402,0.05648906900836652,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2020Q4,0.24982145313321727,0.0405457339705676,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2020Q4,0.30363808939711784,0.31825799198065474,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2021Q1,0.0067741336580466605,0.016304419575074294,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2021Q1,0.009875136800987755,0.02271146508203499,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2021Q1,0.013843045060863715,0.027822161979528692,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2021Q1,0.005259374695882127,0.035212479734433894,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2021Q1,0.08318382077625623,0.0231463006328389,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2021Q1,0.2417281703311843,0.07388850234609522,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2021Q1,0.2958474800354692,0.3516007603561824,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2021Q1,0.23581176696308404,0.7024454527345598,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2021Q2,0.0010527524192409377,0.006407045506960696,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2021Q2,0.003843065652693642,0.011517742404454398,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2021Q2,0.00474585337194644,0.0189080601593596,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2021Q2,0.09226700267876776,0.006841881057764607,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2021Q2,0.24899611814813885,0.09019292192116951,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2021Q2,0.30158832164975174,0.3679051799312567,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2021Q2,0.24092996075323236,0.718749872309634,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2021Q2,0.053806042008456956,1.13276966570306,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2021Q3,0.0025075770279463505,0.005110696897493702,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2021Q3,0.006217622993912375,0.012501014652398904,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2021Q3,0.09369641499361277,0.0004348355508039109,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2021Q3,0.2503294780406182,0.0965999674281302,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2021Q3,0.3028429206576378,0.3743122254382174,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2021Q3,0.2421160854778105,0.7251569178165947,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2021Q3,0.05484447111654989,1.1391767112100206,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2021Q3,0.25433546921141725,1.6112477944818708,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2021Q4,0.009351961351189764,0.007390317754905201,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2021Q4,0.09709680278833178,0.004675861346689791,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2021Q4,0.25361851426782345,0.10171066432562391,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2021Q4,0.3059902440038769,0.37942292233571107,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2021Q4,0.2450894146471544,0.7302676147140885,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2021Q4,0.05753779310828144,1.1442874081075143,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2021Q4,0.25201531150983403,1.6163584913793645,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2021Q4,0.4242375370416709,1.8881560539455837,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2022Q1,0.0853456524796163,0.012066179101594993,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2022Q1,0.24056915896950312,0.10910098208052911,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2022Q1,0.29299725664978876,0.3868132400906163,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2022Q1,0.23259577999501457,0.7376579324689937,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2022Q1,0.045853177957808855,1.1516777258624196,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2022Q1,0.26272638285773064,1.6237488091342698,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2022Q1,0.43394881495422344,1.895546371700489,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2022Q1,0.4633921944494135,1.9853409155171282,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2022Q2,0.09318669200539523,0.09703480297893412,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2022Q2,0.10724437464244435,0.3747470609890213,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2022Q2,0.04423050550018581,0.7255917533673987,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2022Q2,0.1300869314104205,1.1396115467608245,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2022Q2,0.4315233431371135,1.6116826300326748,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2022Q2,0.6005016793086884,1.883480192598894,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2022Q2,0.629669820813447,1.9732747364155332,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2022Q2,0.6842338525661358,2.064753342229958,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2022Q3,0.0871516367993243,0.27771225801008714,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2022Q3,0.21069983015528904,0.6285569503884646,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2022Q3,0.3924200194780394,1.0425767437818905,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2022Q3,0.6762535709382784,1.5146478270537407,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2022Q3,0.829500753034605,1.78644538961996,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2022Q3,0.8527469940200127,1.8762399334365991,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2022Q3,0.9099612068856373,1.967718539251024,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2022Q3,1.019027544712813,2.0879426760083466,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2022Q4,0.01107058892753876,0.3508446923783774,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2022Q4,0.1325059882976929,0.7648644857718032,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2022Q4,0.4265941082082465,1.2369355690436534,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2022Q4,0.618653054557939,1.5087331316098727,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2022Q4,0.6670167446809603,1.5985276754265119,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2022Q4,0.7280754815920112,1.6900062812409367,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2022Q4,0.8298809293355174,1.8102304179982593,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2022Q4,0.7166488042766119,1.6548563112150347,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2023Q1,0.11158922377574121,0.4140197933934259,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2023Q1,0.40599436074448403,0.8860908766652761,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2023Q1,0.6045997666967928,1.1578884392314954,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2023Q1,0.6572062678250421,1.2476829830481346,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2023Q1,0.7178735258963413,1.3391615888625594,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2023Q1,0.8176696051839989,1.4593857256198821,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2023Q1,0.702935765818685,1.3040116188366575,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2023Q1,0.4986716239321478,1.0597007745186064,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2023Q2,0.16658459023938965,0.4720710832718502,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2023Q2,0.29789299869847774,0.7438686458380694,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2023Q2,0.3649980523656624,0.8336631896547086,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2023Q2,0.47948349025995074,0.9251417954691334,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2023Q2,0.6204923824593858,1.0453659322264561,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2023Q2,0.517046098719564,0.8899918254432315,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2023Q2,0.29459550559850656,0.6456809811251807,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2023Q2,0.3687983539381474,0.6871588294671198,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2023Q3,0.14720031406939604,0.27179756256621923,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2023Q3,0.3913739533760632,0.36159210638285844,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2023Q3,0.5364580832923256,0.45307071219728323,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2023Q3,0.5545006279482187,0.5732948489546059,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2023Q3,0.704095202325405,0.4179207421713813,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2023Q3,0.9005616693859382,0.17360989785333047,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2023Q3,0.7865266126285215,0.2150877461952696,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2023Q3,0.6255718806376596,0.2825517136737492,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2023Q4,0.0029459141113172826,0.0897945438166392,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2023Q4,0.11129447183661245,0.181273149631064,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2023Q4,0.29885649611527976,0.3014972863883867,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2023Q4,0.25778703544952775,0.14612317960516208,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2023Q4,0.07543002274966915,0.09818766471288876,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2023Q4,0.15548053431110254,0.05670981637094963,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2023Q4,0.2615367532147057,0.010754151107529974,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2023Q4,0.14523022575290612,0.16473502997588008,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2024Q1,0.11826587892386042,0.0914786058144248,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2024Q1,0.3089682915930487,0.21170274257174748,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2024Q1,0.26890980937627407,0.056328635788522874,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2024Q1,0.08530299986637302,0.18798220852952796,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2024Q1,0.16295849070366875,0.14650436018758883,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2024Q1,0.26704213524811427,0.07904039270910923,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2024Q1,0.1497184830570868,0.2545295737925193,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2024Q1,0.052481536398891526,0.389403827780042,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2024Q2,0.03852636501500495,0.12022413675732269,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2024Q2,0.09621522461873244,0.03514997002590192,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2024Q2,0.30181393285506775,0.27946081434395276,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2024Q2,0.20056800297292554,0.23798296600201363,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2024Q2,0.052010186287968274,0.17051899852353403,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2024Q2,0.1341965121141926,0.3460081796069441,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2024Q2,0.21212092839451624,0.4808824335944668,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+8,2024Q2,0.15412109024752252,0.4718838659477096,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2024Q3,0.17310062707753726,0.1553741067832246,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2024Q3,0.3950709103143464,0.39968495110127544,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2024Q3,0.30035047494806566,0.3582071027593363,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2024Q3,0.1577880997102583,0.2907431352808567,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2024Q3,0.24791322929381576,0.46623231636426676,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2024Q3,0.3353139731298378,0.6011065703517895,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+7,2024Q3,0.28472634504301064,0.5921080027050323,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2024Q4,0.04791656659759691,0.24431084431805083,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2024Q4,0.11002546161969318,0.2028329959761117,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2024Q4,0.2823855760953604,0.1353690284976321,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2024Q4,0.25729879739900885,0.31085820958104216,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2024Q4,0.2408137374843533,0.4457324635685649,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+6,2024Q4,0.3369033891760054,0.43673389592180767,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2025Q1,0.2025490725139112,0.04147784834193913,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2025Q1,0.3864605395425966,0.10894181582041873,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2025Q1,0.3679105497512023,0.06654736526299132,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2025Q1,0.37140177374758765,0.20142161925051405,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+5,2025Q1,0.4844880343719369,0.19242305160375683,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2025Q2,0.02300474909200312,0.0674639674784796,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2025Q2,0.035693282890857825,0.10802521360493045,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2025Q2,0.04237888577932236,0.24289946759245318,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+4,2025Q2,0.09018945238171239,0.23390089994569596,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2025Q3,0.008690292422379953,0.17548918108341005,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2025Q3,0.07877105050118205,0.3103634350709328,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+3,2025Q3,0.11425557345789294,0.30136486742417556,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2025Q4,0.06254661385558258,0.13487425398752273,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+2,2025Q4,0.10149171694428372,0.1258756863407655,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8
+1,2026Q1,0.005353274787105455,0.008998567646757216,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",2016Q1,448a7fd675f9ad01,D.FFT.L0 + D.FFT.L1 + D.FFT.L2 + D.rate_pf_clean.L1 + D.rate_pf_clean.L2 + D.rate_pf_clean.L3 + FFT.L1 + rate_pf_clean.L1,8

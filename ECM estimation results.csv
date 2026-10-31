@@ -5,11 +5,12 @@ First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (const
 First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),D.rate_pf_clean.L1,0.3127937189169224,3.327841754270797,0.0015511135419784055
 First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),LR: const,0.18944959932682168,3.9798253970054716,0.0002004501767907847
 First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),LR: FFT,0.40398915285697523,19.448871270104004,1.4031182037557718e-26
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),const,0.04362790709065452,2.5957387172561868,0.011937188108943718
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),rate_pf_clean.L1,-0.3463845847679564,-7.628714189089272,2.5720777853776695e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),FFT.L1,0.11847447126387879,8.183823334859259,3.015015739384212e-11
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),LR: const,0.12595221903388376,2.9117231331215647,0.005093894623414409
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),LR: FFT,0.34203159284136453,17.814707381885295,3.4180706793544564e-25
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),const,0.006331209400594448,0.3990628294021372,0.6913381189351662
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),rate_pf_clean.L1,-0.20628849203772362,-4.394186086657181,4.897495571279786e-05
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),FFT.L1,0.08051830204793561,5.657397805492712,5.198577362215838e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),D.FFT.L0,0.15981879789011638,5.081418530763917,4.321629048315622e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),LR: const,0.03069104504111975,0.42125497947211027,0.6751532048186955
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),LR: FFT,0.39031892304109417,11.094456163135055,7.287445047904352e-16
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),const,0.006786602945761569,0.5411185413107641,0.5906109857644846
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),rate_pf_clean.L1,-0.12419890445498812,-2.967023986388986,0.004443877745294126
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),FFT.L1,0.04407760838756984,3.2134748933929234,0.0021947549520024597
@@ -17,25 +18,34 @@ Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.FFT.L0,0.13775172097598498,5.4703026489001125,1.1345981201254626e-06
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: const,0.05464301779103981,0.5921529331180102,0.5561747738106699
 Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: FFT,0.35489530749882214,8.714481923719976,6.067481805056459e-12
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),rate_pf_clean.L1,-0.290782552512644,-6.933846467544962,3.5006696730715235e-09
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),FFT.L1,0.11150968545192375,7.483100058554772,4.107987627003313e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),LR: FFT,0.38348134882361967,20.731901568612674,8.955498633155725e-29
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.290782552512644,-6.933846467544962,3.5006696730715235e-09
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.11150968545192375,7.483100058554772,4.107987627003313e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.38348134882361967,20.731901568612674,8.955498633155725e-29
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.290782552512644,-6.933846467544962,3.5006696730715235e-09
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.11150968545192375,7.483100058554772,4.107987627003313e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.38348134882361967,20.731901568612674,8.955498633155725e-29
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),const,0.04362790709065452,2.5957387172561868,0.011937188108943718
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.3463845847679564,-7.628714189089272,2.5720777853776695e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.11847447126387879,8.183823334859259,3.015015739384212e-11
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),LR: const,0.12595221903388376,2.9117231331215647,0.005093894623414409
-Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.34203159284136453,17.814707381885295,3.4180706793544564e-25
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),const,0.04362790709065452,2.5957387172561868,0.011937188108943718
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.3463845847679564,-7.628714189089272,2.5720777853776695e-10
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.11847447126387879,8.183823334859259,3.015015739384212e-11
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),LR: const,0.12595221903388376,2.9117231331215647,0.005093894623414409
-Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.34203159284136453,17.814707381885295,3.4180706793544564e-25
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),rate_pf_clean.L1,-0.19485656658555967,-5.277569208290325,2.0387236790386087e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),FFT.L1,0.078344864758949,6.001862209758749,1.3533541384642126e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),D.FFT.L0,0.16562542828544463,5.983462867693869,1.451260179864184e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),LR: FFT,0.40206427800598915,16.939456672170703,3.99518959991556e-24
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.11189062158716956,-3.204385317362551,0.00223551037399558
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.04173134711018342,3.2273052741760084,0.002090054871136107
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),D.rate_pf_clean.L1,0.4467794092900007,5.79788903661151,3.23335660793988e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),D.FFT.L0,0.1439985573692114,6.4753679424783535,2.5361687753650164e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.3729655490176375,12.16757534413584,2.341147644588085e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.11189062158716956,-3.204385317362551,0.00223551037399558
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.04173134711018342,3.2273052741760084,0.002090054871136107
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),D.rate_pf_clean.L1,0.4467794092900007,5.79788903661151,3.23335660793988e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),D.FFT.L0,0.1439985573692114,6.4753679424783535,2.5361687753650164e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.3729655490176375,12.16757534413584,2.341147644588085e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),const,0.006786602945761569,0.5411185413107641,0.5906109857644846
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.12419890445498812,-2.967023986388986,0.004443877745294126
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.04407760838756984,3.2134748933929234,0.0021947549520024597
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),D.rate_pf_clean.L1,0.44685663112191465,5.762149684233069,3.884782361937771e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),D.FFT.L0,0.13775172097598498,5.4703026489001125,1.1345981201254626e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),LR: const,0.05464301779103981,0.5921529331180102,0.5561747738106699
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.35489530749882214,8.714481923719976,6.067481805056459e-12
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),const,0.006786602945761569,0.5411185413107641,0.5906109857644846
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.12419890445498812,-2.967023986388986,0.004443877745294126
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.04407760838756984,3.2134748933929234,0.0021947549520024597
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),D.rate_pf_clean.L1,0.44685663112191465,5.762149684233069,3.884782361937771e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),D.FFT.L0,0.13775172097598498,5.4703026489001125,1.1345981201254626e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),LR: const,0.05464301779103981,0.5921529331180102,0.5561747738106699
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.35489530749882214,8.714481923719976,6.067481805056459e-12
 Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),const,0.05313185297963812,1.758149209182205,0.08438876835071793
 Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),trend,-0.001331678721033454,-1.2989734894840306,0.1994723108424656
 Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.20752132727877384,-3.3624844841889283,0.0014254782079821263
@@ -221,25 +231,37 @@ First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf
 First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.18939079800459024,5.4883456218525,1.1642777184116786e-06
 First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.2809954668213645,5.7282014200721765,4.884270904430593e-07
 First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.4661568439926377,17.5215284319109,1.0523252336812636e-23
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),const,0.08113169487773214,3.4614911183924715,0.0010149859766301525
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.45564921284587934,-8.364001900886493,1.5075047449308193e-11
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.19177316782362713,8.73629322117131,3.6209906857291132e-12
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: const,0.1780573577006803,3.9932158898886203,0.00018583969024427087
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.42087896218640736,21.690472296510013,1.6382308076494602e-29
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.21710997051990732,5.878631635803672,2.2714472387627103e-07
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.005698612218810863,-4.417428236025452,4.521446108359282e-05
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.5378129195891213,-10.556229009745003,4.980827429259906e-15
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.26427546684811776,10.490373780446477,6.3161641228697976e-15
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.4036905076318642,7.12578301328493,1.9637114119119807e-09
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.010595900565506113,-4.737160057813817,1.4816435735620818e-05
-First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.491389212163254,22.429081878420078,5.784174577457351e-30
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.21710997051990732,5.878631635803672,2.2714472387627103e-07
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.005698612218810863,-4.417428236025452,4.521446108359282e-05
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.5378129195891213,-10.556229009745003,4.980827429259906e-15
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.26427546684811776,10.490373780446477,6.3161641228697976e-15
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.4036905076318642,7.12578301328493,1.9637114119119807e-09
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.010595900565506113,-4.737160057813817,1.4816435735620818e-05
-First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.491389212163254,22.429081878420078,5.784174577457351e-30
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),const,0.006168641213609908,0.31343984215865484,0.7552248844666505
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.17894318458494352,-2.79374824705414,0.0073209513217926325
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.08155918003455123,3.109012690836427,0.0030684423332031667
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.2454274724432753,2.7587537414407044,0.008036614411584037
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.395823304150524,-4.176977855624566,0.00011559265356824149
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.1729593443325107,4.403360286204651,5.471815184167829e-05
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L3,0.23730019631035731,4.732202573348912,1.8008799413145887e-05
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: const,0.03447262452558891,0.33626250986507394,0.7380525699040922
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.455782544743052,10.480051086026808,2.5450609431264595e-14
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.06820977719732235,1.775386733192803,0.08192069021019369
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.002393860702992085,-1.8649414566548799,0.06806377627652241
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.24656270848003403,-3.410325213845471,0.0012917137877779337
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.12852035045363377,3.5777828160928284,0.0007810244475892901
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L1,0.21140082791406234,2.3813694465844923,0.021096764419750728
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L2,-0.38509235022212085,-4.1532715579560175,0.00012768447188851088
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L0,0.16745843734869087,4.3528077474512035,6.642129826016508e-05
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L3,0.19321234304667592,3.5531443246646295,0.0008416519542438204
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.2766427154285004,2.4380793582531766,0.018362207889336242
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.009708932537889983,-2.1526611928500747,0.03619574171293805
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.5212481289077054,10.682077010723871,1.6660588255108766e-14
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.06820977719732235,1.775386733192803,0.08192069021019369
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.002393860702992085,-1.8649414566548799,0.06806377627652241
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.24656270848003403,-3.410325213845471,0.0012917137877779337
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.12852035045363377,3.5777828160928284,0.0007810244475892901
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L1,0.21140082791406234,2.3813694465844923,0.021096764419750728
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L2,-0.38509235022212085,-4.1532715579560175,0.00012768447188851088
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L0,0.16745843734869087,4.3528077474512035,6.642129826016508e-05
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L3,0.19321234304667592,3.5531443246646295,0.0008416519542438204
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.2766427154285004,2.4380793582531766,0.018362207889336242
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.009708932537889983,-2.1526611928500747,0.03619574171293805
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.5212481289077054,10.682077010723871,1.6660588255108766e-14
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),rate_pf_clean.L1,-0.2283239112019051,-3.8603432743734074,0.0002913440258877328
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),FFT.L1,0.108799480686116,4.006305785204251,0.00018080586366365036
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),D.FFT.L1,0.21479277980782874,4.251649186858244,7.962961732416159e-05
@@ -429,9 +451,13 @@ SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: const,0.35764156377854583,3.6340666935923793,0.000648333946258461
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.013349265233294669,-3.246346396616626,0.002068271125647815
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.5235898805126143,10.568338804162744,1.8940192234535484e-14
-KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.35667549967619927,-9.475001587481305,1.8631222740808903e-13
-KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.14929619026858848,10.154940793330926,1.4410037778206517e-14
-KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.41857708310249525,30.704895216121834,5.554240643563557e-38
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.12958328135143327,-3.2270202937540673,0.0021667048476760034
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.05410106204000843,3.31176272171838,0.0016909255454004089
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L1,0.48157483485550956,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.23126918580821895,-2.354653819164144,0.022350474142017324
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L0,0.13579872318741348,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L3,0.07798114422419189,2.4185902552946543,0.01911724838099454
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.41750032470072224,17.32872706407543,2.964794916353793e-23
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.12958328135143327,-3.2270202937540673,0.0021667048476760034
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.05410106204000843,3.31176272171838,0.0016909255454004089
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L1,0.48157483485550956,4.740711739711678,1.6940520800166207e-05
@@ -439,15 +465,29 @@ KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L0,0.13579872318741348,6.658161153067556,1.7359995303348395e-08
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L3,0.07798114422419189,2.4185902552946543,0.01911724838099454
 KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.41750032470072224,17.32872706407543,2.964794916353793e-23
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.35667549967619927,-9.475001587481305,1.8631222740808903e-13
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.14929619026858848,10.154940793330926,1.4410037778206517e-14
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.41857708310249525,30.704895216121834,5.554240643563557e-38
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.35667549967619927,-9.475001587481305,1.8631222740808903e-13
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.14929619026858848,10.154940793330926,1.4410037778206517e-14
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.41857708310249525,30.704895216121834,5.554240643563557e-38
-KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.35667549967619927,-9.475001587481305,1.8631222740808903e-13
-KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.14929619026858848,10.154940793330926,1.4410037778206517e-14
-KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.41857708310249525,30.704895216121834,5.554240643563557e-38
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.11021575457324465,-2.6654071377841198,0.010272482325559815
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.043816006440838454,2.5770073144378554,0.012901793235223587
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.44244090227275235,-3.1450908609677906,0.002768840379093953
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.009130011878872612
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.09556448448019066,2.451477034954905,0.017692783743880953
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.39754757938639546,13.680461281210674,1.0697081485936332e-18
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.11021575457324465,-2.6654071377841198,0.010272482325559815
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.043816006440838454,2.5770073144378554,0.012901793235223587
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.44244090227275235,-3.1450908609677906,0.002768840379093953
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.009130011878872612
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.09556448448019066,2.451477034954905,0.017692783743880953
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.39754757938639546,13.680461281210674,1.0697081485936332e-18
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.12958328135143327,-3.2270202937540673,0.0021667048476760034
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.05410106204000843,3.31176272171838,0.0016909255454004089
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L1,0.48157483485550956,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.23126918580821895,-2.354653819164144,0.022350474142017324
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.13579872318741348,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.07798114422419189,2.4185902552946543,0.01911724838099454
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.41750032470072224,17.32872706407543,2.964794916353793e-23
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.12958328135143327,-3.2270202937540673,0.0021667048476760034
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.05410106204000843,3.31176272171838,0.0016909255454004089
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L1,0.48157483485550956,4.740711739711678,1.6940520800166207e-05
@@ -455,16 +495,26 @@ KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none)
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.13579872318741348,6.658161153067556,1.7359995303348395e-08
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.07798114422419189,2.4185902552946543,0.01911724838099454
 KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.41750032470072224,17.32872706407543,2.964794916353793e-23
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),const,0.026388503880411085,1.8018216863830279,0.07677129427170859
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.3793951925945727,-9.718263956256257,8.853989797447456e-14
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.15068688901754207,10.427941798775516,6.4195643592831855e-15
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: const,0.06955413351431215,1.8840588832761347,0.06457242359078447
-KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.3971765904228742,24.254252919506335,4.736871865911506e-32
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),const,0.026388503880411085,1.8018216863830279,0.07677129427170859
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.3793951925945727,-9.718263956256257,8.853989797447456e-14
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.15068688901754207,10.427941798775516,6.4195643592831855e-15
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),LR: const,0.06955413351431215,1.8840588832761347,0.06457242359078447
-KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.3971765904228742,24.254252919506335,4.736871865911506e-32
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),const,-0.003421691012876639,-0.34848033270780054,0.7289425744104363
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.10515446522735092,-2.3808074910521495,0.021125601266526645
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.04295850580965221,2.4793298430612496,0.016578475671986018
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.5143998164297277,4.895217150324996,1.0663101090424901e-05
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.44535516101222367,-3.1329844512654237,0.002892073864114406
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L3,0.27372329038096466,2.6279313230307775,0.01137837999075472
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.12317869971715872,5.479718233174433,1.3914459524133923e-06
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L2,0.09732431893188358,2.454862281005639,0.01761658061532237
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: const,-0.03253966444010453,-0.3296233184787182,0.743061559465443
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.40852764280406995,9.063353556526584,3.950058241510928e-12
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),const,-0.003421691012876639,-0.34848033270780054,0.7289425744104363
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.10515446522735092,-2.3808074910521495,0.021125601266526645
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.04295850580965221,2.4793298430612496,0.016578475671986018
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.5143998164297277,4.895217150324996,1.0663101090424901e-05
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.44535516101222367,-3.1329844512654237,0.002892073864114406
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L3,0.27372329038096466,2.6279313230307775,0.01137837999075472
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.12317869971715872,5.479718233174433,1.3914459524133923e-06
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.FFT.L2,0.09732431893188358,2.454862281005639,0.01761658061532237
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),LR: const,-0.03253966444010453,-0.3296233184787182,0.743061559465443
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.40852764280406995,9.063353556526584,3.950058241510928e-12
 KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),const,0.052688714586536144,2.1444242270780047,0.03643343220143287
 KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),trend,-0.0020906719083137425,-2.422022908923135,0.01875787063188622
 KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),rate_pf_clean.L1,-0.2669979141892693,-4.948450248992773,7.439437364422848e-06
@@ -537,18 +587,42 @@ KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,
 KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.21983557299721967,2.505527284958017,0.015274183257359221
 KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.010136344229163067,-2.757894740240784,0.007922141132523184
 KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.48741571220601226,12.10471286426871,5.190182277023802e-17
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.3132782390206925,-7.967178807156163,6.217856007828045e-11
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.14705252808056177,8.684046799903689,3.854007132482187e-12
-Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4693991147940816,26.747581584719324,1.112768604368059e-34
-Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.3132782390206925,-7.967178807156163,6.217856007828045e-11
-Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.14705252808056177,8.684046799903689,3.854007132482187e-12
-Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4693991147940816,26.747581584719324,1.112768604368059e-34
-Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.3132782390206925,-7.967178807156163,6.217856007828045e-11
-Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.14705252808056177,8.684046799903689,3.854007132482187e-12
-Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4693991147940816,26.747581584719324,1.112768604368059e-34
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.26896701476700885,-8.488334225643927,8.212680482790297e-12
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.115298484516987,9.480202071504985,1.826693878146178e-13
-Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4286714659671695,23.466561788279886,1.305126342516105e-31
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.06648858814803765,-2.4911970929746268,0.016095178760063365
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.030762394870892842,2.5068777270602243,0.015476150933779713
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8553215310417694,7.222117356509789,2.697204779666461e-09
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8955885330785954,-6.088075159448669,1.5969373271650616e-07
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4321969112126323,4.921299680560397,9.749047055993582e-06
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.17384899459231007,9.753441561063843,3.6988274690519255e-13
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.09951492272662257,-3.0542169374892163,0.0036120219666569094
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1565641055855098,4.979178546680444,7.987083187798975e-06
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.462671801699263,13.275740326913061,5.151543532850378e-18
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.06648858814803765,-2.4911970929746268,0.016095178760063365
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.030762394870892842,2.5068777270602243,0.015476150933779713
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8553215310417694,7.222117356509789,2.697204779666461e-09
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8955885330785954,-6.088075159448669,1.5969373271650616e-07
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4321969112126323,4.921299680560397,9.749047055993582e-06
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.17384899459231007,9.753441561063843,3.6988274690519255e-13
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.09951492272662257,-3.0542169374892163,0.0036120219666569094
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1565641055855098,4.979178546680444,7.987083187798975e-06
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.462671801699263,13.275740326913061,5.151543532850378e-18
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.06648858814803765,-2.4911970929746268,0.016095178760063365
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.030762394870892842,2.5068777270602243,0.015476150933779713
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8553215310417694,7.222117356509789,2.697204779666461e-09
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8955885330785954,-6.088075159448669,1.5969373271650616e-07
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4321969112126323,4.921299680560397,9.749047055993582e-06
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.17384899459231007,9.753441561063843,3.6988274690519255e-13
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.09951492272662257,-3.0542169374892163,0.0036120219666569094
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1565641055855098,4.979178546680444,7.987083187798975e-06
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.462671801699263,13.275740326913061,5.151543532850378e-18
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.0855908223720439,-2.665965043843095,0.010312367592156738
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.033696510146115514,2.5129320242034576,0.015242976607955986
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.716292377216494,6.6461406751042515,2.147668201480585e-08
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.737627099645976,-5.727134493324458,5.793003352765605e-07
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4606606940192108,5.04992865115621,6.254489668016123e-06
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.13877107657784554,5.990524852258887,2.2644000655010976e-07
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.09558075986356268,-2.682629979854226,0.009874788109007548
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.13743756435000443,4.134618560654167,0.00013564542497564551
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.3936930293722897,11.110843886762297,4.12707395898974e-15
 Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),rate_pf_clean.L1,-0.13537546411621043,-3.493418273078794,0.0009390982468389254
 Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),FFT.L1,0.05673211501252108,3.564647440988053,0.0007537954758864466
 Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),D.rate_pf_clean.L1,0.3062871721241525,2.8333331180144925,0.006392743561983457

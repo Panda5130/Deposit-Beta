@@ -18,6 +18,10 @@ Reads Co-integration_results.csv and co-integration_respecification_results.csv 
 - Johansen p-values are bounds read from critical values ("<0.01", "<0.05", "<0.10",
   ">0.10"); "<x" passes when x <= alpha.
 - A model is kept only when its p-value is below alpha; rows without one are dropped.
+- A kept EG_LongRun spec also gets the short-run lags (D.<v>.L<k>) of the EG_ShortRun
+  regression with the same bank, IC/selected lag and trend type, relabelled EG_LongRun and
+  carrying the EG_LongRun model stat and p-value. They are screened in step 2 and pruned in
+  step 3 like every other family's short-run lags (OI-24).
 """
 
 import argparse
@@ -104,6 +108,25 @@ def attach_trace_to_vecm(df):
     return df
 
 
+def carry_eg_short_run(kept, combined):
+    """Give each kept EG_LongRun spec the short-run lags of its own EG_ShortRun regression.
+
+    EG_LongRun rows are the levels regression and its ADF lags only, so without this an
+    EG long-run ECM would never be offered a D.<v>.L<k> term. The carried rows keep their
+    EG_ShortRun coefficient p-values (screened in step 2 like any other short-run term) and
+    take the EG_LongRun spec's model stat and p-value, the test that validates them.
+    """
+    is_lr = kept["test_name"] == "EG_LongRun"
+    sr = combined[(combined["test_name"] == "EG_ShortRun") & combined["term"].astype(str).str.startswith("D.")]
+    model = kept[is_lr].drop_duplicates(SPEC_KEYS[:3])[SPEC_KEYS[:3] + ["model_stat", "model_p_value"]]
+    carried = sr.drop(columns=["model_stat", "model_p_value"]).merge(model, on=SPEC_KEYS[:3])
+    carried = carried.assign(test_name="EG_LongRun")[kept.columns]
+    # Place each spec's carried rows right after its own rows, so file order is unchanged.
+    out = pd.concat([kept.assign(_part=0), carried.assign(_part=1)], ignore_index=True)
+    first = out.groupby(SPEC_KEYS, sort=False).ngroup()
+    return out.assign(_spec=first).sort_values(["_spec", "_part"], kind="stable").drop(columns=["_part", "_spec"])
+
+
 def passes(p, alpha):
     if isinstance(p, str):
         p = p.strip()
@@ -152,6 +175,7 @@ def main(argv=None):
     combined = combined.drop_duplicates(SPEC_KEYS + ["term"]).reset_index(drop=True)
     combined = attach_trace_to_vecm(combined)
     kept = combined[combined["model_p_value"].map(lambda p: passes(p, args.alpha))]
+    kept = carry_eg_short_run(kept, combined)
 
     try:
         kept.to_csv(args.output, index=False)

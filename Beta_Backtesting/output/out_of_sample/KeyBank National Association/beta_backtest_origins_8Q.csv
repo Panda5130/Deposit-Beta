@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,origin,n_obs,beta,beta_se,beta_p,lambda
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q2,52,0.38692688652409174,0.046294301437127816,6.371043969474856e-11,-0.08938158564872781
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q3,53,0.43469260643051116,0.0489038223376461,8.642680893949471e-12,-0.0811170963567455
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2024Q4,54,0.3713964840460853,0.04394791685425865,3.366313293891315e-11,-0.10454394974501971
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q1,55,0.3824476970757658,0.03510988140796252,6.446321768255765e-15,-0.10623951420991903
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q2,56,0.4088353502315564,0.030883256004658608,2.773644818245514e-18,-0.10856375622839542
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q3,57,0.425859907622244,0.03144780439377268,7.642526375776567e-19,-0.10508134947117091
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2025Q4,58,0.40850862113305414,0.028509010476897745,4.823126244866562e-20,-0.11463553520129109
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),2026Q1,59,0.3946129748909566,0.0282969888957718,1.0556008423365973e-19,-0.11131125596276684
