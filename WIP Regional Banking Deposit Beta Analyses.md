@@ -26,8 +26,8 @@
 
 | Version | Date | Description |
 | :--- | :--- | :--- |
-| 0 (WIP) | 2026-10-30 | Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures, with many-start-date backtest bar charts (model vs. no-change, with band limits); Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9 (OI-1 to OI-22). |
-| 0.1 (WIP) | 2026-10-31 | Added the rolling-origin long-run beta stability backtest (`Beta_Backtesting/`): method (§5.6), per-bank results and figures (§6.x.7), peer comparison (§7.5), limitation L17 and OI-23. Folded in the root-cause work from PR #11: an FFT builder with complete quarters only and a projection layer with the trend freeze (§3.3, §4.1, §5.7, §10.2); Gregory-Hansen break tests and seven challenger models (§5.3, §6.x.4, §7.4); EG long-run specifications now carry their short-run lags (OI-24), which re-specifies Huntington (Red → Green), changes the Old National champion and relabels KeyBank's; the beta stability test from 2016Q1 with a rating (§5.6, §7.5); and an optional out-of-sample model choice, not adopted (§5.5, §7.6). Issues #2, #4, #5, #6, #7 and #10 closed. |
+| 0 (WIP) | 2026-10-30 | Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures, with many-start-date backtest bar charts (model vs. no-change, with band limits); Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9. |
+| 0.1 (WIP) | 2026-10-31 | Added the rolling-origin long-run beta stability backtest (`Beta_Backtesting/`): method (§5.6), per-bank results and figures (§6.x.7), peer comparison (§7.5), limitation L17 and a beta-stability threshold issue. Folded in the root-cause work from PR #11: an FFT builder with complete quarters only and a projection layer with the trend freeze (§3.3, §4.1, §5.7, §10.2); Gregory-Hansen break tests and seven challenger models (§5.3, §6.x.4, §7.4); EG long-run specifications now carry their short-run lags (§5.5), which re-specifies Huntington (Red → Green), changes the Old National champion and relabels KeyBank's; the beta stability test from 2016Q1 with a rating (§5.6, §7.5); and an optional out-of-sample model choice, not adopted (§5.5, §7.6). Issues #2, #4, #5, #6, #7 and #10 closed. |
 
 ---
 
@@ -47,6 +47,8 @@ The analysis estimates the **deposit beta** of seven U.S. regional banks: the lo
 | 5 | Manufacturers and Traders Trust Company | 588 | Pro forma, 2 Mode A events (Hudson City 2015, People's United 2022) |
 | 6 | Old National Bank | 3832 | Pro forma, 13 Mode A events since 2011 (incl. First Midwest 2022, Bremer 2025), 1 Mode B |
 | 7 | SouthState Bank | 33555 | Pro forma, 19 Mode A events since 2011 (incl. South State 2020, Atlantic Capital 2022, Independent 2025) |
+
+Mode A and Mode B are defined in §4.3.
 
 ### 1.3 Summary of Current Results (2011Q1 to 2026Q2, pro forma)
 Every bank has at least one specification that is cointegrated with the federal funds rate at the 5% level, although for Huntington and Old National only after re-specification. The selected model for each bank is the specification with the lowest in-sample MAE (§5.5). The MAE rating is the governing many-start-date backtest rating, and the beta rating is the long-run beta stability rating from 2016Q1 (§5.6).
@@ -197,7 +199,7 @@ Deposit rates and policy rates are each non-stationary but are expected to share
 - Banks with inconclusive results under the default specification are **flagged** and re-tested over a grid:
   - ADF: regression `c` / `n` × lag selection AIC / BIC / t-stat.
   - KPSS: regression `c` / `ct` × bandwidth auto / long / short.
-- KPSS p-values come from a lookup table bounded at 0.10. A reported 0.100 means "at least 0.10".
+- KPSS p-values come from a lookup table bounded at 0.10. A reported 0.100 means "at least 0.10". The bound comes from the function used, `statsmodels.tsa.stattools.kpss`: it interpolates the p-value from the critical values in Table 1 of Kwiatkowski et al. (1992), which cover only the 10%, 5%, 2.5% and 1% levels, and returns the boundary value, with an `InterpolationWarning`, when the statistic falls outside that table. The p-value is therefore bounded below at 0.01 as well: a reported 0.010 means "at most 0.01".
 - Unit-root tests and Zivot-Andrews break tests are run for all banks and both samples by `diagnostics/stationarity_and_breaks.py`.
 
 ### 5.3 Structural Break Testing
@@ -225,12 +227,12 @@ Because a break common to both series need not break their relationship, cointeg
 - Coefficient t- and p-values on levels regressors (EG step 1, VECM β) do not follow standard distributions when the series are I(1). They are descriptive only.
 
 ### 5.5 Model and Parameter Selection
-1. **Model screen:** keep every specification whose cointegration test p-value is below α = 0.05. A Johansen VECM takes the r ≤ 0 trace result of the same specification. A bounded Johansen p-value "<x" passes when x ≤ α.
-2. **Parameter screen:** within each surviving specification, keep short-run terms with coefficient p-value < 0.05. Deterministic terms are set by the test specification (`n` / case 1 / det_order -1: none; `c` / cases 2–3 / det_order 0: constant; `ct` / cases 4–5 / det_order 1: constant and trend) and are not screened.
-3. **Mapping to a one-step ECM:** surviving deterministic terms, short-run lags, and the error-correction term (`ect.L1`, `y.L1` or VECM `D.y: ec1`) define the regressors. Specifications without a surviving error-correction term are dropped. `EG_LongRun` is treated as error-correcting by construction. Its short-run candidates are the D.y and D.FFT lags of the Engle-Granger second-step regression of the same specification, screened in step 2 like any other short-run term (OI-24).
-4. **Estimation:** one-step OLS ECM (§3.2), with long-run coefficients and delta-method standard errors. Short-run lags with p ≥ 0.05 are then removed one at a time (largest p first) and the model refit. λ, the long-run regressor and the deterministic terms are never removed.
-5. **Champion choice:** lowest in-sample MAE of Δy per bank. Ties are broken EG > ARDL > Johansen, then file order. This is the default and the basis of every result in this document.
-6. **Optional out-of-sample rule (OI-9, not adopted; deferred to the validator):** `run_backtest.py --select out-of-sample`.
+1. **Model screen:** keep every specification whose cointegration test p-value is below α = 0.05 (tests and grid in §5.4). A Johansen VECM takes the r ≤ 0 trace result of the same specification. A bounded Johansen p-value "<x" passes when x ≤ α.
+2. **Parameter screen:** within each surviving specification, keep short-run terms with coefficient p-value < 0.05. Deterministic terms are set by the test specification (`n` / case 1 / det_order -1: none; `c` / cases 2–3 / det_order 0: constant; `ct` / cases 4–5 / det_order 1: constant and trend) and are not screened (cases as in the §5.4 table).
+3. **Mapping to a one-step ECM:** surviving deterministic terms, short-run lags, and the error-correction term (`ect.L1`, `y.L1` or VECM `D.y: ec1`) define the regressors. Specifications without a surviving error-correction term are dropped. `EG_LongRun` is treated as error-correcting by construction. Its short-run candidates are the D.y and D.FFT lags of the Engle-Granger second-step regression of the same specification, screened in step 2 like any other short-run term (effect on the champions in §6.3.6, §6.4.6 and §6.6.6).
+4. **Estimation:** one-step OLS ECM (§3.2), with long-run coefficients and delta-method standard errors. Short-run lags with p ≥ 0.05 are then removed one at a time (largest p first) and the model refit. λ, the long-run regressor and the deterministic terms are never removed. The resulting coefficient tables are in §6.x.6.
+5. **Champion choice:** lowest in-sample MAE of Δy per bank. Ties are broken EG > ARDL > Johansen, then file order. This is the default and the basis of every result in this document (champions in §1.3 and §6.x.6).
+6. **Optional out-of-sample rule (not adopted; deferred to the validator; [#1](https://github.com/Panda5130/Deposit-Beta/issues/1)):** `run_backtest.py --select out-of-sample`.
    - **Admissibility:** keep models with λ in (−1, 0) and θ in [0, 1].
    - **Ranking:** by mean many-start-date h-step MAE (h = 1 to N, start dates from 2016Q1, §5.6).
    - **Pick:** the model with the fewest parameters among those within one standard error of the best. The standard error is Newey-West with N−1 lags over the start dates with all N steps.
@@ -294,7 +296,7 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: I(0).
 
 #### 6.1.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.27, p 5.4e-04, break 2022Q3; `t`: -4.80, p 0.019, break 2021Q4; `ct`: -5.07, p 0.051, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.27, p 5.4e-04, break 2022Q3; `t`: -4.80, p 0.019, break 2021Q4; `ct`: -5.07, p 0.051, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.1.4 Cointegration
 - **Baseline:** EG long run p 0.264; EG short run p 0.424; Johansen trace r ≤ 0 = 21.59 (p < 0.01), r ≤ 1 = 2.93 (p < 0.10); ARDL(4,4) case 3 F = 3.54 (p 0.169). Only Johansen passes.
@@ -334,7 +336,7 @@ Tied on in-sample MAE with the HQIC selection of the same lags and with case 5 u
 
 *Figure 3: First Horizon Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
-- The MAE rating is Red only because the 1–2Q red limit is derived from the peer group and fell from 0.20 to 0.15 when the re-specified Huntington and Old National champions improved (OI-24). First Horizon's own errors are unchanged; with the previous limits it was Green. Fixing the limits from a reference run is tracked in [#8](https://github.com/Panda5130/Deposit-Beta/issues/8).
+- The MAE rating is Red only because the 1–2Q red limit is derived from the peer group and fell from 0.20 to 0.15 when the re-specified Huntington and Old National champions improved (§5.5, §7.1). First Horizon's own errors are unchanged; with the previous limits it was Green. Fixing the limits from a reference run is tracked in [#8](https://github.com/Panda5130/Deposit-Beta/issues/8).
 - The long-run trend (-0.011 pp per quarter, p 0.0005) survives full pro forma adjustment for IBERIABANK and Capital Bank, so it does not stand in for an unmodeled merger. For projection it is frozen at its 2026Q2 value (§5.7).
 - λ = -0.37: about 37% of any disequilibrium closes each quarter, the fastest adjustment in the peer set.
 
@@ -364,7 +366,7 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **Flagged:** the default specification is inconclusive on levels. 2008 to 2026 sample: flagged.
 
 #### 6.2.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -7.57, p 1.0e-05, break 2022Q4; `t`: -3.79, p 0.210, break 2021Q3; `ct`: -5.20, p 0.036, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -7.57, p 1.0e-05, break 2022Q4; `t`: -3.79, p 0.210, break 2021Q3; `ct`: -5.20, p 0.036, break 2023Q1. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.2.4 Cointegration
 - **Baseline:** none pass. EG long run p 0.353; Johansen trace r ≤ 0 = 13.17 (p > 0.10); ARDL(3,4) case 3 F = 2.95 (p 0.278).
@@ -433,18 +435,18 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.3.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.34, p 4.7e-04, break 2022Q2; `t`: -5.41, p 0.0049, break 2021Q4; `ct`: -5.64, p 0.0082, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.34, p 4.7e-04, break 2022Q2; `t`: -5.41, p 0.0049, break 2021Q4; `ct`: -5.64, p 0.0082, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.3.4 Cointegration
 - **Baseline:** none pass at 5%. EG long run p 0.085; EG short run p 0.882; Johansen trace r ≤ 0 = 13.05 (p > 0.10); ARDL(4,3) case 3 F = 2.78 (p 0.318).
-- **Re-specification** (now run, OI-4): only EG long run with no deterministic terms passes (t -3.13, p 0.019 under AIC, BIC and t-stat). Johansen gives r ≤ 1 rejections only.
-- **Gregory-Hansen** (one break, §5.3; 5% simulated critical values C −5.14, C/T −5.50, C/S −5.46, C/S/T −5.82): no rejection at 5%. ADF\* C −3.79 (2023Q4), C/T −4.42 (2023Q4), C/S −3.96 (2021Q3), C/S/T −4.37 (2023Q4). EG without deterministic terms fails in every sample window ending in 2019Q4, and in 2021Q4 windows starting in 2013 or later (p 0.18 to 0.69). It passes in every window ending in 2024Q2 or later (`model_form/output/huntington_eg_subsamples.csv`; OI-19).
+- **Re-specification** (now run for all seven banks, §5.4): only EG long run with no deterministic terms passes (t -3.13, p 0.019 under AIC, BIC and t-stat). Johansen gives r ≤ 1 rejections only.
+- **Gregory-Hansen** (one break, §5.3; 5% simulated critical values C −5.14, C/T −5.50, C/S −5.46, C/S/T −5.82): no rejection at 5%. ADF\* C −3.79 (2023Q4), C/T −4.42 (2023Q4), C/S −3.96 (2021Q3), C/S/T −4.37 (2023Q4). EG without deterministic terms fails in every sample window ending in 2019Q4, and in 2021Q4 windows starting in 2013 or later (p 0.18 to 0.69). It passes in every window ending in 2024Q2 or later (`model_form/output/huntington_eg_subsamples.csv`; §6.3.7).
 
 #### 6.3.5 Specifications Estimated
 3 one-step ECMs (3 EG), all the same regression: in-sample MAE 0.0234, long-run beta 0.463.
 
 #### 6.3.6 Champion Model: Engle-Granger long run, trend `n`, AIC (ADF lag=1, ECM lag=3)
-All three passing specifications (AIC, BIC, t-stat) give the same one-step ECM. Short-run candidates are the D.y and D.FFT lags of the Engle-Granger second-step regression (§5.5, OI-24): D.y L1–L3 and D.FFT L0–L2 pass the screen and survive pruning; D.FFT.L3 (p 0.61) fails the screen.
+All three passing specifications (AIC, BIC, t-stat) give the same one-step ECM. Short-run candidates are the D.y and D.FFT lags of the Engle-Granger second-step regression (§5.5): D.y L1–L3 and D.FFT L0–L2 pass the screen and survive pruning; D.FFT.L3 (p 0.61) fails the screen.
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
@@ -458,7 +460,7 @@ All three passing specifications (AIC, BIC, t-stat) give the same one-step ECM. 
 | D.FFT.L2 | 0.1566 | 4.98 | 8.0e-06 |
 | **LR: FFT (θ)** | **0.4627** | 13.28 | 5.2e-18 |
 
-Before OI-24 the champion had no short-run terms (λ −0.313, θ 0.469, in-sample MAE 0.0709). The contemporaneous ΔFFT term now passes about 17% of a rate change through in the same quarter, and λ falls to −0.066: adjustment runs mainly through the short-run terms rather than through error correction.
+Before EG long-run specifications gained their short-run lags (§5.5), the champion had no short-run terms (λ −0.313, θ 0.469, in-sample MAE 0.0709). The contemporaneous ΔFFT term now passes about 17% of a rate change through in the same quarter, and λ falls to −0.066: adjustment runs mainly through the short-run terms rather than through error correction.
 
 ![Huntington National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Huntington National Bank - Actual vs Predicted.png>)
 
@@ -472,8 +474,8 @@ Before OI-24 the champion had no short-run terms (λ −0.313, θ 0.469, in-samp
 
 *Figure 9: Huntington National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
-- The re-specified champion (OI-24) lowers the many-start-date mean MAE from 0.334 (Red) to 0.221 (Green). The single window from 2025Q1 (5Q column of §7.2) worsens from 0.094 to 0.187, above the no-change forecast (0.135): the new champion carries large lagged-Δy terms, which OI-8 identified as the source of the 2025Q1 error at M&T, Old National and SouthState (OI-25).
-- **Scope decision (2026-10-31): Huntington stays in scope with a caveat** (OI-19, L15). Cointegration rests on one specification family (EG long run, no deterministic terms) and is identified mainly by the 2022–24 cycle, and Gregory-Hansen finds no break.
+- The re-specified champion (§5.5) lowers the many-start-date mean MAE from 0.334 (Red) to 0.221 (Green). The single window from 2025Q1 (5Q column of §7.2) worsens from 0.094 to 0.187, above the no-change forecast (0.135): the new champion carries large lagged-Δy terms, which §7.3 identifies as the source of the 2025Q1 error at M&T, Old National and SouthState ([#13](https://github.com/Panda5130/Deposit-Beta/issues/13)).
+- **Scope decision (2026-10-31): Huntington stays in scope with a caveat** (L15). Cointegration rests on one specification family (EG long run, no deterministic terms) and is identified mainly by the 2022–24 cycle, and Gregory-Hansen finds no break.
 - **Adjustment asymmetry.** With the previous champion Huntington had the strongest asymmetry in the peer set (Wald p 1.4e-07). Against the re-specified champion the difference is no longer significant (λ+ −0.048 vs. λ− −0.112, Wald p 0.11), and an asymmetric-λ variant is only marginally better (mean MAE 0.214 vs. 0.221, §7.4).
 
 - **Long-run beta stability (§5.6): Green.** From 2020Q1 to 2026Q1, θ ranges from 0.243 to 0.553 against the full-sample 0.463. The largest deviation is 47% (2020Q2) and at most 1.29 origin standard errors (2022Q4). Failing start dates: none. θ is about 0.41 from 2020Q4 to 2022Q1, rises to 0.55 at 2024Q2, dips to 0.35 at 2024Q4 at the turn of the easing cycle, then settles at 0.42–0.45. The largest share deviation (2020Q2, 0.243) has a standard error of 0.31 and is imprecise rather than significant. With the previous champion the rating was Amber (2023Q4 and 2024Q1 failed). Over the last eight start dates (2024Q2–2026Q1) the range is 0.352–0.553.
@@ -501,7 +503,7 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.4.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.81, p 1.0e-05, break 2022Q3; `t`: -4.67, p 0.024, break 2021Q4; `ct`: -4.93, p 0.076, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.81, p 1.0e-05, break 2022Q3; `t`: -4.67, p 0.024, break 2021Q4; `ct`: -4.93, p 0.076, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.4.4 Cointegration
 - **Baseline:** EG long run p 0.198 (fails; the earlier build passed); Johansen trace r ≤ 0 = 13.78 (p < 0.10); ARDL(4,4) case 3 F = 3.39 (p 0.193).
@@ -512,7 +514,7 @@ Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.81, p 1.0e-05, 
 17 one-step ECMs (8 EG, 8 ARDL, 1 Johansen). In-sample MAE 0.0317 to 0.0453. Long-run beta 0.398 to 0.487.
 
 #### 6.4.6 Champion Model: Engle-Granger long run, trend `n`, BIC (ADF lag=1, ECM lag=3)
-With short-run candidates now offered to EG long-run specifications (OI-24), EG long run `n` (BIC and t-stat) gives exactly the regression of ARDL(4,4) case 1, AIC (in-sample MAE 0.0317 for both). The EG > ARDL tie-break (§5.5) selects the EG label. Coefficients, backtests and ratings are unchanged.
+With short-run candidates now offered to EG long-run specifications (§5.5), EG long run `n` (BIC and t-stat) gives exactly the regression of ARDL(4,4) case 1, AIC (in-sample MAE 0.0317 for both). The EG > ARDL tie-break (§5.5) selects the EG label. Coefficients, backtests and ratings are unchanged.
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
@@ -566,7 +568,7 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.5.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.42, p 3.9e-04, break 2022Q3; `t`: -4.09, p 0.111, break 2021Q2; `ct`: -4.91, p 0.079, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.42, p 3.9e-04, break 2022Q3; `t`: -4.09, p 0.111, break 2021Q2; `ct`: -4.91, p 0.079, break 2022Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.5.4 Cointegration
 - **Baseline:** EG long run p 0.048 (pass); ARDL(2,1) case 3 F = 5.18 (p 0.034, pass); Johansen trace r ≤ 0 = 12.98 (p > 0.10).
@@ -603,7 +605,7 @@ The deterministic terms follow the case 4 test specification (§5.5).
 
 *Figure 15: Manufacturers and Traders Trust Company, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
-- The large single-window error at 5Q is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (OI-8). Over 37 start dates the 5-step-ahead MAE is 0.26 pp.
+- The large single-window error at 5Q is one start date (2025Q1), where the model over-predicted the post-cut decline in deposit rates (§7.3). Over 37 start dates the 5-step-ahead MAE is 0.26 pp.
 - The champion carries a long-run trend (-0.011 pp per quarter, p 0.0065), frozen at its 2026Q2 value for projection (§5.7).
 
 - **Long-run beta stability (§5.6): Red.** From 2020Q1 to 2026Q1, θ ranges from 0.290 to 1.285 against the full-sample 0.432. The largest deviation is 198% (2023Q4) and at most 3.06 origin standard errors (2022Q3). Failing start dates: 3 (2020Q1 2022Q3 2022Q4). At 2023Q3–Q4, λ is about −0.02 and θ is unidentified (1.14 and 1.29, standard error 2.3); those start dates do not count as failures because their standard errors are wide. From 2024Q3, θ is 0.37–0.43. Over the last eight start dates (2024Q2–2026Q1) the range is 0.366–0.431.
@@ -632,18 +634,18 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.6.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.21, p 6.1e-04, break 2022Q3; `t`: -4.31, p 0.065, break 2022Q1; `ct`: -4.26, p 0.335, break 2019Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.21, p 6.1e-04, break 2022Q3; `t`: -4.31, p 0.065, break 2022Q1; `ct`: -4.26, p 0.335, break 2019Q3. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.6.4 Cointegration
 - **Baseline:** none pass at 5%. EG long run p 0.379; Johansen trace r ≤ 0 = 15.49 (p < 0.10); ARDL(4,4) case 3 F = 2.85 (p 0.302).
-- **Re-specification** (now run, OI-4): EG long run `n` / BIC (p 0.0077); Johansen `det_order -1`, k_ar_diff = 1 (r ≤ 0 = 13.91, p < 0.05).
+- **Re-specification** (now run for all seven banks, §5.4): EG long run `n` / BIC (p 0.0077); Johansen `det_order -1`, k_ar_diff = 1 (r ≤ 0 = 13.91, p < 0.05).
 - **Gregory-Hansen** (one break, §5.3; 5% simulated critical values C −5.14, C/T −5.50, C/S −5.46, C/S/T −5.82): no rejection at 5%. ADF\* C −3.85 (2024Q1), C/T −4.60 (2024Q1), C/S −4.01 (2021Q3), C/S/T −4.53 (2024Q1).
 
 #### 6.6.5 Specifications Estimated
 2 one-step ECMs (1 EG, 1 Johansen). In-sample MAE 0.0285 to 0.0414. Long-run beta 0.394 to 0.419.
 
 #### 6.6.6 Champion Model: Engle-Granger long run, trend `n`, BIC (ADF lag=1, ECM lag=3)
-EG ADF t −3.43 (p 0.008). Short-run candidates come from the Engle-Granger second-step regression (OI-24). The Johansen VECM (det_order −1, k_ar_diff 1), the champion before OI-24, now has the higher in-sample MAE (0.0414).
+EG ADF t −3.43 (p 0.008). Short-run candidates come from the Engle-Granger second-step regression (§5.5). The Johansen VECM (det_order −1, k_ar_diff 1), the champion before that change, now has the higher in-sample MAE (0.0414).
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
@@ -669,8 +671,8 @@ EG ADF t −3.43 (p 0.008). Short-run candidates come from the Engle-Granger sec
 
 *Figure 18: Old National Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
-- The champion changed with OI-24, from the Johansen VECM (mean h-step MAE 0.263) to EG long run `n`, BIC (0.249). Both are Green.
-- The large single-window error at 5Q (start date 2025Q1, 0.363) is unchanged and remains the shared easing-cycle effect (OI-8, OI-25).
+- The champion changed when EG long-run specifications gained their short-run lags (§5.5), from the Johansen VECM (mean h-step MAE 0.263) to EG long run `n`, BIC (0.249). Both are Green.
+- The large single-window error at 5Q (start date 2025Q1, 0.363) is unchanged and remains the shared easing-cycle effect (§7.3, [#13](https://github.com/Panda5130/Deposit-Beta/issues/13)).
 
 - **Long-run beta stability (§5.6): Green.** From 2020Q1 to 2026Q1, θ ranges from -0.100 to 0.575 against the full-sample 0.394. The largest deviation is 125% (2020Q2) and at most 1.80 origin standard errors (2023Q1). Failing start dates: none. θ is about 0.34 from 2020Q3 to 2022Q1 and 0.28–0.32 from 2022Q3 to 2023Q1, then 0.38–0.49. The extreme values at 2020Q2 (−0.10, standard error 1.06) and 2023Q3 (0.575, standard error 0.28) are imprecise. With the previous champion the rating was Amber (2020Q1 failed). Over the last eight start dates (2024Q2–2026Q1) the range is 0.300–0.493.
 
@@ -697,7 +699,7 @@ Default specification: ADF `c` / AIC and KPSS `c` / auto.
 **Conclusion (main sample):** **I(1)** under the default specification. Not flagged. 2008 to 2026 sample: flagged.
 
 #### 6.7.3 Structural Breaks
-Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.23, p 5.8e-04, break 2022Q3; `t`: -4.43, p 0.048, break 2021Q3; `ct`: -5.21, p 0.035, break 2022Q4. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (OI-20).
+Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.23, p 5.8e-04, break 2022Q3; `t`: -4.43, p 0.048, break 2021Q3; `ct`: -5.21, p 0.035, break 2022Q4. The unit root is rejected when a 2022 level break is allowed, mirroring the break in FFT itself (§5.3).
 
 #### 6.7.4 Cointegration
 - **Baseline:** EG long run p 0.312; Johansen trace r ≤ 0 = 14.06 (p < 0.10); ARDL(4,3) case 3 F = 3.50 (p 0.174).
@@ -735,7 +737,7 @@ No deterministic terms (case 1).
 *Figure 21: SouthState Bank, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
 - λ = -0.08 is the slowest adjustment in the peer set.
-- Shares the easing-cycle error at the 2025Q1 start date (OI-8, OI-25).
+- Shares the easing-cycle error at the 2025Q1 start date (§7.3, [#13](https://github.com/Panda5130/Deposit-Beta/issues/13)).
 
 - **Long-run beta stability (§5.6): Green.** From 2020Q1 to 2026Q1, θ ranges from -0.009 to 0.524 against the full-sample 0.443. The largest deviation is 102% (2020Q2) and at most 1.27 origin standard errors (2025Q1). Failing start dates: none. The low values at 2020Q2–Q3 (λ −0.02 to −0.04, standard error up to 0.93) and the 2025Q1 dip (0.330, 1.27 SE) are imprecise rather than significant. Over the last eight start dates (2024Q2–2026Q1) the range is 0.330–0.524.
 
@@ -768,7 +770,7 @@ Band limits for N = 8, derived from this run (§5.6):
 | 3-4Q | 0.25 | 0.30 |
 | 5-8Q | 0.40 | 0.45 |
 
-First Horizon is Red on the 1–2Q band (2Q 0.179 > red 0.15), and KeyBank on the 5–8Q band (8Q 0.533 > red 0.45). First Horizon's errors are unchanged from the previous run, where the 1–2Q limits were 0.15/0.20 and it was Green. The limits tightened because the re-specified Huntington and Old National champions have lower short-horizon errors (OI-24). This is the peer-relative effect noted in §5.6 ([#8](https://github.com/Panda5130/Deposit-Beta/issues/8)).
+First Horizon is Red on the 1–2Q band (2Q 0.179 > red 0.15), and KeyBank on the 5–8Q band (8Q 0.533 > red 0.45). First Horizon's errors are unchanged from the previous run, where the 1–2Q limits were 0.15/0.20 and it was Green. The limits tightened because the re-specified Huntington and Old National champions have lower short-horizon errors (§5.5). This is the peer-relative effect noted in §5.6 ([#8](https://github.com/Panda5130/Deposit-Beta/issues/8)).
 
 ### 7.2 Single-Window 8Q Backtest (supplementary; MAE, pp)
 Each column is one forecast window, starting at T−k and ending at 2026Q2, with MAE averaged over its k quarters. Each column therefore rests on a single start date, and the windows overlap.
@@ -786,7 +788,7 @@ Each column is one forecast window, starting at T−k and ending at 2026Q2, with
 ### 7.3 Observations
 - Over 34 to 41 start dates per horizon, h-step errors rise smoothly from 0.04 to 0.10 pp at 1Q to 0.29 to 0.53 pp at 8Q, and every champion beats the no-change forecast at every horizon.
 - Governing MAE ratings: Huntington, M&T, Old National and SouthState Green; Glacier Amber (skill ratio 0.96 at 3Q); First Horizon and KeyBank Red (above the peer-derived red limit).
-- M&T, SouthState, Old National and now Huntington share a large error in the single window starting 2025Q1 (the "5Q" column of §7.2). 63% to 72% of the champions' forecast fall from that date comes from lagged-Δy (momentum) terms extrapolating the sharp 2025Q1 drop, not from error correction (OI-8, OI-25). Over 37 start dates the 5-step error is 0.26 to 0.31 pp for these banks.
+- M&T, SouthState, Old National and now Huntington share a large error in the single window starting 2025Q1 (the "5Q" column of §7.2). 63% to 72% of the champions' forecast fall from that date comes from lagged-Δy (momentum) terms extrapolating the sharp 2025Q1 drop, not from error correction ([#13](https://github.com/Panda5130/Deposit-Beta/issues/13)). Over 37 start dates the 5-step error is 0.26 to 0.31 pp for these banks.
 - In-sample MAE is 0.022 to 0.047 and out-of-sample errors are several times larger.
 - Long-run betas range from 0.35 (Glacier) to 0.52 (First Horizon); the other five lie between 0.39 and 0.46.
 
@@ -811,10 +813,10 @@ The no-change forecast is the benchmark in both backtests. Seven challengers are
 
 No challenger beats the champions across the peer group.
 
-- **Asymmetric λ (a1).** Downward adjustment is slower than upward for six of seven banks, but against the current champions the difference is significant only at the 10% level for SouthState (Wald p 0.077); Huntington (p 0.11) and Old National (0.18) are no longer significant after OI-24. a1 is marginally better for Huntington, Old National and SouthState and worse for First Horizon, Glacier and KeyBank.
+- **Asymmetric λ (a1).** Downward adjustment is slower than upward for six of seven banks, but against the current champions the difference is significant only at the 10% level for SouthState (Wald p 0.077); Huntington (p 0.11) and Old National (0.18) are no longer significant after the re-specification (§5.5). a1 is marginally better for Huntington, Old National and SouthState and worse for First Horizon, Glacier and KeyBank.
 - **Static and cycle betas.** They have no lag structure, overshoot during hiking, and are Red or Amber everywhere.
 - **The 2022 dummy.** It is identified from at most 14 post-break quarters and worsens six of seven banks (M&T is about equal).
-- **The 2025Q1 start date (OI-8).** No ECM challenger removes the shared error. The cause is the lagged-Δy momentum terms (OI-25).
+- **The 2025Q1 start date (§7.3).** No ECM challenger removes the shared error. The cause is the lagged-Δy momentum terms ([#13](https://github.com/Panda5130/Deposit-Beta/issues/13)).
 
 Details are in `docs/resolutions/model_form.md`; the tables above use the rerun against the current champions.
 
@@ -838,7 +840,7 @@ Each champion is re-estimated at every start date from 2016Q1 to 2026Q1 (expandi
 - Before 2020, θ is poorly identified for every bank: those samples are mostly zero-lower-bound data, with wide standard errors.
 - Glacier's beta is the least stable: 0.11–0.14 with tight standard errors until the 2022–23 hiking cycle enters the sample. M&T fails at 2020Q1 and 2022Q3–Q4.
 - The re-specified Huntington and Old National champions are Green; both were Amber with their previous champions.
-- Over the last eight start dates (2024Q2–2026Q1), most banks dip at the 2024Q4 and 2025Q1 start dates, at the turn of the easing cycle (OI-8). The 8-start-date charts are in `Beta_Backtesting/output/<bank>/beta_backtest_8Q.png`.
+- Over the last eight start dates (2024Q2–2026Q1), most banks dip at the 2024Q4 and 2025Q1 start dates, at the turn of the easing cycle (§7.3). The 8-start-date charts are in `Beta_Backtesting/output/<bank>/beta_backtest_8Q.png`.
 
 ### 7.6 Out-of-Sample Model Choice (optional rule, not adopted)
 
@@ -863,7 +865,7 @@ Source: `MAE_Backtesting/output/out_of_sample/selection_comparison_8Q.csv`. The 
 - The rule (§5.5 step 6) changes the model for six of seven banks; Huntington is unchanged.
 - The one-standard-error band is wide (0.04–0.08 against scores of 0.19–0.33), so the rule leans heavily on parsimony.
 - The effects are mixed: KeyBank's MAE improves from Red to Green; First Horizon gives up accuracy for 3 parameters instead of 9; SouthState gains on MAE but its beta turns Red; Glacier's pick is Red on MAE; M&T's pick has fewer parameters but a higher MAE and is still Red on beta; Old National's pick is its previous Johansen champion (beta Amber).
-- Selecting on the governing backtest makes that backtest optimistic for the selected model. Adoption is deferred to the validator (OI-9, [#1](https://github.com/Panda5130/Deposit-Beta/issues/1)).
+- Selecting on the governing backtest makes that backtest optimistic for the selected model. Adoption is deferred to the validator ([#1](https://github.com/Panda5130/Deposit-Beta/issues/1)).
 
 ---
 
@@ -876,17 +878,17 @@ Source: `MAE_Backtesting/output/out_of_sample/selection_comparison_8Q.csv`. The 
 | L3 | Results are not robust to the 2008 to 2026 sample: six banks are inconclusive on levels and First Horizon looks I(0) (Appendix A.2) | All | Medium |
 | L4 | Pro forma merger adjustment assumes the combined franchise priced like the sum of its parts before the merger; merger-quarter interest is pro-rated by days; predecessors without FDIC Call Reports (none so far) would be skipped | All | Low to medium |
 | L5 | The deposit rate is deposit interest expense over total deposits: a total-deposit (not interest-bearing-deposit) beta that does not separate product mix | All | Low |
-| L6 | Linear, symmetric pass-through. Downward adjustment is slower than upward for six of seven banks, though against the current champions only SouthState is significant (10%). An asymmetric-λ challenger does not improve the peer set (§7.4). The 2025Q1 start-date error comes mainly from short-run momentum terms extrapolating the 2025Q1 fall, which asymmetric λ does not address (OI-8, OI-25). | All | High |
+| L6 | Linear, symmetric pass-through. Downward adjustment is slower than upward for six of seven banks, though against the current champions only SouthState is significant (10%). An asymmetric-λ challenger does not improve the peer set (§7.4). The 2025Q1 start-date error comes mainly from short-run momentum terms extrapolating the 2025Q1 fall, which asymmetric λ does not address (§7.3, [#13](https://github.com/Panda5130/Deposit-Beta/issues/13)). | All | High |
 | L7 | Post-selection inference: short-run terms screened and pruned on p < 0.05, so p-values are optimistic | All | Medium |
-| L8 | Champion chosen on in-sample MAE, and several specifications collapse to the same ECM. An optional out-of-sample rule (§5.5 step 6) would change six of seven models with mixed effects. It is not adopted (OI-9), and selecting on the backtest would bias that backtest. | All | Medium |
+| L8 | Champion chosen on in-sample MAE, and several specifications collapse to the same ECM. An optional out-of-sample rule (§5.5 step 6) would change six of seven models with mixed effects. It is not adopted ([#1](https://github.com/Panda5130/Deposit-Beta/issues/1)), and selecting on the backtest would bias that backtest. | All | Medium |
 | L9 | Johansen p-values are bounds; r ≤ 1 rejections (implying rank 2) are overridden by assuming rank 1 | Glacier, Huntington, First Horizon | Medium |
 | L10 | Single regressor (FFT). No competitive, liquidity or balance-sheet drivers | All | Medium |
 | L11 | Cointegration with one unknown break (Gregory-Hansen, four forms) does not reject at 5% for any bank on ADF\* (finite-sample critical values, T = 62). With 62 quarters the test has low power, and two or more breaks are not tested. | All | Low |
 | L12 | Glacier's champion keeps an insignificant constant and trend because its case 4 test requires them | Glacier | Low |
 | L13 | KPSS p-values are truncated at 0.10 | All | Low |
 | L14 | Deterministic trends in the First Horizon, M&T and Glacier champions (δ = −0.011, −0.011 and −0.008 pp per quarter) are frozen at their 2026Q2 value for projection (`projection/project.py`). The freeze is a judgment overlay, not an estimated feature: the estimated model would keep lowering these banks' equilibrium by \|δ\| each quarter (0.04 to 0.07 pp over 8Q, 0.30 to 0.41 pp over 40Q at flat FFT). Projections for these banks depend on that choice. | First Horizon, M&T, Glacier | Medium |
-| L15 | Huntington cointegration rests on one specification family (EG long run, no deterministic terms) and on post-2022 data: the test fails in every window ending in 2019Q4 and in 2021Q4 windows starting in 2013 or later. GH finds no break. Kept in scope with this caveat (decision 2026-10-31). The re-specified champion (short-run terms added, OI-24) is Green, but its λ is small (−0.066). | Huntington | High |
-| L16 | Backtest limits are percentiles of the peer group, so the absolute test is a relative standard: one bank's re-specification can change another's rating (First Horizon turned Red after OI-24 with unchanged errors). The single-window backtest has one start date per horizon. | All | Medium |
+| L15 | Huntington cointegration rests on one specification family (EG long run, no deterministic terms) and on post-2022 data: the test fails in every window ending in 2019Q4 and in 2021Q4 windows starting in 2013 or later. GH finds no break. Kept in scope with this caveat (decision 2026-10-31). The re-specified champion (short-run terms added, §5.5) is Green, but its λ is small (−0.066). | Huntington | High |
+| L16 | Backtest limits are percentiles of the peer group, so the absolute test is a relative standard: one bank's re-specification can change another's rating (First Horizon turned Red after the Huntington and Old National re-specification (§5.5) with unchanged errors). The single-window backtest has one start date per horizon. | All | Medium |
 | L17 | Beta stability is rated only from 2020Q1, because earlier samples are mostly zero-lower-bound data. The joint 2-SE-and-20% test does not flag large moves with wide standard errors (for example M&T at 2023Q3–Q4). Glacier and M&T are rated Red. | All, esp. Glacier, M&T | Medium |
 
 ---
@@ -894,38 +896,18 @@ Source: `MAE_Backtesting/output/out_of_sample/selection_comparison_8Q.csv`. The 
 ## 9. Validation Status and Open Issues
 
 ### 9.1 Validation Status
-No independent validation has been performed. The items below should be resolved before the model is submitted for validation.
+No independent validation has been performed. The open issues in §9.2 should be resolved before the model is submitted for validation.
 
-### 9.2 Open Issues Log
-Items still open are tracked as GitHub issues on `Panda5130/Deposit-Beta`, linked in the Status column.
+### 9.2 Open Issues
+Open issues are tracked as GitHub issues on [`Panda5130/Deposit-Beta`](https://github.com/Panda5130/Deposit-Beta/issues). GitHub replaces the open-issues log kept in earlier versions of this document; new issues are logged there. Closed issues and how they were resolved are recorded in `docs/open_issue_resolutions.md` and `docs/resolutions/*.md`.
 
-| ID | Issue | Bank(s) | Priority | Status |
-| :-: | :--- | :--- | :-: | :--- |
-| OI-1 | Replace placeholder predecessor certs and deposits with actual FDIC values; re-derive materiality | All with events | High | Closed: real certs and deposits from FDIC (`merger_events_used.csv`) |
-| OI-2 | Apply the missing Mode A adjustments | All with events | High | Closed: every ≥ 1% event since 2007 applied as pro forma backfill |
-| OI-3 | Decide on Mode B treatment | Glacier, KeyBank, Old National | Medium | Closed: Mode B rows kept (3 events, all < 1%) |
-| OI-4 | Run the cointegration re-specification grid for Huntington and Old National | Huntington, Old National | Medium | Closed: the grid runs all seven banks |
-| OI-5 | Fix Zivot-Andrews failures and extend the break tests to all banks | All | Medium | Closed: runs for all banks; see OI-20 |
-| OI-6 | Refit models with insignificant short-run terms | Huntington, all | Medium | Closed: short-run lags pruned in the one-step ECM |
-| OI-7 | Reconcile the deterministic terms between the cointegration test and the estimated ECM | Glacier, M&T, KeyBank, SouthState | Medium | Closed: deterministic terms follow the test specification |
-| OI-8 | Investigate the shared error at the 2025Q1 start date, including Old National's 2025Q2 drop | M&T, Old National, SouthState, Huntington | Medium | Partially closed: the data artifact is fixed. Asymmetric λ does not remove the error (§7.4). The cause is lagged-Δy momentum extrapolating the 2025Q1 fall (`model_form/output/oi8_decomposition_2025Q1.csv`); carried to OI-25. |
-| OI-9 | Select the champion on out-of-sample backtest MAE (or a combination), not in-sample MAE | All | Medium | Partially closed: optional rule implemented (`run_backtest.py --select out-of-sample`) with a side-by-side comparison (§7.6). In-sample MAE retained as the default; adoption deferred to the validator ([#1](https://github.com/Panda5130/Deposit-Beta/issues/1)) |
-| OI-10 | Define acceptance thresholds for backtest MAE | All | Medium | Closed: superseded for the governing rating by OI-22; single-window ratings kept as a supplementary view |
-| OI-11 | Build benchmark/challenger models (static beta, asymmetric ECM, 2022 regime dummy) | All | High | Closed: seven challengers scored on the many-start-date backtest (§7.4, `model_form/`). None replaces the champions peer-wide ([#2](https://github.com/Panda5130/Deposit-Beta/issues/2)) |
-| OI-12 | Rerun or archive the stale KeyBank 4Q backtest | KeyBank | Low | Closed: deleted |
-| OI-13 | Investigate the Glacier 2012Q1 dip and 2012Q2 spike | Glacier | Medium | Closed: rate rebuilt from quarterly fields with a two-point deposit average |
-| OI-14 | Assess whether long-run trends are economically justified for projection | First Horizon, M&T, Glacier | Medium | Closed: trend kept for estimation; frozen at its end-of-sample value in projection, implemented and tested in `projection/project.py` (L14, [#7](https://github.com/Panda5130/Deposit-Beta/issues/7)) |
-| OI-15 | Isolate deposit interest expense from total interest expense | All | Medium | Closed: deposit interest expense only |
-| OI-16 | Fill the empty "ADF re-specification" placeholders in the vault documentation (2008 to 2026 merger-adjusted) | All | Low | Closed: filled from `diagnostics/unit_root_grid.csv` on 2026-10-31 ([#3](https://github.com/Panda5130/Deposit-Beta/issues/3)) |
-| OI-17 | Regenerate Figure 1 from the modeled dataset | All | Low | Closed: regenerated from `EDA1_Stationarity_Tests.ipynb`, 2011Q1 to 2026Q2 |
-| OI-18 | Update Appendix A with the rebuilt unit-root results | All | Medium | Closed: Appendix A regenerated from `diagnostics/` |
-| OI-19 | Huntington cointegration rests on a single specification family; assess robustness and whether Huntington stays in scope | Huntington | High | Closed (decision 2026-10-31): kept in scope with a caveat (L15). The champion is re-specified through OI-24 and rates Green on MAE (0.221 vs. 0.334) and on beta stability ([#4](https://github.com/Panda5130/Deposit-Beta/issues/4)) |
-| OI-20 | Zivot-Andrews rejects a unit root with a 2022 level break for all banks and for FFT; test cointegration allowing a break (Gregory-Hansen) | All | Medium | Closed: Gregory-Hansen finds no break-cointegration at 5% for any bank on ADF\* (one Zt\* rejection, Glacier C/T). A 2022 level dummy does not improve forecasts (§5.3, §7.4) ([#5](https://github.com/Panda5130/Deposit-Beta/issues/5)) |
-| OI-21 | FFT input carried 2026Q3 and 2026Q4 at 3.67 by hand, and 2026Q4 was not complete | All | Low | Closed: `data_build/build_fft.py` builds FFT from FRED `FEDFUNDS` with complete quarters only; history through 2026Q2 is reproduced exactly; 2026Q3 is the true average (3.67); 2026Q4 is dropped ([#6](https://github.com/Panda5130/Deposit-Beta/issues/6)) |
-| OI-22 | The single-window backtest has one start date per horizon | All | Medium | Closed: many-start-date backtest with horizon-aware, peer-derived limits and a skill test; validator to confirm the relative-limit design; fixed reference-run limits are on hold ([#8](https://github.com/Panda5130/Deposit-Beta/issues/8)) |
-| OI-23 | Set an acceptance threshold for long-run beta stability and extend the start dates back to 2016Q1 | All | Medium | Closed: start dates from 2016Q1; rating on start dates from 2020Q1 (fail = >2 SE and >20%; Amber 1–2, Red 3+ or any >3 SE). Glacier and M&T Red, all others Green. The validator should confirm the threshold ([#10](https://github.com/Panda5130/Deposit-Beta/issues/10)) |
-| OI-24 | EG long-run specifications entered the one-step ECM with no short-run terms, so their D.FFT and D.y lags were never screened | Huntington, Old National, KeyBank | High | Closed: `ECM model selection.py` gives each passing EG long-run spec the D.* lags of its own EG second-step regression (§5.5). Champions change for Huntington (Red → Green) and Old National (Johansen → EG, Green); KeyBank's label changes (identical regression). The tighter peer 1–2Q limits turn First Horizon Red (§7.1) |
-| OI-25 | Damp, or make asymmetric, the short-run lagged-Δy dynamics so a sharp one-quarter fall is not extrapolated once FFT is flat | M&T, Old National, SouthState, Huntington | Medium | Open (from OI-8) |
+Open at this version:
+
+| Issue | Topic | Section |
+| :-: | :--- | :--- |
+| [#1](https://github.com/Panda5130/Deposit-Beta/issues/1) | Select champion models on out-of-sample performance (optional rule built, not adopted; deferred to the validator) | §5.5, §7.6 |
+| [#8](https://github.com/Panda5130/Deposit-Beta/issues/8) | Fix backtest band limits from an approved reference run instead of deriving them from the peer group each run (on hold) | §5.6, §7.1 |
+| [#13](https://github.com/Panda5130/Deposit-Beta/issues/13) | Damp, or make asymmetric, the lagged-Δy dynamics behind the 2025Q1 start-date error | §7.3, §7.4 |
 
 ---
 
@@ -1071,7 +1053,7 @@ In the extended sample, First Horizon looks I(0) (ADF p 0.049) and the other six
 | Old National Bank | -6.21, 6.1e-04, 2022Q3 | -4.31, 0.065, 2022Q1 | -4.26, 0.335, 2019Q3 |
 | SouthState Bank | -6.23, 5.8e-04, 2022Q3 | -4.43, 0.048, 2021Q3 | -5.21, 0.035, 2022Q4 |
 
-FFT itself gives ZA `c` = -5.49, p 0.004, break 2022Q1. The break in the deposit rates mirrors the break in the regressor (OI-20).
+FFT itself gives ZA `c` = -5.49, p 0.004, break 2022Q1. The break in the deposit rates mirrors the break in the regressor (§5.3).
 
 ---
 
