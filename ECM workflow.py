@@ -1,4 +1,4 @@
-"""Run the ECM workflow end to end: model selection -> parameter selection -> estimation.
+"""Run the ECM workflow end to end: model selection -> parameter selection -> estimation -> asymmetric variants.
 
 Usage (all arguments optional; defaults point at the files in this folder):
     python "ECM workflow.py" [--cointegration FILE] [--respecification FILE]
@@ -9,6 +9,9 @@ Steps (each a separate script in this folder, run with the same Python interpret
     1. ECM model selection.py  -> ECM model selection results.csv   (model p-value < alpha)
     2. ECM Param selection.py  -> ECM param selection results.csv   (coef p-value < alpha)
     3. ECM estimation.py       -> ECM estimation results.csv        (one-step ECM per model)
+    4. ECM asymmetric variants.py -> ECM asymmetric estimation results.csv (one fully split
+       asymmetric variant per screened specification; reads steps 1-3' files and leaves them
+       unchanged, checked by SHA-256)
 Stops at the first step that fails and exits with that step's return code.
 """
 
@@ -24,13 +27,13 @@ HERE = Path(__file__).resolve().parent
 log = logging.getLogger("ecm_workflow")
 
 
-def run_step(number, script, args, output):
-    log.info("[%d/3] %s", number, script)
+def run_step(number, script, args, output, total=4):
+    log.info("[%d/%d] %s", number, total, script)
     result = subprocess.run([sys.executable, str(HERE / script), *map(str, args)])
     if result.returncode != 0:
-        log.error("[%d/3] %s failed with exit code %d", number, script, result.returncode)
+        log.error("[%d/%d] %s failed with exit code %d", number, total, script, result.returncode)
         return result.returncode
-    log.info("[%d/3] wrote %s (%d rows)", number, output, len(pd.read_csv(output)))
+    log.info("[%d/%d] wrote %s (%d rows)", number, total, output, len(pd.read_csv(output)))
     return 0
 
 
@@ -51,6 +54,7 @@ def main(argv=None):
     model_sel = out / "ECM model selection results.csv"
     param_sel = out / "ECM param selection results.csv"
     estimates = out / "ECM estimation results.csv"
+    asymmetric = out / "ECM asymmetric estimation results.csv"
     steps = [
         ("ECM model selection.py",
          ["--cointegration", args.cointegration, "--respecification", args.respecification,
@@ -59,6 +63,9 @@ def main(argv=None):
         ("ECM estimation.py",
          ["-i", param_sel, "--dependents", args.dependents, "--independents", args.independents,
           "--y", args.y, "--x", *args.x, "--alpha", args.alpha, "-o", estimates], estimates),
+        ("ECM asymmetric variants.py",
+         ["-i", model_sel, "--dependents", args.dependents, "--independents", args.independents,
+          "--y", args.y, "--x", args.x[0], "--alpha", args.alpha, "--out-dir", out], asymmetric),
     ]
     for number, (script, step_args, output) in enumerate(steps, start=1):
         code = run_step(number, script, step_args, output)

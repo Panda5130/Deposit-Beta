@@ -46,6 +46,8 @@ DEFAULTS = {
 SPEC_KEYS = ["test_name", "IC/selected lag", "trend type"]
 SHORT_RUN_RE = re.compile(r"^D\.(?P<var>.+)\.L(?P<lag>\d+)$")
 INVALID_CHARS_RE = re.compile(r'[\\/:*?"<>|]')
+POS, NEG = "_pos", "_neg"  # split (asymmetric) series: rises and falls
+ECT_TERMS = ("ect.L1", "ect_pos.L1", "ect_neg.L1")
 
 
 def err(msg):
@@ -84,39 +86,112 @@ def load_source(dependents, independents):
     return dep.merge(indep, on="period", how="left").sort_values("period")
 
 
-def bank_data(source, group_column, bank, y, x):
-    """The bank's complete (y, x) observations in time order, indexed by quarter."""
-    missing = [c for c in (group_column, y, x) if c not in source.columns]
+def bank_data(source, group_column, bank, y, x, partial_sums=False):
+    """The bank's complete (y, x...) observations in time order, indexed by quarter.
+
+    x is one column or a list of columns. With partial_sums=True the anchored partial sums
+    <x>_pos and <x>_neg are added for every x (for inspection: regressor() always rebuilds
+    split terms from the base column, so a forecast path never uses stale copies).
+    """
+    xs = [x] if isinstance(x, str) else list(x)
+    missing = [c for c in (group_column, y, *xs) if c not in source.columns]
     if missing:
         raise ValueError(f"source data has no column(s): {', '.join(missing)}")
     rows = source[source[group_column].astype(str).str.strip() == bank]
     if rows.empty:
         raise ValueError(f"no source rows where {group_column} == {bank}")
-    data = rows.set_index("period")[[y, x]].apply(pd.to_numeric, errors="coerce").dropna()
+    data = rows.set_index("period")[[y, *xs]].apply(pd.to_numeric, errors="coerce").dropna()
     if data.empty:
-        raise ValueError(f"{bank} has no complete {y}/{x} observations")
+        raise ValueError(f"{bank} has no complete {y}/{'/'.join(xs)} observations")
+    if partial_sums:
+        for v in xs:
+            data[f"{v}{POS}"], data[f"{v}{NEG}"] = partial_sum(data[v], POS), partial_sum(data[v], NEG)
     return data
 
 
-def regressor(data, term):
-    """Rebuild the column that a term of the one-step ECM stands for."""
+def partial_sum(series, sign):
+    """Anchored partial sum of the rises (POS) or the falls (NEG) of a series.
+
+    v+_t = v_0 + sum_{s<=t} max(dv_s, 0) and v-_t = sum_{s<=t} min(dv_s, 0), so v+ + v- = v
+    exactly. The start level goes in v+ so that models without a constant nest the symmetric one.
+    """
+    d = series.diff()
+    if sign == POS:
+        return series.iloc[0] + d.clip(lower=0).fillna(0.0).cumsum()
+    return d.clip(upper=0).fillna(0.0).cumsum()
+
+
+def split_base(name, columns):
+    """('FFT', '_pos') for 'FFT_pos' when FFT is a column, else (None, None)."""
+    for sign in (POS, NEG):
+        if name.endswith(sign) and name[:-len(sign)] in columns:
+            return name[:-len(sign)], sign
+    return None, None
+
+
+def level(data, name):
+    """The level series a long-run name stands for: a column, or the partial sum of one."""
+    base, sign = split_base(name, data.columns)
+    return partial_sum(data[base], sign) if base else data[name]
+
+
+def regressor(data, term, ect_weights=None, trend=None):
+    """Rebuild the column that a term of the one-step ECM stands for.
+
+    Split terms are derived from the base series of `data`, so a dynamic forecast rebuilds
+    them from the predicted path at every step:
+        <v>_pos.L1, <v>_neg.L1        lagged partial sums (partial_sum)
+        D.<v>_pos.Lk, D.<v>_neg.Lk    max(dv, 0), min(dv, 0), lagged k quarters
+        ect.L1, ect_pos.L1, ect_neg.L1  ect_{t-1} = sum(weight * regressor) over ect_weights
+                                      ({y.L1: 1, const: -c, trend: -delta, <level>.L1: -theta}),
+                                      and its positive / negative part (the lambda regimes)
+    trend, when given, replaces the deterministic trend (the projection's trend freeze).
+    """
     if term == "const":
         return pd.Series(1.0, index=data.index)
     if term == "trend":
-        return pd.Series(np.arange(1, len(data) + 1, dtype=float), index=data.index)
-    if term.endswith(".L1") and term[:-3] in data.columns:
-        return data[term[:-3]].shift(1)
+        return trend if trend is not None else pd.Series(np.arange(1, len(data) + 1, dtype=float), index=data.index)
+    if term in ECT_TERMS:
+        if ect_weights is None:
+            raise ValueError(f"'{term}' needs the long-run coefficients (ect_weights)")
+        e = sum(w * regressor(data, k, trend=trend) for k, w in ect_weights.items())
+        return e if term == "ect.L1" else (e.clip(lower=0) if term == ECT_TERMS[1] else e.clip(upper=0))
+    if term.endswith(".L1"):
+        base, sign = split_base(term[:-3], data.columns)
+        if base:
+            return partial_sum(data[base], sign).shift(1)
+        if term[:-3] in data.columns:
+            return data[term[:-3]].shift(1)
     m = SHORT_RUN_RE.match(term)
-    if m and m["var"] in data.columns:
-        return data[m["var"]].diff().shift(int(m["lag"]))
+    if m:
+        base, sign = split_base(m["var"], data.columns)
+        if base:
+            d = data[base].diff()
+            return (d.clip(lower=0) if sign == POS else d.clip(upper=0)).shift(int(m["lag"]))
+        if m["var"] in data.columns:
+            return data[m["var"]].diff().shift(int(m["lag"]))
     raise ValueError(f"unrecognised term '{term}'")
+
+
+def ect_weights(spec_rows, y):
+    """ect weights from a lambda-split model's "LR: ..." rows, or None for a linear-form model."""
+    coef = dict(zip(spec_rows["term"].astype(str), spec_rows["coef"].astype(float)))
+    if ECT_TERMS[1] not in coef:
+        return None
+    w = {f"{y}.L1": 1.0}
+    for term, c in coef.items():
+        if term.startswith("LR: "):
+            name = term[len("LR: "):]
+            w[name if name in ("const", "trend") else f"{name}.L1"] = -c
+    return w
 
 
 def predict(data, y, spec_rows):
     coefs = spec_rows[~spec_rows["term"].str.startswith("LR: ")].set_index("term")["coef"]
     if coefs.empty:
         raise ValueError("no coefficients to predict with")
-    X = pd.concat({term: regressor(data, term) for term in coefs.index}, axis=1)
+    weights = ect_weights(spec_rows, y)
+    X = pd.concat({term: regressor(data, term, weights) for term in coefs.index}, axis=1)
     frame = pd.concat([data[y].rename("actual"), data[y].shift(1).rename("previous"), X], axis=1).dropna()
     if frame.empty:
         raise ValueError("no observations left after building the lags")

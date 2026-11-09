@@ -163,47 +163,47 @@ origin,form,bank_name,model
 2025Q3,,SouthState Bank,champion
 2025Q4,,SouthState Bank,champion
 2026Q1,,SouthState Bank,champion
-2016Q1,,KeyBank National Association,champion
-2016Q2,,KeyBank National Association,champion
-2016Q3,,KeyBank National Association,champion
-2016Q4,,KeyBank National Association,champion
-2017Q1,,KeyBank National Association,champion
-2017Q2,,KeyBank National Association,champion
-2017Q3,,KeyBank National Association,champion
-2017Q4,,KeyBank National Association,champion
-2018Q1,,KeyBank National Association,champion
-2018Q2,,KeyBank National Association,champion
-2018Q3,,KeyBank National Association,champion
-2018Q4,,KeyBank National Association,champion
-2019Q1,,KeyBank National Association,champion
-2019Q2,,KeyBank National Association,champion
-2019Q3,,KeyBank National Association,champion
-2019Q4,,KeyBank National Association,champion
-2020Q1,,KeyBank National Association,champion
-2020Q2,,KeyBank National Association,champion
-2020Q3,,KeyBank National Association,champion
-2020Q4,,KeyBank National Association,champion
-2021Q1,,KeyBank National Association,champion
-2021Q2,,KeyBank National Association,champion
-2021Q3,,KeyBank National Association,champion
-2021Q4,,KeyBank National Association,champion
-2022Q1,,KeyBank National Association,champion
-2022Q2,,KeyBank National Association,champion
-2022Q3,,KeyBank National Association,champion
-2022Q4,,KeyBank National Association,champion
-2023Q1,,KeyBank National Association,champion
-2023Q2,,KeyBank National Association,champion
-2023Q3,,KeyBank National Association,champion
-2023Q4,,KeyBank National Association,champion
-2024Q1,,KeyBank National Association,champion
-2024Q2,,KeyBank National Association,champion
-2024Q3,,KeyBank National Association,champion
-2024Q4,,KeyBank National Association,champion
-2025Q1,,KeyBank National Association,champion
-2025Q2,,KeyBank National Association,champion
-2025Q3,,KeyBank National Association,champion
-2025Q4,,KeyBank National Association,champion
-2026Q1,,KeyBank National Association,champion
+2016Q1,symmetric lambda (regime of 0 quarters < 6),KeyBank National Association,champion
+2016Q2,symmetric lambda (regime of 1 quarters < 6),KeyBank National Association,champion
+2016Q3,symmetric lambda (regime of 2 quarters < 6),KeyBank National Association,champion
+2016Q4,symmetric lambda (regime of 5 quarters < 6),KeyBank National Association,champion
+2017Q1,symmetric lambda (regime of 5 quarters < 6),KeyBank National Association,champion
+2017Q2,symmetric lambda (regime of 5 quarters < 6),KeyBank National Association,champion
+2017Q3,lambda split,KeyBank National Association,champion
+2017Q4,lambda split,KeyBank National Association,champion
+2018Q1,lambda split,KeyBank National Association,champion
+2018Q2,lambda split,KeyBank National Association,champion
+2018Q3,lambda split,KeyBank National Association,champion
+2018Q4,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2019Q1,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2019Q2,lambda split,KeyBank National Association,champion
+2019Q3,lambda split,KeyBank National Association,champion
+2019Q4,lambda split,KeyBank National Association,champion
+2020Q1,lambda split,KeyBank National Association,champion
+2020Q2,lambda split,KeyBank National Association,champion
+2020Q3,lambda split,KeyBank National Association,champion
+2020Q4,lambda split,KeyBank National Association,champion
+2021Q1,lambda split,KeyBank National Association,champion
+2021Q2,lambda split,KeyBank National Association,champion
+2021Q3,lambda split,KeyBank National Association,champion
+2021Q4,lambda split,KeyBank National Association,champion
+2022Q1,lambda split,KeyBank National Association,champion
+2022Q2,lambda split,KeyBank National Association,champion
+2022Q3,lambda split,KeyBank National Association,champion
+2022Q4,lambda split,KeyBank National Association,champion
+2023Q1,lambda split,KeyBank National Association,champion
+2023Q2,lambda split,KeyBank National Association,champion
+2023Q3,lambda split,KeyBank National Association,champion
+2023Q4,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2024Q1,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2024Q2,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2024Q3,lambda split,KeyBank National Association,champion
+2024Q4,lambda split,KeyBank National Association,champion
+2025Q1,lambda split (indicator cycled; lowest-SSR pass kept),KeyBank National Association,champion
+2025Q2,lambda split,KeyBank National Association,champion
+2025Q3,lambda split,KeyBank National Association,champion
+2025Q4,lambda split,KeyBank National Association,champion
+2026Q1,lambda split,KeyBank National Association,champion
 2016Q1,,Huntington National Bank,champion
 2016Q2,,Huntington National Bank,champion
 2016Q3,,Huntington National Bank,champion
@@ -578,9 +578,9 @@ origin,form,bank_name,model
 2016Q3,symmetric,First Horizon Bank,a1
 2016Q4,symmetric,First Horizon Bank,a1
 2017Q1,symmetric,First Horizon Bank,a1
-2017Q2,split,First Horizon Bank,a1
+2017Q2,symmetric,First Horizon Bank,a1
 2017Q3,split,First Horizon Bank,a1
-2017Q4,split,First Horizon Bank,a1
+2017Q4,symmetric,First Horizon Bank,a1
 2018Q1,split,First Horizon Bank,a1
 2018Q2,split,First Horizon Bank,a1
 2018Q3,split,First Horizon Bank,a1
@@ -590,7 +590,7 @@ origin,form,bank_name,model
 2019Q3,split,First Horizon Bank,a1
 2019Q4,split,First Horizon Bank,a1
 2020Q1,split,First Horizon Bank,a1
-2020Q2,split,First Horizon Bank,a1
+2020Q2,symmetric,First Horizon Bank,a1
 2020Q3,split,First Horizon Bank,a1
 2020Q4,split,First Horizon Bank,a1
 2021Q1,split,First Horizon Bank,a1
@@ -619,10 +619,10 @@ origin,form,bank_name,model
 2016Q3,symmetric,Manufacturers and Traders Trust Company,a1
 2016Q4,symmetric,Manufacturers and Traders Trust Company,a1
 2017Q1,symmetric,Manufacturers and Traders Trust Company,a1
-2017Q2,split,Manufacturers and Traders Trust Company,a1
+2017Q2,symmetric,Manufacturers and Traders Trust Company,a1
 2017Q3,split,Manufacturers and Traders Trust Company,a1
-2017Q4,split,Manufacturers and Traders Trust Company,a1
-2018Q1,split,Manufacturers and Traders Trust Company,a1
+2017Q4,symmetric,Manufacturers and Traders Trust Company,a1
+2018Q1,symmetric,Manufacturers and Traders Trust Company,a1
 2018Q2,split,Manufacturers and Traders Trust Company,a1
 2018Q3,split,Manufacturers and Traders Trust Company,a1
 2018Q4,split,Manufacturers and Traders Trust Company,a1
@@ -664,10 +664,10 @@ origin,form,bank_name,model
 2017Q3,symmetric,Glacier Bank,a1
 2017Q4,symmetric,Glacier Bank,a1
 2018Q1,symmetric,Glacier Bank,a1
-2018Q2,symmetric,Glacier Bank,a1
-2018Q3,symmetric,Glacier Bank,a1
-2018Q4,symmetric,Glacier Bank,a1
-2019Q1,symmetric,Glacier Bank,a1
+2018Q2,split,Glacier Bank,a1
+2018Q3,split,Glacier Bank,a1
+2018Q4,split,Glacier Bank,a1
+2019Q1,split,Glacier Bank,a1
 2019Q2,split,Glacier Bank,a1
 2019Q3,split,Glacier Bank,a1
 2019Q4,split,Glacier Bank,a1
@@ -703,9 +703,9 @@ origin,form,bank_name,model
 2017Q1,symmetric,SouthState Bank,a1
 2017Q2,symmetric,SouthState Bank,a1
 2017Q3,split,SouthState Bank,a1
-2017Q4,symmetric,SouthState Bank,a1
-2018Q1,symmetric,SouthState Bank,a1
-2018Q2,split,SouthState Bank,a1
+2017Q4,split,SouthState Bank,a1
+2018Q1,split,SouthState Bank,a1
+2018Q2,symmetric,SouthState Bank,a1
 2018Q3,split,SouthState Bank,a1
 2018Q4,split,SouthState Bank,a1
 2019Q1,split,SouthState Bank,a1
@@ -713,7 +713,7 @@ origin,form,bank_name,model
 2019Q3,split,SouthState Bank,a1
 2019Q4,split,SouthState Bank,a1
 2020Q1,split,SouthState Bank,a1
-2020Q2,symmetric,SouthState Bank,a1
+2020Q2,split,SouthState Bank,a1
 2020Q3,split,SouthState Bank,a1
 2020Q4,split,SouthState Bank,a1
 2021Q1,split,SouthState Bank,a1
@@ -737,12 +737,12 @@ origin,form,bank_name,model
 2025Q3,split,SouthState Bank,a1
 2025Q4,split,SouthState Bank,a1
 2026Q1,split,SouthState Bank,a1
-2016Q1,split,KeyBank National Association,a1
+2016Q1,symmetric,KeyBank National Association,a1
 2016Q2,symmetric,KeyBank National Association,a1
 2016Q3,symmetric,KeyBank National Association,a1
-2016Q4,symmetric,KeyBank National Association,a1
+2016Q4,split,KeyBank National Association,a1
 2017Q1,split,KeyBank National Association,a1
-2017Q2,split,KeyBank National Association,a1
+2017Q2,symmetric,KeyBank National Association,a1
 2017Q3,split,KeyBank National Association,a1
 2017Q4,split,KeyBank National Association,a1
 2018Q1,split,KeyBank National Association,a1
@@ -823,9 +823,9 @@ origin,form,bank_name,model
 2016Q2,symmetric,Old National Bank,a1
 2016Q3,symmetric,Old National Bank,a1
 2016Q4,symmetric,Old National Bank,a1
-2017Q1,split,Old National Bank,a1
+2017Q1,symmetric,Old National Bank,a1
 2017Q2,symmetric,Old National Bank,a1
-2017Q3,symmetric,Old National Bank,a1
+2017Q3,split,Old National Bank,a1
 2017Q4,symmetric,Old National Bank,a1
 2018Q1,split,Old National Bank,a1
 2018Q2,split,Old National Bank,a1
@@ -838,13 +838,13 @@ origin,form,bank_name,model
 2020Q1,split,Old National Bank,a1
 2020Q2,symmetric,Old National Bank,a1
 2020Q3,split,Old National Bank,a1
-2020Q4,split,Old National Bank,a1
-2021Q1,split,Old National Bank,a1
-2021Q2,split,Old National Bank,a1
-2021Q3,split,Old National Bank,a1
-2021Q4,split,Old National Bank,a1
-2022Q1,split,Old National Bank,a1
-2022Q2,split,Old National Bank,a1
+2020Q4,symmetric,Old National Bank,a1
+2021Q1,symmetric,Old National Bank,a1
+2021Q2,symmetric,Old National Bank,a1
+2021Q3,symmetric,Old National Bank,a1
+2021Q4,symmetric,Old National Bank,a1
+2022Q1,symmetric,Old National Bank,a1
+2022Q2,symmetric,Old National Bank,a1
 2022Q3,split,Old National Bank,a1
 2022Q4,split,Old National Bank,a1
 2023Q1,split,Old National Bank,a1
