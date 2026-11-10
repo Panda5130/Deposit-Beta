@@ -23,15 +23,11 @@
    (t, h) with |FFT_{t+h} - FFT_t| >= min_move (0.25 pp, model_form/challengers.EASING_DROP):
        actual beta     (y_{t+h} - y_t) / (FFT_{t+h} - FFT_t)     (at h = 1: dy_t / dFFT_t)
        implied beta    (yhat_{t+h} - y_t) / (FFT_{t+h} - FFT_t)  (the model's pass-through)
-       beta error      implied - actual
-   Pairs with a smaller FFT move are listed but not scored (the ratio blows up).
-   Rated metric (assess_realized), per horizon band (backtest.horizon_bands), pooling the
-   band's scored pairs: mean absolute beta error, bias (mean error), and the skill ratio against
-   the no-change benchmark, whose implied beta is 0 (so its error is |actual beta|):
-       skill = mean |beta error| / mean |actual beta|
-       Red if any rated band >= 1.00, Amber if any > 0.75 (backtest's skill cut-offs), else Green
-   A band with fewer than MIN_PAIRS scored pairs is reported but not rated. theta (theta+-)
-   at each start date is shown for reference only and not rated: it is a long-run quantity.
+   Pairs with a smaller FFT move are listed but not used: with FFT (almost) unchanged the ratio
+   is undefined or explodes. Each horizon h is summarised on its own over its start dates (no
+   pooling across horizons): mean actual and implied beta, and the mean of theta (theta+-) at
+   those start dates, the coefficient-implied long-run beta. This view is descriptive: it is
+   charted, not scored or rated.
 
 The model is the bank's champion under the chosen rule (backtest.DEFAULT_SELECT by default).
 run_beta_backtest.py is the command-line driver; this module holds the reusable pieces.
@@ -61,10 +57,9 @@ DEVIATION_COLUMNS = ["full_sample_beta", "dev", "abs_dev_share", "abs_dev_se"]
 RATED_FROM, SE_LIMIT, SE_EXTREME, SHARE_LIMIT, AMBER_MAX_FAILS = "2020Q1", 2.0, 3.0, 0.20, 2
 ORDER = ["Green", "Amber", "Red"]
 PAIR_COLUMNS = ["origin", "h", "quarter", "y0", "actual", "predicted", "FFT0", "FFT", "dFFT", "scored",
-                "actual_beta", "implied_beta", "beta_error"]
-REALIZED_COLUMNS = ["horizon_q", "n_pairs", "n_skipped", "mean_actual_beta", "mean_implied_beta", "mae_beta",
-                    "bias", "naive_mae_beta", "skill"]  # + mean_theta_ref_<theta|theta_pos|theta_neg>
-MIN_PAIRS = 5
+                "actual_beta", "implied_beta"]
+REALIZED_COLUMNS = ["horizon_q", "n_pairs", "n_skipped", "mean_actual_beta",
+                    "mean_implied_beta"]  # + mean_theta_ref_<theta|theta_pos|theta_neg>
 
 
 def param_label(param, x=bp.DEFAULTS["x"]):
@@ -197,8 +192,7 @@ class RealizedBetaBacktest(bt.MAEBacktest):
                 i_beta = (predicted[t] - y0) / dx if scored else np.nan
                 rows.append({"origin": str(origin), "h": h, "quarter": str(t), "y0": y0, "actual": actual[t],
                              "predicted": predicted[t], "FFT0": x0, "FFT": self.data.loc[t, self.x], "dFFT": dx,
-                             "scored": scored, "actual_beta": a_beta, "implied_beta": i_beta,
-                             "beta_error": i_beta - a_beta, **thetas})
+                             "scored": scored, "actual_beta": a_beta, "implied_beta": i_beta, **thetas})
         return pd.DataFrame(rows)
 
 
@@ -207,42 +201,15 @@ def theta_ref_columns(table):
 
 
 def summarise_realized(pairs, horizon):
-    """Per horizon h: scored pairs, mean actual and implied beta, MAE and bias of the implied
-    beta, the no-change benchmark's MAE (|actual beta|) and the skill ratio (REALIZED_COLUMNS)."""
+    """One row per horizon h over that horizon's scored start dates only (REALIZED_COLUMNS): the
+    number of start dates used and skipped, mean actual and implied beta, and mean theta (theta+-)."""
     rows, refs = [], theta_ref_columns(pairs)
     for h in range(1, horizon + 1):
         g = pairs[pairs.h == h]
         s = g[g.scored]
-        mae, naive = s.beta_error.abs().mean(), s.actual_beta.abs().mean()
-        rows.append([f"{h}Q", len(s), len(g) - len(s), s.actual_beta.mean(), s.implied_beta.mean(), mae,
-                     s.beta_error.mean(), naive, mae / naive if len(s) else np.nan] + [s[c].mean() for c in refs])
+        rows.append([f"{h}Q", len(s), len(g) - len(s), s.actual_beta.mean(), s.implied_beta.mean()]
+                    + [s[c].mean() for c in refs])
     return pd.DataFrame(rows, columns=REALIZED_COLUMNS + [f"mean_{c}" for c in refs])
-
-
-def assess_realized(pairs, horizon, min_pairs=MIN_PAIRS):
-    """Rating of the implied beta per horizon band (module docstring): worst rated band counts."""
-    rows, rating, reasons, worst = {}, "Green", [], (np.nan, "")
-    for band, a, b in bt.horizon_bands(horizon):
-        s = pairs[pairs.scored & pairs.h.between(a, b)]
-        mae, naive = s.beta_error.abs().mean(), s.actual_beta.abs().mean()
-        skill = mae / naive if len(s) else np.nan
-        rows.update({f"{band} n": len(s), f"{band} mae_beta": mae, f"{band} bias": s.beta_error.mean(),
-                     f"{band} naive_mae_beta": naive, f"{band} skill": skill})
-        if len(s) < min_pairs:
-            reasons.append(f"{band} not rated ({len(s)} pairs < {min_pairs})")
-            continue
-        if not np.isfinite(worst[0]) or skill > worst[0]:
-            worst = (skill, band)
-        band_rating = "Red" if skill >= bt.SKILL_RED else ("Amber" if skill > bt.SKILL_AMBER else "Green")
-        if band_rating != "Green":
-            reasons.append(f"{band} skill {skill:.2f}")
-        rating = max(rating, band_rating, key=ORDER.index)
-    scored = pairs[pairs.scored]
-    return {"n_pairs": int(len(scored)), "n_skipped": int((~pairs.scored).sum()),
-            "mae_beta": scored.beta_error.abs().mean(), "bias": scored.beta_error.mean(),
-            "naive_mae_beta": scored.actual_beta.abs().mean(), **rows, "worst_skill": worst[0],
-            "worst_band": worst[1], "rating": rating if np.isfinite(worst[0]) else "n/a",
-            "reason": "; ".join(reasons)}
 
 
 # Charts ----------------------------------------------------------------------------------------
@@ -325,56 +292,63 @@ class BetaPlotter:
         fig.savefig(path, dpi=120, bbox_inches="tight")
         plt.close(fig)
 
-    def realized_chart(self, bank, model, table, assessment, path, horizon, min_move=EASING_DROP):
-        """Left: mean actual vs implied beta per h, theta for reference. Right: beta MAE vs no-change."""
-        h = np.arange(1, horizon + 1)
-        fig, (left, right) = plt.subplots(1, 2, figsize=(14, 5))
-        left.bar(h - 0.2, table.mean_actual_beta, width=0.4, color="#b0b0b0", label="Actual beta (mean)")
-        left.bar(h + 0.2, table.mean_implied_beta, width=0.4, color="#1f4e79", label="Model-implied beta (mean)")
+    def _realized_panel(self, ax, table):
+        """Bars: mean actual and model-implied beta per h (left axis). Line: mean theta (theta+-) at
+        the same start dates, the coefficient-implied long-run beta (right axis)."""
+        h = np.arange(1, len(table) + 1)
+        ax.bar(h - 0.2, table.mean_actual_beta, width=0.4, color="#b0b0b0", label="Actual beta")
+        ax.bar(h + 0.2, table.mean_implied_beta, width=0.4, color="#1f4e79", label="Model-implied beta (forecast)")
+        ax.axhline(0, color="black", linewidth=0.6)
+        ax.set_xticks(h, [f"{r.horizon_q}\nn={r.n_pairs}" for r in table.itertuples()], fontsize=7)
+        ax.set_ylabel("Beta at horizon h (mean over start dates)", fontsize=8)
+        ax.grid(True, axis="y", alpha=0.3)
+        ax.set_axisbelow(True)
+        right = ax.twinx()
         for col, color in zip(theta_ref_columns(table), ["#c62828", "#ef6c00"]):
             name = col.removeprefix("mean_theta_ref_").replace("theta_pos", "theta+").replace("theta_neg", "theta-")
-            left.plot(h, table[col], color=color, linestyle="--", marker="o", markersize=3,
-                      label=f"Long-run {name} at start date (reference, not rated)")
-        left.axhline(0, color="black", linewidth=0.6)
-        left.set_xticks(h, [f"{r.horizon_q}\nn={r.n_pairs}" for r in table.itertuples()])
-        left.set_xlabel("Steps ahead (n = scored start dates)")
-        left.set_ylabel("Beta = change in y / change in FFT")
-        left.legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
-        left.grid(True, axis="y", alpha=0.3)
-        left.set_axisbelow(True)
-        bars = right.bar(h - 0.2, table.mae_beta, width=0.4, color="#1f4e79", label="Model: mean |implied - actual|")
-        right.bar(h + 0.2, table.naive_mae_beta, width=0.4, color="#b0b0b0", label="No change: mean |actual|")
-        right.bar_label(bars, labels=[f"{v:.2f}" if np.isfinite(v) else "" for v in table.skill], fontsize=7)
-        right.set_xticks(h, [r.horizon_q for r in table.itertuples()])
-        right.set_xlabel("Steps ahead (bar labels: skill ratio)")
-        right.set_ylabel("Mean absolute beta error")
-        right.legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
-        right.grid(True, axis="y", alpha=0.3)
-        right.set_axisbelow(True)
-        fig.suptitle(f"{bank}\n{' | '.join(model)}\nRealized vs model-implied beta, start dates "
-                     f"{assessment.get('first_origin', '')} onward, |dFFT| >= {min_move:.2f} pp; "
-                     f"rating: {assessment['rating']}", fontsize=10)
-        fig.tight_layout()
+            right.plot(h, table[col], color=color, linestyle="--", marker="o", markersize=3,
+                       label=f"Coefficient-implied long-run {name} (right axis)")
+        right.set_ylabel("Long-run theta (mean over start dates)", fontsize=8, color="#c62828")
+        right.tick_params(axis="y", colors="#c62828")
+        return right
+
+    @staticmethod
+    def _legend(fig, axes_pairs):
+        handles, labels = [], []
+        for ax in axes_pairs:
+            for hdl, lab in zip(*ax.get_legend_handles_labels()):
+                if lab not in labels:
+                    handles.append(hdl)
+                    labels.append(lab)
+        fig.legend(handles, labels, loc="lower center", ncol=len(labels), fontsize=8, bbox_to_anchor=(0.5, -0.02))
+
+    def realized_chart(self, bank, model, table, path, first_origin, min_move=EASING_DROP):
+        """One bank's mean actual vs model-implied beta per horizon, theta on a second axis."""
+        fig, ax = plt.subplots(figsize=(11, 5))
+        right = self._realized_panel(ax, table)
+        ax.set_xlabel("Steps ahead h (n = start dates with |dFFT| >= the threshold)")
+        ax.set_title(f"{bank}\n{' | '.join(model)}\nRealized vs model-implied beta of {self.y} on {self.x}, start "
+                     f"dates {first_origin} onward, |FFT(t+h) - FFT(t)| >= {min_move:.2f} pp", fontsize=10)
+        self._legend(fig, [ax, right])
+        fig.tight_layout(rect=(0, 0.06, 1, 1))
         fig.savefig(path, dpi=120, bbox_inches="tight")
         plt.close(fig)
 
-    def realized_all_banks(self, assessment, horizon, path):
-        """Skill ratio per horizon band, one group per bank, with the Amber/Red cut-offs."""
-        bands = [b for b, _, _ in bt.horizon_bands(horizon)]
-        banks = list(assessment.bank_name)
-        x = np.arange(len(banks))
-        width = 0.8 / len(bands)
-        fig, ax = plt.subplots(figsize=(12, 5))
-        for i, band in enumerate(bands):
-            ax.bar(x + (i - (len(bands) - 1) / 2) * width, assessment[f"{band} skill"], width=width, label=band)
-        ax.axhline(bt.SKILL_AMBER, color="#ef6c00", linestyle="--", linewidth=1.2, label="Amber (> 0.75)")
-        ax.axhline(bt.SKILL_RED, color="#c62828", linestyle="--", linewidth=1.2, label="Red (>= 1.00)")
-        ax.set_xticks(x, [f"{b}\n{r}" for b, r in zip(banks, assessment.rating)], fontsize=8)
-        ax.set_ylabel("Skill ratio: model / no-change mean |beta error|")
-        ax.set_title(f"Realized vs model-implied beta of {self.y} on {self.x}: skill ratio by horizon band, all banks",
-                     fontsize=10)
-        ax.legend(fontsize=8)
-        ax.grid(True, axis="y", alpha=0.3)
-        ax.set_axisbelow(True)
+    def realized_all_banks(self, tables, path, min_move=EASING_DROP):
+        """Small multiples of realized_chart, one panel per bank ({bank: (model, table)})."""
+        n = len(tables)
+        cols = min(4, n)
+        rows = -(-n // cols)
+        fig, axes = plt.subplots(rows, cols, figsize=(4.6 * cols, 3.6 * rows), squeeze=False)
+        twins = []
+        for ax, (bank, (model, table)) in zip(axes.flat, tables.items()):
+            twins.append(self._realized_panel(ax, table))
+            ax.set_title(bank + (" (asymmetric)" if bt.is_asymmetric_name(model[0]) else ""), fontsize=9)
+        for ax in list(axes.flat)[n:]:
+            ax.axis("off")
+        self._legend(fig, [axes.flat[0]] + twins)
+        fig.suptitle(f"Realized vs model-implied beta of {self.y} on {self.x} by horizon, all banks "
+                     f"(|FFT(t+h) - FFT(t)| >= {min_move:.2f} pp); long-run theta on the right axis", fontsize=11)
+        fig.tight_layout(rect=(0, 0.04, 1, 0.97))
         fig.savefig(path, dpi=120, bbox_inches="tight")
         plt.close(fig)

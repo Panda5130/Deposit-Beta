@@ -8,9 +8,9 @@ and asymmetric candidates) unless --select says otherwise. Writes:
     <bank> - Actual vs Predicted.png                 champion's plot from "Actuals vs Predictions"
     <bank> - MAE Backtest 8Q.png                     many-start-date backtest chart
     <bank> - Beta Backtest.png                       long-run theta (theta+-) at every start date from 2016Q1
-    <bank> - Realized Beta 8Q.png                    realized vs model-implied beta, start dates from 2016Q1
+    <bank> - Realized Beta 8Q.png                    realized vs model-implied beta by horizon, theta on a second axis
     All Banks - Beta Backtest.png                    theta at every start date, all banks
-    All Banks - Realized Beta 8Q.png                 realized-beta skill ratio by horizon band, all banks
+    All Banks - Realized Beta 8Q.png                 realized vs model-implied beta by horizon, one panel per bank
 Run after "ECM workflow.py", plotting_workflow.py, MAE_Backtesting/run_backtest.py and
 Beta_Backtesting/run_beta_backtest.py --realized (with the same --select).
 Figure 1 (docs/Historical Deposit Rates vs FFT.png) is produced by EDA1_Stationarity_Tests.ipynb.

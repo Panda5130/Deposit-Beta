@@ -20,16 +20,16 @@ See beta_backtest.py for the methods. Output layout:
             beta_backtest_multiorigin.csv   theta (or theta+ and theta-), SE, lambda(+-) at every origin
                                             from --first-origin to T-1, deviation from the full-sample value
             beta_backtest_multiorigin.png   theta by origin, +/- 2 SE, full-sample value +/- 20%, rating
-            realized_beta_<N>Q.csv          with --realized: per h, scored pairs, mean actual and implied
-                                            beta, MAE, bias, no-change MAE, skill, mean reference theta
-            realized_beta_pairs_<N>Q.csv    with --realized: every (start date, h) pair, scored or not
-            realized_beta_<N>Q.png          with --realized: actual vs implied beta; MAE vs no-change
+            realized_beta_<N>Q.csv          with --realized: per h, start dates used and skipped, mean
+                                            actual and model-implied beta, mean theta (theta+-)
+            realized_beta_pairs_<N>Q.csv    with --realized: every (start date, h) pair, used or not
+            realized_beta_<N>Q.png          with --realized: actual vs implied beta by h, theta on a second axis
         beta_backtest_multiorigin_all_banks.csv/.png   with All: every bank's origins
         beta_backtest_multiorigin_assessment.csv       Green/Amber/Red per bank on the origins from
                                             2020Q1 (beta_backtest.assess_multi; worst of theta+-)
         realized_beta_summary_<N>Q.csv      with --realized and All: every bank's per-h rows
-        realized_beta_assessment_<N>Q.csv   with --realized: band MAE, bias, skill and rating per bank
-        realized_beta_all_banks_<N>Q.png    with --realized and All: skill ratio by band, every bank
+        realized_beta_all_banks_<N>Q.png    with --realized and All: realized_beta_<N>Q.png, one panel per bank
+The realized-beta view is descriptive (charted, not rated); see beta_backtest.py.
         cache/<bank_name>.csv               per-origin thetas, reused while model, first origin and data match
 With a single --bank-name the bank name is appended to the assessment file names.
 
@@ -113,14 +113,12 @@ class BetaRun:
             rbt = bb.RealizedBetaBacktest(bank, model, self.horizon, data, spec_rows, a.y, a.x, a.min_train)
             pairs = rbt.pairs(a.first_origin, a.min_move)
             table = bb.summarise_realized(pairs, self.horizon)
-            assessment = {"first_origin": pairs.origin.iloc[0], "last_origin": pairs.origin.iloc[-1],
-                          **bb.assess_realized(pairs, self.horizon)}
             keys = dict(zip(["bank_name"] + bt.SPEC_KEYS, [bank, *model]))
             pairs.assign(**keys).to_csv(bank_dir / f"realized_beta_pairs_{self.horizon}Q.csv", index=False)
             table.assign(**keys).to_csv(bank_dir / f"realized_beta_{self.horizon}Q.csv", index=False)
-            self.plotter.realized_chart(bank, model, table, assessment, bank_dir / f"realized_beta_{self.horizon}Q.png",
-                                        self.horizon, a.min_move)
-            realized = (table, assessment)
+            self.plotter.realized_chart(bank, model, table, bank_dir / f"realized_beta_{self.horizon}Q.png",
+                                        pairs.origin.iloc[0], a.min_move)
+            realized = table
         return result, realized
 
     def write_all(self, results, realized):
@@ -136,17 +134,11 @@ class BetaRun:
         for r in results:
             log.info("  theta stability %s: %s%s", r.bank, r.assessment["rating"],
                      f" ({r.assessment['reason']})" if r.assessment["reason"] else "")
-        if realized:
-            assessment = pd.DataFrame([{"bank_name": b, "model": " | ".join(m), **a} for b, (m, _, a) in realized.items()])
-            assessment.to_csv(self.out_dir / f"realized_beta_assessment_{self.horizon}Q{self.suffix}.csv", index=False)
-            for r in assessment.itertuples():
-                log.info("  realized beta %s: %s (worst skill %.2f in %s)%s", r.bank_name, r.rating, r.worst_skill,
-                         r.worst_band, f"; {r.reason}" if r.reason else "")
-            if run_all:
-                pd.concat([t.assign(bank_name=b, model=" | ".join(m)) for b, (m, t, _) in realized.items()]).to_csv(
-                    self.out_dir / f"realized_beta_summary_{self.horizon}Q.csv", index=False)
-                self.plotter.realized_all_banks(assessment, self.horizon,
-                                                self.out_dir / f"realized_beta_all_banks_{self.horizon}Q.png")
+        if realized and run_all:
+            pd.concat([t.assign(bank_name=b, model=" | ".join(m)) for b, (m, t) in realized.items()]).to_csv(
+                self.out_dir / f"realized_beta_summary_{self.horizon}Q.csv", index=False)
+            self.plotter.realized_all_banks(realized, self.out_dir / f"realized_beta_all_banks_{self.horizon}Q.png",
+                                            self.args.min_move)
 
     def run(self):
         log.info("beta backtests of %d bank(s) from %s into %s (%s model choice%s)", len(self.banks),
@@ -163,7 +155,7 @@ class BetaRun:
                      result.assessment["ratings_by_param"])
             results.append(result)
             if real is not None:
-                realized[bank] = (result.model, *real)
+                realized[bank] = (result.model, real)
         if results:
             self.write_all(results, realized)
         log.info("done: %d bank(s) in %s, %d skipped", len(results), self.out_dir, skipped)

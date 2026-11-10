@@ -5,16 +5,16 @@ default champion (backtest.DEFAULT_SELECT); the in-sample champion is the option
 Reads the outputs of four runs (run them first; all from the project folder):
     python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --select in-sample --first-origin 2016Q1
     python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --select out-of-sample
-    python Beta_Backtesting/run_beta_backtest.py --select in-sample --realized
-    python Beta_Backtesting/run_beta_backtest.py --select out-of-sample --realized
+    python Beta_Backtesting/run_beta_backtest.py --select in-sample
+    python Beta_Backtesting/run_beta_backtest.py --select out-of-sample
 
 Usage:
     python MAE_Backtesting/compare_selection.py [--horizon 8Q]
 
 Writes MAE_Backtesting/output/out_of_sample/selection_comparison_<N>Q.csv (one row per bank:
 model, asymmetric flag, parameter count, in-sample MAE, many-origin mean h-step MAE with its
-SE, lambda (lambda+-), theta (theta+-), MAE backtest rating, theta-stability rating and
-realized-beta rating (when that run exists), for the champion and for the pick; the
+SE, lambda (lambda+-), theta (theta+-), MAE backtest rating and theta-stability rating, for
+the champion and for the pick; the
 lowest-scoring admissible model is added as a sensitivity) and selection_comparison_<N>Q.png.
 A run whose model does not match the selection table stops the script, so stale outputs are
 not mixed.
@@ -43,17 +43,13 @@ def model_of(row):
 
 
 def ratings(path, label):
-    """{bank: (model, rating)} from an assessment CSV (empty when the run has not been made)."""
-    if not path.exists():
-        return {}, label
+    """{bank: (model, rating)} from an assessment CSV."""
     t = pd.read_csv(path)
     return {r.bank_name: (r.model, r.rating) for r in t.itertuples()}, label
 
 
-def lookup(table, bank, model, required=True):
+def lookup(table, bank, model):
     found, label = table
-    if not found and not required:
-        return "not run"
     if bank not in found:
         raise ValueError(f"{label}: no row for {bank}")
     if found[bank][0] != model:
@@ -70,8 +66,6 @@ def compare(horizon):
     mae_oos = ratings(oos_dir / f"backtest_multiorigin_assessment_{horizon}Q.csv", "MAE backtest (out-of-sample)")
     beta_in = ratings(b_in / "beta_backtest_multiorigin_assessment.csv", "theta stability (in-sample)")
     beta_oos = ratings(b_oos / "beta_backtest_multiorigin_assessment.csv", "theta stability (out-of-sample)")
-    real_in = ratings(b_in / f"realized_beta_assessment_{horizon}Q.csv", "realized beta (in-sample)")
-    real_oos = ratings(b_oos / f"realized_beta_assessment_{horizon}Q.csv", "realized beta (out-of-sample)")
     rows = []
     for bank, s in scores.groupby("bank_name", sort=False):
         s = s.assign(model=s.apply(model_of, axis=1))
@@ -79,16 +73,14 @@ def compare(horizon):
         pick, best = s[s.pick].iloc[0], s[s.best_oos].iloc[0]
         row = {"bank_name": bank, "same_model": champ.model == pick.model,
                "same_ecm": champ.terms == pick.terms, "one_se_threshold": pick.one_se_threshold}
-        for tag, r, mae, beta, real in [("champion", champ, mae_in, beta_in, real_in),
-                                        ("oos_pick", pick, mae_oos, beta_oos, real_oos)]:
+        for tag, r, mae, beta in [("champion", champ, mae_in, beta_in), ("oos_pick", pick, mae_oos, beta_oos)]:
             row.update({f"{tag}_model": r.model, f"{tag}_asymmetric": bool(r.asymmetric),
                         f"{tag}_n_params": r.n_params, f"{tag}_in_sample_mae": r.in_sample_mae,
                         f"{tag}_oos_mae": r.oos_mae, f"{tag}_oos_se": r.oos_se,
                         f"{tag}_theta": r.theta, f"{tag}_theta_pos": r.theta_pos, f"{tag}_theta_neg": r.theta_neg,
                         f"{tag}_lambda": r["lambda"], f"{tag}_lambda_pos": r.lambda_pos,
                         f"{tag}_lambda_neg": r.lambda_neg, f"{tag}_mae_rating": lookup(mae, bank, r.model),
-                        f"{tag}_beta_rating": lookup(beta, bank, r.model),
-                        f"{tag}_realized_beta_rating": lookup(real, bank, r.model, required=False)})
+                        f"{tag}_beta_rating": lookup(beta, bank, r.model)})
         row.update({"best_oos_model": best.model, "best_oos_n_params": best.n_params, "best_oos_mae": best.oos_mae,
                     "best_oos_theta": best.theta})
         rows.append(row)

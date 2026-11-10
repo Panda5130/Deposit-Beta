@@ -235,11 +235,10 @@ def test_realized_beta_at_h1_is_dy_over_dfft_and_small_moves_are_skipped(data):
     assert pairs.scored.any() and (~pairs.scored).any()
     table = bb.summarise_realized(pairs, 4)
     assert table.n_pairs.sum() == pairs.scored.sum()
-    s = pairs[pairs.scored & (pairs.h == 1)]
-    assert table.mae_beta.iloc[0] == pytest.approx((s.implied_beta - s.actual_beta).abs().mean())
-    assert table.naive_mae_beta.iloc[0] == pytest.approx(s.actual_beta.abs().mean())  # no change: beta 0
-    a = bb.assess_realized(pairs, 4, min_pairs=1)
-    assert a["rating"] in ("Green", "Amber", "Red")
+    for h in range(1, 5):  # each horizon summarised over its own start dates only
+        s = pairs[pairs.scored & (pairs.h == h)]
+        assert table.mean_actual_beta.iloc[h - 1] == pytest.approx(s.actual_beta.mean())
+        assert table.mean_implied_beta.iloc[h - 1] == pytest.approx(s.implied_beta.mean())
 
 
 # Selection -------------------------------------------------------------------------------------
