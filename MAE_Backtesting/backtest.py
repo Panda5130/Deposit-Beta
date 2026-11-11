@@ -26,17 +26,33 @@ Horizon-aware thresholds for the many-origin table (assess_multi, OI-22), derive
     rating     worse of absolute and skill; absolute is skipped with fewer than 4 banks
 The limits are relative to the peer group: about a quarter of banks exceed green by construction.
 
-Model choice (select_model, the default): the bank's lowest in-sample MAE in "estimation
-result summary.csv", ties broken EG > ARDL > Johansen, then file order; or the model the user names.
+Candidates (load_candidates): the original models ("estimation result summary.csv",
+"ECM estimation results.csv") plus their asymmetric variants ("asymmetric estimation result
+summary.csv", "ECM asymmetric estimation results.csv", from "ECM asymmetric variants.py"),
+with an `asymmetric` flag.
 
-Optional out-of-sample choice (oos_scores / select_model_oos, OI-9):
-    admissible  lambda in (-1, 0) and theta in [0, 1], from "ECM estimation results.csv"
+Model choice: DEFAULT_SELECT (below) is the single place the default is set; every consumer
+(both backtests, docs/make_figures.py, projection/project.py, plotting_workflow.py,
+model_form/run_model_form.py) follows it through champion_model / output_dir.
+
+Out-of-sample choice, the default (oos_scores / select_model_oos, OI-9, issue #1), over the
+original and asymmetric candidates:
+    admissible  every lambda (lambda, or lambda+ and lambda-) in (-1, 0) and every theta (theta,
+                or theta+ and theta-) in [0, 1]
     score       mean over h = 1..N of the many-origin h-step MAE (origins from first_origin);
                 models with the same terms are the same ECM and are scored once
     SE          Newey-West SE (Bartlett, N-1 lags; the windows overlap) of the mean per-origin
                 loss over the origins with all N steps
     pick        among admissible models with score <= best score + SE of the best, the fewest
-                parameters, then the lowest score, then EG > ARDL > Johansen, then file order
+                parameters, then the lowest score, then asymmetric > EG > ARDL > Johansen, then
+                file order
+
+In-sample choice (select_model, --select in-sample): the bank's lowest in-sample MAE among the
+original models, ties broken EG > ARDL > Johansen, then file order; or the model the user names.
+
+Asymmetric variants are refitted at each origin with "ECM asymmetric variants.py" fit()
+(TAR / NLS when lambda is split, OLS otherwise) and forecast with the split terms and the ect
+regimes rebuilt from the predicted path (bank_plots.regressor).
 
 run_backtest.py is the command-line driver; this module holds the reusable pieces.
 """
@@ -69,9 +85,14 @@ def load_module(path, name):
 
 
 est = load_module(ROOT / "ECM estimation.py", "ecm_estimation")
+asym = load_module(ROOT / "ECM asymmetric variants.py", "ecm_asymmetric")
 
 SPEC_KEYS = bp.SPEC_KEYS
-FAMILY_RANK = {"EG": 0, "ARDL": 1, "Johansen": 2}
+DEFAULT_SELECT = "out-of-sample"  # the one place the default champion rule is set ("in-sample" is optional)
+SELECT_CHOICES = ("out-of-sample", "in-sample")
+FAMILY_RANK = {"asymmetric": 0, "EG": 1, "ARDL": 2, "Johansen": 3}
+CANDIDATE_FILES = {"summary": ROOT / "estimation result summary.csv", "estimates": ROOT / "ECM estimation results.csv",
+                   "asym_summary": ROOT / asym.SUMMARY_NAME, "asym_estimates": ROOT / asym.OUTPUT_NAME}
 TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae", "naive_mae"]
 GREEN_MEAN, AMBER_MEAN, RED_ANY, MIN_WIN_SHARE = 0.15, 0.25, 0.50, 0.75
 ASSESSMENT_COLUMNS = ["mean_mae", "max_mae", "naive_mean_mae", "horizons_beating_naive", "rating"]
@@ -82,11 +103,21 @@ LIMIT_COLUMNS = ["band", "h_from", "h_to", "green", "red", "n_banks"]
 
 
 def family(test_name):
-    return next((r for f, r in FAMILY_RANK.items() if str(test_name).startswith(f)), len(FAMILY_RANK))
+    """Tie-break rank: asymmetric > EG > ARDL > Johansen > anything else."""
+    name = str(test_name)
+    if is_asymmetric_name(name):
+        return FAMILY_RANK["asymmetric"]
+    return next((r for f, r in FAMILY_RANK.items() if name.startswith(f)), len(FAMILY_RANK))
+
+
+def is_asymmetric_name(test_name):
+    return str(test_name).endswith(asym.ASYM_TAG)
 
 
 def parse_model(text):
     keys = [s.strip() for s in str(text).split("|")]
+    if len(keys) == len(SPEC_KEYS) + 1 and keys[1] == asym.ASYM_TAG.strip(" |"):
+        keys = [keys[0] + asym.ASYM_TAG] + keys[2:]  # "<test> | asymmetric | IC | trend"
     if len(keys) != len(SPEC_KEYS) or not all(keys):
         raise ValueError(f'model must look like "test_name | IC/selected lag | trend type", got {text!r}')
     return tuple(keys)
@@ -100,8 +131,50 @@ def model_mask(rows, model):
     return (rows[SPEC_KEYS].astype(str).apply(lambda c: c.str.strip()) == list(model)).all(axis=1)
 
 
+def load_candidates(summary=None, estimates=None, asym_summary=None, asym_estimates=None, group_column="bank_name"):
+    """(summary, estimates): the original models plus the asymmetric variants, flagged `asymmetric`.
+
+    Missing asymmetric files are skipped (the originals alone are returned).
+    """
+    f = CANDIDATE_FILES
+    s = bp.read_csv(summary or f["summary"]).assign(asymmetric=False)
+    e = bp.load_estimates(estimates or f["estimates"], group_column).assign(asymmetric=False)
+    a_s, a_e = Path(asym_summary or f["asym_summary"]), Path(asym_estimates or f["asym_estimates"])
+    if a_s.exists() and a_e.exists():
+        s = pd.concat([s, bp.read_csv(a_s).assign(asymmetric=True)], ignore_index=True)
+        e = pd.concat([e, bp.load_estimates(a_e, group_column).assign(asymmetric=True)], ignore_index=True)
+    return s, e
+
+
+def output_dir(select, kind="MAE"):
+    """Where a run with this model choice writes: <kind>_Backtesting/output[/out_of_sample]."""
+    base = ROOT / ("MAE_Backtesting" if kind == "MAE" else "Beta_Backtesting") / "output"
+    return base / "out_of_sample" if select == "out-of-sample" else base
+
+
+def champion_model(summary, bank, model=None, select=DEFAULT_SELECT, horizon=8, group_column="bank_name"):
+    """The bank's champion under `select` without rerunning the backtest.
+
+    in-sample: select_model. out-of-sample: the pick recorded by the last
+    MAE_Backtesting/run_backtest.py run (selection_oos_scores_<N>Q.csv); run it first.
+    """
+    if model is not None or select == "in-sample":
+        return select_model(summary, bank, model, group_column)
+    path = output_dir("out-of-sample") / f"selection_oos_scores_{horizon}Q.csv"
+    if not path.exists():
+        raise FileNotFoundError(f"{path} not found: run MAE_Backtesting/run_backtest.py first")
+    scores = pd.read_csv(path)
+    pick = scores[(scores[group_column].astype(str).str.strip() == bank) & scores["pick"].astype(bool)]
+    if pick.empty:
+        raise ValueError(f"no out-of-sample pick for {bank} in {path}")
+    return tuple(str(pick.iloc[0][k]).strip() for k in SPEC_KEYS)
+
+
 def select_model(summary, bank, model=None, group_column="bank_name"):
-    """The model to backtest, as (test_name, IC/selected lag, trend type)."""
+    """The model to backtest, as (test_name, IC/selected lag, trend type).
+
+    Without `model`: the lowest in-sample MAE among the original (not asymmetric) models.
+    """
     rows = bank_rows(summary, bank, group_column).reset_index(drop=True)
     if rows.empty:
         raise ValueError(f"no models for {bank} in the summary")
@@ -111,6 +184,8 @@ def select_model(summary, bank, model=None, group_column="bank_name"):
             available = "\n  ".join(" | ".join(map(str, k)) for k in rows[SPEC_KEYS].itertuples(index=False))
             raise ValueError(f"{bank} has no model {' | '.join(model)}; available:\n  {available}")
         return model
+    if "asymmetric" in rows:
+        rows = rows[~rows["asymmetric"].fillna(False).astype(bool)]
     # Round so floating-point noise between equal fits doesn't defeat the family tie-break.
     ranked = rows.assign(_mae=rows["MAE"].round(12), _rank=rows["test_name"].map(family), _order=rows.index)
     best = ranked.sort_values(["_mae", "_rank", "_order"]).iloc[0]
@@ -118,8 +193,30 @@ def select_model(summary, bank, model=None, group_column="bank_name"):
 
 
 def model_terms(spec_rows):
-    """The fitted (non long-run) terms of one model's rows of the estimates."""
-    return [t for t in spec_rows["term"].astype(str) if not t.startswith("LR: ")]
+    """The terms that define one model: its fitted (non long-run) terms, plus the "LR: ..."
+    names when lambda is split (then the long run is estimated directly, not derived)."""
+    terms = [t for t in spec_rows["term"].astype(str) if not t.startswith("LR: ")]
+    if asym.LAMBDA_POS in terms:
+        terms += [t for t in spec_rows["term"].astype(str) if t.startswith("LR: ")]
+    return terms
+
+
+def is_asymmetric(terms):
+    return any(bp.POS in t or bp.NEG in t or t in (asym.LAMBDA_POS, asym.LAMBDA_NEG) for t in terms)
+
+
+def long_run(res, y, det, levels):
+    """[(LR: name, theta, t, p)] of a fit, OLS (delta method) or TAR (estimated directly)."""
+    return asym.long_run_rows(res, y, det, levels)
+
+
+def lambdas_thetas(coef, y, x):
+    """({label: lambda}, {label: theta}) from a model's estimate rows: symmetric or split."""
+    lam = ({"lambda+": coef.get(asym.LAMBDA_POS, np.nan), "lambda-": coef.get(asym.LAMBDA_NEG, np.nan)}
+           if asym.LAMBDA_POS in coef else {"lambda": coef.get(f"{y}.L1", np.nan)})
+    theta = ({"theta+": coef.get(f"LR: {x}{bp.POS}", np.nan), "theta-": coef.get(f"LR: {x}{bp.NEG}", np.nan)}
+             if f"LR: {x}{bp.POS}" in coef else {"theta": coef.get(f"LR: {x}", np.nan)})
+    return lam, theta
 
 
 def hac_se(values, lags):
@@ -147,12 +244,17 @@ def oos_scores(summary, estimates, data, bank, cache, first_origin, horizon, y=b
         spec_rows = est_rows[model_mask(est_rows, model)]
         coef = dict(zip(spec_rows["term"].astype(str), spec_rows["coef"]))
         terms = model_terms(spec_rows)
-        lam, theta = coef.get(f"{y}.L1", np.nan), coef.get(f"LR: {x}", np.nan)
-        reasons = ["no estimates"] if spec_rows.empty else [
-            r for r, bad in [(f"lambda {lam:.3f} outside (-1, 0)", not -1 < lam < 0),
-                             (f"theta {theta:.3f} outside [0, 1]", not 0 <= theta <= 1)] if bad]
-        row = {"bank_name": bank, **dict(zip(SPEC_KEYS, model)), "in_sample_mae": float(m["MAE"]),
-               "lambda": lam, "theta": theta, "n_params": len(terms), "terms": " + ".join(terms),
+        lams, thetas = lambdas_thetas(coef, y, x)
+        reasons = ["no estimates"] if spec_rows.empty else (
+            [f"{k} {v:.3f} outside (-1, 0)" for k, v in lams.items() if not -1 < v < 0]
+            + [f"{k} {v:.3f} outside [0, 1]" for k, v in thetas.items() if not 0 <= v <= 1])
+        lam_p, lam_n = lams.get("lambda+", lams.get("lambda")), lams.get("lambda-", lams.get("lambda"))
+        th_p, th_n = thetas.get("theta+", thetas.get("theta")), thetas.get("theta-", thetas.get("theta"))
+        row = {"bank_name": bank, **dict(zip(SPEC_KEYS, model)), "asymmetric": is_asymmetric_name(model[0]),
+               "in_sample_mae": float(m["MAE"]), "lambda": lams.get("lambda", np.nan),
+               "theta": thetas.get("theta", np.nan), "lambda_pos": lam_p, "lambda_neg": lam_n,
+               "theta_pos": th_p, "theta_neg": th_n, "lambda_split": "lambda+" in lams,
+               "theta_split": "theta+" in thetas, "n_params": len(terms), "terms": " + ".join(terms),
                "admissible": not reasons, "reason": "; ".join(reasons),
                "oos_mae": np.nan, "oos_se": np.nan, "n_origins": 0, "_order": order}
         if not reasons:
@@ -190,22 +292,36 @@ def select_model_oos(scores):
 
 
 def spec_from_terms(terms, y, x):
-    """Map fitted term names back onto fit_one_step's (det, levels, short_run)."""
+    """Map a model's terms (model_terms) back onto fit_one_step's (det, levels, short_run).
+
+    Accepts several levels and the split terms: levels x, x_pos, x_neg; short-run lags of
+    y, x and their _pos/_neg parts; ect_pos.L1/ect_neg.L1 (lambda split) with the long run
+    given by "LR: const/trend/<level>" names.
+    """
+    xs = [x, f"{x}{bp.POS}", f"{x}{bp.NEG}"]
+    variables = [y, f"{y}{bp.POS}", f"{y}{bp.NEG}", *xs]
     det, levels, short_run = [], [], []
     for term in terms:
         if term in ("const", "trend"):
             det.append(term)
-        elif term == f"{y}.L1":
-            continue  # always included by fit_one_step
-        elif term.endswith(".L1") and term[:-3] == x:
-            levels.append(x)
-        elif (m := bp.SHORT_RUN_RE.match(term)) and m["var"] in (y, x):
+        elif term in (f"{y}.L1", asym.LAMBDA_POS, asym.LAMBDA_NEG):
+            continue  # the correction rate(s)
+        elif term.startswith("LR: ") and term[4:] in ("const", "trend"):
+            det.append(term[4:])
+        elif term.startswith("LR: ") and term[4:] in xs:
+            levels.append(term[4:])
+        elif term.endswith(".L1") and term[:-3] in xs:
+            levels.append(term[:-3])
+        elif (m := bp.SHORT_RUN_RE.match(term)) and m["var"] in variables:
             short_run.append((m["var"], int(m["lag"])))
         else:
             raise ValueError(f"unrecognised term '{term}'")
-    if f"{y}.L1" not in terms:
+    split = asym.LAMBDA_POS in terms or asym.LAMBDA_NEG in terms
+    if split and not {asym.LAMBDA_POS, asym.LAMBDA_NEG} <= set(terms):
+        raise ValueError("lambda split needs both ect_pos.L1 and ect_neg.L1")
+    if not split and f"{y}.L1" not in terms:
         raise ValueError(f"model has no {y}.L1 (correction) term")
-    return det, levels, short_run
+    return [d for d in ("const", "trend") if d in det], levels, short_run
 
 
 @dataclass
@@ -229,19 +345,27 @@ class MAEBacktest:
         self.data, self.y, self.x, self.min_train = data, y, x, min_train
         self.terms = model_terms(spec_rows)
         self.det, self.levels, self.short_run = spec_from_terms(self.terms, y, x)
+        self.asymmetric = is_asymmetric(self.terms)
+        self.split_lambda = asym.LAMBDA_POS in self.terms
         if len(data) - self.horizon < min_train:
             raise ValueError(f"{len(data)} observations leave {len(data) - self.horizon} for training "
                              f"before the first origin; need at least {min_train}")
 
     def fit(self, origin):
+        if self.asymmetric:  # split terms: OLS, or TAR/NLS when lambda is split
+            return asym.fit(self.data.loc[:origin], self.y, self.det, self.levels, self.short_run, self.split_lambda)
         return est.fit_one_step(self.data.loc[:origin], self.y, self.det, self.levels, self.short_run)
 
     def forecast(self, res, origin):
-        """Actual and dynamically forecast y for every quarter after the origin."""
+        """Actual and dynamically forecast y for every quarter after the origin.
+
+        Split terms (dy+-, dFFT+-, FFT+-) and, when lambda is split, the ect regime are rebuilt
+        from the predicted path at every step (bank_plots.regressor)."""
         path = self.data.copy()
+        weights = getattr(res, "ect_weights", None)
         for t in path.index[path.index > origin]:
             # regressor() rebuilds each term over the whole path; trend keeps counting from the start.
-            X = pd.concat({term: bp.regressor(path, term).loc[[t]] for term in res.params.index}, axis=1)
+            X = pd.concat({term: bp.regressor(path, term, weights).loc[[t]] for term in res.params.index}, axis=1)
             dy_hat = float(X.iloc[0] @ res.params)
             path.loc[t, self.y] = path[self.y].shift(1).loc[t] + dy_hat
         window = self.data.index > origin

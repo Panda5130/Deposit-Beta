@@ -1,17 +1,20 @@
-"""Side-by-side table of each bank's in-sample champion and its out-of-sample pick (OI-9).
+"""Side-by-side table of each bank's in-sample champion and its out-of-sample pick (OI-9, #1).
 
+The out-of-sample pick (over the original models and their asymmetric variants) is the
+default champion (backtest.DEFAULT_SELECT); the in-sample champion is the optional rule.
 Reads the outputs of four runs (run them first; all from the project folder):
-    python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --first-origin 2016Q1
+    python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --select in-sample --first-origin 2016Q1
     python MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --select out-of-sample
-    python Beta_Backtesting/run_beta_backtest.py --first-origin 2016Q1
-    python Beta_Backtesting/run_beta_backtest.py --first-origin 2016Q1 --select out-of-sample
+    python Beta_Backtesting/run_beta_backtest.py --select in-sample
+    python Beta_Backtesting/run_beta_backtest.py --select out-of-sample
 
 Usage:
     python MAE_Backtesting/compare_selection.py [--horizon 8Q]
 
 Writes MAE_Backtesting/output/out_of_sample/selection_comparison_<N>Q.csv (one row per bank:
-model, parameter count, in-sample MAE, many-origin mean h-step MAE with its SE, long-run
-theta, MAE backtest rating and beta-stability rating, for the champion and for the pick; the
+model, asymmetric flag, parameter count, in-sample MAE, many-origin mean h-step MAE with its
+SE, lambda (lambda+-), theta (theta+-), MAE backtest rating and theta-stability rating, for
+the champion and for the pick; the
 lowest-scoring admissible model is added as a sensitivity) and selection_comparison_<N>Q.png.
 A run whose model does not match the selection table stops the script, so stale outputs are
 not mixed.
@@ -55,14 +58,14 @@ def lookup(table, bank, model):
 
 
 def compare(horizon):
-    oos_dir = MAE_OUT / "out_of_sample"
+    oos_dir, in_dir = bt.output_dir("out-of-sample"), bt.output_dir("in-sample")
+    b_oos, b_in = bt.output_dir("out-of-sample", "Beta"), bt.output_dir("in-sample", "Beta")
     scores = pd.read_csv(oos_dir / f"selection_oos_scores_{horizon}Q.csv")
-    summary = bt.bp.read_csv(rb.SUMMARY_DEFAULT)
-    mae_in = ratings(MAE_OUT / f"backtest_multiorigin_assessment_{horizon}Q.csv", "MAE backtest (in-sample)")
+    summary, _ = bt.load_candidates()
+    mae_in = ratings(in_dir / f"backtest_multiorigin_assessment_{horizon}Q.csv", "MAE backtest (in-sample)")
     mae_oos = ratings(oos_dir / f"backtest_multiorigin_assessment_{horizon}Q.csv", "MAE backtest (out-of-sample)")
-    beta_in = ratings(BETA_OUT / "beta_backtest_multiorigin_assessment.csv", "beta backtest (in-sample)")
-    beta_oos = ratings(BETA_OUT / "out_of_sample" / "beta_backtest_multiorigin_assessment.csv",
-                       "beta backtest (out-of-sample)")
+    beta_in = ratings(b_in / "beta_backtest_multiorigin_assessment.csv", "theta stability (in-sample)")
+    beta_oos = ratings(b_oos / "beta_backtest_multiorigin_assessment.csv", "theta stability (out-of-sample)")
     rows = []
     for bank, s in scores.groupby("bank_name", sort=False):
         s = s.assign(model=s.apply(model_of, axis=1))
@@ -71,10 +74,12 @@ def compare(horizon):
         row = {"bank_name": bank, "same_model": champ.model == pick.model,
                "same_ecm": champ.terms == pick.terms, "one_se_threshold": pick.one_se_threshold}
         for tag, r, mae, beta in [("champion", champ, mae_in, beta_in), ("oos_pick", pick, mae_oos, beta_oos)]:
-            row.update({f"{tag}_model": r.model, f"{tag}_n_params": r.n_params,
-                        f"{tag}_in_sample_mae": r.in_sample_mae, f"{tag}_oos_mae": r.oos_mae,
-                        f"{tag}_oos_se": r.oos_se, f"{tag}_theta": r.theta, f"{tag}_lambda": r["lambda"],
-                        f"{tag}_mae_rating": lookup(mae, bank, r.model),
+            row.update({f"{tag}_model": r.model, f"{tag}_asymmetric": bool(r.asymmetric),
+                        f"{tag}_n_params": r.n_params, f"{tag}_in_sample_mae": r.in_sample_mae,
+                        f"{tag}_oos_mae": r.oos_mae, f"{tag}_oos_se": r.oos_se,
+                        f"{tag}_theta": r.theta, f"{tag}_theta_pos": r.theta_pos, f"{tag}_theta_neg": r.theta_neg,
+                        f"{tag}_lambda": r["lambda"], f"{tag}_lambda_pos": r.lambda_pos,
+                        f"{tag}_lambda_neg": r.lambda_neg, f"{tag}_mae_rating": lookup(mae, bank, r.model),
                         f"{tag}_beta_rating": lookup(beta, bank, r.model)})
         row.update({"best_oos_model": best.model, "best_oos_n_params": best.n_params, "best_oos_mae": best.oos_mae,
                     "best_oos_theta": best.theta})
@@ -97,7 +102,7 @@ def plot(table, path, horizon):
     ax.set_yticks(y, table["bank_name"])
     ax.invert_yaxis()
     ax.set_xlabel(f"Mean many-start-date h-step MAE, h = 1..{horizon} (pp), origins from 2016Q1")
-    ax.set_title("In-sample champion vs out-of-sample pick", fontsize=10)
+    ax.set_title("In-sample champion vs out-of-sample pick (original and asymmetric candidates)", fontsize=10)
     ax.legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=3)
     ax.grid(True, axis="x", alpha=0.3)
     ax.set_axisbelow(True)
@@ -115,7 +120,7 @@ def main(argv=None):
     except (FileNotFoundError, ValueError) as e:
         print(f"ERROR: {e}", file=sys.stderr)
         return 1
-    out = MAE_OUT / "out_of_sample"
+    out = bt.output_dir("out-of-sample")
     table.to_csv(out / f"selection_comparison_{horizon}Q.csv", index=False)
     plot(table, out / f"selection_comparison_{horizon}Q.png", horizon)
     print(f"wrote {out / f'selection_comparison_{horizon}Q.csv'}")

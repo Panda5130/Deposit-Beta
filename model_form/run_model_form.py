@@ -51,7 +51,7 @@ import gregory_hansen as gh  # noqa: E402
 bt, bp = ch.bt, ch.bp
 log = logging.getLogger("model_form")
 OUT = HERE / "output"
-CHAMPION_OUT = bt.HERE / "output"
+CHAMPION_OUT = bt.output_dir(bt.DEFAULT_SELECT)  # the champions' many-start-date outputs
 OI8_BANKS = ["Manufacturers and Traders Trust Company", "SouthState Bank", "Old National Bank"]
 HUNTINGTON = "Huntington National Bank"
 # Categorical slots 1-6 of the validated reference palette, in fixed order; no-change is gray.
@@ -68,13 +68,13 @@ def short(bank):
 
 
 def load_inputs():
-    summary = bp.read_csv(bt.ROOT / "estimation result summary.csv")
-    estimates = bp.load_estimates(bp.DEFAULTS["estimates"])
+    """Champions under backtest.DEFAULT_SELECT (run MAE_Backtesting/run_backtest.py first)."""
+    summary, estimates = bt.load_candidates()
     source = bp.load_source(bp.DEFAULTS["dependents"], bp.DEFAULTS["independents"])
     banks = list(summary["bank_name"].astype(str).str.strip().drop_duplicates())
     specs = {}
     for bank in banks:
-        model = bt.select_model(summary, bank)
+        model = bt.champion_model(summary, bank)
         rows = bt.bank_rows(estimates, bank)
         specs[bank] = (model, rows[bt.model_mask(rows, model)], bp.bank_data(source, "bank_name", bank,
                                                                               bp.DEFAULTS["y"], bp.DEFAULTS["x"]))
@@ -276,8 +276,8 @@ def full_sample_tests(banks, specs, horizon):
                                                                       bt_c.levels + ["D2022"]))
         dummy.append({"bank_name": bank, "break_quarter": bt_c.break_quarter, "delta": fit.params["D2022.L1"],
                       "delta_p": fit.res.pvalues["D2022.L1"], "lambda": lam, "LR_shift": lr["LR: D2022"][0],
-                      "LR_shift_p": lr["LR: D2022"][1], "theta": lr[f"LR: {bp.DEFAULTS['x']}"][0],
-                      "theta_champion": float(spec_rows.set_index("term").loc[f"LR: {bp.DEFAULTS['x']}", "coef"]),
+                      "LR_shift_p": lr["LR: D2022"][1], "theta": lr.get(f"LR: {bp.DEFAULTS['x']}", (np.nan,))[0],
+                      "theta_champion": float(spec_rows.set_index("term")["coef"].get(f"LR: {bp.DEFAULTS['x']}", np.nan)),
                       "in_sample_mae": float(np.mean(np.abs(fit.res.resid)))})
         for name, direction, start, stop, dx, dy, beta in ch.cycle_betas(data, bp.DEFAULTS["y"], bp.DEFAULTS["x"]):
             cycles.append({"bank_name": bank, "cycle": name, "direction": direction, "start": start, "end": stop,
@@ -309,7 +309,7 @@ def oi8(paths, labels, origin="2025Q1"):
 def oi8_decomposition(specs, horizon, origin="2025Q1", steps=5):
     """Champion forecast from the origin split into term groups, summed over the steps.
 
-    error correction = const, trend, y.L1 and x.L1 (lambda times the disequilibrium); momentum =
+    error correction = const, trend, y.L1, x.L1 and ect_pos/neg.L1 (lambda times the disequilibrium); momentum =
     lagged dy terms; FFT dynamics = D.FFT terms. The groups add up to the forecast change in y.
     """
     rows = []
@@ -318,14 +318,17 @@ def oi8_decomposition(specs, horizon, origin="2025Q1", steps=5):
     for bank, (model, spec_rows, data) in specs.items():
         backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows)
         res = backtest.fit(o)
+        weights = getattr(res, "ect_weights", None)
         path = data.copy()
         total = {"error correction": 0.0, "momentum (lagged dy)": 0.0, "FFT dynamics": 0.0}
         for t in path.index[path.index > o][:steps]:
-            X = pd.concat({term: bp.regressor(path, term).loc[[t]] for term in res.params.index}, axis=1).iloc[0]
+            X = pd.concat({term: bp.regressor(path, term, weights).loc[[t]] for term in res.params.index},
+                          axis=1).iloc[0]
             contrib = X * res.params
             for term, v in contrib.items():
-                group = ("momentum (lagged dy)" if term.startswith(f"D.{y}.") else
-                         "FFT dynamics" if term.startswith(f"D.{x}.") else "error correction")
+                m = bp.SHORT_RUN_RE.match(term)
+                var = m["var"].removesuffix(bp.POS).removesuffix(bp.NEG) if m else None
+                group = ("momentum (lagged dy)" if var == y else "FFT dynamics" if var == x else "error correction")
                 total[group] += v
             path.loc[t, y] = path[y].shift(1).loc[t] + contrib.sum()
         end = path.index[path.index > o][steps - 1]
@@ -418,7 +421,8 @@ def huntington(specs, horizon, first_origin, gh_summary, fixed, asym, dummy):
     table.assign(bank_name=HUNTINGTON, model="h1").to_csv(OUT / f"huntington_h1_multiorigin_{horizon}Q.csv",
                                                           index=False)
 
-    betas = pd.read_csv(bt.ROOT / "Beta_Backtesting" / "output" / HUNTINGTON / "beta_backtest_origins_8Q.csv")
+    betas = pd.read_csv(bt.output_dir(bt.DEFAULT_SELECT, "Beta") / HUNTINGTON / "beta_backtest_multiorigin.csv")
+    betas = betas[betas.param == betas.param.iloc[0]].iloc[-8:]  # the last 8 start dates (theta or theta+)
     g = gh_summary.loc[HUNTINGTON]
     f = fixed[fixed.bank_name == HUNTINGTON].set_index("model")
     a = asym[asym.bank_name == HUNTINGTON].set_index("model")

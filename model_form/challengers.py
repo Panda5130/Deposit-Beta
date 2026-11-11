@@ -20,7 +20,13 @@ Challengers (the champion's own short-run terms are kept wherever an ECM is used
     c   DummyECM          the champion's ECM plus a level dummy D(t-1), D = 1 from the break quarter.
 
 Long-run parameters for a0-a2 come from the champion's one-step fit at the same origin
-(ECM estimation.long_run_rows), so lambda is the only thing that changes between a0 and a1/a2.
+(backtest.long_run), so lambda is the only thing that changes between a0 and a1/a2.
+
+Several levels and split terms: when the champion is an asymmetric variant, ect() uses every
+long-run level (FFT, or the partial sums FFT_pos and FFT_neg, via bank_plots.level) and
+base_columns() rebuilds the split short-run terms; challengers that refit the champion's columns
+by OLS (c, c', h1) use its single-lambda linear form. The a1/a2 lambda-split challengers stay
+as reference results next to the asymmetric variants.
 """
 
 from dataclasses import dataclass, field
@@ -72,7 +78,7 @@ class Challenger(bt.MAEBacktest):
 
     # ECM helpers -----------------------------------------------------------------------------
     def base_columns(self, path):
-        """The champion's one-step ECM regressors, rebuilt the way bank_plots.regressor does."""
+        """The champion's one-step ECM regressors (single-lambda linear form), rebuilt by bank_plots.regressor."""
         terms = self.det + [f"{self.y}.L1"] + [f"{v}.L1" for v in self.levels] + [
             f"D.{v}.L{k}" for v, k in self.short_run]
         return pd.concat({term: bp.regressor(path, term) for term in terms}, axis=1)
@@ -90,16 +96,17 @@ class Challenger(bt.MAEBacktest):
         """Champion one-step fit at the origin -> {term: theta} for the deterministic terms and x."""
         res = self.fit_champion(origin)
         return res, {name.removeprefix("LR: "): theta for name, theta, _, _ in
-                     est.long_run_rows(res, self.y, self.det, self.levels)}
+                     bt.long_run(res, self.y, self.det, self.levels)}
 
     def fit_champion(self, origin):
         return bt.MAEBacktest.fit(self, origin)
 
     def ect(self, path, lr):
-        """y minus its long-run level: y - sum(theta * term), term = const, trend or x."""
+        """y minus its long-run level: y - sum(theta * term), term = const, trend or a level
+        (x, or its partial sums x_pos and x_neg)."""
         e = path[self.y].copy()
         for term, theta in lr.items():
-            e -= theta * (path[term] if term == self.x else bp.regressor(path, term))
+            e -= theta * (bp.regressor(path, term) if term in ("const", "trend") else bp.level(path, term))
         return e
 
 

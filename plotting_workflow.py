@@ -1,11 +1,14 @@
 """Predicted vs. actual plots for every bank and every surviving ECM model.
 
 Usage (all arguments optional; defaults point at the files in this folder):
-    python plotting_workflow.py [--banks NAME ...] [--estimates FILE] [--dependents FILE]
-        [--independents FILE] [--y COLUMN] [--x COLUMN] [--group-column COLUMN] [--out-dir DIR]
+    python plotting_workflow.py [--banks NAME ...] [--estimates FILE] [--asym-estimates FILE]
+        [--dependents FILE] [--independents FILE] [--y COLUMN] [--x COLUMN] [--group-column COLUMN]
+        [--out-dir DIR]
 
 Runs bank_plots.plot_bank for each bank in "ECM estimation results.csv" (or the --banks
-given), reading the input files once. Output layout:
+given), reading the input files once. Every candidate the champion rule chooses from is
+plotted: the original models and their asymmetric variants ("ECM asymmetric estimation
+results.csv", when present; file names contain "- asymmetric"). Output layout:
 
     <out-dir>/                      default: "Actuals vs Predictions" in this folder
         <bank_name>/
@@ -23,7 +26,11 @@ import logging
 import sys
 from pathlib import Path
 
+import pandas as pd
+
 import bank_plots as bp
+
+ASYM_ESTIMATES = Path(__file__).resolve().parent / "ECM asymmetric estimation results.csv"
 
 log = logging.getLogger("plotting_workflow")
 GAPS_NAME = "_gaps.txt"
@@ -33,6 +40,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Predicted vs. actual ECM plots for every bank.")
     parser.add_argument("--banks", nargs="+", help="banks to plot (default: every bank in the estimates)")
     parser.add_argument("--estimates", default=bp.DEFAULTS["estimates"])
+    parser.add_argument("--asym-estimates", default=ASYM_ESTIMATES, help='"" to plot the original models only')
     parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=bp.DEFAULTS["independents"])
     parser.add_argument("--y", default=bp.DEFAULTS["y"], help="dependent column")
@@ -44,6 +52,9 @@ def main(argv=None):
 
     try:
         estimates = bp.load_estimates(args.estimates, args.group_column)
+        if args.asym_estimates and Path(args.asym_estimates).exists():
+            estimates = pd.concat([estimates, bp.load_estimates(args.asym_estimates, args.group_column)],
+                                  ignore_index=True)
         source = bp.load_source(args.dependents, args.independents)
     except (FileNotFoundError, ValueError) as e:
         log.error("%s", e)

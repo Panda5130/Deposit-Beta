@@ -5,9 +5,11 @@ Usage (all arguments except --scenario optional; defaults point at the files in 
         [--no-freeze-trend] [-o OUTPUT_CSV] [--estimates FILE] [--summary FILE]
         [--dependents FILE] [--independents FILE]
 
-The model is the bank's champion (MAE_Backtesting/backtest.py select_model: lowest in-sample
-MAE in "estimation result summary.csv") unless --model names another; its coefficients are
-the full-sample one-step ECM in "ECM estimation results.csv". From the last observed quarter
+The model is the bank's champion under --select (default MAE_Backtesting/backtest.py
+DEFAULT_SELECT, the out-of-sample pick recorded by run_backtest.py; in-sample: the lowest
+in-sample MAE original model) unless --model names another; its coefficients are the
+full-sample fit in "ECM estimation results.csv" or "ECM asymmetric estimation results.csv".
+From the last observed quarter
 T the ECM is iterated forward for every scenario quarter T+1..T+H: predicted y is fed back as
 the lag (as in the backtest's dynamic forecast) and FFT takes the scenario values.
 
@@ -16,6 +18,12 @@ at T for every projected quarter, so the equilibrium is c + delta*T + theta*x ra
 c + delta*t + theta*x. With FFT held flat the path converges to that level instead of drifting
 by delta per quarter. Models without a trend are unaffected. --no-freeze-trend lets the trend
 keep counting (diagnostic only).
+
+Asymmetric models: the equilibrium is c + delta*T + theta+ FFT+ + theta- FFT-, with the
+scenario's partial sums FFT+- cumulated on from their values at T (bank_plots.partial_sum over
+history and scenario). The short-run dFFT+- and dy+- terms are rebuilt from the projected path,
+and with lambda split, lambda+ or lambda- applies by the sign of the projected ect (the trend
+inside ect is frozen too).
 
 The scenario CSV has the same layout as the FFT files: first column the quarter (2026Q3 or a
 date), column FFT. Quarters up to T are ignored; the rest must run without gaps from T+1.
@@ -60,35 +68,55 @@ def read_scenario(path, x=DEFAULTS["x"]):
 class Projection:
     """One bank's ECM, ready to be iterated forward from the last observed quarter T."""
 
-    def __init__(self, bank, model, history, params, y=DEFAULTS["y"], x=DEFAULTS["x"]):
+    def __init__(self, bank, model, history, params, y=DEFAULTS["y"], x=DEFAULTS["x"], lr=None):
+        """params: the fitted (non long-run) coefficients. lr: {const/trend/<level>: value}, the
+        long run of a lambda-split model (its "LR: ..." rows, or AsymFit.lr); derived otherwise."""
         self.bank, self.model, self.y, self.x = bank, tuple(model), y, x
         self.history = history[[y, x]]
         self.params = params
-        bt.spec_from_terms(list(params.index), y, x)  # rejects terms the ECM does not know
+        self.split_lambda = bt.asym.LAMBDA_POS in params.index
+        if self.split_lambda and not lr:
+            raise ValueError("a lambda-split model needs its long-run coefficients (lr)")
+        terms = list(params.index) + ([f"LR: {k}" for k in lr] if self.split_lambda else [])
+        self.det, self.levels, _ = bt.spec_from_terms(terms, y, x)  # rejects terms the ECM does not know
+        if self.split_lambda:
+            self.lr = {k: float(lr.get(k, 0.0)) for k in ["const", "trend", *self.levels]}
+        else:
+            lam = self.params[f"{self.y}.L1"]
+            self.lr = {k: float(-self.params.get(k if k in ("const", "trend") else f"{k}.L1", 0.0) / lam)
+                       for k in ["const", "trend", *self.levels]}
+        self.weights = None
+        if self.split_lambda:  # ect.L1 = y.L1 - c - delta*trend - sum(theta * level.L1)
+            self.weights = {f"{y}.L1": 1.0, **{(k if k in ("const", "trend") else f"{k}.L1"): -v
+                                               for k, v in self.lr.items()}}
         self.T = self.history.index[-1]
         self.trend_T = float(bp.regressor(self.history, "trend").iloc[-1])
 
     @classmethod
     def champion(cls, bank, estimates, summary, source, model=None, y=DEFAULTS["y"], x=DEFAULTS["x"],
-                 group_column=DEFAULTS["group_column"]):
-        """The bank's champion (or `model`) with its full-sample coefficients."""
-        model = bt.select_model(summary, bank, model, group_column)
+                 group_column=DEFAULTS["group_column"], select=bt.DEFAULT_SELECT):
+        """The bank's champion under `select` (or `model`) with its full-sample coefficients."""
+        model = bt.champion_model(summary, bank, model, select, group_column=group_column)
         rows = bt.bank_rows(estimates, bank, group_column)
         rows = rows[bt.model_mask(rows, model)]
-        params = rows[~rows["term"].astype(str).str.startswith("LR: ")].set_index("term")["coef"].astype(float)
+        terms = rows["term"].astype(str)
+        params = rows[~terms.str.startswith("LR: ")].set_index("term")["coef"].astype(float)
         if params.empty:
             raise ValueError(f"{bank} has no coefficients for {' | '.join(model)}")
-        return cls(bank, model, bp.bank_data(source, group_column, bank, y, x), params, y, x)
+        lr = {t[len("LR: "):]: float(c) for t, c in zip(terms, rows["coef"]) if t.startswith("LR: ")}
+        return cls(bank, model, bp.bank_data(source, group_column, bank, y, x), params, y, x, lr)
 
     def long_run(self):
-        """(c, delta, theta) = -(const, trend, x.L1 coefficient) / lambda; 0 for absent terms."""
-        lam = self.params[f"{self.y}.L1"]
-        return tuple(-self.params.get(term, 0.0) / lam for term in ("const", "trend", f"{self.x}.L1"))
+        """{const, trend, <level>: value}: c, delta and theta (or theta+ and theta-); 0 for an absent
+        deterministic term. Linear form: -(coefficient) / lambda; lambda split: estimated directly."""
+        return dict(self.lr)
 
-    def equilibrium(self, x_value, trend=None):
-        """Long-run level c + delta*trend + theta*x; the trend defaults to its frozen value at T."""
-        c, delta, theta = self.long_run()
-        return c + delta * (self.trend_T if trend is None else trend) + theta * x_value
+    def equilibrium(self, levels, trend=None):
+        """Long-run level c + delta*trend + sum(theta_v * level_v); the trend defaults to its frozen
+        value at T. levels: {level name: value or Series}, e.g. {FFT: ...} or {FFT_pos: ..., FFT_neg: ...}."""
+        lr = self.lr
+        return (lr["const"] + lr["trend"] * (self.trend_T if trend is None else trend)
+                + sum(lr[v] * levels[v] for v in self.levels))
 
     def future_path(self, scenario):
         """Scenario values for T+1..T+H (quarters up to T dropped), checked for gaps."""
@@ -109,12 +137,13 @@ class Projection:
         if freeze_trend:
             trend = trend.clip(upper=self.trend_T)
         for t in future.index:
-            # Same recursion as MAEBacktest.forecast, except that the trend is the (frozen) series above.
-            X = pd.Series({term: trend[t] if term == "trend" else bp.regressor(path, term)[t]
-                           for term in self.params.index})
+            # Same recursion as MAEBacktest.forecast, except that the trend is the (frozen) series above,
+            # also inside ect when lambda is split.
+            X = pd.Series({term: bp.regressor(path, term, self.weights, trend)[t] for term in self.params.index})
             path.loc[t, self.y] = path.loc[t - 1, self.y] + float(X @ self.params)
-        out = path.loc[future.index].assign(trend=trend[future.index] if "trend" in self.params else np.nan)
-        out["long_run_equilibrium"] = self.equilibrium(out[self.x], out["trend"].fillna(0.0))
+        out = path.loc[future.index].assign(trend=trend[future.index] if "trend" in self.det else np.nan)
+        levels = {v: bp.level(path, v).loc[future.index] for v in self.levels}  # partial sums run on from T
+        out["long_run_equilibrium"] = self.equilibrium(levels, out["trend"].fillna(0.0))
         keys = dict(zip(["bank_name"] + bp.SPEC_KEYS, [self.bank, *self.model]))
         out = out.assign(**keys, quarter=out.index.astype(str), h=np.arange(1, len(out) + 1))
         return out.rename(columns={self.y: "rate_pf_clean", self.x: "FFT"})[OUTPUT_COLUMNS].reset_index(drop=True)
@@ -128,6 +157,8 @@ def main(argv=None):
     parser.add_argument("--no-freeze-trend", action="store_true",
                         help="let a deterministic trend keep counting after T (diagnostic only)")
     parser.add_argument("-o", "--output", help="output CSV (default projection/output/<scenario>_projection.csv)")
+    parser.add_argument("--select", choices=bt.SELECT_CHOICES, default=bt.DEFAULT_SELECT,
+                        help=f"champion rule (default: {bt.DEFAULT_SELECT}; run MAE_Backtesting/run_backtest.py first)")
     parser.add_argument("--estimates", default=DEFAULTS["estimates"])
     parser.add_argument("--summary", default=DEFAULTS["summary"])
     parser.add_argument("--dependents", default=DEFAULTS["dependents"])
@@ -136,8 +167,7 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s", stream=sys.stdout)
 
     try:
-        estimates = bp.load_estimates(args.estimates)
-        summary = bp.read_csv(args.summary)
+        summary, estimates = bt.load_candidates(args.summary, args.estimates)
         source = bp.load_source(args.dependents, args.independents)
         scenario = read_scenario(args.scenario)
     except (FileNotFoundError, ValueError) as e:
@@ -152,16 +182,16 @@ def main(argv=None):
     frames, failed = [], []
     for bank in banks:
         try:
-            p = Projection.champion(bank, estimates, summary, source, args.model)
+            p = Projection.champion(bank, estimates, summary, source, args.model, select=args.select)
             out = p.project(scenario, freeze_trend=not args.no_freeze_trend)
-        except (ValueError, KeyError) as e:
+        except (ValueError, KeyError, FileNotFoundError) as e:
             bp.err(f"{bank}: {e}")
             failed.append(bank)
             continue
         frames.append(out)
         last = out.iloc[-1]
-        trend_note = (f"trend frozen at {p.trend_T:g} ({p.T})" if "trend" in p.params and not args.no_freeze_trend
-                      else "trend not frozen" if "trend" in p.params else "no trend")
+        trend_note = (f"trend frozen at {p.trend_T:g} ({p.T})" if "trend" in p.det and not args.no_freeze_trend
+                      else "trend not frozen" if "trend" in p.det else "no trend")
         log.info("%s | %s | T=%s y_T=%.3f -> %s y=%.3f, equilibrium %.3f; %s", bank, " | ".join(p.model),
                  p.T, p.history[p.y].iloc[-1], last.quarter, last.rate_pf_clean, last.long_run_equilibrium,
                  trend_note)
