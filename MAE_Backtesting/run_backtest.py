@@ -7,6 +7,13 @@ Usage (all arguments optional; defaults point at the files in the project folder
         [--asym-summary FILE] [--asym-estimates FILE] [--dependents FILE] [--independents FILE]
         [--y COLUMN] [--x COLUMN] [--group-column COLUMN] [--out-dir DIR]
 
+MAE-stability limits (issue #8): --limits auto (default) uses the newest approved frozen reference in
+MAE_Backtesting/reference/ (non-empty approved_by in its JSON) and otherwise the peer-derived limits;
+--limits peer forces peer limits; --limits-from FILE forces a reference. --freeze-reference
+--reference-trigger T writes the next reference_v<k> (h=1..12, never overwrites) and stops.
+--freeze-trend holds a deterministic trend at its origin value (default off);
+trend_freeze_comparison.py reports frozen vs unfrozen.
+
 --bank-name All (the default) runs every bank in "estimation result summary.csv". --model
 picks the specification for a single bank (an original or an asymmetric variant); without it
 the model comes from --select. See backtest.py for the method.
@@ -55,7 +62,7 @@ import pandas as pd
 import backtest as bt
 
 log = logging.getLogger("mae_backtest")
-SUMMARY_DEFAULT = bt.ROOT / "estimation result summary.csv"
+SUMMARY_DEFAULT = bt.CANDIDATE_FILES["summary"]
 
 
 def parse_horizon(text):
@@ -108,7 +115,7 @@ def peer_errors(summary, estimates, source, cache, args, horizon, exclude):
             model, _ = choose_model(args, summary, estimates, data, bank, cache, horizon)
             rows = bt.bank_rows(estimates, bank, args.group_column)
             peer = bt.MAEBacktest(bank, model, horizon, data, rows[bt.model_mask(rows, model)], args.y, args.x,
-                                  args.min_train)
+                                  args.min_train, args.freeze_trend)
             errors = cache.load(bank, model, args.first_origin, peer.data_hash(), peer.spec(), horizon)
         except Exception:
             errors = None
@@ -117,11 +124,62 @@ def peer_errors(summary, estimates, source, cache, args, horizon, exclude):
     return peers
 
 
+def resolve_limits(args):
+    """Path of the frozen reference to rate MAE stability against, or None for the peer-derived limits.
+
+    --limits-from FILE forces a reference; --limits peer forces the peer limits; otherwise (auto) the
+    newest reference with a non-empty approved_by in the reference dir is used, if there is one."""
+    if args.limits_from:
+        return Path(args.limits_from)
+    if args.limits == "peer":
+        return None
+    return bt.approved_reference(args.reference_dir)
+
+
+def freeze(args, horizon, banks, summary, estimates, source, cache):
+    """--freeze-reference: per-bank h = 1..REF_HORIZON mean MAE of the current champions -> reference_v<k>."""
+    if args.bank_name.strip().lower() != "all":
+        raise ValueError("--freeze-reference needs --bank-name All (the reference is the whole peer set)")
+    if args.model is not None:
+        raise ValueError("--freeze-reference uses each bank's champion; drop --model")
+    if not args.reference_trigger:
+        raise ValueError(f"--freeze-reference needs --reference-trigger ({', '.join(bt.REF_TRIGGERS)})")
+    tables, champions, hashes = {}, {}, {}
+    for bank in banks:
+        data = bt.bp.bank_data(source, args.group_column, bank, args.y, args.x)
+        model, _ = choose_model(args, summary, estimates, data, bank, cache, horizon)
+        rows = bt.bank_rows(estimates, bank, args.group_column)
+        full = bt.MAEBacktest(bank, model, bt.REF_HORIZON, data, rows[bt.model_mask(rows, model)], args.y, args.x,
+                              args.min_train)
+        tables[bank] = bt.summarise_errors(full.multi_errors(args.first_origin), bt.REF_HORIZON)
+        champions[bank], hashes[bank] = model, full.data_hash()
+        log.info("reference: %s %s", bank, " | ".join(model))
+    paths = bt.freeze_reference(tables, champions, hashes, args.first_origin, args.reference_trigger,
+                                args.reference_dir, horizon, args.reference_notes)
+    log.info("froze %s and %s; approved_by is empty - the model owner approves by editing the JSON",
+             paths[0].name, paths[1].name)
+
+
 def write_multi(multi, args, summary, estimates, source, cache, horizon, out_dir):
     tables = {bank: bt.summarise_errors(errors, horizon) for bank, (_, errors) in multi.items()}
-    peers = {bank: bt.summarise_errors(e, horizon)
-             for bank, e in peer_errors(summary, estimates, source, cache, args, horizon, multi).items()}
-    limits, assessment = bt.assess_multi({**peers, **tables}, horizon)
+    ref_csv = resolve_limits(args)
+    if ref_csv is None:
+        peers = {bank: bt.summarise_errors(e, horizon)
+                 for bank, e in peer_errors(summary, estimates, source, cache, args, horizon, multi).items()}
+        limits, assessment = bt.assess_multi({**peers, **tables}, horizon)
+    else:
+        ref, meta = bt.load_reference(ref_csv)
+        limits = bt.limits_from_reference(ref, horizon)
+        limits, assessment = bt.assess_multi(tables, horizon, limits)
+        log.info("limits: FIXED from %s (version %s, trigger %s, approved_by %r)", Path(ref_csv).name,
+                 meta["version"], meta["trigger"], meta["approved_by"])
+        if meta["first_origin"] != str(pd.Period(args.first_origin, "Q")):
+            log.warning("reference first origin %s differs from this run's %s", meta["first_origin"], args.first_origin)
+        for bank, (model, _) in multi.items():
+            if meta["champions"].get(bank) != " | ".join(model):
+                log.warning("%s: champion %s differs from the reference's %s - recalibration trigger "
+                            "'new-champion'", bank, " | ".join(model), meta["champions"].get(bank))
+        limits = limits.assign(source=f"reference_v{meta['version']}")
     assessment = assessment[assessment.bank_name.isin(list(multi))].copy()
     assessment.insert(1, "model", assessment.bank_name.map(lambda b: " | ".join(multi[b][0])))
     assessment.insert(2, "min_windows", assessment.bank_name.map(lambda b: int(tables[b].n_windows.min())))
@@ -169,6 +227,21 @@ def main(argv=None):
                         help="also run the many-origin backtest from this quarter, e.g. 2016Q1 "
                              "(default with --select out-of-sample: 2016Q1)")
     parser.add_argument("--no-cache", action="store_true", help="recompute the many-origin errors")
+    parser.add_argument("--freeze-trend", action="store_true",
+                        help="hold a deterministic trend at its origin value over each forecast window "
+                             "(as projection/project.py does); default off, no effect on no-trend models")
+    parser.add_argument("--limits", choices=("auto", "peer"), default="auto",
+                        help="MAE-stability limits: auto = the newest approved frozen reference if any, else "
+                             "peer-derived; peer = always peer-derived")
+    parser.add_argument("--limits-from", default=None, metavar="FILE",
+                        help="rate against the limits derived from this frozen reference_v<k>.csv (no refits)")
+    parser.add_argument("--reference-dir", default=bt.REFERENCE_DIR)
+    parser.add_argument("--freeze-reference", action="store_true",
+                        help="write the next reference_v<k>.csv/.json (h=1..12 per-bank mean MAE) and stop; "
+                             "never overwrites a version")
+    parser.add_argument("--reference-trigger", choices=bt.REF_TRIGGERS, default=None,
+                        help="documented recalibration trigger, recorded in the JSON (required to freeze)")
+    parser.add_argument("--reference-notes", default="")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", stream=sys.stdout)
 
@@ -194,6 +267,13 @@ def main(argv=None):
     stem = f"MAE_backtest_{horizon}Q"
     log.info("backtesting %d bank(s) over %dQ into %s (%s model choice)", len(banks), horizon, out_dir, args.select)
     cache = bt.ErrorCache(out_dir / "cache", per_model=oos)
+    if args.freeze_reference:
+        try:
+            freeze(args, horizon, banks, summary, estimates, source, cache)
+        except (FileExistsError, ValueError) as e:
+            log.error("%s", e)
+            return 1
+        return 0
     results, multi, scores, skipped = [], {}, [], 0
     for i, bank in enumerate(banks, start=1):
         try:
@@ -205,7 +285,8 @@ def main(argv=None):
             spec_rows = rows[bt.model_mask(rows, model)]
             if spec_rows.empty:
                 raise ValueError(f"model {' | '.join(model)} has no coefficients in the estimates")
-            backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train)
+            backtest = bt.MAEBacktest(bank, model, horizon, data, spec_rows, args.y, args.x, args.min_train,
+                                    args.freeze_trend)
             result = backtest.run()
             if args.first_origin:
                 multi[bank] = (model, multi_errors(backtest, cache, args.first_origin, horizon, args.no_cache))

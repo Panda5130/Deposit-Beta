@@ -47,7 +47,7 @@ import backtest as bt  # noqa: E402  (also puts ROOT on sys.path)
 import bank_plots as bp  # noqa: E402
 
 log = logging.getLogger("projection")
-DEFAULTS = {**bp.DEFAULTS, "summary": ROOT / "estimation result summary.csv"}
+DEFAULTS = {**bp.DEFAULTS, "summary": bp.CANDIDATE_FILES["summary"]}
 OUTPUT_COLUMNS = ["bank_name"] + bp.SPEC_KEYS + ["quarter", "h", "FFT", "rate_pf_clean", "trend",
                                                  "long_run_equilibrium"]
 

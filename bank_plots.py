@@ -34,8 +34,18 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 OUT_DIR_NAME = "Actuals vs Predictions"
+# Candidate models for every downstream consumer (backtests, projection, model_form, figures).
+# DET_PRUNED: the deterministic-term-pruned estimation outputs ("... (det pruned).csv", from
+# "ECM estimation.py" / "ECM asymmetric variants.py" with their default --prune-deterministics);
+# False points back at the original, unpruned outputs (which are kept unchanged).
+DET_PRUNED = True
+_TAG = " (det pruned)" if DET_PRUNED else ""
+CANDIDATE_FILES = {"summary": HERE / f"estimation result summary{_TAG}.csv",
+                   "estimates": HERE / f"ECM estimation results{_TAG}.csv",
+                   "asym_summary": HERE / f"asymmetric estimation result summary{_TAG}.csv",
+                   "asym_estimates": HERE / f"ECM asymmetric estimation results{_TAG}.csv"}
 DEFAULTS = {
-    "estimates": HERE / "ECM estimation results.csv",
+    "estimates": CANDIDATE_FILES["estimates"],
     "dependents": HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv",
     "independents": HERE / "FFT_2011-2026.csv",
     "y": "rate_pf_clean",

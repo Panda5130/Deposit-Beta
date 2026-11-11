@@ -7,22 +7,22 @@ First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),6Q,2024Q4,2025Q1,2026Q2,6,0.18698058763694983,0.4095192103560037
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),7Q,2024Q3,2024Q4,2026Q2,7,0.44978731743521955,0.6384719993159383
 First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),8Q,2024Q2,2024Q3,2026Q2,8,0.32543783694287387,0.4121646780900303
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.023434303650743837,0.005717732211062865
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.15991825744148835,0.19268757541904968
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.18040110371621587,0.24961448655070106
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.14256749551977504,0.17855910957705717
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.11039582167557054,0.13313071317630473
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.319375901984128,0.3408713864048123
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.4007545203317012,0.42331885572182465
-Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.44286302284745593,0.359224905468615
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),1Q,2026Q1,2026Q2,2026Q2,1,0.10221580245079931,0.008155630610091391
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),2Q,2025Q4,2026Q1,2026Q2,2,0.042198302159934364,0.10706437502589294
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),3Q,2025Q3,2025Q4,2026Q2,3,0.033151445381123835,0.10223196953149623
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),4Q,2025Q2,2025Q3,2026Q2,4,0.10172882425173979,0.08203868821011423
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),5Q,2025Q1,2025Q2,2026Q2,5,0.2528457167857997,0.09040633454332521
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),6Q,2024Q4,2025Q1,2026Q2,6,0.2902564788368513,0.16921218610481722
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),7Q,2024Q3,2024Q4,2026Q2,7,0.14620620205544052,0.22987716419607535
-Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),8Q,2024Q2,2024Q3,2026Q2,8,0.30633902293804605,0.16418502499995793
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),1Q,2026Q1,2026Q2,2026Q2,1,0.023434303650743837,0.005717732211062865
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),2Q,2025Q4,2026Q1,2026Q2,2,0.15991825744148835,0.19268757541904968
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),3Q,2025Q3,2025Q4,2026Q2,3,0.18040110371621587,0.24961448655070106
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),4Q,2025Q2,2025Q3,2026Q2,4,0.14256749551977504,0.17855910957705717
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),5Q,2025Q1,2025Q2,2026Q2,5,0.11039582167557054,0.13313071317630473
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),6Q,2024Q4,2025Q1,2026Q2,6,0.319375901984128,0.3408713864048123
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),7Q,2024Q3,2024Q4,2026Q2,7,0.4007545203317012,0.42331885572182465
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),8Q,2024Q2,2024Q3,2026Q2,8,0.44286302284745593,0.359224905468615
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),1Q,2026Q1,2026Q2,2026Q2,1,0.08719937257132182,0.008155630610091391
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),2Q,2025Q4,2026Q1,2026Q2,2,0.029158689748962074,0.10706437502589294
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),3Q,2025Q3,2025Q4,2026Q2,3,0.019948634576797852,0.10223196953149623
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),4Q,2025Q2,2025Q3,2026Q2,4,0.05047827513394104,0.08203868821011423
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),5Q,2025Q1,2025Q2,2026Q2,5,0.1943857745321115,0.09040633454332521
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),6Q,2024Q4,2025Q1,2026Q2,6,0.20422091426970979,0.16921218610481722
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),7Q,2024Q3,2024Q4,2026Q2,7,0.06880494101720805,0.22987716419607535
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),8Q,2024Q2,2024Q3,2026Q2,8,0.1348164444387747,0.16418502499995793
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.11506293027471903,0.022961841073428024
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.1023646392531844,0.10100174242566695
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.07023895296707454,0.13691062122605113
