@@ -1,0 +1,127 @@
+bank,scenario,h,passthrough
+First Horizon Bank,up_instant,4,0.3585078906294177
+First Horizon Bank,up_instant,8,0.4346687263618193
+First Horizon Bank,up_instant,12,0.46167544840025365
+First Horizon Bank,up_ramp,4,0.1705250377808405
+First Horizon Bank,up_ramp,8,0.412162730707187
+First Horizon Bank,up_ramp,12,0.45369479583784655
+First Horizon Bank,down_instant,4,0.35850789062941757
+First Horizon Bank,down_instant,8,0.4346687263618193
+First Horizon Bank,down_instant,12,0.46167544840025376
+First Horizon Bank,down_ramp,4,0.1705250377808406
+First Horizon Bank,down_ramp,8,0.4121627307071871
+First Horizon Bank,down_ramp,12,0.4536947958378466
+First Horizon Bank,asym_instant,4,1.1102230246251565e-16
+First Horizon Bank,asym_instant,8,0.0
+First Horizon Bank,asym_instant,12,-1.1102230246251565e-16
+First Horizon Bank,asym_ramp,4,-1.1102230246251565e-16
+First Horizon Bank,asym_ramp,8,-1.1102230246251565e-16
+First Horizon Bank,asym_ramp,12,-5.551115123125783e-17
+Glacier Bank,up_instant,4,0.10387702865793125
+Glacier Bank,up_instant,8,0.2732842620401371
+Glacier Bank,up_instant,12,0.2904490674051695
+Glacier Bank,up_ramp,4,0.036902158767710413
+Glacier Bank,up_ramp,8,0.22472735446065994
+Glacier Bank,up_ramp,12,0.2904390595048767
+Glacier Bank,down_instant,4,0.10387702865793125
+Glacier Bank,down_instant,8,0.27328426204013684
+Glacier Bank,down_instant,12,0.29044906740516924
+Glacier Bank,down_ramp,4,0.03690215876771036
+Glacier Bank,down_ramp,8,0.22472735446065994
+Glacier Bank,down_ramp,12,0.29043905950487653
+Glacier Bank,asym_instant,4,0.0
+Glacier Bank,asym_instant,8,2.7755575615628914e-16
+Glacier Bank,asym_instant,12,2.7755575615628914e-16
+Glacier Bank,asym_ramp,4,5.551115123125783e-17
+Glacier Bank,asym_ramp,8,0.0
+Glacier Bank,asym_ramp,12,1.6653345369377348e-16
+Huntington National Bank,up_instant,4,0.31624920750908525
+Huntington National Bank,up_instant,8,0.42998729967680016
+Huntington National Bank,up_instant,12,0.45494224046424636
+Huntington National Bank,up_ramp,4,0.18308312071533628
+Huntington National Bank,up_ramp,8,0.42839644140250277
+Huntington National Bank,up_ramp,12,0.4633188653870822
+Huntington National Bank,down_instant,4,0.3162492075090857
+Huntington National Bank,down_instant,8,0.42998729967680066
+Huntington National Bank,down_instant,12,0.4549422404642466
+Huntington National Bank,down_ramp,4,0.18308312071533617
+Huntington National Bank,down_ramp,8,0.4283964414025025
+Huntington National Bank,down_ramp,12,0.4633188653870817
+Huntington National Bank,asym_instant,4,-4.440892098500626e-16
+Huntington National Bank,asym_instant,8,-4.996003610813204e-16
+Huntington National Bank,asym_instant,12,-2.220446049250313e-16
+Huntington National Bank,asym_ramp,4,1.1102230246251565e-16
+Huntington National Bank,asym_ramp,8,2.7755575615628914e-16
+Huntington National Bank,asym_ramp,12,4.996003610813204e-16
+KeyBank National Association,up_instant,4,0.2742848720871728
+KeyBank National Association,up_instant,8,0.41261236959243897
+KeyBank National Association,up_instant,12,0.4099125538526349
+KeyBank National Association,up_ramp,4,0.10631893861743225
+KeyBank National Association,up_ramp,8,0.39244367528433644
+KeyBank National Association,up_ramp,12,0.4094757208774962
+KeyBank National Association,down_instant,4,0.3696088125143196
+KeyBank National Association,down_instant,8,0.3903877169164342
+KeyBank National Association,down_instant,12,0.39547353234026855
+KeyBank National Association,down_ramp,4,0.2416551814418073
+KeyBank National Association,down_ramp,8,0.38620889544432024
+KeyBank National Association,down_ramp,12,0.39381748045473575
+KeyBank National Association,asym_instant,4,-0.09532394042714681
+KeyBank National Association,asym_instant,8,0.022224652676004764
+KeyBank National Association,asym_instant,12,0.014439021512366368
+KeyBank National Association,asym_ramp,4,-0.13533624282437506
+KeyBank National Association,asym_ramp,8,0.006234779840016191
+KeyBank National Association,asym_ramp,12,0.015658240422760428
+Manufacturers and Traders Trust Company,up_instant,4,0.24879138724879257
+Manufacturers and Traders Trust Company,up_instant,8,0.3376535260338257
+Manufacturers and Traders Trust Company,up_instant,12,0.3749965757585534
+Manufacturers and Traders Trust Company,up_ramp,4,0.1565284765709165
+Manufacturers and Traders Trust Company,up_ramp,8,0.31027013324654573
+Manufacturers and Traders Trust Company,up_ramp,12,0.36348909447948063
+Manufacturers and Traders Trust Company,down_instant,4,0.24879138724879268
+Manufacturers and Traders Trust Company,down_instant,8,0.3376535260338257
+Manufacturers and Traders Trust Company,down_instant,12,0.37499657575855333
+Manufacturers and Traders Trust Company,down_ramp,4,0.15652847657091673
+Manufacturers and Traders Trust Company,down_ramp,8,0.31027013324654584
+Manufacturers and Traders Trust Company,down_ramp,12,0.36348909447948047
+Manufacturers and Traders Trust Company,asym_instant,4,-1.1102230246251565e-16
+Manufacturers and Traders Trust Company,asym_instant,8,0.0
+Manufacturers and Traders Trust Company,asym_instant,12,5.551115123125783e-17
+Manufacturers and Traders Trust Company,asym_ramp,4,-2.220446049250313e-16
+Manufacturers and Traders Trust Company,asym_ramp,8,-1.1102230246251565e-16
+Manufacturers and Traders Trust Company,asym_ramp,12,1.6653345369377348e-16
+Old National Bank,up_instant,4,0.2430603989859238
+Old National Bank,up_instant,8,0.3641495279816408
+Old National Bank,up_instant,12,0.3993312183594738
+Old National Bank,up_ramp,4,0.10054783543421286
+Old National Bank,up_ramp,8,0.33229052044096974
+Old National Bank,up_ramp,12,0.3889712351461275
+Old National Bank,down_instant,4,0.24306039898592358
+Old National Bank,down_instant,8,0.36414952798164074
+Old National Bank,down_instant,12,0.39933121835947355
+Old National Bank,down_ramp,4,0.10054783543421275
+Old National Bank,down_ramp,8,0.33229052044096996
+Old National Bank,down_ramp,12,0.38897123514612747
+Old National Bank,asym_instant,4,2.220446049250313e-16
+Old National Bank,asym_instant,8,5.551115123125783e-17
+Old National Bank,asym_instant,12,2.7755575615628914e-16
+Old National Bank,asym_ramp,4,1.1102230246251565e-16
+Old National Bank,asym_ramp,8,-2.220446049250313e-16
+Old National Bank,asym_ramp,12,5.551115123125783e-17
+SouthState Bank,up_instant,4,0.31805714003683905
+SouthState Bank,up_instant,8,0.4650255430982334
+SouthState Bank,up_instant,12,0.506229130922415
+SouthState Bank,up_ramp,4,0.19949890467532605
+SouthState Bank,up_ramp,8,0.41196692850094185
+SouthState Bank,up_ramp,12,0.49644695030820785
+SouthState Bank,down_instant,4,0.31805714003683944
+SouthState Bank,down_instant,8,0.46502554309823363
+SouthState Bank,down_instant,12,0.5062291309224147
+SouthState Bank,down_ramp,4,0.19949890467532616
+SouthState Bank,down_ramp,8,0.4119669285009421
+SouthState Bank,down_ramp,12,0.4964469503082077
+SouthState Bank,asym_instant,4,-3.885780586188048e-16
+SouthState Bank,asym_instant,8,-2.220446049250313e-16
+SouthState Bank,asym_instant,12,2.220446049250313e-16
+SouthState Bank,asym_ramp,4,-1.1102230246251565e-16
+SouthState Bank,asym_ramp,8,-2.220446049250313e-16
+SouthState Bank,asym_ramp,12,1.6653345369377348e-16
