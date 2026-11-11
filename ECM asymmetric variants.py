@@ -399,6 +399,25 @@ def build_variant(data, y, x, det, short_run, alpha=ALPHA):
     return Variant(res, det, levels, pairs, split_lambda, split_theta, rows)
 
 
+def build_pruned(data, y, x, name, det, short_run, alpha=ALPHA):
+    """build_variant, then the deterministic-term rule (deterministic_pruning.prune).
+
+    A dropped term rebuilds the variant from the full short-run pair set, so the pair pruning
+    and the +/- collapse run again with the remaining deterministic terms. The variant is
+    always kept and keeps its keys. Returns (Variant, log rows).
+    """
+    def refit(d):
+        return build_variant(data, y, x, list(d), short_run, alpha)
+
+    def pvalue_of(v, term):
+        row = est.dp.tested_row(name[1], name[3], term, lambda_split=is_tar(v.res))
+        rows = {r[0]: r[3] for r in estimate_rows(v.res, y, v.det, v.levels)}
+        return float(rows[row]), row
+
+    v, det, log = est.dp.prune(tuple(name), list(det), refit, pvalue_of, alpha, asymmetric=True)
+    return v, log
+
+
 def estimate_rows(res, y, det, levels):
     """[(term, coef, t, p)]: the fitted terms, then the long-run rows."""
     if is_tar(res):
@@ -437,14 +456,23 @@ def main(argv=None):
     parser.add_argument("--group-column", default="bank_name")
     parser.add_argument("--alpha", type=float, default=ALPHA)
     parser.add_argument("--out-dir", default=HERE)
+    parser.add_argument("--prune-deterministics", dest="prune_deterministics", action="store_true", default=True,
+                        help="deterministic-term rule of deterministic_pruning.py (default); writes '(det pruned)' files")
+    parser.add_argument("--no-prune-deterministics", dest="prune_deterministics", action="store_false",
+                        help="old behaviour: deterministic terms follow the survivor's trend type")
+    parser.add_argument("--pruning-log", default=HERE / est.dp.LOG_NAME)
     args = parser.parse_args(argv)
 
     out = Path(args.out_dir)
-    targets = [out / OUTPUT_NAME, out / SUMMARY_NAME, out / TESTS_NAME]
-    if any(t.name in PROTECTED for t in targets):
+    prune = args.prune_deterministics
+    names = [OUTPUT_NAME, SUMMARY_NAME, TESTS_NAME]
+    targets = [out / (est.pruned_name(n) if prune else n) for n in names]
+    protected = PROTECTED + (names + [est.pruned_name(n) for n in (est.OUTPUT_NAME, est.SUMMARY_NAME)]
+                             if prune else [])
+    if any(t.name in PROTECTED or (prune and t.name in names) for t in targets):
         ct.err("refusing to write over an original output")
         return 1
-    before = file_hashes(HERE)
+    before = file_hashes(HERE, protected)
     try:
         selected = pd.read_csv(args.input)
         source = ct.merge_sources(ct.read_table(args.dependents), ct.read_table(args.independents), None, None, "Q")
@@ -455,6 +483,7 @@ def main(argv=None):
     print(f"{len(specs)} screened ECM specification(s); {len(skipped)} screened test(s) are not ECMs")
 
     rows, summary, tests, data_cache = [], [], [], {}
+    built, order, log = {}, [], []
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         for keys, det, short_run in specs:
@@ -464,24 +493,39 @@ def main(argv=None):
                 if bank not in data_cache:
                     _, subset = next(ct.select_groups(source, {"group_column": args.group_column, "group_value": bank}))
                     data_cache[bank] = ct.prepare_data(subset, args.y, [args.x])
-                v = build_variant(data_cache[bank], args.y, args.x, det, short_run, args.alpha)
+                if prune:
+                    v, spec_log = build_pruned(data_cache[bank], args.y, args.x, name, det, short_run, args.alpha)
+                    final = name
+                    log += spec_log
+                else:
+                    v, final = build_variant(data_cache[bank], args.y, args.x, det, short_run, args.alpha), name
             except Exception as e:
                 ct.err(f"{' / '.join(map(str, name))}: {e}")
                 continue
-            for term, coef, t, p in estimate_rows(v.res, args.y, v.det, v.levels):
-                rows.append([*name, term, coef, t, p, True])
-            summary.append([*name, float(np.mean(np.abs(v.res.resid))), True])
-            diag = {"form": getattr(v.res, "form", "single lambda"), "converged": getattr(v.res, "converged", np.nan),
-                    "passes": getattr(v.res, "passes", np.nan), "n_ect_pos": getattr(v.res, "n_pos", np.nan),
-                    "n_ect_neg": getattr(v.res, "n_neg", np.nan), "lambda_split": v.split_lambda,
-                    "theta_split": v.split_theta,
-                    "pairs_start": " ".join(f"D.{a}.L{k}" for a, k in short_run),
-                    "pairs_kept": " ".join(f"D.{a}.L{k}" for a, k in v.pairs), "n_params": len(v.res.params)
-                    + (len(v.res.lr) if is_tar(v.res) else 0), "nobs": int(v.res.nobs)}
-            tests += [{**dict(zip(GROUP_KEYS, name)), **t, **diag} for t in v.tests]
+            order.append(name)
+            built[name] = (v, final, short_run)
+    if prune:
+        n_pruned = len({tuple(r[c] for c in est.dp.SPEC) for r in log if r["action"].startswith("dropped")})
+        print(f"deterministic pruning: {len(order)} variant(s), {n_pruned} with a term dropped; "
+              f"log -> {Path(args.pruning_log).name}")
+    for name0 in order:
+        v, name, short_run = built[name0]
+        if v is None:
+            continue
+        for term, coef, t, p in estimate_rows(v.res, args.y, v.det, v.levels):
+            rows.append([*name, term, coef, t, p, True])
+        summary.append([*name, float(np.mean(np.abs(v.res.resid))), True])
+        diag = {"form": getattr(v.res, "form", "single lambda"), "converged": getattr(v.res, "converged", np.nan),
+                "passes": getattr(v.res, "passes", np.nan), "n_ect_pos": getattr(v.res, "n_pos", np.nan),
+                "n_ect_neg": getattr(v.res, "n_neg", np.nan), "lambda_split": v.split_lambda,
+                "theta_split": v.split_theta,
+                "pairs_start": " ".join(f"D.{a}.L{k}" for a, k in short_run),
+                "pairs_kept": " ".join(f"D.{a}.L{k}" for a, k in v.pairs), "n_params": len(v.res.params)
+                + (len(v.res.lr) if is_tar(v.res) else 0), "nobs": int(v.res.nobs)}
+        tests += [{**dict(zip(GROUP_KEYS, name)), **t, **diag} for t in v.tests]
 
-    after = file_hashes(HERE)
-    changed = [n for n in PROTECTED if before[n] != after[n]]
+    after = file_hashes(HERE, protected)
+    changed = [n for n in protected if before[n] != after[n]]
     if changed:
         ct.err(f"original outputs changed during the run: {', '.join(changed)}")
         return 1
@@ -489,10 +533,12 @@ def main(argv=None):
         pd.DataFrame(rows, columns=OUTPUT_COLUMNS).to_csv(targets[0], index=False)
         pd.DataFrame(summary, columns=SUMMARY_COLUMNS).to_csv(targets[1], index=False)
         pd.DataFrame(tests).to_csv(targets[2], index=False)
+        if prune:
+            est.dp.write_log(args.pruning_log, log, asymmetric=True)
     except OSError as e:
         ct.err(f"could not write output: {e}")
         return 1
-    final = file_hashes(HERE)
+    final = file_hashes(HERE, protected)
     assert final == before, "original outputs changed"
     print(f"{len(summary)} variant(s) written to {targets[0].name}; originals unchanged (SHA-256 checked)")
     return 0 if rows else 2

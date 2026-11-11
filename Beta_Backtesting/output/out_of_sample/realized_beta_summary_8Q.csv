@@ -7,22 +7,22 @@ horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_th
 6Q,33,3,0.35483929762847,0.15957674851174836,0.7463333717799218,First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none)
 7Q,32,3,0.3320256908925203,0.15444662431348494,0.7585665245904525,First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none)
 8Q,32,2,0.38464613953537874,0.2511841060184341,0.7530875828001695,First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none)
-1Q,17,24,0.3787371684457967,0.17032528001981842,0.5263181008681725,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-2Q,26,14,0.3618778439027819,0.18480431968895503,0.5868687024488469,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-3Q,30,9,0.3449173387154153,0.17999572206565634,0.6074372301321529,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-4Q,33,5,0.3542027582154976,0.19666888289767306,0.6399109787839072,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-5Q,34,3,0.3363282126706439,0.15598448206442914,0.6379538732879416,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-6Q,33,3,0.2330354696593123,0.06395748220209257,0.6371506676223225,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-7Q,32,3,0.220909222764323,0.0643043161212722,0.6422745324210158,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-8Q,32,2,0.26185322640310005,0.13995125603374065,0.6395701567166484,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | n (none)"
-1Q,17,24,0.23688822807541965,0.1419330037016578,-0.11560838129295664,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-2Q,26,14,0.2110896020723925,0.1688440770148197,-0.17316658676410177,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-3Q,30,9,0.21186124603625475,0.21988678323184196,-0.19305040399498669,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-4Q,33,5,0.20755500005221927,0.2209371875203995,-0.25770713207661033,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-5Q,34,3,0.2168792329390265,0.15444636828370165,-0.24786020316207147,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-6Q,33,3,0.09415208197863989,-0.04271931960514513,-0.2566493015613848,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-7Q,32,3,0.08596379788289826,-0.01931656524604998,-0.2655205577847068,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
-8Q,32,2,0.1143607991916534,-0.02136426783983158,-0.26891704495468555,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+1Q,17,24,0.3787371684457967,0.17032528001981842,0.5263181008681725,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+2Q,26,14,0.3618778439027819,0.18480431968895503,0.5868687024488469,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+3Q,30,9,0.3449173387154153,0.17999572206565634,0.6074372301321529,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+4Q,33,5,0.3542027582154976,0.19666888289767306,0.6399109787839072,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+5Q,34,3,0.3363282126706439,0.15598448206442914,0.6379538732879416,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+6Q,33,3,0.2330354696593123,0.06395748220209257,0.6371506676223225,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+7Q,32,3,0.220909222764323,0.0643043161212722,0.6422745324210158,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+8Q,32,2,0.26185322640310005,0.13995125603374065,0.6395701567166484,Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)"
+1Q,17,24,0.23688822807541965,0.1561064135921919,0.11812046316311405,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+2Q,26,14,0.2110896020723925,0.191301403386405,0.10849839599527886,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+3Q,30,9,0.21186124603625475,0.2507136689008576,0.10278966336328053,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+4Q,33,5,0.20755500005221927,0.25783253240613135,0.07979707031846207,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+5Q,34,3,0.2168792329390265,0.22878331407626643,0.0819677138163413,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+6Q,33,3,0.09415208197863989,-0.2512871053785765,0.07741604345828045,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+7Q,32,3,0.08596379788289826,-0.19377110790542906,0.07056612350284899,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
+8Q,32,2,0.1143607991916534,-0.1995582227262812,0.06466361541095805,Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)
 1Q,17,24,0.3727843911817412,0.29137580358254955,0.37803230529212295,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)"
 2Q,26,14,0.3426455351929439,0.29474659478941434,0.3481694562921032,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)"
 3Q,30,9,0.3363485783235894,0.31300437909657386,0.3444136788837247,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)"

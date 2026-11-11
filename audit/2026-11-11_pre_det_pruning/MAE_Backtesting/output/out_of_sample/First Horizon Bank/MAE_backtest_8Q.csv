@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),1Q,2026Q1,2026Q2,2026Q2,1,0.1127835011783751,0.06425990662062131
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),2Q,2025Q4,2026Q1,2026Q2,2,0.07693211297381486,0.20737549197587313
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),3Q,2025Q3,2025Q4,2026Q2,3,0.21755512721852507,0.33981789576061977
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),4Q,2025Q2,2025Q3,2026Q2,4,0.14658644221344302,0.22035355716227323
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),5Q,2025Q1,2025Q2,2026Q2,5,0.11345832964877949,0.16610998751684475
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),6Q,2024Q4,2025Q1,2026Q2,6,0.18698058763694983,0.4095192103560037
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),7Q,2024Q3,2024Q4,2026Q2,7,0.44978731743521955,0.6384719993159383
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),8Q,2024Q2,2024Q3,2026Q2,8,0.32543783694287387,0.4121646780900303

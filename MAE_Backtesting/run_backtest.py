@@ -55,7 +55,7 @@ import pandas as pd
 import backtest as bt
 
 log = logging.getLogger("mae_backtest")
-SUMMARY_DEFAULT = bt.ROOT / "estimation result summary.csv"
+SUMMARY_DEFAULT = bt.CANDIDATE_FILES["summary"]
 
 
 def parse_horizon(text):

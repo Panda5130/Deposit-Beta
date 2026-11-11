@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.4199154116613273,0.34671582074951846,0.5562378472337829,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+2Q,26,14,0.40225796284920007,0.33874184395798507,0.6177521189672325,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+3Q,30,9,0.3846986674970015,0.3471922702661574,0.6043504892903723,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+4Q,33,5,0.39163256377449046,0.3467875094778287,0.599059643434865,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+5Q,34,3,0.3855850040712568,0.2881791359108211,0.5897038400927264,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+6Q,33,3,0.26573764195764205,0.21690074314313765,0.5712799033461725,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+7Q,32,3,0.24619207760627612,0.21195369036732586,0.5765082425766508,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)
+8Q,32,2,0.29731930459116057,0.26293100506347133,0.5750059123527668,KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms)

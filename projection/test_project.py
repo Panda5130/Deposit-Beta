@@ -49,8 +49,10 @@ def flat_target(p, lr, value=FLAT_FFT):
 
 
 def test_trend_champions_follow_their_trend_type(champions):
-    expected = {b for b, p in champions.items() if "trend" in bt.est.test_deterministics(p.model[2])}
-    assert set(trend_banks(champions)) == expected
+    # Deterministic pruning can drop an insignificant trend, never add one: a champion carries
+    # a trend only if its qualifying trend type has one.
+    allowed = {b for b, p in champions.items() if "trend" in bt.est.test_deterministics(p.model[2])}
+    assert set(trend_banks(champions)) <= allowed
 
 
 def test_flat_fft_converges_to_frozen_equilibrium(inputs, champions):

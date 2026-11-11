@@ -29,7 +29,8 @@ The limits are relative to the peer group: about a quarter of banks exceed green
 Candidates (load_candidates): the original models ("estimation result summary.csv",
 "ECM estimation results.csv") plus their asymmetric variants ("asymmetric estimation result
 summary.csv", "ECM asymmetric estimation results.csv", from "ECM asymmetric variants.py"),
-with an `asymmetric` flag.
+with an `asymmetric` flag. By default these are the deterministic-term-pruned outputs
+("... (det pruned).csv", bank_plots.CANDIDATE_FILES / DET_PRUNED); the unpruned originals are kept.
 
 Model choice: DEFAULT_SELECT (below) is the single place the default is set; every consumer
 (both backtests, docs/make_figures.py, projection/project.py, plotting_workflow.py,
@@ -91,8 +92,7 @@ SPEC_KEYS = bp.SPEC_KEYS
 DEFAULT_SELECT = "out-of-sample"  # the one place the default champion rule is set ("in-sample" is optional)
 SELECT_CHOICES = ("out-of-sample", "in-sample")
 FAMILY_RANK = {"asymmetric": 0, "EG": 1, "ARDL": 2, "Johansen": 3}
-CANDIDATE_FILES = {"summary": ROOT / "estimation result summary.csv", "estimates": ROOT / "ECM estimation results.csv",
-                   "asym_summary": ROOT / asym.SUMMARY_NAME, "asym_estimates": ROOT / asym.OUTPUT_NAME}
+CANDIDATE_FILES = bp.CANDIDATE_FILES  # the det-pruned estimation outputs (bank_plots.DET_PRUNED)
 TABLE_COLUMNS = ["horizon_q", "origin", "start", "end", "n_obs", "mae", "naive_mae"]
 GREEN_MEAN, AMBER_MEAN, RED_ANY, MIN_WIN_SHARE = 0.15, 0.25, 0.50, 0.75
 ASSESSMENT_COLUMNS = ["mean_mae", "max_mae", "naive_mean_mae", "horizons_beating_naive", "rating"]

@@ -8,10 +8,13 @@ Usage (all arguments optional; defaults point at the files in this folder):
 Steps (each a separate script in this folder, run with the same Python interpreter):
     1. ECM model selection.py  -> ECM model selection results.csv   (model p-value < alpha)
     2. ECM Param selection.py  -> ECM param selection results.csv   (coef p-value < alpha)
-    3. ECM estimation.py       -> ECM estimation results.csv        (one-step ECM per model)
-    4. ECM asymmetric variants.py -> ECM asymmetric estimation results.csv (one fully split
-       asymmetric variant per screened specification; reads steps 1-3' files and leaves them
-       unchanged, checked by SHA-256)
+    3. ECM estimation.py       -> ECM estimation results (det pruned).csv   (one-step ECM per
+       model, insignificant const/trend pruned after the screen; deterministic_pruning.py)
+    4. ECM asymmetric variants.py -> ECM asymmetric estimation results (det pruned).csv (one fully
+       split asymmetric variant per screened specification, same pruning; reads steps 1-3'
+       files and leaves them unchanged, checked by SHA-256)
+    Both steps 3 and 4 append their decisions to deterministic_pruning_log.csv. The unpruned
+    outputs ("ECM estimation results.csv", ...) are never written by this workflow.
 Stops at the first step that fails and exits with that step's return code.
 """
 
@@ -53,8 +56,8 @@ def main(argv=None):
     out = Path(args.out_dir)
     model_sel = out / "ECM model selection results.csv"
     param_sel = out / "ECM param selection results.csv"
-    estimates = out / "ECM estimation results.csv"
-    asymmetric = out / "ECM asymmetric estimation results.csv"
+    estimates = out / "ECM estimation results (det pruned).csv"
+    asymmetric = out / "ECM asymmetric estimation results (det pruned).csv"
     steps = [
         ("ECM model selection.py",
          ["--cointegration", args.cointegration, "--respecification", args.respecification,
@@ -62,10 +65,13 @@ def main(argv=None):
         ("ECM Param selection.py", ["-i", model_sel, "--alpha", args.alpha, "-o", param_sel], param_sel),
         ("ECM estimation.py",
          ["-i", param_sel, "--dependents", args.dependents, "--independents", args.independents,
-          "--y", args.y, "--x", *args.x, "--alpha", args.alpha, "-o", estimates], estimates),
+          "--y", args.y, "--x", *args.x, "--alpha", args.alpha, "-o", estimates,
+          "--summary", out / "estimation result summary (det pruned).csv",
+          "--pruning-log", out / "deterministic_pruning_log.csv"], estimates),
         ("ECM asymmetric variants.py",
          ["-i", model_sel, "--dependents", args.dependents, "--independents", args.independents,
-          "--y", args.y, "--x", args.x[0], "--alpha", args.alpha, "--out-dir", out], asymmetric),
+          "--y", args.y, "--x", args.x[0], "--alpha", args.alpha, "--out-dir", out,
+          "--pruning-log", out / "deterministic_pruning_log.csv"], asymmetric),
     ]
     for number, (script, step_args, output) in enumerate(steps, start=1):
         code = run_step(number, script, step_args, output)

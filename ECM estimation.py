@@ -32,6 +32,14 @@ behaviour of keeping only the step-2 survivors). Short-run lags are then pruned 
 specific in the one-step ECM itself: the least significant D.<v>.L<k> with p >= alpha is
 dropped and the model refit until every short-run term is significant (--no-refine skips this).
 
+Deterministic-term pruning (default; --no-prune-deterministics restores the old behaviour):
+after the short-run pruning the trend, then the constant, is tested at alpha; an
+insignificant term is dropped and the model refit and kept (no cointegration re-check; the
+model keeps its qualifying trend type label). See deterministic_pruning.py for the rule. The pruned results go to new files,
+"ECM estimation results (det pruned).csv" and "estimation result summary (det pruned).csv";
+the original estimation outputs are never written in this mode. Every decision is logged to
+deterministic_pruning_log.csv.
+
 Output columns: bank_name, test_name, IC/selected lag, trend type, term, coef, t_stat, p_value
 (trend type is included because IC/selected lag alone does not identify a model).
 
@@ -71,6 +79,17 @@ def load_module(path, name):
 
 
 ct = load_module(HERE / "Co-integration Tests.py", "cointegration_tests")
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import deterministic_pruning as dp  # noqa: E402
+
+DET_PRUNED_TAG = " (det pruned)"
+
+
+def pruned_name(name):
+    """'X.csv' -> 'X (det pruned).csv': where the pruned outputs go (the originals are kept)."""
+    stem, dot, ext = str(name).rpartition(".")
+    return f"{stem}{DET_PRUNED_TAG}{dot}{ext}"
 
 
 def ecm_spec(test_name, terms, y, xs):
@@ -152,6 +171,37 @@ def fit_one_step(data, y, det, levels, short_run):
     return sm.OLS(frame["dy"], frame[X.columns]).fit()
 
 
+def det_pvalue(res, y, det, levels, term, keys):
+    """(p, row name) for a deterministic term, using the row deterministic_pruning picks."""
+    row = dp.tested_row(keys[1], keys[3], term)
+    if row.startswith("LR: "):
+        lr = {r[0]: r[3] for r in long_run_rows(res, y, det, levels)}
+        return float(lr[row]), row
+    return float(res.pvalues[row]), row
+
+
+def fit_pruned(data, y, keys, det, levels, short_run, alpha, no_refine=False):
+    """Short-run pruning, then the deterministic-term rule (deterministic_pruning.prune).
+
+    Returns (res, remaining det, final short_run, log rows). Each refit after a dropped
+    deterministic term starts again from the step-2 short-run set and prunes it again.
+    """
+    state = {}
+
+    def refit(d):
+        if no_refine:
+            state["res"], state["sr"] = fit_one_step(data, y, d, levels, short_run), list(short_run)
+        else:
+            state["res"], state["sr"] = refine(data, y, d, levels, short_run, alpha)
+        return state["res"]
+
+    def pvalue_of(res, term):
+        return det_pvalue(res, y, [d for d in ("const", "trend") if d in res.params.index], levels, term, keys)
+
+    res, det, log = dp.prune(tuple(keys), list(det), refit, pvalue_of, alpha)
+    return res, det, state["sr"], log
+
+
 def long_run_rows(res, y, det, levels):
     """Long-run coefficients -b/lambda for each deterministic term and x, by the delta method."""
     lam_name = f"{y}.L1"
@@ -176,13 +226,28 @@ def main(argv=None):
     parser.add_argument("--y", default="rate_pf_clean", help="dependent column")
     parser.add_argument("--x", nargs="+", default=["FFT"], help="regressor column(s)")
     parser.add_argument("--group-column", default="bank_name")
-    parser.add_argument("-o", "--output", default=HERE / OUTPUT_NAME)
-    parser.add_argument("--summary", default=HERE / SUMMARY_NAME, help="per-model MAE CSV")
+    parser.add_argument("-o", "--output", default=None,
+                        help=f"default '{pruned_name(OUTPUT_NAME)}' (pruning) or '{OUTPUT_NAME}' (--no-prune-deterministics)")
+    parser.add_argument("--summary", default=None, help="per-model MAE CSV (default named as --output)")
+    parser.add_argument("--prune-deterministics", dest="prune_deterministics", action="store_true", default=True,
+                        help="after short-run pruning drop trend, then const, at p >= alpha; model kept (default)")
+    parser.add_argument("--no-prune-deterministics", dest="prune_deterministics", action="store_false",
+                        help="old behaviour: deterministic terms follow the test case and are never pruned")
+    parser.add_argument("--pruning-log", default=HERE / dp.LOG_NAME)
     parser.add_argument("--alpha", type=float, default=0.05, help="significance level for --refine")
     parser.add_argument("--screen-deterministics", action="store_true",
                         help="keep only deterministic terms that survived step 2 (old behaviour)")
     parser.add_argument("--no-refine", action="store_true", help="do not prune insignificant short-run lags")
     args = parser.parse_args(argv)
+    prune = args.prune_deterministics and not args.screen_deterministics
+    if args.output is None:
+        args.output = HERE / (pruned_name(OUTPUT_NAME) if prune else OUTPUT_NAME)
+    if args.summary is None:
+        args.summary = HERE / (pruned_name(SUMMARY_NAME) if prune else SUMMARY_NAME)
+    if prune and {Path(args.output).resolve(), Path(args.summary).resolve()} & {
+            (HERE / OUTPUT_NAME).resolve(), (HERE / SUMMARY_NAME).resolve()}:
+        ct.err("refusing to write pruned results over the original estimation outputs")
+        return 1
 
     try:
         if not Path(args.input).is_file():
@@ -199,6 +264,7 @@ def main(argv=None):
         return 1
 
     rows, summary, data_cache = [], [], {}
+    fits, order, log = {}, [], []
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         for keys, group in selected.groupby(GROUP_KEYS, sort=False):
@@ -212,17 +278,38 @@ def main(argv=None):
                 det, levels, short_run = ecm_spec(test_name, group["term"].dropna(), args.y, args.x)
                 if not args.screen_deterministics:
                     det = test_deterministics(keys[3])
-                if args.no_refine:
-                    res = fit_one_step(data_cache[bank], args.y, det, levels, short_run)
+                if prune:
+                    res, det, short_run, spec_log = fit_pruned(
+                        data_cache[bank], args.y, keys, det, levels, short_run, args.alpha, args.no_refine)
+                    final = tuple(keys)
+                    log += spec_log
+                elif args.no_refine:
+                    res, final = fit_one_step(data_cache[bank], args.y, det, levels, short_run), tuple(keys)
                 else:
                     res, short_run = refine(data_cache[bank], args.y, det, levels, short_run, args.alpha)
+                    final = tuple(keys)
             except Exception as e:
                 ct.err(f"{label}: {e}")
                 continue
-            fitted = list(zip(res.params.index, res.params, res.tvalues, res.pvalues))
-            for term, coef, t, p in fitted + long_run_rows(res, args.y, det, levels):
-                rows.append([*keys, term, coef, t, p])
-            summary.append([*keys, float(np.mean(np.abs(res.resid)))])
+            order.append(tuple(keys))
+            fits[tuple(keys)] = (res, final, det, levels)
+    for k in order:
+        res, final, det, levels = fits[k]
+        if res is None:
+            continue
+        fitted = list(zip(res.params.index, res.params, res.tvalues, res.pvalues))
+        for term, coef, t, p in fitted + long_run_rows(res, args.y, det, levels):
+            rows.append([*final, term, coef, t, p])
+        summary.append([*final, float(np.mean(np.abs(res.resid)))])
+    if prune:
+        n_pruned = len({tuple(r[c] for c in dp.SPEC) for r in log if r["action"].startswith("dropped")})
+        print(f"deterministic pruning: {len(order)} model(s), {n_pruned} with a term dropped; "
+              f"log -> {Path(args.pruning_log).name}")
+        try:
+            dp.write_log(args.pruning_log, log, asymmetric=False)
+        except OSError as e:
+            ct.err(f"could not write the pruning log: {e}")
+            return 1
 
     try:
         pd.DataFrame(rows, columns=OUTPUT_COLUMNS).to_csv(args.output, index=False)

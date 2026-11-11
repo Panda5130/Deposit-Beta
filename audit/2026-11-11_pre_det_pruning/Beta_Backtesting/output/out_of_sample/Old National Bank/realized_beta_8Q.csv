@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.389319461484821,0.23276205702168742,0.41061262334523835,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+2Q,26,14,0.3572332975775137,0.26435748228217004,0.4556540524586443,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+3Q,30,9,0.3456212138232232,0.28967912372779053,0.472891007455773,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+4Q,33,5,0.3529263682265782,0.2744803627288732,0.4932513142948691,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+5Q,34,3,0.3502520833270228,0.1912266274448192,0.48781011343305175,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+6Q,33,3,0.20399646049528508,0.07622140440528886,0.47964464976695476,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+7Q,32,3,0.1939957732508985,0.05522932059146561,0.48479741681279565,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)
+8Q,32,2,0.243481417630402,0.08904413410215706,0.4614808456210826,Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none)

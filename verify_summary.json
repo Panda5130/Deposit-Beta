@@ -1,0 +1,48 @@
+{
+ "when": "2026-11-11T11:49:28",
+ "all_pass": true,
+ "n_checks": 8,
+ "n_failed": 0,
+ "checks": [
+  {
+   "check": "pytest",
+   "pass": true,
+   "detail": "38 passed in 20.25s"
+  },
+  {
+   "check": "audit_manifest",
+   "pass": true,
+   "detail": "206 audit copies, 0 changed"
+  },
+  {
+   "check": "protected_originals_unchanged",
+   "pass": true,
+   "detail": "9 originals vs audit copy, 0 differ/missing"
+  },
+  {
+   "check": "det_terms_significant",
+   "pass": true,
+   "detail": "156 models, 119 deterministic terms, 0 violate"
+  },
+  {
+   "check": "models_kept_and_passed_screen",
+   "pass": true,
+   "detail": "156 surviving models, 0 not in the screen"
+  },
+  {
+   "check": "unaffected_rows_carried_over",
+   "pass": true,
+   "detail": "32 pruned models excluded; unpruned rows absent from originals: 0; max |diff| 0.0e+00"
+  },
+  {
+   "check": "pruning_log_complete",
+   "pass": true,
+   "detail": "158 log rows; original models with deterministic terms not logged: 0"
+  },
+  {
+   "check": "oos_champions_are_candidates",
+   "pass": true,
+   "detail": "7 banks; champion not in candidates: 0"
+  }
+ ]
+}
