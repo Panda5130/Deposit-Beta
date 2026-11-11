@@ -30,7 +30,7 @@ import pandas as pd
 
 import bank_plots as bp
 
-ASYM_ESTIMATES = Path(__file__).resolve().parent / "ECM asymmetric estimation results.csv"
+ASYM_ESTIMATES = bp.CANDIDATE_FILES["asym_estimates"]  # det-pruned asymmetric variants (bank_plots.DET_PRUNED)
 
 log = logging.getLogger("plotting_workflow")
 GAPS_NAME = "_gaps.txt"

@@ -40,13 +40,13 @@ def check_base_equals_flat():
 
 
 def check_convergence():
-    w = _wide(rs.H)
+    w = _wide(rs.H + 1)  # end of the horizon: k = 12 after the shock
     gaps = pd.concat([(w["up_instant"] - w["up_ramp"]).abs(), (w["down_instant"] - w["down_ramp"]).abs()], axis=1).max(axis=1)
     p = projections()
-    eq = p[(p.h == rs.H) & p.scenario.isin(["up_instant", "up_ramp"])]
+    eq = p[(p.h == rs.H + 1) & p.scenario.isin(["up_instant", "up_ramp"])]
     eqgap = eq.groupby("bank")["long_run_equilibrium"].apply(lambda s: s.max() - s.min()).max()
     ok = bool((gaps < CONV_TOL).all() and eqgap < 1e-9)
-    return "instant/ramp converge by h=12", ok, f"max rate gap {gaps.max():.4f} ({gaps.idxmax()}); equilibrium gap {eqgap:.1e}; tol {CONV_TOL}"
+    return "instant/ramp converge by k=12 (2029Q3)", ok, f"max rate gap {gaps.max():.4f} ({gaps.idxmax()}); equilibrium gap {eqgap:.1e}; tol {CONV_TOL}"
 
 
 def check_symmetry():

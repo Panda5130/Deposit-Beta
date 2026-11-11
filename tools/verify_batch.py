@@ -54,7 +54,8 @@ def manifest(folder=AUDIT_DIR):
 @check("pytest")
 def check_pytest():
     cmd = [sys.executable, "-m", "pytest", "ecm_tests", "projection/test_project.py",
-           "data_build/test_build_fft.py", "-q", "--tb=line", "-p", "no:cacheprovider"]
+           "data_build/test_build_fft.py",
+           "projection/test_scenarios.py", "MAE_Backtesting/test_backtest_reference.py", "-q", "--tb=line", "-p", "no:cacheprovider"]
     out = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     lines = [l for l in out.stdout.strip().splitlines() if l.strip()]
     last = lines[-1] if lines else out.stderr.strip()[-200:]
@@ -168,6 +169,37 @@ def check_champions():
             bad.append(f"{bank.split()[0]}: {str(e)[:60]}")
     return not bad, f"{summary['bank_name'].nunique()} banks; champion not in candidates: {len(bad)}" + (
         f" ({bad[0]})" if bad else "")
+
+
+@check("doc_figure_links_resolve")
+def check_doc_links():
+    from urllib.parse import unquote
+    doc = ROOT / "WIP Regional Banking Deposit Beta Analyses.md"
+    links = re.findall(r"!\[[^\]]*\]\(<?([^)>]+)>?\)", doc.read_text(encoding="utf-8"))
+    missing = [l for l in links if not (ROOT / unquote(l.strip())).is_file()]
+    return not missing, f"{len(links)} image links; missing: {len(missing)}" + (f" ({missing[0]})" if missing else "")
+
+
+def _register_module(module_name):
+    """Register a sibling check module whose CHECKS entries return (label, ok, detail)."""
+    import importlib
+    if str(Path(__file__).resolve().parent) not in sys.path:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        mod = importlib.import_module(module_name)
+    except Exception as e:  # noqa: BLE001  (an import failure is reported as a failed check)
+        CHECKS[f"{module_name}:import"] = lambda e=e: (False, f"{type(e).__name__}: {str(e)[:150]}")
+        return
+    prefix = module_name.replace("verify_batch_checks_", "")
+    for fn in mod.CHECKS:
+        def run(fn=fn):
+            label, ok, detail = fn()
+            return ok, f"{label}: {detail}"
+        CHECKS[f"{prefix}:{fn.__name__.removeprefix('check_')}"] = run
+
+
+_register_module("verify_batch_checks_backtest")    # reference limits, trend freeze (issue #8)
+_register_module("verify_batch_checks_scenarios")   # FFT +/-200 bp scenarios
 
 
 # Runner ----------------------------------------------------------------------------------------

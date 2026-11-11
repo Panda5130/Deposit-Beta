@@ -3,3 +3,4 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
+MAE_Backtesting/output/out_of_sample/cache_trend_freeze/
