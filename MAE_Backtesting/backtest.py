@@ -60,6 +60,7 @@ run_backtest.py is the command-line driver; this module holds the reusable piece
 
 import hashlib
 import importlib.util
+import json
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -340,8 +341,9 @@ class MAEBacktest:
     """Rolling-origin backtest of one bank's model over the last `horizon` quarters."""
 
     def __init__(self, bank, model, horizon, data, spec_rows, y=bp.DEFAULTS["y"], x=bp.DEFAULTS["x"],
-                 min_train=20):
+                 min_train=20, freeze_trend=False):
         self.bank, self.model, self.horizon = bank, tuple(model), int(horizon)
+        self.freeze_trend = freeze_trend  # hold a deterministic trend at its origin value (issue #7 projection rule)
         self.data, self.y, self.x, self.min_train = data, y, x, min_train
         self.terms = model_terms(spec_rows)
         self.det, self.levels, self.short_run = spec_from_terms(self.terms, y, x)
@@ -363,9 +365,13 @@ class MAEBacktest:
         from the predicted path at every step (bank_plots.regressor)."""
         path = self.data.copy()
         weights = getattr(res, "ect_weights", None)
+        trend = None  # None: the trend keeps counting from the start (regressor() default)
+        if self.freeze_trend and "trend" in self.det:
+            # mirror projection/project.py: clip the trend at its value at the origin (trend_T there)
+            trend = bp.regressor(path, "trend").clip(upper=float(bp.regressor(path.loc[:origin], "trend").iloc[-1]))
         for t in path.index[path.index > origin]:
-            # regressor() rebuilds each term over the whole path; trend keeps counting from the start.
-            X = pd.concat({term: bp.regressor(path, term, weights).loc[[t]] for term in res.params.index}, axis=1)
+            # regressor() rebuilds each term over the whole path.
+            X = pd.concat({term: bp.regressor(path, term, weights, trend).loc[[t]] for term in res.params.index}, axis=1)
             dy_hat = float(X.iloc[0] @ res.params)
             path.loc[t, self.y] = path[self.y].shift(1).loc[t] + dy_hat
         window = self.data.index > origin
@@ -408,7 +414,7 @@ class MAEBacktest:
 
     def spec(self):
         """The fitted terms, so a cache entry goes stale when a model keeps its label but changes terms."""
-        return " + ".join(sorted(self.terms))
+        return " + ".join(sorted(self.terms)) + (" [freeze-trend]" if self.freeze_trend and "trend" in self.det else "")
 
     def mae(self):
         t = self.run().table
@@ -498,12 +504,9 @@ def horizon_bands(horizon):
     return [(f"{a}Q" if a == b else f"{a}-{b}Q", a, b) for a, b in edges if a <= b]
 
 
-def assess_multi(tables, horizon):
-    """Horizon-aware ratings for {bank: summarise_errors table} -> (limits, assessment).
-
-    The band limits use every bank in `tables` (the peers); with fewer than MIN_PEERS banks
-    only the skill-ratio test is applied.
-    """
+def banded(tables, horizon):
+    """(t, per_band, bands): the per-bank h<=horizon rows with their band and skill ratio, and the
+    per-(band, bank) avg / max MAE. Shared by the peer limits and the frozen-reference limits."""
     t = pd.concat([tab.assign(bank_name=bank) for bank, tab in tables.items()], ignore_index=True)
     t["h"] = t["horizon_q"].str.rstrip("Q").astype(int)
     t = t[t.h <= horizon].copy()
@@ -511,13 +514,32 @@ def assess_multi(tables, horizon):
     t["band"] = pd.cut(t.h, [0] + [b for _, _, b in bands], labels=[lab for lab, _, _ in bands]).astype(str)
     t["skill"] = t["mae"] / t["naive_mae"]
     per_band = t.groupby(["band", "bank_name"])["mae"].agg(avg="mean", max="max").reset_index()
-    n_banks = t.bank_name.nunique()
+    return t, per_band, bands
+
+
+def band_limits(per_band, bands, n_banks):
+    """Green / red limits per band: the peer 75th percentile of avg / max MAE, rounded up to STEP."""
     q = per_band.groupby("band")[["avg", "max"]].quantile(0.75)
     green = np.round(up(q["avg"]), 2)
     limits = pd.DataFrame({"band": q.index, "green": green,
                            "red": np.round(np.maximum(up(q["max"]), green + STEP), 2), "n_banks": n_banks})
-    limits = pd.DataFrame(bands, columns=["band", "h_from", "h_to"]).merge(limits, on="band")[LIMIT_COLUMNS]
-    use_absolute = n_banks >= MIN_PEERS
+    return pd.DataFrame(bands, columns=["band", "h_from", "h_to"]).merge(limits, on="band")[LIMIT_COLUMNS]
+
+
+def assess_multi(tables, horizon, limits=None):
+    """Horizon-aware ratings for {bank: summarise_errors table} -> (limits, assessment).
+
+    By default the band limits use every bank in `tables` (the peers); with fewer than MIN_PEERS
+    banks only the skill-ratio test is applied. With `limits` (limits_from_reference) the banks
+    are rated against those fixed limits instead, whatever the number of banks in `tables`.
+    """
+    t, per_band, bands = banded(tables, horizon)
+    n_banks = t.bank_name.nunique()
+    if limits is None:
+        limits = band_limits(per_band, bands, n_banks)
+        use_absolute = n_banks >= MIN_PEERS
+    else:
+        use_absolute = int(limits.n_banks.iloc[0]) >= MIN_PEERS
     lim = limits.set_index("band")
     order = ["Green", "Amber", "Red"]
 
@@ -549,6 +571,94 @@ def assess_multi(tables, horizon):
                     "skill_rating": skill_rating, "rating": final, "reason": "; ".join(reasons)})
         rows.append(row)
     return limits, pd.DataFrame(rows)
+
+
+# ---- Frozen reference limits (issue #8) -------------------------------------------------------
+# MAE stability is rated against FIXED limits from an approved reference run. The reference is the
+# per-bank mean h-step MAE at h = 1..REF_HORIZON of the champions; the band limits for any
+# N <= REF_HORIZON are re-derived from that table with the same code as the peer limits (no refits).
+# Recalibrate (new version, never an overwrite) only on a documented trigger.
+REFERENCE_DIR = HERE / "reference"
+REF_HORIZON = 12
+REF_TRIGGERS = ("initial", "new-champion", "data-restatement", "annual-review")
+REF_COLUMNS = ["bank_name", "model", "h", "band", "mae", "naive_mae", "n_windows"]
+
+
+def reference_paths(directory, k):
+    return Path(directory) / f"reference_v{k}.csv", Path(directory) / f"reference_v{k}.json"
+
+
+def reference_versions(directory):
+    d = Path(directory)
+    return sorted(int(p.stem.split("_v")[1]) for p in d.glob("reference_v*.json")
+                  if p.stem.split("_v")[1].isdigit()) if d.exists() else []
+
+
+def file_sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def freeze_reference(tables, champions, data_hashes, first_origin, trigger, directory=REFERENCE_DIR,
+                     selection_horizon=8, notes=""):
+    """Write reference_v<k>.csv/.json for the next free version k; returns (csv_path, json_path).
+
+    tables: {bank: summarise_errors table up to REF_HORIZON}; champions: {bank: model tuple};
+    data_hashes: {bank: MAEBacktest.data_hash()}. Existing versions are never touched: the files
+    are opened exclusively, so a clash raises FileExistsError instead of overwriting.
+    """
+    if trigger not in REF_TRIGGERS:
+        raise ValueError(f"trigger must be one of {', '.join(REF_TRIGGERS)}; got {trigger!r}")
+    for bank, tab in tables.items():
+        hs = sorted(tab["horizon_q"].str.rstrip("Q").astype(int))
+        if hs != list(range(1, REF_HORIZON + 1)):
+            raise ValueError(f"{bank}: reference needs horizons 1..{REF_HORIZON}, got {hs}")
+    t, per_band, bands = banded(tables, REF_HORIZON)
+    ref = t.assign(model=t.bank_name.map(lambda b: " | ".join(champions[b])))[REF_COLUMNS]
+    Path(directory).mkdir(parents=True, exist_ok=True)
+    k = (reference_versions(directory) or [0])[-1] + 1
+    csv_path, json_path = reference_paths(directory, k)
+    with open(csv_path, "x", newline="") as f:
+        ref.to_csv(f, index=False)
+    limits = band_limits(per_band, bands, len(tables))
+    meta = {"version": k, "created": pd.Timestamp.today().strftime("%Y-%m-%d"), "approved_by": "",
+            "trigger": trigger, "notes": notes, "max_horizon": REF_HORIZON, "first_origin": str(pd.Period(first_origin, "Q")),
+            "selection_horizon": int(selection_horizon),
+            "champions": {b: " | ".join(m) for b, m in champions.items()},
+            "data_hash": hashlib.sha256(json.dumps(data_hashes, sort_keys=True).encode()).hexdigest()[:16],
+            "data_hashes": data_hashes, "csv_sha256": file_sha256(csv_path),
+            "limits_12Q": limits.to_dict("records")}
+    with open(json_path, "x") as f:
+        json.dump(meta, f, indent=2)
+    return csv_path, json_path
+
+
+def load_reference(csv_path):
+    """(table, meta): the frozen table and its JSON; raises if the CSV no longer matches its hash."""
+    csv_path = Path(csv_path)
+    json_path = csv_path.with_suffix(".json")
+    meta = json.loads(json_path.read_text())
+    if file_sha256(csv_path) != meta["csv_sha256"]:
+        raise ValueError(f"{csv_path.name} was modified after it was frozen (hash mismatch); "
+                         "frozen references are immutable - freeze a new version")
+    return pd.read_csv(csv_path), meta
+
+
+def limits_from_reference(table, horizon):
+    """Band limits for any horizon <= REF_HORIZON from the frozen table (same rule as the peer limits)."""
+    if horizon > int(table.h.max()):
+        raise ValueError(f"reference covers h <= {int(table.h.max())}, asked for {horizon}")
+    tables = {b: g.assign(horizon_q=g.h.astype(str) + "Q") for b, g in table.groupby("bank_name")}
+    _, per_band, bands = banded(tables, horizon)
+    return band_limits(per_band, bands, len(tables))
+
+
+def approved_reference(directory=REFERENCE_DIR):
+    """Newest reference_v<k>.csv whose JSON has a non-empty approved_by, else None."""
+    for k in reversed(reference_versions(directory)):
+        csv_path, json_path = reference_paths(directory, k)
+        if json.loads(json_path.read_text()).get("approved_by", "").strip():
+            return csv_path
+    return None
 
 
 def plot_mae_bars(result, path, y=bp.DEFAULTS["y"]):
