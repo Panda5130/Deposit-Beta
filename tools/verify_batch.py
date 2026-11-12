@@ -156,6 +156,25 @@ def check_log():
     return missing == 0, f"{len(log)} log rows; original models with deterministic terms not logged: {missing}"
 
 
+@check("fft_end_equals_bank_end")
+def check_fft_end():
+    import bank_plots as bp
+    bank = bp.to_periods(pd.read_csv(ROOT / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv",
+                                     usecols=["quarter"])["quarter"]).max()
+    bank8 = bp.to_periods(pd.read_csv(ROOT / "consolidated_fdic_quarterly_financials_2008-2026_merger_adjusted.csv",
+                                      usecols=["quarter"])["quarter"]).max()
+    ends = {n: bp.to_periods(pd.read_csv(ROOT / n).iloc[:, 0]).max() for n in ("FFT_2011-2026.csv", "FFT_2008-2026.csv")}
+    try:
+        for n, e in ends.items():
+            bp.check_series_end(bank if "2011" in n else bank8, e, "bank data", n)
+        scen = pd.read_csv(ROOT / "projection" / "scenarios" / "scn_base.csv").iloc[:, 0]
+        first = bp.to_periods(scen).min()
+        assert first == bank, f"scenarios start from {first}, expected the last actual {bank}"
+    except (ValueError, AssertionError) as e:
+        return False, str(e)
+    return True, f"FFT ends {ends['FFT_2011-2026.csv']} = bank data end {bank}; scenarios start from it"
+
+
 @check("oos_champions_are_candidates")
 def check_champions():
     sys.path.insert(0, str(ROOT / "MAE_Backtesting"))

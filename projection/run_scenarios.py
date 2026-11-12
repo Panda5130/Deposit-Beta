@@ -4,9 +4,9 @@ Usage: python projection/run_scenarios.py [--banks All|NAME ...] [--select SEL] 
 Scenario CSVs (projection/scenarios/scn_*.csv) are generated here from the last actual FFT if missing
 or if --regenerate is given. Outputs: projection/output/scenarios/scenario_projections.csv,
 scenario_passthrough.csv and PNG charts in docs/figures/scenarios/.
-Timing: the deposit data end at T = 2026Q2 and the FFT file holds the actual 2026Q3 value, so projection
-step h = 1 is 2026Q3 at the actual FFT in every scenario and the shock starts at h = 2 (2026Q4).
-Horizons are reported as k = quarters after the shock = h - 1 (k = 0 is 2026Q3; k = 12 is 2029Q3).
+Timing: the deposit data and the FFT file both end at T = 2026Q2 (guarded: the FFT end must equal the
+bank-data end). Every scenario starts from the last actual FFT (3.6333) and the shock starts at h = 1
+(2026Q3). Horizons are k = h = quarters after the last actual (k = 12 is 2029Q2).
 Pass-through at k = (rate_k - rate_base_k) / full shock (+/-2.00); asymmetry = pass-through(up) -
 |pass-through(down)| per timing (0 for a symmetric model).
 """
@@ -26,17 +26,19 @@ ROOT = pj.ROOT
 SCEN_DIR = HERE / "scenarios"
 OUT_DIR = HERE / "output" / "scenarios"
 FIG_DIR = ROOT / "docs" / "figures" / "scenarios"
-H, SHOCK, RAMP_Q, HORIZONS = 12, 2.0, 4, (4, 8, 12)  # HORIZONS: k = quarters after the shock (h = k + 1)
+H, SHOCK, RAMP_Q, HORIZONS = 12, 2.0, 4, (4, 8, 12)  # HORIZONS: k = h = quarters after the last actual
 SCENARIOS = {  # name -> (sign, quarters to reach the full shock)
     "base": (0, 1), "up_instant": (1, 1), "up_ramp": (1, RAMP_Q),
     "down_instant": (-1, 1), "down_ramp": (-1, RAMP_Q)}
-XLABEL = "Quarters after the shock (0 = 2026Q3, actual FFT; shock from 2026Q4)"
+XLABEL = "Quarters after the last actual (0 = 2026Q2, actual FFT; shock from 2026Q3)"
 COLORS = {"base": "#1f4e79", "up_instant": "#d9822b", "up_ramp": "#f2b97a",
           "down_instant": "#2e7d32", "down_ramp": "#8fc593"}
 
 
 def last_fft(x="FFT"):
     s = pj.read_scenario(ROOT / "FFT_2011-2026.csv", x)
+    bank = bp.to_periods(bp.read_csv(bp.DEFAULTS["dependents"])["quarter"]).max()
+    bp.check_series_end(bank, s.index[-1], bp.DEFAULTS["dependents"], ROOT / "FFT_2011-2026.csv")
     return s.index[-1], float(s.iloc[-1])
 
 
@@ -52,6 +54,8 @@ def write_scenarios(last_q, last):
         s = scenario_path(name, last_q, last)
         s = pd.concat([pd.Series([last], index=[last_q]), s])  # last actual row, ignored by project()
         pd.DataFrame({"FFT": s.values}, index=s.index.astype(str)).to_csv(SCEN_DIR / f"scn_{name}.csv")
+    flat = pd.Series(last, index=pd.period_range(last_q + 1, periods=8, freq="Q"))  # 8Q flat sample scenario
+    pd.DataFrame({"FFT": flat.values}, index=flat.index.astype(str)).to_csv(SCEN_DIR / "flat_8Q.csv")
 
 
 def run(banks, select):
@@ -68,7 +72,7 @@ def run(banks, select):
             frames.append(out.assign(scenario=name, model=model)[
                 ["bank_name", "model", "scenario", "quarter", "h", "FFT", "rate_pf_clean", "long_run_equilibrium"]]
                 .rename(columns={"bank_name": "bank", "rate_pf_clean": "rate"})
-                .assign(k=lambda d: d["h"] - 1))  # quarters after the shock (shock starts at h = 2)
+                .assign(k=lambda d: d["h"]))  # quarters after the last actual (shock starts at h = 1)
     return pd.concat(frames, ignore_index=True)
 
 

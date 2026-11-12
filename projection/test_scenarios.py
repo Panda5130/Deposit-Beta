@@ -20,3 +20,9 @@ def test_scenario_files_match_last_fft():
 def test_check(check):
     name, ok, detail = check()
     assert ok, f"{name}: {detail}"
+
+
+def test_guard_fails_loudly_when_fft_and_bank_ends_differ():
+    q, _ = vc.rs.last_fft()  # passes while aligned
+    with pytest.raises(ValueError, match="FFT end 2026Q3 != bank-data end 2026Q2"):
+        vc.pj.bp.check_series_end(q, "2026Q3")

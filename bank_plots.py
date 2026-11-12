@@ -86,12 +86,26 @@ def to_periods(values):
         return pd.PeriodIndex(pd.to_datetime(values), freq="Q")  # dates such as 2011-03-31
 
 
+def check_series_end(bank_end, fft_end, bank_file="bank data", fft_file="FFT"):
+    """Guard: the FFT series must end on the same quarter as the bank data (build rule, OI: FFT end).
+
+    Fails loudly if they diverge, e.g. FEDFUNDS has a quarter FDIC has not published yet. Fix: rerun
+    data_build/build_fft.py (it cuts FFT to the bank-data end); when new bank data arrive, rebuild the
+    bank dataset first, then FFT, so both extend together.
+    """
+    if pd.Period(bank_end, freq="Q") != pd.Period(fft_end, freq="Q"):
+        raise ValueError(f"FFT end {fft_end} != bank-data end {bank_end} ({Path(fft_file).name} vs "
+                         f"{Path(bank_file).name}): rerun data_build/build_fft.py so both series end on the "
+                         "same quarter")
+
+
 def load_source(dependents, independents):
     """Dependents (all banks) merged with the independents on the quarter."""
     dep, indep = read_csv(dependents), read_csv(independents)
     date_col = next((c for c in dep.columns if c.lower() in ("quarter", "date", "period")), dep.columns[0])
     dep = dep.assign(period=to_periods(dep[date_col]))
     indep = indep.assign(period=to_periods(indep[indep.columns[0]]))
+    check_series_end(dep["period"].max(), indep["period"].max(), dependents, independents)
     indep = indep[["period"] + [c for c in indep.columns if c not in dep.columns]]
     return dep.merge(indep, on="period", how="left").sort_values("period")
 
