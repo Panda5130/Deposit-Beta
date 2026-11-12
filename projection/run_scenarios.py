@@ -133,12 +133,50 @@ def charts(proj, pt):
         ax.set_title(sc.replace("_", " "), fontsize=11)
         ax.axvline(0, color="grey", linewidth=0.8, linestyle=":")
         ax.axhline(0, color="grey", linewidth=0.8)
+        ax2 = ax.twinx()  # FFT shock used (FFT - base FFT), dotted, same scale on every panel
+        f = proj[(proj.bank == banks[0]) & (proj.scenario == sc)].set_index("k")["FFT"]
+        fb = proj[(proj.bank == banks[0]) & (proj.scenario == "base")].set_index("k")["FFT"]
+        ax2.plot(f.index, f - fb, color="black", linewidth=1.4, linestyle=":", label="FFT shock (right axis)")
+        ax2.set_ylim(-2.2, 2.2)
+        ax2.set_ylabel("FFT shock (pp)")
+        ax.set_ylim(-1.1, 1.1)
         ax.grid(True, alpha=0.3)
     fig.supxlabel(XLABEL, fontsize=10)
     axes[0, 0].set_ylabel("rate change vs base (pp)")
     axes[1, 0].set_ylabel("rate change vs base (pp)")
-    axes[0, 1].legend(loc="center left", bbox_to_anchor=(1.02, 0), frameon=False, fontsize=9)
+    h, l = axes[0, 1].get_legend_handles_labels()
+    h.append(plt.Line2D([], [], color="black", linestyle=":", linewidth=1.4)); l.append("FFT shock (right axis)")
+    axes[0, 1].legend(h, l, loc="center left", bbox_to_anchor=(1.15, 0), frameon=False, fontsize=9)
     fig.savefig(FIG_DIR / "all_banks_passthrough.png", dpi=120, bbox_inches="tight")
+    plt.close(fig)
+    bars(pt, banks)
+
+
+def bars(pt, banks):
+    """All-banks panel of bar charts: pass-through ratio by shock scenario, grouped by horizon k."""
+    import matplotlib.pyplot as plt
+    shocks = [s for s in SCENARIOS if s != "base"]  # base has no shock, so no ratio
+    pt = pt[pt.scenario.isin(shocks)]
+    fig, axes = plt.subplots(2, 4, figsize=(18, 8), sharey=True, constrained_layout=True)
+    w = 0.2
+    for ax, bank in zip(axes.ravel(), banks):
+        g = pt[pt.bank == bank]
+        for i, sc in enumerate(shocks):
+            v = g[g.scenario == sc].set_index("k")["passthrough"].reindex(HORIZONS)
+            xs = np.arange(len(HORIZONS)) + (i - 1.5) * w
+            ax.bar(xs, v.values, w, color=COLORS[sc], label=sc.replace("_", " "))
+            for x, y in zip(xs, v.values):
+                ax.text(x, y + 0.01, f"{y:.2f}", ha="center", fontsize=6.5)
+        ax.set_xticks(range(len(HORIZONS)), [f"k={h}" for h in HORIZONS])
+        ax.set_title(bank, fontsize=9)
+        ax.grid(True, axis="y", alpha=0.3)
+    for ax in axes.ravel()[len(banks):]:
+        ax.axis("off")
+    axes[0, 0].set_ylabel("pass-through ratio")
+    axes[1, 0].set_ylabel("pass-through ratio")
+    axes.ravel()[0].legend(fontsize=8, frameon=False, loc="upper left")
+    fig.suptitle("Cumulative pass-through = (rate - base rate) / FFT shock, by horizon", fontsize=11)
+    fig.savefig(FIG_DIR / "all_banks_passthrough_bars.png", dpi=120, bbox_inches="tight")
     plt.close(fig)
 
 
