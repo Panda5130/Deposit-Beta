@@ -4,7 +4,7 @@ Usage: python projection/run_scenarios.py [--banks All|NAME ...] [--select SEL] 
 Scenario CSVs (projection/scenarios/scn_*.csv) are generated here from the last actual FFT if missing
 or if --regenerate is given. Outputs: projection/output/scenarios/scenario_projections.csv,
 scenario_passthrough.csv and PNG charts in docs/figures/scenarios/.
-Pass-through at h = (rate_h - rate_base_h) / (FFT_h - FFT_base_h at h = 12, i.e. the full shock);
+h = quarters since the last actual FFT (h=0). Pass-through at h = (rate_h - rate_base_h) / (FFT_h - FFT_base_h at h = 12, i.e. the full shock);
 asymmetry = pass-through(up) - |pass-through(down)| per timing (0 for a symmetric model).
 """
 import argparse
@@ -60,6 +60,9 @@ def run(banks, select):
         p = pj.Projection.champion(bank, estimates, summary, source, select=select)
         for name in SCENARIOS:
             out = p.project(pj.read_scenario(SCEN_DIR / f"scn_{name}.csv"), freeze_trend=True)
+            # Bank data can end before the last actual FFT (2026Q2 vs 2026Q3): count h from the FFT anchor,
+            # so h=0 is the last actual FFT quarter (no shock yet) and the shock starts at h=1.
+            out["h"] = out["h"] - (last_fft()[0] - p.T).n
             model = " | ".join(p.model)
             frames.append(out.assign(scenario=name, model=model)[
                 ["bank_name", "model", "scenario", "quarter", "h", "FFT", "rate_pf_clean", "long_run_equilibrium"]]

@@ -23,20 +23,21 @@ def projections():
 
 def _wide(h):
     p = projections()
-    p = p[p.h == h]
+    p = p[p.h == h]  # h counts from the last actual FFT quarter
     return p.pivot(index="bank", columns="scenario", values="rate")
 
 
 def check_base_equals_flat():
     summary, estimates = bt.load_candidates()
     source = pj.bp.load_source(pj.DEFAULTS["dependents"], pj.DEFAULTS["independents"])
-    flat = pj.read_scenario(rs.SCEN_DIR / "flat_8Q.csv")
+    q, last = rs.last_fft()  # flat at the last actual FFT (flat_8Q.csv is hard-coded 3.67)
+    flat = rs.scenario_path("base", q, last)
     worst = 0.0
     for bank, g in projections()[lambda d: d.scenario == "base"].groupby("bank"):
         p = pj.Projection.champion(bank, estimates, summary, source)
         ref = p.project(flat)["rate_pf_clean"].values
         worst = max(worst, float(abs(g["rate"].values[:len(ref)] - ref).max()))
-    return "base == flat_8Q projection", worst < 1e-9, f"max abs diff {worst:.2e}"
+    return "base == flat projection at last FFT", worst < 1e-9, f"max abs diff {worst:.2e}"
 
 
 def check_convergence():
