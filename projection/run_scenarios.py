@@ -149,33 +149,33 @@ def charts(proj, pt):
     axes[0, 1].legend(h, l, loc="center left", bbox_to_anchor=(1.15, 0), frameon=False, fontsize=9)
     fig.savefig(FIG_DIR / "all_banks_passthrough.png", dpi=120, bbox_inches="tight")
     plt.close(fig)
-    bars(pt, banks)
+    bars(proj, banks)
 
 
-def bars(pt, banks):
-    """All-banks panel of bar charts: pass-through ratio by shock scenario, grouped by horizon k."""
+def bars(proj, banks):
+    """All-banks panel of bar charts: pass-through ratio by shock scenario at every horizon k = 1..H."""
     import matplotlib.pyplot as plt
     shocks = [s for s in SCENARIOS if s != "base"]  # base has no shock, so no ratio
-    pt = pt[pt.scenario.isin(shocks)]
-    fig, axes = plt.subplots(2, 4, figsize=(18, 8), sharey=True, constrained_layout=True)
+    ks = list(range(1, H + 1))
+    fig, axes = plt.subplots(4, 2, figsize=(16, 15), sharey=True, constrained_layout=True)
     w = 0.2
     for ax, bank in zip(axes.ravel(), banks):
-        g = pt[pt.bank == bank]
+        g = proj[proj.bank == bank]
+        base = g[g.scenario == "base"].set_index("k")["rate"]
         for i, sc in enumerate(shocks):
-            v = g[g.scenario == sc].set_index("k")["passthrough"].reindex(HORIZONS)
-            xs = np.arange(len(HORIZONS)) + (i - 1.5) * w
-            ax.bar(xs, v.values, w, color=COLORS[sc], label=sc.replace("_", " "))
-            for x, y in zip(xs, v.values):
-                ax.text(x, y + 0.01, f"{y:.2f}", ha="center", fontsize=6.5)
-        ax.set_xticks(range(len(HORIZONS)), [f"k={h}" for h in HORIZONS])
-        ax.set_title(bank, fontsize=9)
+            r = g[g.scenario == sc].set_index("k")["rate"]
+            v = ((r - base) / (SHOCK * SCENARIOS[sc][0])).reindex(ks)
+            ax.bar(np.arange(len(ks)) + (i - 1.5) * w, v.values, w, color=COLORS[sc], label=sc.replace("_", " "))
+        ax.set_xticks(range(len(ks)), [str(k) for k in ks])
+        ax.set_title(bank, fontsize=10)
         ax.grid(True, axis="y", alpha=0.3)
+        ax.set_xlabel("Quarters after the last actual (k)", fontsize=8)
     for ax in axes.ravel()[len(banks):]:
         ax.axis("off")
-    axes[0, 0].set_ylabel("pass-through ratio")
-    axes[1, 0].set_ylabel("pass-through ratio")
-    axes.ravel()[0].legend(fontsize=8, frameon=False, loc="upper left")
-    fig.suptitle("Cumulative pass-through = (rate - base rate) / FFT shock, by horizon", fontsize=11)
+    for ax in axes[:, 0]:
+        ax.set_ylabel("pass-through ratio")
+    axes.ravel()[0].legend(fontsize=8, frameon=False, loc="upper left", ncol=2)
+    fig.suptitle("Cumulative pass-through = (rate - base rate) / FFT shock, every horizon", fontsize=11)
     fig.savefig(FIG_DIR / "all_banks_passthrough_bars.png", dpi=120, bbox_inches="tight")
     plt.close(fig)
 
