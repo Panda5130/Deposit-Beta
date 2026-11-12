@@ -664,7 +664,7 @@ origin,form,bank_name,model
 2017Q3,symmetric,Glacier Bank,a1
 2017Q4,symmetric,Glacier Bank,a1
 2018Q1,symmetric,Glacier Bank,a1
-2018Q2,split,Glacier Bank,a1
+2018Q2,symmetric,Glacier Bank,a1
 2018Q3,split,Glacier Bank,a1
 2018Q4,split,Glacier Bank,a1
 2019Q1,split,Glacier Bank,a1
@@ -673,12 +673,12 @@ origin,form,bank_name,model
 2019Q4,split,Glacier Bank,a1
 2020Q1,split,Glacier Bank,a1
 2020Q2,split,Glacier Bank,a1
-2020Q3,split,Glacier Bank,a1
-2020Q4,split,Glacier Bank,a1
-2021Q1,split,Glacier Bank,a1
-2021Q2,split,Glacier Bank,a1
-2021Q3,split,Glacier Bank,a1
-2021Q4,split,Glacier Bank,a1
+2020Q3,symmetric,Glacier Bank,a1
+2020Q4,symmetric,Glacier Bank,a1
+2021Q1,symmetric,Glacier Bank,a1
+2021Q2,symmetric,Glacier Bank,a1
+2021Q3,symmetric,Glacier Bank,a1
+2021Q4,symmetric,Glacier Bank,a1
 2022Q1,split,Glacier Bank,a1
 2022Q2,split,Glacier Bank,a1
 2022Q3,split,Glacier Bank,a1

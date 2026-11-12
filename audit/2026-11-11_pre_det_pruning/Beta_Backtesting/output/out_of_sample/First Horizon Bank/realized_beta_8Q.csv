@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.5966852564620068,0.2645042829414158,0.624538815746583,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+2Q,26,14,0.5055683069112089,0.31618736296397987,0.6926880440536198,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+3Q,30,9,0.46403593570189383,0.30721989417521595,0.7196288354880082,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+4Q,33,5,0.4709210885404328,0.3241827257691962,0.7557832787474079,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+5Q,34,3,0.47858379493949554,0.2455401261704731,0.7527707547064754,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+6Q,33,3,0.35483929762847,0.15957674851174836,0.7463333717799218,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+7Q,32,3,0.3320256908925203,0.15444662431348494,0.7585665245904525,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)
+8Q,32,2,0.38464613953537874,0.2511841060184341,0.7530875828001695,First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none)

@@ -23,31 +23,30 @@ def projections():
 
 def _wide(h):
     p = projections()
-    p = p[p.h == h]  # h counts from the last actual FFT quarter
+    p = p[p.h == h]
     return p.pivot(index="bank", columns="scenario", values="rate")
 
 
 def check_base_equals_flat():
     summary, estimates = bt.load_candidates()
     source = pj.bp.load_source(pj.DEFAULTS["dependents"], pj.DEFAULTS["independents"])
-    q, last = rs.last_fft()  # flat at the last actual FFT (flat_8Q.csv is hard-coded 3.67)
-    flat = rs.scenario_path("base", q, last)
+    flat = pj.read_scenario(rs.SCEN_DIR / "flat_8Q.csv")
     worst = 0.0
     for bank, g in projections()[lambda d: d.scenario == "base"].groupby("bank"):
         p = pj.Projection.champion(bank, estimates, summary, source)
         ref = p.project(flat)["rate_pf_clean"].values
         worst = max(worst, float(abs(g["rate"].values[:len(ref)] - ref).max()))
-    return "base == flat projection at last FFT", worst < 1e-9, f"max abs diff {worst:.2e}"
+    return "base == flat_8Q projection", worst < 1e-9, f"max abs diff {worst:.2e}"
 
 
 def check_convergence():
-    w = _wide(rs.H)
+    w = _wide(rs.H)  # end of the horizon: k = 12 (2029Q2)
     gaps = pd.concat([(w["up_instant"] - w["up_ramp"]).abs(), (w["down_instant"] - w["down_ramp"]).abs()], axis=1).max(axis=1)
     p = projections()
     eq = p[(p.h == rs.H) & p.scenario.isin(["up_instant", "up_ramp"])]
     eqgap = eq.groupby("bank")["long_run_equilibrium"].apply(lambda s: s.max() - s.min()).max()
     ok = bool((gaps < CONV_TOL).all() and eqgap < 1e-9)
-    return "instant/ramp converge by h=12", ok, f"max rate gap {gaps.max():.4f} ({gaps.idxmax()}); equilibrium gap {eqgap:.1e}; tol {CONV_TOL}"
+    return "instant/ramp converge by k=12 (2029Q2)", ok, f"max rate gap {gaps.max():.4f} ({gaps.idxmax()}); equilibrium gap {eqgap:.1e}; tol {CONV_TOL}"
 
 
 def check_symmetry():

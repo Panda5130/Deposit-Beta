@@ -1,0 +1,93 @@
+{
+ "when": "2026-11-12T12:23:26",
+ "all_pass": true,
+ "n_checks": 17,
+ "n_failed": 0,
+ "checks": [
+  {
+   "check": "pytest",
+   "pass": true,
+   "detail": "54 passed in 18.28s"
+  },
+  {
+   "check": "audit_manifest",
+   "pass": true,
+   "detail": "206 audit copies, 0 changed"
+  },
+  {
+   "check": "protected_originals_unchanged",
+   "pass": true,
+   "detail": "9 originals vs audit copy, 0 differ/missing"
+  },
+  {
+   "check": "det_terms_significant",
+   "pass": true,
+   "detail": "156 models, 119 deterministic terms, 0 violate"
+  },
+  {
+   "check": "models_kept_and_passed_screen",
+   "pass": true,
+   "detail": "156 surviving models, 0 not in the screen"
+  },
+  {
+   "check": "unaffected_rows_carried_over",
+   "pass": true,
+   "detail": "32 pruned models excluded; unpruned rows absent from originals: 0; max |diff| 0.0e+00"
+  },
+  {
+   "check": "pruning_log_complete",
+   "pass": true,
+   "detail": "158 log rows; original models with deterministic terms not logged: 0"
+  },
+  {
+   "check": "fft_end_equals_bank_end",
+   "pass": true,
+   "detail": "FFT ends 2026Q2 = bank data end 2026Q2; scenarios start from it"
+  },
+  {
+   "check": "oos_champions_are_candidates",
+   "pass": true,
+   "detail": "7 banks; champion not in candidates: 0"
+  },
+  {
+   "check": "doc_figure_links_resolve",
+   "pass": true,
+   "detail": "34 image links; missing: 0"
+  },
+  {
+   "check": "backtest:references_immutable",
+   "pass": true,
+   "detail": "backtest: frozen references are immutable: ok"
+  },
+  {
+   "check": "backtest:freeze_trend_noop_without_trend",
+   "pass": true,
+   "detail": "backtest: freeze-trend is a no-op for Huntington: max abs diff 0.00e+00"
+  },
+  {
+   "check": "backtest:reference_reproduces_limits",
+   "pass": true,
+   "detail": "backtest: frozen reference reproduces today's limits: 3 bands, 7 banks"
+  },
+  {
+   "check": "scenarios:base_equals_flat",
+   "pass": true,
+   "detail": "base == flat_8Q projection: max abs diff 0.00e+00"
+  },
+  {
+   "check": "scenarios:convergence",
+   "pass": true,
+   "detail": "instant/ramp converge by k=12 (2029Q2): max rate gap 0.0185 (Manufacturers and Traders Trust Company); equilibrium gap 0.0e+00; tol 0.05"
+  },
+  {
+   "check": "scenarios:symmetry",
+   "pass": true,
+   "detail": "up/down mirror (symmetric champions): max |up+down| 6.66e-16"
+  },
+  {
+   "check": "scenarios:keybank_asymmetry",
+   "pass": true,
+   "detail": "KeyBank asymmetry: max |up+down| 0.462 (> 0.05)"
+  }
+ ]
+}

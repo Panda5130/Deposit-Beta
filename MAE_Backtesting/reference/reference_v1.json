@@ -1,0 +1,56 @@
+{
+ "version": 1,
+ "created": "2026-11-11",
+ "approved_by": "Panda5130",
+ "trigger": "initial",
+ "notes": "Initial fixed reference, integration batch 1.0 (2026-11-11), det-pruned OOS champions",
+ "max_horizon": 12,
+ "first_origin": "2016Q1",
+ "selection_horizon": 8,
+ "champions": {
+  "First Horizon Bank": "Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none)",
+  "Manufacturers and Traders Trust Company": "EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",
+  "Glacier Bank": "Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend)",
+  "SouthState Bank": "ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",
+  "KeyBank National Association": "ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",
+  "Huntington National Bank": "EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",
+  "Old National Bank": "Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none)"
+ },
+ "data_hash": "003146496eb2444e",
+ "data_hashes": {
+  "First Horizon Bank": "1ae9329a3d48941a",
+  "Manufacturers and Traders Trust Company": "1a3bf73193184e27",
+  "Glacier Bank": "8cd8ea01b71328a9",
+  "SouthState Bank": "c02ead680d23a1f8",
+  "KeyBank National Association": "62a470335d9bcd70",
+  "Huntington National Bank": "d1cdee4700f8fe1e",
+  "Old National Bank": "448a7fd675f9ad01"
+ },
+ "csv_sha256": "cd1e4f35219f2def6551df672c673e24dbffdb500306eac7e0a4b99b924cb6b2",
+ "limits_12Q": [
+  {
+   "band": "1-3Q",
+   "h_from": 1,
+   "h_to": 3,
+   "green": 0.15,
+   "red": 0.2,
+   "n_banks": 7
+  },
+  {
+   "band": "4-6Q",
+   "h_from": 4,
+   "h_to": 6,
+   "green": 0.35,
+   "red": 0.4,
+   "n_banks": 7
+  },
+  {
+   "band": "7-12Q",
+   "h_from": 7,
+   "h_to": 12,
+   "green": 0.55,
+   "red": 0.6,
+   "n_banks": 7
+  }
+ ]
+}
