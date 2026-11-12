@@ -35,6 +35,7 @@ def check_base_equals_flat():
     for bank, g in projections()[lambda d: d.scenario == "base"].groupby("bank"):
         p = pj.Projection.champion(bank, estimates, summary, source)
         ref = p.project(flat)["rate_pf_clean"].values
+        g = g[g.h >= 1]  # drop the k = 0 anchor
         worst = max(worst, float(abs(g["rate"].values[:len(ref)] - ref).max()))
     return "base == flat_8Q projection", worst < 1e-9, f"max abs diff {worst:.2e}"
 

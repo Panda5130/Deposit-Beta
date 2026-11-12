@@ -73,6 +73,11 @@ def run(banks, select):
                 ["bank_name", "model", "scenario", "quarter", "h", "FFT", "rate_pf_clean", "long_run_equilibrium"]]
                 .rename(columns={"bank_name": "bank", "rate_pf_clean": "rate"})
                 .assign(k=lambda d: d["h"]))  # quarters after the last actual (shock starts at h = 1)
+            # k = 0 anchor: last actual rate and last actual FFT (same for every scenario)
+            anchor = pd.DataFrame([{"bank": bank, "model": model, "scenario": name, "quarter": str(p.T),
+                                    "h": 0, "FFT": float(p.history[p.x].iloc[-1]),
+                                    "rate": float(p.history[p.y].iloc[-1]), "long_run_equilibrium": np.nan, "k": 0}])
+            frames[-1] = pd.concat([anchor, frames[-1]], ignore_index=True)
     return pd.concat(frames, ignore_index=True)
 
 
@@ -124,13 +129,14 @@ def charts(proj, pt):
         for bank in banks:
             g = proj[(proj.bank == bank) & (proj.scenario == sc)].set_index("k")["rate"]
             b = proj[(proj.bank == bank) & (proj.scenario == "base")].set_index("k")["rate"]
-            ax.plot(g.index, (g - b) / (SHOCK * SCENARIOS[sc][0]), label=bank, linewidth=1.5)
+            ax.plot(g.index, g - b, label=bank, linewidth=1.5)  # signed: falls under cuts, rises under hikes
         ax.set_title(sc.replace("_", " "), fontsize=11)
         ax.axvline(0, color="grey", linewidth=0.8, linestyle=":")
+        ax.axhline(0, color="grey", linewidth=0.8)
         ax.grid(True, alpha=0.3)
     fig.supxlabel(XLABEL, fontsize=10)
-    axes[0, 0].set_ylabel("cumulative pass-through")
-    axes[1, 0].set_ylabel("cumulative pass-through")
+    axes[0, 0].set_ylabel("rate change vs base (pp)")
+    axes[1, 0].set_ylabel("rate change vs base (pp)")
     axes[0, 1].legend(loc="center left", bbox_to_anchor=(1.02, 0), frameon=False, fontsize=9)
     fig.savefig(FIG_DIR / "all_banks_passthrough.png", dpi=120, bbox_inches="tight")
     plt.close(fig)
