@@ -21,7 +21,8 @@ def test_committed_fft_files_are_the_complete_quarter_means():
         committed = pd.read_csv(bf.ROOT / f"FFT_{start}-2026.csv", index_col=0, float_precision="round_trip")["FFT"]
         assert committed.index[0] == f"{start}Q1"
         pd.testing.assert_series_equal(fft.loc[committed.index], committed, check_exact=True, check_names=False)
-        assert committed.index[-1] == fft.index[-1]
+        assert committed.index[-1] == bf.bank_end()  # FFT ends where the bank data end (guard rule)
+        assert committed.index[-1] <= fft.index[-1]
 
 
 def test_quarter_mean_of_three_months():
@@ -56,8 +57,39 @@ def test_build_writes_both_files_in_the_existing_format(tmp_path):
     src = tmp_path / "FEDFUNDS.csv"
     src.write_text("observation_date,FEDFUNDS\n" + "".join(
         f"{d.date()},{v:.2f}\n" for d, v in monthly("2007-10-01", [4.0] * 15 * 12 + [3.0, 3.1]).items()))
-    bf.build(src, tmp_path)
+    bf.build(src, tmp_path, end="2022Q3")
     for start in bf.STARTS:
         lines = (tmp_path / f"FFT_{start}-2026.csv").read_text().splitlines()
         assert lines[0] == ",FFT" and lines[1] == f"{start}Q1,4.0"
         assert lines[-1] == "2022Q3,4.0"  # 2022Q4 has two months only
+
+
+def _fedfunds(tmp_path):
+    src = tmp_path / "FEDFUNDS.csv"
+    rows = "".join(f"{d.date()},{v:.2f}\n" for d, v in monthly("2007-10-01", [4.0] * 14 * 12).items())
+    src.write_text("observation_date,FEDFUNDS\n" + rows)
+    return src
+
+
+def test_build_cuts_after_end_and_logs(tmp_path, caplog):
+    with caplog.at_level(logging.WARNING, logger="build_fft"):
+        written = bf.build(_fedfunds(tmp_path), tmp_path, end="2020Q4")
+    assert all(s.index[-1] == "2020Q4" for s in written.values())
+    assert "cutting FFT quarters after the bank-data end 2020Q4: 2021Q1" in caplog.text
+
+
+def test_build_default_end_is_bank_data_end(tmp_path, monkeypatch):
+    monkeypatch.setattr(bf, "bank_end", lambda: "2019Q2")
+    written = bf.build(_fedfunds(tmp_path), tmp_path)
+    assert all(s.index[-1] == "2019Q2" for s in written.values())
+
+
+def test_end_beyond_fedfunds_is_an_error(tmp_path):
+    with pytest.raises(ValueError, match="not a complete FEDFUNDS quarter"):
+        bf.build(_fedfunds(tmp_path), tmp_path, end="2030Q1")
+
+
+def test_bank_end_reads_the_dataset_quarter(tmp_path):
+    f = tmp_path / "bank.csv"
+    f.write_text("bank_name,quarter\nA,2011-03-31\nA,2026-06-30\nB,2026-03-31\n")
+    assert bf.bank_end(f) == "2026Q2"

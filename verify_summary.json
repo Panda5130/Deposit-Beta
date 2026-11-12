@@ -1,13 +1,13 @@
 {
- "when": "2026-11-11T14:29:17",
+ "when": "2026-11-12T12:23:26",
  "all_pass": true,
- "n_checks": 16,
+ "n_checks": 17,
  "n_failed": 0,
  "checks": [
   {
    "check": "pytest",
    "pass": true,
-   "detail": "49 passed in 17.14s"
+   "detail": "54 passed in 18.28s"
   },
   {
    "check": "audit_manifest",
@@ -38,6 +38,11 @@
    "check": "pruning_log_complete",
    "pass": true,
    "detail": "158 log rows; original models with deterministic terms not logged: 0"
+  },
+  {
+   "check": "fft_end_equals_bank_end",
+   "pass": true,
+   "detail": "FFT ends 2026Q2 = bank data end 2026Q2; scenarios start from it"
   },
   {
    "check": "oos_champions_are_candidates",
@@ -72,12 +77,12 @@
   {
    "check": "scenarios:convergence",
    "pass": true,
-   "detail": "instant/ramp converge by k=12 (2029Q3): max rate gap 0.0185 (Manufacturers and Traders Trust Company); equilibrium gap 0.0e+00; tol 0.05"
+   "detail": "instant/ramp converge by k=12 (2029Q2): max rate gap 0.0185 (Manufacturers and Traders Trust Company); equilibrium gap 0.0e+00; tol 0.05"
   },
   {
    "check": "scenarios:symmetry",
    "pass": true,
-   "detail": "up/down mirror (symmetric champions): max |up+down| 1.11e-15"
+   "detail": "up/down mirror (symmetric champions): max |up+down| 6.66e-16"
   },
   {
    "check": "scenarios:keybank_asymmetry",
