@@ -29,7 +29,7 @@
 | 0 (WIP) | 2026-10-30 | Rebuilt the data on deposit interest expense only (`EDEPDOMQ` + `EDEPFORQ`) over a two-point average of total deposits, with full pro forma backfill for every merger of 1% or more since 2007 using real FDIC certs. This fixed the Glacier 2012, Huntington 2021Q1 and Old National 2025Q2 anomalies. Re-ran cointegration, re-specification and estimation for all seven banks, with deterministic terms matched to each test and insignificant short-run lags pruned; new champions for every bank. Added Zivot-Andrews tests for all banks, a many-start-date backtest with horizon-aware, peer-derived limits and a no-change skill test, and per-bank figures, with many-start-date backtest bar charts (model vs. no-change, with band limits); Figure 1 regenerated from `EDA1_Stationarity_Tests.ipynb`. Removed the Key Open Issues summary; issues are tracked in §8 and §9. |
 | 0.1 (WIP) | 2026-10-31 | Added the rolling-origin long-run beta stability backtest (`Beta_Backtesting/`): method (§5.6), per-bank results and figures (§6.x.7), peer comparison (§7.5), limitation L17 and a beta-stability threshold issue. Folded in the root-cause work from PR #11: an FFT builder with complete quarters only and a projection layer with the trend freeze (§3.3, §4.1, §5.7, §10.2); Gregory-Hansen break tests and seven challenger models (§5.3, §6.x.4, §7.4); EG long-run specifications now carry their short-run lags (§5.5), which re-specifies Huntington (Red → Green), changes the Old National champion and relabels KeyBank's; the beta stability test from 2016Q1 with a rating (§5.6, §7.5); and an optional out-of-sample model choice, not adopted (§5.5, §7.6). Issues #2, #4, #5, #6, #7 and #10 closed. |
 | 1.0 (WIP) | 2026-11-11 | Champions are now chosen out of sample (§5.5), over the original specifications and one asymmetric variant of each (long-run FFT⁺/FFT⁻, short-run ΔFFT and Δy split by sign, λ split by the sign of the equilibrium error; §3.2). Six of seven champions change; KeyBank's is asymmetric. Added the realized-beta backtest (§5.6, §7.7), which replaces the 8-start-date beta view. Issues #1 and #13 closed by PR #15. The deposit rate keeps the 2-point average; a 4-point trailing average was tested and rejected (§4.2). Same date, integration batch: deterministic terms are pruned after the cointegration screen (§3.3, §5.5); Glacier's champion loses its trend (θ 0.277 → 0.230, still Red) and M&T's is relabelled `c` with unchanged estimates (§6.2, §6.5, L19); MAE stability is rated against the approved fixed reference v1, which closes #8 (§5.6, §7.1); the trend-freeze accuracy check (§5.6); and a ±200 bp FFT scenario analysis (§7.9). |
-| 1.0 (WIP) | 2026-11-12 | Aligned the FFT series end with the bank-data end (2026Q2): `build_fft.py` now writes FFT only to the last bank quarter (cutting 2026Q3, which FDIC has not yet published), with an `--end` override and a loader and `verify_batch` guard against divergence (§4.1). Scenarios (§7.9) restart from the last actual, 2026Q2 (FFT 3.6333%), shocks from 2026Q3, horizon to 2029Q2. Estimates, backtests and realized betas are unchanged; pass-through moves by at most 0.01. |
+| 1.0 (WIP) | 2026-11-12 | Aligned the FFT series end with the bank-data end (2026Q2): `build_fft.py` now writes FFT only to the last bank quarter (cutting 2026Q3, which FDIC has not yet published), with an `--end` override and a loader and `verify_batch` guard against divergence (§4.1). Scenarios (§7.9) restart from the last actual, 2026Q2 (FFT 3.6333%), shocks from 2026Q3, horizon to 2029Q2. Estimates, backtests and realized betas are unchanged; pass-through moves by at most 0.01. Scenario charts (§7.9) now start at the last actual (k = 0); the all-banks panel shows the signed rate change against base with the FFT shock on a second axis, and a new bar panel shows the pass-through ratio at every horizon. KeyBank's up-ramp pass-through at k = 8 corrected to 0.40. |
 
 ---
 
@@ -960,16 +960,20 @@ Projections use the trend freeze (§5.7); after pruning, only SouthState's champ
 | First Horizon Bank | 0.39 | 0.44 | 0.47 | 0.27 | 0.43 | 0.46 | same as up |
 | Glacier Bank | 0.13 | 0.24 | 0.24 | 0.06 | 0.21 | 0.25 | same as up |
 | Huntington National Bank | 0.40 | 0.45 | 0.46 | 0.28 | 0.44 | 0.46 | same as up |
-| KeyBank National Association | 0.35 | 0.41 | 0.41 | 0.19 | 0.41 | 0.41 | down: 0.38 / 0.39 / 0.40 (instant), 0.34 / 0.39 / 0.39 (ramp) |
+| KeyBank National Association | 0.35 | 0.41 | 0.41 | 0.19 | 0.40 | 0.41 | down: 0.38 / 0.39 / 0.40 (instant), 0.34 / 0.39 / 0.39 (ramp) |
 | Manufacturers and Traders Trust Company | 0.28 | 0.35 | 0.38 | 0.23 | 0.33 | 0.37 | same as up |
 | Old National Bank | 0.29 | 0.38 | 0.40 | 0.17 | 0.35 | 0.40 | same as up |
 | SouthState Bank | 0.35 | 0.48 | 0.51 | 0.29 | 0.44 | 0.50 | same as up |
 
 *Source: `projection/output/scenarios/scenario_passthrough.csv`.*
 
-![All banks: cumulative pass-through of a ±200 bp FFT shock](<docs/figures/scenarios/all_banks_passthrough.png>)
+![All banks: deposit-rate change vs base under a ±200 bp FFT shock](<docs/figures/scenarios/all_banks_passthrough.png>)
 
-*Figure 32: Cumulative pass-through by quarter after the last actual (2026Q2), four scenarios, all banks.*
+*Figure 32: Deposit-rate change against the base scenario (pp, signed: rises under hikes, falls under cuts) by quarter after the last actual (k = 0 is 2026Q2), four scenarios, all banks, with the FFT shock dotted on the right axis.*
+
+![All banks: pass-through ratio by horizon, four shock scenarios](<docs/figures/scenarios/all_banks_passthrough_bars.png>)
+
+*Figure 33: Cumulative pass-through ratio, (rate − base rate) ÷ FFT shock, at every horizon k = 1 to 12, one panel per bank, four shock scenarios (base excluded). The instant and ramp bars meet by about k = 10 to 12; KeyBank's up and down bars differ.*
 
 - After 12 quarters, pass-through is 0.24 (Glacier) to 0.51 (SouthState), within about 0.02 of each champion's long-run θ: most of the long-run adjustment is complete by then. Instant and ramp paths converge by k = 12 (largest gap 0.02 pp, M&T).
 - The ramp delays pass-through: at k = 4, it is 0.06 to 0.29 against 0.13 to 0.40 under the instant shock.
@@ -978,11 +982,11 @@ Projections use the trend freeze (§5.7); after pruning, only SouthState's champ
 
 ![KeyBank National Association: deposit rate under the five FFT scenarios](<docs/figures/scenarios/KeyBank_National_Association.png>)
 
-*Figure 33: KeyBank National Association, projected deposit rate under the five FFT scenarios (FFT dotted, right axis), champion model.*
+*Figure 34: KeyBank National Association, projected deposit rate from the last actual (k = 0, 2026Q2) under the five FFT scenarios (FFT dotted, right axis), champion model.*
 
 ![Glacier Bank: deposit rate under the five FFT scenarios](<docs/figures/scenarios/Glacier_Bank.png>)
 
-*Figure 34: Glacier Bank, projected deposit rate under the five FFT scenarios (FFT dotted, right axis), champion model.*
+*Figure 35: Glacier Bank, projected deposit rate from the last actual (k = 0, 2026Q2) under the five FFT scenarios (FFT dotted, right axis), champion model.*
 
 Charts for the other banks are in `docs/figures/scenarios/`.
 
