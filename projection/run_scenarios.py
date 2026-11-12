@@ -124,7 +124,10 @@ def charts(proj, pt):
         ax.legend(loc="center left", bbox_to_anchor=(1.12, 0.5), frameon=False)
         fig.savefig(FIG_DIR / f"{bank.replace(' ', '_')}.png", dpi=120, bbox_inches="tight")
         plt.close(fig)
-    fig, axes = plt.subplots(2, 2, figsize=(12, 8.5), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(2, 2, figsize=(12, 7), constrained_layout=True)
+    base_all = proj[proj.scenario == "base"].set_index(["bank", "k"])["rate"]
+    m = 1.08 * max(abs(proj[proj.scenario == sc].set_index(["bank", "k"])["rate"] - base_all).max()
+                   for sc in SCENARIOS if sc != "base")  # largest move, so both rows share one scale
     for ax, sc in zip(axes.ravel(), [s for s in SCENARIOS if s != "base"]):
         for bank in banks:
             g = proj[(proj.bank == bank) & (proj.scenario == sc)].set_index("k")["rate"]
@@ -137,9 +140,10 @@ def charts(proj, pt):
         f = proj[(proj.bank == banks[0]) & (proj.scenario == sc)].set_index("k")["FFT"]
         fb = proj[(proj.bank == banks[0]) & (proj.scenario == "base")].set_index("k")["FFT"]
         ax2.plot(f.index, f - fb, color="black", linewidth=1.4, linestyle=":", label="FFT shock (right axis)")
-        ax2.set_ylim(-2.2, 2.2)
+        up = SCENARIOS[sc][0] > 0  # only the side the shock moves into (zero lines stay aligned on both axes)
+        ax2.set_ylim((-0.03 * SHOCK * 1.1, SHOCK * 1.1) if up else (-SHOCK * 1.1, 0.03 * SHOCK * 1.1))
         ax2.set_ylabel("FFT shock (pp)")
-        ax.set_ylim(-1.1, 1.1)
+        ax.set_ylim((-0.03 * m, m) if up else (-m, 0.03 * m))
         ax.grid(True, alpha=0.3)
     fig.supxlabel(XLABEL, fontsize=10)
     axes[0, 0].set_ylabel("rate change vs base (pp)")
