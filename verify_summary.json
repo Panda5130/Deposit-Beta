@@ -1,5 +1,5 @@
 {
- "when": "2026-11-12T12:23:26",
+ "when": "2026-11-12T13:49:31",
  "all_pass": true,
  "n_checks": 17,
  "n_failed": 0,
@@ -7,7 +7,7 @@
   {
    "check": "pytest",
    "pass": true,
-   "detail": "54 passed in 18.28s"
+   "detail": "54 passed in 17.76s"
   },
   {
    "check": "audit_manifest",
@@ -52,7 +52,7 @@
   {
    "check": "doc_figure_links_resolve",
    "pass": true,
-   "detail": "34 image links; missing: 0"
+   "detail": "35 image links; missing: 0"
   },
   {
    "check": "backtest:references_immutable",
