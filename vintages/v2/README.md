@@ -1,6 +1,6 @@
 # Data vintage v2: supplementary deposit transfers (issue #20)
 
-Status: **pending owner approval** (built 2026-11-13). Phase 2 and any doc edits wait on that approval.
+Status: **amended 2026-11-13, pending owner approval of the amendment** (see "Amendment 1"). Doc edits wait on that approval.
 
 ## What changed
 FDIC `/history` logs charter mergers only (codes 2xx). v2 adds three deposit transfers found by a NIC
@@ -39,3 +39,21 @@ them in the repo replaces those v1 outputs (the copies in `audit/` remain).
 - Rate change, 2011-2026 sample: M&T max |diff| 0.0012 pp (2011Q1-Q2); Old National 0.0011 pp (2011Q1-2015Q2).
 - The screen pass set, the selections and the pruning decisions are unchanged. Champions are unchanged, and
   their metrics move only in the 4th decimal.
+
+## Amendment 1 (2026-11-13): four more NIC-found transfers
+The real NIC Attributes cross-check (`tools/nic_crosscheck.py`) found four deposit transfers that /history does not log.
+Added to `data_build/raw/supplementary_transfer_events.csv` (owner approved), all Mode A:
+
+| Predecessor | Survivor | Effective | Share | % of survivor | Flows into |
+|---|---|---|---|---|---|
+| Wilmington Trust NA (33911) | M&T (588) | 2011-05-16 | 0.94193 (partial) | 3.47 | M&T |
+| Prudential Bank & Trust (32957) | TCF (28330) | 2012-06-02 | 0.97035 (partial) | 12.78 | Huntington |
+| CenterBank of Jacksonville (35542) | FirstAtlantic (35200) | 2011-12-17 | 1.0 | 78.7 | SouthState |
+| CenterState Bank Mid Florida (57334) | CenterState NA (32699) | 2007-11-30 | 1.0 | 34.5 | SouthState |
+
+Rate change vs the previous v2 (2011 sample, pp): M&T max 0.0023 (2011Q1-Q2); Huntington 0.0026 (2011Q1-2012Q2);
+SouthState 0.0052 (2011Q1-Q4). First Horizon, Glacier, KeyBank and Old National: max abs diff 0. The full chain was
+rerun for M&T, Huntington and SouthState (`run_scripts/amend_v2.py`: staged in `vintages/v2_stage`, then harvested here),
+with the other banks' candidate rows carried over. No champion changed. Because Huntington and SouthState now differ
+from v1, this folder holds their outputs too. Files of unaffected banks also appear where the v1 in-sample run
+predates deterministic pruning.

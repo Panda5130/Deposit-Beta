@@ -303,6 +303,10 @@ def check_audit_v2():
     return not bad, f"{len(rows)} entries in git, {len(bad)} missing/changed" + (f": {bad[:3]}" if bad else "")
 
 
+V2_RERUN_BANKS = {"Manufacturers and Traders Trust Company", "Old National Bank", "Huntington National Bank",
+                  "SouthState Bank"}  # banks whose rate series differs from v1 (issue #20 plus amendment 1)
+
+
 @check("v2_other_banks_rate_unchanged")
 def check_v2_other_banks():
     """v2 changes rate_pf_clean only for the re-run banks; the other banks are identical (max abs diff 0)."""

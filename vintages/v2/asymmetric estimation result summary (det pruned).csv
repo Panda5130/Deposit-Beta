@@ -22,39 +22,39 @@ First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4) | asymmetric","HQIC / ARDL
 First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5) | asymmetric","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),0.0369578768547228,True
 First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5) | asymmetric","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),0.0338225362060113,True
 First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5) | asymmetric","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),0.0369578768547228,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=4",c (constant),0.0175656213483675,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0225110883542197,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=4",n (none),0.0215111710881544,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=1",n (none),0.0262382053084517,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=1",n (none),0.0262382053084517,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=1",c (constant),0.0262382053084517,True
-Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=1",c (constant),0.0262382053084517,True
-Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,AIC / k_ar_diff=1,det_order 1 (linear trend),0.0373625730785771,True
-Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,BIC / k_ar_diff=1,det_order 1 (linear trend),0.0373625730785771,True
-Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=1,det_order 1 (linear trend),0.0373625730785771,True
-Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,FPE / k_ar_diff=1,det_order 1 (linear trend),0.0373625730785771,True
-Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,fixed / k_ar_diff=1,det_order 1 (linear trend),0.0373625730785771,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0257254437325445,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0257254437325445,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0225110883542197,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0225110883542197,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242116128001655,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242116128001655,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242116128001655,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242116128001655,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242116128001655,True
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242116128001655,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=4",c (constant),0.0175875833792782,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.022486909032437,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=4",n (none),0.021538778946551,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=1",n (none),0.0262439453598946,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=1",n (none),0.0262439453598946,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=1",c (constant),0.0262439453598946,True
+Manufacturers and Traders Trust Company,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=1",c (constant),0.0262439453598946,True
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,AIC / k_ar_diff=1,det_order 1 (linear trend),0.0373532435381503,True
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,BIC / k_ar_diff=1,det_order 1 (linear trend),0.0373532435381503,True
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=1,det_order 1 (linear trend),0.0373532435381503,True
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,FPE / k_ar_diff=1,det_order 1 (linear trend),0.0373532435381503,True
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1) | asymmetric,fixed / k_ar_diff=1,det_order 1 (linear trend),0.0373532435381503,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0257039738644586,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0257039738644586,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.022486909032437,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3) | asymmetric","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.022486909032437,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242244170268952,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242244170268952,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0242244170268952,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242244170268952,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242244170268952,True
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0242244170268952,True
 Glacier Bank,Johansen VECM (rank 1) | asymmetric,BIC / k_ar_diff=1,det_order 1 (linear trend),0.0224326704236614,True
 Glacier Bank,Johansen VECM (rank 1) | asymmetric,fixed / k_ar_diff=1,det_order 1 (linear trend),0.0224326704236614,True
 Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4) | asymmetric","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0223650065600675,True
 Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5) | asymmetric","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),0.0223650065600675,True
-SouthState Bank,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=2,det_order -1 (none),0.0392491570925136,True
-SouthState Bank,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=2,det_order 0 (constant),0.0392491570925136,True
-SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0184257671282382,True
-SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0184257671282382,True
-SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0184257671282382,True
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | asymmetric","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",0.0171439417049908,True
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5) | asymmetric","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),0.0171439417049908,True
+SouthState Bank,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=2,det_order -1 (none),0.0392733564334591,True
+SouthState Bank,Johansen VECM (rank 1) | asymmetric,HQIC / k_ar_diff=2,det_order 0 (constant),0.0392733564334591,True
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0185027486498979,True
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0185027486498979,True
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | asymmetric","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0185027486498979,True
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | asymmetric","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",0.0172603296254974,True
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5) | asymmetric","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),0.0172603296254974,True
 KeyBank National Association,EG_LongRun | asymmetric,"AIC / ADF lag=2, ECM lag=4",n (none),0.0226803876916275,True
 KeyBank National Association,EG_ShortRun | asymmetric,"AIC / ADF lag=2, ECM lag=4",n (none),0.0226803876916275,True
 KeyBank National Association,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=3",n (none),0.0207612135440531,True
@@ -72,8 +72,8 @@ KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4) | asymmetric","B
 KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4) | asymmetric","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0215603115171928,True
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5) | asymmetric","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0215603115171928,True
 KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5) | asymmetric","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),0.0215603115171928,True
-Huntington National Bank,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=3",n (none),0.0159241591991963,True
-Huntington National Bank,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=3",n (none),0.0159241591991963,True
-Huntington National Bank,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=3",n (none),0.0159241591991963,True
+Huntington National Bank,EG_LongRun | asymmetric,"AIC / ADF lag=1, ECM lag=3",n (none),0.0160073180491759,True
+Huntington National Bank,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=3",n (none),0.0160073180491759,True
+Huntington National Bank,EG_LongRun | asymmetric,"t-stat / ADF lag=1, ECM lag=3",n (none),0.0160073180491759,True
 Old National Bank,EG_LongRun | asymmetric,"BIC / ADF lag=1, ECM lag=3",n (none),0.0173932340460423,True
 Old National Bank,Johansen VECM (rank 1) | asymmetric,fixed / k_ar_diff=1,det_order -1 (none),0.0371191762354964,True

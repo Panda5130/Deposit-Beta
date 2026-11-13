@@ -21,6 +21,7 @@ while reading the input files once.
 """
 
 import argparse
+import os
 import re
 import sys
 from pathlib import Path
@@ -51,7 +52,7 @@ DATA_VINTAGE = "v2"
 # vintages/<OUTPUT_VINTAGE>/ at the same relative path it has at the repo root (e.g. MAE_Backtesting/output/...),
 # so the default output/ folders of the original results are never written. Reads fall back per file
 # (VINTAGE_CHAIN): OUTPUT_ROOT, then the data vintage folder, then the repo root (v1).
-OUTPUT_VINTAGE = "v2_covid"
+OUTPUT_VINTAGE = os.environ.get("DEPOSIT_OUTPUT_VINTAGE", "v2_covid")  # env override: staging runs only
 DATA_ROOT = HERE if DATA_VINTAGE == "v1" else HERE / "vintages" / DATA_VINTAGE
 OUTPUT_ROOT = HERE / "vintages" / OUTPUT_VINTAGE
 VINTAGE_DIR = OUTPUT_ROOT  # where the estimation workflow writes (and first reads)

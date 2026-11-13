@@ -130,70 +130,70 @@ Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear tr
 Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2029Q1,11,1.6333333333333329,0.49163128167565523,0.5326862598505228,11
 Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2029Q2,12,1.6333333333333329,0.4926395937483172,0.5326862598505228,12
 Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q2,0,3.633333333333333,1.853287859185298,,0
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q3,1,3.633333333333333,1.9154837785393568,1.6810408795073208,1
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q4,2,3.633333333333333,1.8253533247995448,1.6810408795073208,2
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q1,3,3.633333333333333,1.7149549020873753,1.6810408795073208,3
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q2,4,3.633333333333333,1.7258745437542382,1.6810408795073208,4
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q3,5,3.633333333333333,1.792150879084329,1.6810408795073208,5
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q4,6,3.633333333333333,1.7839575455285799,1.6810408795073208,6
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q1,7,3.633333333333333,1.7154699365705497,1.6810408795073208,7
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q2,8,3.633333333333333,1.69058415362015,1.6810408795073208,8
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q3,9,3.633333333333333,1.7264598726092224,1.6810408795073208,9
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q4,10,3.633333333333333,1.7468125915747907,1.6810408795073208,10
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q1,11,3.633333333333333,1.7169622009790042,1.6810408795073208,11
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q2,12,3.633333333333333,1.6863198744554324,1.6810408795073208,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q3,1,3.633333333333333,1.9154483225435819,1.680785952897274,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q4,2,3.633333333333333,1.8251734982071304,1.680785952897274,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q1,3,3.633333333333333,1.7146470773964966,1.680785952897274,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q2,4,3.633333333333333,1.7256296413713386,1.680785952897274,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q3,5,3.633333333333333,1.7920399246106016,1.680785952897274,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q4,6,3.633333333333333,1.7837962582503988,1.680785952897274,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q1,7,3.633333333333333,1.7151249754695705,1.680785952897274,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q2,8,3.633333333333333,1.69020723803353,1.680785952897274,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q3,9,3.633333333333333,1.7262380019534436,1.680785952897274,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q4,10,3.633333333333333,1.7466619738568063,1.680785952897274,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q1,11,3.633333333333333,1.716682205860207,1.680785952897274,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q2,12,3.633333333333333,1.6859287202037438,1.680785952897274,12
 Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q2,0,3.633333333333333,1.853287859185298,,0
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q3,1,5.633333333333333,2.2631817677239767,2.6063844829058462,1
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q4,2,5.633333333333333,2.3098218863194417,2.6063844829058462,2
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q1,3,5.633333333333333,2.347453317105546,2.6063844829058462,3
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q2,4,5.633333333333333,2.5322407835421625,2.6063844829058462,4
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q3,5,5.633333333333333,2.681678629442998,2.6063844829058462,5
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q4,6,5.633333333333333,2.6552604872484045,2.6063844829058462,6
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q1,7,5.633333333333333,2.575444535924151,2.6063844829058462,7
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q2,8,5.633333333333333,2.597479748259451,2.6063844829058462,8
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q3,9,5.633333333333333,2.676983414351664,2.6063844829058462,9
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q4,10,5.633333333333333,2.6860598973612095,2.6063844829058462,10
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q1,11,5.633333333333333,2.6268466819074976,2.6063844829058462,11
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q2,12,5.633333333333333,2.6010722858968016,2.6063844829058462,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q3,1,5.633333333333333,2.2632806934508487,2.6059892297214615,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q4,2,5.633333333333333,2.309603839283402,2.6059892297214615,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q1,3,5.633333333333333,2.346959704067901,2.6059892297214615,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q2,4,5.633333333333333,2.5319876339809126,2.6059892297214615,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q3,5,5.633333333333333,2.6817584090529842,2.6059892297214615,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q4,6,5.633333333333333,2.6551843827828634,2.6059892297214615,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q1,7,5.633333333333333,2.574994170028654,2.6059892297214615,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q2,8,5.633333333333333,2.5970554467177163,2.6059892297214615,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q3,9,5.633333333333333,2.6768905689524716,2.6059892297214615,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q4,10,5.633333333333333,2.6860109242625216,2.6059892297214615,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q1,11,5.633333333333333,2.6264854260616177,2.6059892297214615,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q2,12,5.633333333333333,2.600559075680629,2.6059892297214615,12
 Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q2,0,3.633333333333333,1.853287859185298,,0
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q3,1,4.133333333333333,2.0024082758355117,1.9123767803569522,1
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q4,2,4.633333333333333,2.0333949624756738,2.1437126812065834,2
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q1,3,5.133333333333333,2.081121143518047,2.375048582056215,3
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q2,4,5.633333333333333,2.2936323451318907,2.6063844829058462,4
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q3,5,5.633333333333333,2.495366120755494,2.6063844829058462,5
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q4,6,5.633333333333333,2.5838813822497264,2.6063844829058462,6
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q1,7,5.633333333333333,2.572262819375554,2.6063844829058462,7
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q2,8,5.633333333333333,2.5725093751379986,2.6063844829058462,8
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q3,9,5.633333333333333,2.623634041973014,2.6063844829058462,9
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q4,10,5.633333333333333,2.6609728519552305,2.6063844829058462,10
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q1,11,5.633333333333333,2.643599931753167,2.6063844829058462,11
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q2,12,5.633333333333333,2.614921809430113,2.6063844829058462,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q3,1,4.133333333333333,2.0024064152703986,1.9120867721033208,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q4,2,4.633333333333333,2.033239176203015,2.143387591309368,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q1,3,5.133333333333333,2.0807909120602317,2.3746884105154145,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q2,4,5.633333333333333,2.293362974187467,2.6059892297214615,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q3,5,5.633333333333333,2.4952447858105087,2.6059892297214615,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q4,6,5.633333333333333,2.583740565314354,2.6059892297214615,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q1,7,5.633333333333333,2.571958424505446,2.6059892297214615,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q2,8,5.633333333333333,2.5721632410880586,2.6059892297214615,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q3,9,5.633333333333333,2.6234275256471338,2.6059892297214615,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q4,10,5.633333333333333,2.6608417040188095,2.6059892297214615,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q1,11,5.633333333333333,2.643345442432792,2.6059892297214615,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q2,12,5.633333333333333,2.6145374934745034,2.6059892297214615,12
 Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q2,0,3.633333333333333,1.853287859185298,,0
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q3,1,1.6333333333333329,1.567785789354737,0.7556972761087956,1
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q4,2,1.6333333333333329,1.3408847632796475,0.7556972761087956,2
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q1,3,1.6333333333333329,1.082456487069204,0.7556972761087956,3
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q2,4,1.6333333333333329,0.9195083039663136,0.7556972761087956,4
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q3,5,1.6333333333333329,0.9026231287256601,0.7556972761087956,5
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q4,6,1.6333333333333329,0.9126546038087551,0.7556972761087956,6
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q1,7,1.6333333333333329,0.8554953372169483,0.7556972761087956,7
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q2,8,1.6333333333333329,0.7836885589808488,0.7556972761087956,8
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q3,9,1.6333333333333329,0.7759363308667809,0.7556972761087956,9
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q4,10,1.6333333333333329,0.8075652857883722,0.7556972761087956,10
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q1,11,1.6333333333333329,0.8070777200505109,0.7556972761087956,11
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q2,12,1.6333333333333329,0.7715674630140631,0.7556972761087956,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q3,1,1.6333333333333329,1.5676159516363153,0.7555826760730863,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q4,2,1.6333333333333329,1.3407431571308592,0.7555826760730863,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q1,3,1.6333333333333329,1.082334450725093,0.7555826760730863,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q2,4,1.6333333333333329,0.9192716487617653,0.7555826760730863,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q3,5,1.6333333333333329,0.9023214401682195,0.7555826760730863,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q4,6,1.6333333333333329,0.9124081337179345,0.7555826760730863,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q1,7,1.6333333333333329,0.8552557809104874,0.7555826760730863,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q2,8,1.6333333333333329,0.7833590293493441,0.7555826760730863,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q3,9,1.6333333333333329,0.7755854349544156,0.7555826760730863,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q4,10,1.6333333333333329,0.8073130234510907,0.7555826760730863,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q1,11,1.6333333333333329,0.8068789856587959,0.7555826760730863,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q2,12,1.6333333333333329,0.771298364726859,0.7555826760730863,12
 Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q2,0,3.633333333333333,1.853287859185298,,0
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q3,1,3.133333333333333,1.8285592812432019,1.4497049786576897,1
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q4,2,2.633333333333333,1.6173116871234154,1.2183690778080583,2
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q1,3,2.133333333333333,1.348788660656703,0.9870331769584268,3
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q2,4,1.6333333333333329,1.1581167423765848,0.7556972761087956,4
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q3,5,1.6333333333333329,1.0889356374131633,0.7556972761087956,5
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q4,6,1.6333333333333329,0.9840337088074322,0.7556972761087956,6
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q1,7,1.6333333333333329,0.8586770537655446,0.7556972761087956,7
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q2,8,1.6333333333333329,0.8086589321023009,0.7556972761087956,8
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q3,9,1.6333333333333329,0.8292857032454302,0.7556972761087956,9
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q4,10,1.6333333333333329,0.83265233119435,0.7556972761087956,10
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q1,11,1.6333333333333329,0.7903244702048405,0.7556972761087956,11
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q2,12,1.6333333333333329,0.7577179394807518,0.7556972761087956,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q3,1,3.133333333333333,1.8284902298167653,1.449485133691227,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q4,2,2.633333333333333,1.617107820211246,1.21818431448518,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q1,3,2.133333333333333,1.3485032427327615,0.9868834952791332,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q2,4,1.6333333333333329,1.1578963085552103,0.7555826760730863,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q3,5,1.6333333333333329,1.0888350634106945,0.7555826760730863,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q4,6,1.6333333333333329,0.9838519511864432,0.7555826760730863,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q1,7,1.6333333333333329,0.858291526433695,0.7555826760730863,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q2,8,1.6333333333333329,0.8082512349790014,0.7555826760730863,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q3,9,1.6333333333333329,0.8290484782597535,0.7555826760730863,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q4,10,1.6333333333333329,0.8324822436948033,0.7555826760730863,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q1,11,1.6333333333333329,0.7900189692876218,0.7555826760730863,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q2,12,1.6333333333333329,0.757319946932984,0.7555826760730863,12
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q2,0,3.633333333333333,1.5404780164167762,,0
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q3,1,3.633333333333333,1.5283929927814341,1.4606938120214707,1
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q4,2,3.633333333333333,1.5189835225315036,1.4606938120214707,2
@@ -260,70 +260,70 @@ KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | B
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2029Q1,11,1.6333333333333329,0.6893757884978761,0.6566421723766244,11
 KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2029Q2,12,1.6333333333333329,0.6850574822468076,0.6566421723766244,12
 Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q2,0,3.633333333333333,1.3663897567885128,,0
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q3,1,3.633333333333333,1.3848144132092617,1.4610107286428813,1
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q4,2,3.633333333333333,1.3996514086963951,1.4610107286428813,2
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q1,3,3.633333333333333,1.411599334891497,1.4610107286428813,3
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q2,4,3.633333333333333,1.4212207532229508,1.4610107286428813,4
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q3,5,3.633333333333333,1.4289686827964347,1.4610107286428813,5
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q4,6,3.633333333333333,1.4352079305463659,1.4610107286428813,6
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q1,7,3.633333333333333,1.4402322679665516,1.4610107286428813,7
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q2,8,3.633333333333333,1.4442782631768167,1.4610107286428813,8
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q3,9,3.633333333333333,1.4475364196007305,1.4610107286428813,9
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q4,10,3.633333333333333,1.450160145712852,1.4610107286428813,10
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q1,11,3.633333333333333,1.4522729781910295,1.4610107286428813,11
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q2,12,3.633333333333333,1.4539743985718452,1.4610107286428813,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q3,1,3.633333333333333,1.3848383519659255,1.4612088686950386,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q4,2,3.633333333333333,1.3996974739118702,1.4612088686950386,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q1,3,3.633333333333333,1.41166551282655,1.4612088686950386,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q2,4,3.633333333333333,1.4213049757762692,1.4612088686950386,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q3,5,3.633333333333333,1.4290689249597095,1.4612088686950386,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q4,6,3.633333333333333,1.435322271980956,1.4612088686950386,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q1,7,3.633333333333333,1.44035892897654,1.4612088686950386,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q2,8,3.633333333333333,1.444415622712706,1.4612088686950386,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q3,9,3.633333333333333,1.44768302092614,1.4612088686950386,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q4,10,3.633333333333333,1.450314693854755,1.4612088686950386,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q1,11,3.633333333333333,1.4524343321574054,1.4612088686950386,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q2,12,3.633333333333333,1.4541415604703196,1.4612088686950386,12
 Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q2,0,3.633333333333333,1.3663897567885128,,0
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q3,1,5.633333333333333,1.7161315734675102,2.2652368178041007,1
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q4,2,5.633333333333333,1.8230536993711024,2.2652368178041007,2
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q1,3,5.633333333333333,1.9091558802356414,2.2652368178041007,3
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q2,4,5.633333333333333,1.9784921891331502,2.2652368178041007,4
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q3,5,5.633333333333333,2.0343272874228697,2.2652368178041007,5
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q4,6,5.633333333333333,2.0792901395070635,2.2652368178041007,6
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q1,7,5.633333333333333,2.1154977961508297,2.2652368178041007,7
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q2,8,5.633333333333333,2.144655074634365,2.2652368178041007,8
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q3,9,5.633333333333333,2.168134829121951,2.2652368178041007,9
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q4,10,5.633333333333333,2.1870425907331255,2.2652368178041007,10
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q1,11,5.633333333333333,2.2022686208576747,2.2652368178041007,11
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q2,12,5.633333333333333,2.2145298286156923,2.2652368178041007,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q3,1,5.633333333333333,1.7162461290224846,2.2655440257748762,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q4,2,5.633333333333333,1.8231209385965208,2.2655440257748762,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q1,3,5.633333333333333,1.9092015215969291,2.2655440257748762,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q2,4,5.633333333333333,1.9785337318644673,2.2655440257748762,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q3,5,5.633333333333333,2.0343762367945204,2.2655440257748762,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q4,6,5.633333333333333,2.0793536772198262,2.2655440257748762,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q1,7,5.633333333333333,2.115580027555397,2.2655440257748762,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q2,8,5.633333333333333,2.144757954227657,2.2655440257748762,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q3,9,5.633333333333333,2.1682588423106566,2.2655440257748762,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q4,10,5.633333333333333,2.187187251683031,2.2655440257748762,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q1,11,5.633333333333333,2.2024328321948325,2.2655440257748762,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q2,12,5.633333333333333,2.2147121378971404,2.2655440257748762,12
 Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q2,0,3.633333333333333,1.3663897567885128,,0
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q3,1,4.133333333333333,1.4676437032738239,1.6620672509331862,1
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q4,2,4.633333333333333,1.588331271429634,1.8631237732234909,2
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q1,3,5.133333333333333,1.724668333960772,2.0641802955137956,3
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q2,4,5.633333333333333,1.8736076112697757,2.2652368178041007,4
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q3,5,5.633333333333333,1.9498659019353064,2.2652368178041007,5
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q4,6,5.633333333333333,2.011275129256735,2.2652368178041007,6
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q1,7,5.633333333333333,2.060726712386954,2.2652368178041007,7
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q2,8,5.633333333333333,2.1005490514840566,2.2652368178041007,8
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q3,9,5.633333333333333,2.1326171591316667,2.2652368178041007,9
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q4,10,5.633333333333333,2.158440944258682,2.2652368178041007,10
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q1,11,5.633333333333333,2.1792363053574513,2.2652368178041007,11
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q2,12,5.633333333333333,2.1959823803848417,2.2652368178041007,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q3,1,4.133333333333333,1.4676902962300653,1.662292657964998,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q4,2,4.633333333333333,1.5884052843471725,1.8633764472349574,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q1,3,5.133333333333333,1.7247573254544473,2.064460236504917,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q2,4,5.633333333333333,1.873703977426216,2.2655440257748762,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q3,5,5.633333333333333,1.9499428103042191,2.2655440257748762,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q4,6,5.633333333333333,2.0113481424640205,2.2655440257748762,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q1,7,5.633333333333333,2.060806071911724,2.2655440257748762,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q2,8,5.633333333333333,2.1006411595045784,2.2655440257748762,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q3,9,5.633333333333333,2.132725685105439,2.2655440257748762,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q4,10,5.633333333333333,2.1585676461814054,2.2655440257748762,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q1,11,5.633333333333333,2.1793816348486983,2.2655440257748762,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q2,12,5.633333333333333,2.19614592463958,2.2655440257748762,12
 Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q2,0,3.633333333333333,1.3663897567885128,,0
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q3,1,1.6333333333333329,1.0534972529510132,0.6567846394816621,1
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q4,2,1.6333333333333329,0.9762491180216879,0.6567846394816621,2
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q1,3,1.6333333333333329,0.9140427895473526,0.6567846394816621,3
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q2,4,1.6333333333333329,0.8639493173127513,0.6567846394816621,4
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q3,5,1.6333333333333329,0.8236100781699995,0.6567846394816621,5
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q4,6,1.6333333333333329,0.7911257215856677,0.6567846394816621,6
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q1,7,1.6333333333333329,0.7649667397822734,0.6567846394816621,7
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q2,8,1.6333333333333329,0.7439014517192684,0.6567846394816621,8
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q3,9,1.6333333333333329,0.7269380100795101,0.6567846394816621,9
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q4,10,1.6333333333333329,0.7132777006925786,0.6567846394816621,10
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q1,11,1.6333333333333329,0.7022773355243844,0.6567846394816621,11
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q2,12,1.6333333333333329,0.6934189685279983,0.6567846394816621,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q3,1,1.6333333333333329,1.0534305749093666,0.6568737116152007,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q4,2,1.6333333333333329,0.9762740092272197,0.6568737116152007,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q1,3,1.6333333333333329,0.9141295040561713,0.6568737116152007,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q2,4,1.6333333333333329,0.8640762196880717,0.6568737116152007,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q3,5,1.6333333333333329,0.8237616131248993,0.6568737116152007,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q4,6,1.6333333333333329,0.7912908667420862,0.6568737116152007,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q1,7,1.6333333333333329,0.7651378303976829,0.6568737116152007,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q2,8,1.6333333333333329,0.7440732911977551,0.6568737116152007,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q3,9,1.6333333333333329,0.7271071995416233,0.6568737116152007,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q4,10,1.6333333333333329,0.7134421360264787,0.6568737116152007,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q1,11,1.6333333333333329,0.7024358321199777,0.6568737116152007,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q2,12,1.6333333333333329,0.6935709830434986,0.6568737116152007,12
 Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q2,0,3.633333333333333,1.3663897567885128,,0
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q3,1,3.133333333333333,1.3019851231446995,1.2599542063525766,1
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q4,2,2.633333333333333,1.2109715459631563,1.0588976840622717,2
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q1,3,2.133333333333333,1.098530335822222,0.8578411617719669,3
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q2,4,1.6333333333333329,0.968833895176126,0.6567846394816621,4
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q3,5,1.6333333333333329,0.9080714636575633,0.6567846394816621,5
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q4,6,1.6333333333333329,0.8591407318359967,0.6567846394816621,6
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q1,7,1.6333333333333329,0.819737823546149,0.6567846394816621,7
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q2,8,1.6333333333333329,0.7880074748695769,0.6567846394816621,8
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q3,9,1.6333333333333329,0.7624556800697944,0.6567846394816621,9
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q4,10,1.6333333333333329,0.741879347167022,0.6567846394816621,10
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q1,11,1.6333333333333329,0.7253096510246078,0.6567846394816621,11
-Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q2,12,1.6333333333333329,0.7119664167588488,0.6567846394816621,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q3,1,3.133333333333333,1.3019864077017858,1.2601250794250791,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q4,2,2.633333333333333,1.2109896634765678,1.0590412901551196,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q1,3,2.133333333333333,1.098573700198653,0.8579575008851602,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q2,4,1.6333333333333329,0.9689059741263228,0.6568737116152007,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q3,5,1.6333333333333329,0.9081950396152002,0.6568737116152007,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q4,6,1.6333333333333329,0.8592964014978918,0.6568737116152007,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q1,7,1.6333333333333329,0.8199117860413561,0.6568737116152007,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q2,8,1.6333333333333329,0.788190085920834,0.6568737116152007,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q3,9,1.6333333333333329,0.7626403567468413,0.6568737116152007,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q4,10,1.6333333333333329,0.7420617415281048,0.6568737116152007,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q1,11,1.6333333333333329,0.7254870294661124,0.6568737116152007,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q2,12,1.6333333333333329,0.7121371963010593,0.6568737116152007,12
 Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q2,0,3.633333333333333,1.6742403914230568,,0
 Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q3,1,3.633333333333333,1.6558246500532419,1.5227503560513798,1
 Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q4,2,3.633333333333333,1.6321844723068508,1.5227503560513798,2
@@ -390,67 +390,67 @@ Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (n
 Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q1,11,1.6333333333333329,0.7567502710261561,0.6845391508854826,11
 Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q2,12,1.6333333333333329,0.7405438283293294,0.6845391508854826,12
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q2,0,3.633333333333333,1.739837989448987,,0
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q3,1,3.633333333333333,1.740627903118638,1.4323636851767862,1
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q4,2,3.633333333333333,1.6834050083224559,1.4323636851767862,2
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q1,3,3.633333333333333,1.6012539017356784,1.4323636851767862,3
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q2,4,3.633333333333333,1.5326943300326399,1.4323636851767862,4
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q3,5,3.633333333333333,1.4926825323159452,1.4323636851767862,5
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q4,6,3.633333333333333,1.4753439108180684,1.4323636851767862,6
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q1,7,3.633333333333333,1.4682069892950589,1.4323636851767862,7
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q2,8,3.633333333333333,1.4625458905100475,1.4323636851767862,8
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q3,9,3.633333333333333,1.45574420024422,1.4323636851767862,9
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q4,10,3.633333333333333,1.4488026631881503,1.4323636851767862,10
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q1,11,3.633333333333333,1.4432537852247247,1.4323636851767862,11
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q2,12,3.633333333333333,1.4396487831341815,1.4323636851767862,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q3,1,3.633333333333333,1.7405199150346822,1.4325135979363557,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q4,2,3.633333333333333,1.6831367718894363,1.4325135979363557,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q1,3,3.633333333333333,1.600899406348582,1.4325135979363557,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q2,4,3.633333333333333,1.532383039584517,1.4325135979363557,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q3,5,3.633333333333333,1.4924984561260202,1.4325135979363557,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q4,6,3.633333333333333,1.4752882655592578,1.4325135979363557,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q1,7,3.633333333333333,1.4682292245548259,1.4325135979363557,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q2,8,3.633333333333333,1.462594399408316,1.4325135979363557,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q3,9,3.633333333333333,1.4557948683590798,1.4325135979363557,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q4,10,3.633333333333333,1.4488571001263306,1.4325135979363557,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q1,11,3.633333333333333,1.4433228017513664,1.4325135979363557,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q2,12,3.633333333333333,1.4397387346438668,1.4325135979363557,12
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q2,0,3.633333333333333,1.739837989448987,,0
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q3,1,5.633333333333333,2.1386970325291923,2.479543446202014,1
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q4,2,5.633333333333333,2.245212836240831,2.479543446202014,2
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q1,3,5.633333333333333,2.2373681818093565,2.479543446202014,3
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q2,4,5.633333333333333,2.2391188391751644,2.479543446202014,4
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q3,5,5.633333333333333,2.282349645913177,2.479543446202014,5
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q4,6,5.633333333333333,2.34493662988938,2.479543446202014,6
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q1,7,5.633333333333333,2.398258075491526,2.479543446202014,7
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q2,8,5.633333333333333,2.4303117423619542,2.479543446202014,8
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q3,9,5.633333333333333,2.444841456153599,2.479543446202014,9
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q4,10,5.633333333333333,2.4510568960476986,2.479543446202014,10
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q1,11,5.633333333333333,2.4557120470695546,2.479543446202014,11
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q2,12,5.633333333333333,2.461036478425171,2.479543446202014,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q3,1,5.633333333333333,2.1384297754362773,2.478978486837344,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q4,2,5.633333333333333,2.2445677611284762,2.478978486837344,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q1,3,5.633333333333333,2.236584330277514,2.478978486837344,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q2,4,5.633333333333333,2.2384877401767205,2.478978486837344,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q3,5,5.633333333333333,2.281977246411778,2.478978486837344,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q4,6,5.633333333333333,2.3447285151372768,2.478978486837344,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q1,7,5.633333333333333,2.398052061554671,2.478978486837344,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q2,8,5.633333333333333,2.4300036803070366,2.478978486837344,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q3,9,5.633333333333333,2.4444213574142153,2.478978486837344,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q4,10,5.633333333333333,2.4505710408075476,2.478978486837344,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q1,11,5.633333333333333,2.4552090361086987,2.478978486837344,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q2,12,5.633333333333333,2.460538496715548,2.478978486837344,12
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q2,0,3.633333333333333,1.739837989448987,,0
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q3,1,4.133333333333333,1.8401451854712767,1.6941586254330931,1
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q4,2,4.633333333333333,1.9233742476546885,1.9559535656894003,2
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q1,3,5.133333333333333,2.0002517110863307,2.217748505945707,3
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q2,4,5.633333333333333,2.1082982666689234,2.479543446202014,4
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q3,5,5.633333333333333,2.166185964998898,2.479543446202014,5
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q4,6,5.633333333333333,2.2257935662892554,2.479543446202014,6
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q1,7,5.633333333333333,2.292140846296943,2.479543446202014,7
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q2,8,5.633333333333333,2.351815083189277,2.479543446202014,8
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q3,9,5.633333333333333,2.394870928501486,2.479543446202014,9
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q4,10,5.633333333333333,2.421094769892475,2.479543446202014,10
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q1,11,5.633333333333333,2.43614768584114,2.479543446202014,11
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q2,12,5.633333333333333,2.4459481446103672,2.479543446202014,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q3,1,4.133333333333333,1.839997380135081,1.6941298201616029,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q4,2,4.633333333333333,1.9229719842995951,1.9557460423868496,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q1,3,5.133333333333333,1.9996558497409738,2.2173622646120967,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q2,4,5.633333333333333,2.1076656581249598,2.478978486837344,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q3,5,5.633333333333333,2.165673307137504,2.478978486837344,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q4,6,5.633333333333333,2.2254654316554863,2.478978486837344,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q1,7,5.633333333333333,2.291940868918782,2.478978486837344,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q2,8,5.633333333333333,2.351632188848901,2.478978486837344,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q3,9,5.633333333333333,2.394619582492009,2.478978486837344,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q4,10,5.633333333333333,2.420750237035059,2.478978486837344,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q1,11,5.633333333333333,2.4357317879994667,2.478978486837344,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q2,12,5.633333333333333,2.4454953411852074,2.478978486837344,12
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q2,0,3.633333333333333,1.739837989448987,,0
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q3,1,1.6333333333333329,1.3425587737080837,0.3851839241515587,1
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q4,2,1.6333333333333329,1.1215971804040805,0.3851839241515587,2
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q1,3,1.6333333333333329,0.9651396216619997,0.3851839241515587,3
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q2,4,1.6333333333333329,0.826269820890115,0.3851839241515587,4
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q3,5,1.6333333333333329,0.703015418718713,0.3851839241515587,5
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q4,6,1.6333333333333329,0.6057511917467568,0.3851839241515587,6
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q1,7,1.6333333333333329,0.5381559030985921,0.3851839241515587,7
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q2,8,1.6333333333333329,0.4947800386581413,0.3851839241515587,8
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q3,9,1.6333333333333329,0.4666469443348415,0.3851839241515587,9
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q4,10,1.6333333333333329,0.44654843032860236,0.3851839241515587,10
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q1,11,1.6333333333333329,0.43079552337989513,0.3851839241515587,11
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q2,12,1.6333333333333329,0.4182610878431926,0.3851839241515587,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q3,1,1.6333333333333329,1.3426100546330872,0.3860487090353676,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q4,2,1.6333333333333329,1.1217057826503967,0.3860487090353676,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q1,3,1.6333333333333329,0.9652144824196498,0.3860487090353676,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q2,4,1.6333333333333329,0.8262783389923134,0.3860487090353676,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q3,5,1.6333333333333329,0.7030196658402625,0.3860487090353676,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q4,6,1.6333333333333329,0.6058480159812395,0.3860487090353676,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q1,7,1.6333333333333329,0.5384063875549816,0.3860487090353676,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q2,8,1.6333333333333329,0.4951851185095964,0.3860487090353676,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q3,9,1.6333333333333329,0.4671683793039452,0.3860487090353676,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q4,10,1.6333333333333329,0.44714315944511396,0.3860487090353676,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q1,11,1.6333333333333329,0.4314365673940339,0.3860487090353676,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q2,12,1.6333333333333329,0.41893897257218526,0.3860487090353676,12
 SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q2,0,3.633333333333333,1.739837989448987,,0
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q3,1,3.133333333333333,1.6411106207659996,1.1705687449204794,1
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q4,2,2.633333333333333,1.4434357689902235,0.9087738046641725,2
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q1,3,2.133333333333333,1.2022560923850263,0.6469788644078656,3
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q2,4,1.6333333333333329,0.9570903933963566,0.3851839241515587,4
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q3,5,1.6333333333333329,0.8191790996329924,0.3851839241515587,5
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q4,6,1.6333333333333329,0.7248942553468816,0.3851839241515587,6
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q1,7,1.6333333333333329,0.6442731322931751,0.3851839241515587,7
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q2,8,1.6333333333333329,0.5732766978308184,0.3851839241515587,8
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q3,9,1.6333333333333329,0.5166174719869543,0.3851839241515587,9
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q4,10,1.6333333333333329,0.4765105564838254,0.3851839241515587,10
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q1,11,1.6333333333333329,0.45035988460830906,0.3851839241515587,11
-SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q2,12,1.6333333333333329,0.4333494216579953,0.3851839241515587,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q3,1,3.133333333333333,1.6410424499342835,1.1708973757111085,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q4,2,2.633333333333333,1.4433015594792777,0.9092811534858617,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q1,3,2.133333333333333,1.2021429629561902,0.6476649312606145,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q2,4,1.6333333333333329,0.9571004210440743,0.3860487090353676,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q3,5,1.6333333333333329,0.819323605114537,0.3860487090353676,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q4,6,1.6333333333333329,0.7251110994630301,0.3860487090353676,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q1,7,1.6333333333333329,0.6445175801908701,0.3860487090353676,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q2,8,1.6333333333333329,0.5735566099677312,0.3860487090353676,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q3,9,1.6333333333333329,0.5169701542261507,0.3860487090353676,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q4,10,1.6333333333333329,0.47696396321760176,0.3860487090353676,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q1,11,1.6333333333333329,0.45091381550326537,0.3860487090353676,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q2,12,1.6333333333333329,0.4339821281025253,0.3860487090353676,12

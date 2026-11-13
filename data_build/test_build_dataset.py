@@ -89,7 +89,7 @@ def test_southbank_style_small_transfer_is_mode_b_flag_only():
 
 def test_supplementary_file_validates(tmp_path):
     s = bd.load_supplementary(bd.SUPPLEMENTARY)
-    assert set(s.predecessor_cert) == {680, 32173, 33848}
+    assert set(s.predecessor_cert) == {680, 32173, 33848, 33911, 32957, 35542, 57334}
     bad = tmp_path / "bad.csv"
     s.assign(transfer_share=1.5).to_csv(bad, index=False)
     with pytest.raises(ValueError):

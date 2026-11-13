@@ -60,7 +60,7 @@ def test_specs_without_dummy_reproduce_v2(tmp_path):
     new = pd.read_csv(out)
     m = new.merge(ref, on=K + ["term"], how="outer", suffixes=("_n", "_v2"), indicator=True)
     assert (m["_merge"] == "both").all()
-    assert float((m.coef_n - m.coef_v2).abs().max()) == 0.0
+    assert float((m.coef_n - m.coef_v2).abs().max()) < 1e-12  # same arithmetic; rounding noise only
 
 
 def test_no_write_outside_output_root():

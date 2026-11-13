@@ -108,6 +108,7 @@ predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,mer
 57422,"Citizens Bank Wealth Management, National Association",986,,2011-06-30,2011Q2,223,Merger -Without Assistance,2011Q1,0.0,7753522.0,0.0,1.0,B,below 1% materiality,2,FDIC /history
 28330,TCF National Bank,6560,Huntington National Bank,2021-06-09,2021Q2,223,Merger -Without Assistance,2021Q1,39975492.0,106544576.0,37.519969106639465,1.0,A,,0,FDIC /history
 58373,TCF National Bank Arizona,28330,,2009-10-31,2009Q4,223,Merger -Without Assistance,2009Q3,136624.0,11538155.0,1.184106124419372,1.0,A,,1,FDIC /history
+32957,"Prudential Bank & Trust, FSB",28330,,2012-06-02,2012Q2,NIC,"Deposit transfer (supplementary, not in /history)",2012Q1,1636520.5041,12809359.0,12.775975004682124,0.97035,A,,1,"NIC Transformations (RSSD 1416279 -> TCF National Bank, code 7, 2012-06-02); FDIC financials cert 32957: DEP 1686526 (2012Q1) -> 50000 (2012Q2) -> 500 (2012Q4); cert 28330 DEP 12809359 -> 13889591 (+1.08bn)"
 1003,Chemical Bank,28330,,2019-08-01,2019Q3,223,Merger -Without Assistance,2019Q2,15900424.0,19304159.0,82.36786694514898,1.0,A,,1,FDIC /history
 11405,Byron Bank,1003,,2010-07-24,2010Q3,223,Merger -Without Assistance,2010Q2,714540.0,3519711.0,20.301098584514467,1.0,A,,2,FDIC /history
 30792,Northwestern Bank,1003,,2014-11-01,2014Q4,223,Merger -Without Assistance,2014Q3,779650.0,5573792.0,13.987784258903094,1.0,A,,2,FDIC /history
@@ -218,6 +219,8 @@ predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,mer
 28312,Bradford Bank,588,Manufacturers and Traders Trust Company,2009-08-28,2009Q3,211,Failure - Whole Institution,2009Q2,382159.0,46556854.0,0.8208436936052422,1.0,B,below 1% materiality,0,FDIC /history
 31263,K Bank,588,Manufacturers and Traders Trust Company,2010-11-05,2010Q4,211,Failure - Whole Institution,2010Q3,500056.0,48598701.0,1.0289493128633211,1.0,A,,0,FDIC /history
 680,Wilmington Trust Company,588,Manufacturers and Traders Trust Company,2011-05-16,2011Q2,NIC,"Deposit transfer (supplementary, not in /history)",2011Q1,6628470.486819999,50695583.0,13.075045387721449,0.92014,A,,0,"NIC Transformations (RSSD 272218 -> M&T, 2011-05-16); FDIC financials cert 680: DEP 7203763 (2011Q1) -> 575260 (2011Q2), cert 588 DEP 50695583 -> 59561900"
+33911,"Wilmington Trust, National Association",588,Manufacturers and Traders Trust Company,2011-05-16,2011Q2,NIC,"Deposit transfer (supplementary, not in /history)",2011Q1,1761375.1905200002,50695583.0,3.474415493988895,0.94193,A,,0,"NIC Transformations (RSSD 2214052 -> M&T, code 7, 2011-05-16); FDIC financials cert 33911: DEP 1869964 (2011Q1) -> 108590 (2011Q2); cert 588 DEP 50695583 -> 59561900 (+8.87bn = cert 680 6.63bn transferred + cert 33911 1.76bn + about 0.5bn organic)"
+26690,Wilmington Trust of Pennsylvania,33911,,2008-11-01,2008Q4,223,Merger -Without Assistance,2008Q3,231426.0,610765.0,37.89116927132367,1.0,A,,1,FDIC /history
 13074,Hudson City Savings Bank,588,Manufacturers and Traders Trust Company,2015-11-01,2015Q4,223,Merger -Without Assistance,2015Q3,17996847.0,74013706.0,24.31555987751782,1.0,A,,0,FDIC /history
 27334,"People's United Bank, National Association",588,Manufacturers and Traders Trust Company,2022-04-02,2022Q2,223,Merger -Without Assistance,2022Q1,53542021.0,128747728.0,41.5867695933244,1.0,A,,0,FDIC /history
 33525,Maine Bank & Trust Company,27334,,2009-01-01,2009Q1,223,Merger -Without Assistance,2008Q4,279076.0,15577481.0,1.7915348444334485,1.0,A,,1,FDIC /history
@@ -301,6 +304,7 @@ predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,mer
 27344,Independent National Bank,33555,SouthState Bank,2010-08-20,2010Q3,211,Failure - Whole Institution,2010Q2,141877.0,691189.0,20.526513008742906,1.0,A,,0,FDIC /history
 27581,"Centerstate Bank Central Florida, National Association",33555,SouthState Bank,2010-12-10,2010Q4,223,Merger -Without Assistance,2010Q3,250867.0,996123.0,25.184339684958584,1.0,A,,0,FDIC /history
 32699,"CENTERSTATE BANK, NATIONAL ASSOCIATION",33555,SouthState Bank,2010-12-10,2010Q4,223,Merger -Without Assistance,2010Q3,331490.0,996123.0,33.27801887919464,1.0,A,,0,FDIC /history
+57334,CenterState Bank Mid Florida,32699,,2007-11-30,2007Q4,NIC,"Deposit transfer (supplementary, not in /history)",2007Q3,79978.0,231639.0,34.5270010663144,1.0,A,,1,"NIC Transformations (RSSD 3230732 -> CenterState Bank, N.A., 2007-11-30); FDIC financials cert 57334: last DEP 79978 (2007Q3), no later report; cert 32699 DEP 231639 (2007Q3) -> 304618 (2007Q4), +72979"
 32580,Federal Trust Bank,33555,SouthState Bank,2011-11-01,2011Q4,223,Merger -Without Assistance,2011Q3,205766.0,1651264.0,12.461120692996396,1.0,A,,0,FDIC /history
 57186,Central Florida State Bank,33555,SouthState Bank,2012-01-20,2012Q1,211,Failure - Whole Institution,2011Q4,71080.0,1779775.0,3.993763256591423,1.0,A,,0,FDIC /history
 16579,First Guaranty Bank and Trust Company of Jacksonville,33555,SouthState Bank,2012-01-27,2012Q1,211,Failure - Whole Institution,2011Q4,378309.0,1779775.0,21.256001460858815,1.0,A,,0,FDIC /history
@@ -340,6 +344,7 @@ predecessor_cert,predecessor_name,survivor_cert,survivor_name,effective_date,mer
 58380,Private Bank of Buckhead,57764,,2017-01-01,2017Q1,223,Merger -Without Assistance,2016Q4,291462.0,1694059.0,17.204949768573584,1.0,A,,1,FDIC /history
 57789,Patriot Bank,57764,,2017-08-31,2017Q3,223,Merger -Without Assistance,2017Q2,131848.0,2048242.0,6.437129987569828,1.0,A,,1,FDIC /history
 35200,FirstAtlantic Bank,57764,,2018-01-01,2018Q1,223,Merger -Without Assistance,2017Q4,376985.0,2319187.0,16.25504972216557,1.0,A,,1,FDIC /history
+35542,"CenterBank of Jacksonville, National Association",35200,,2011-12-17,2011Q4,NIC,"Deposit transfer (supplementary, not in /history)",2011Q3,124954.0,158762.0,78.70523173051485,1.0,A,,2,"NIC Transformations (RSSD 2934930 -> FirstAtlantic Bank, 2011-12-17); FDIC financials cert 35542: last DEP 124954 (2011Q3), no later report; cert 35200 DEP 158762 (2011Q3) -> 283099 (2011Q4), +124337"
 26680,Heritage Bank of North Florida,35200,,2013-04-19,2013Q2,211,Failure - Whole Institution,2013Q1,106348.0,282214.0,37.683460069309106,1.0,A,,2,FDIC /history
 58548,Premier Community Bank of Florida,57764,,2018-07-01,2018Q3,223,Merger -Without Assistance,2018Q2,204479.0,2667416.0,7.665808407837398,1.0,A,,1,FDIC /history
 58705,First Landmark Bank,57764,,2018-08-01,2018Q3,223,Merger -Without Assistance,2018Q2,469974.0,2667416.0,17.619074040194704,1.0,A,,1,FDIC /history

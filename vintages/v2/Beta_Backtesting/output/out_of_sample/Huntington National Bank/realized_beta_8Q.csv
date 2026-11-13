@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.4036681715823792,0.3638075771379051,0.3797528934888218,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+2Q,26,14,0.37784650005221326,0.3458663274369519,0.3498690038169967,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+3Q,30,9,0.38254839771221605,0.34478113299025565,0.41783312796595506,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+4Q,33,5,0.39343710298164464,0.3260835578278002,0.4915240427303714,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+5Q,34,3,0.38524153663956656,0.2261217652291258,0.4902791234132618,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+6Q,33,3,0.2805275506560434,0.18125167949664645,0.46551104447243147,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+7Q,32,3,0.26143153489028315,0.12694174253542279,0.48955194185572937,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)
+8Q,32,2,0.31189169516512283,0.18411716146084112,0.4805909740880323,Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none)

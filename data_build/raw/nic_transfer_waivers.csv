@@ -1,1 +1,5 @@
 predecessor_rssd,predecessor_cert,survivor_cert,reason
+115641,4999,59026,Same event as /history 2011-11-10 cert 4999 -> 59026 (Mode A in merger_events_used_v2); RSSD 115641 is cert 4999's own RSSD (FFIEC cert_rssd extra table); NIC date is one day later
+266598,30045,34657,Same event as /history 2008-07-11 cert 30045 First Place Bank absorbed by 34657 (code 221; Mode A in merger_events_used_v2)
+1459575,33001,3832,"Same event as /history 2014-08-01 cert 33001 -> Old National 3832, already in merger_events_used_v2 as Mode B (below 1%, flag only)"
+3049653,57276,57276,"Same charter: RSSD 3049653 is cert 57276's earlier RSSD (FDIC now shows 2856032); 2010-01-30 is a re-registration, not a deposit transfer"

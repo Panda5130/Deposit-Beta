@@ -1,8 +1,8 @@
 bank_name,model,mean_mae,max_mae,naive_mean_mae,horizons_beating_naive,rating
 First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4) | AIC / ARDL(3,4) | ct - case 4 (unrestricted constant, restricted trend)",0.0871841849875247,0.17674443942390564,0.30725909084977554,7/8,Green
-Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | AIC / ARDL(2,1) | ct - case 4 (unrestricted constant, restricted trend)",0.10828599994768634,0.3347460554624671,0.23539059556617845,6/8,Green
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4) | AIC / ARDL(2,1) | ct - case 4 (unrestricted constant, restricted trend)",0.10837590377341617,0.33496920860166957,0.23539059556617845,6/8,Green
 Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4) | BIC / ARDL(3,1) | ct - case 4 (unrestricted constant, restricted trend)",0.10343033244119273,0.2639026408028529,0.11914642165272131,5/8,Amber
-SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | AIC / ARDL(4,3) | n - case 1 (no deterministic terms)",0.1637462019428556,0.39213910951479936,0.1816093156492901,5/8,Amber
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1) | AIC / ARDL(4,3) | n - case 1 (no deterministic terms)",0.1634447807212473,0.3917536461698443,0.1816093156492901,5/8,Amber
 KeyBank National Association,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",0.13976713306635744,0.35842524608084186,0.27152571575660556,7/8,Green
-Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",0.15024821124575374,0.28738019406077664,0.23118267604983256,4/8,Amber
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",0.15013080748508245,0.2875361569528258,0.23118267604983256,4/8,Amber
 Old National Bank,"EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none)",0.14969624773387918,0.3624762826547324,0.20747701114094982,7/8,Green
