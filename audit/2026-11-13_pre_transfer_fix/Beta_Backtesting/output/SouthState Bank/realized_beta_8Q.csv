@@ -1,9 +1,0 @@
-horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
-1Q,17,24,0.3727843911817412,0.27741514956088775,0.5856069789574365,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-2Q,26,14,0.3426455351929439,0.28765463372861827,0.7232114653988557,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-3Q,30,9,0.3363485783235894,0.28981737574479655,0.7774422719960152,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-4Q,33,5,0.3440584136334606,0.3060659166754241,0.8314443490763445,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-5Q,34,3,0.34523637857087885,0.2138154776756929,0.8219221605051577,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-6Q,33,3,0.2293770092613597,0.1476663083261334,0.8057928525839437,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-7Q,32,3,0.21320401342496992,0.10778058208409465,0.8645043716161394,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)
-8Q,32,2,0.27105839544592414,0.1710512453792475,0.8478376628107671,SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms)

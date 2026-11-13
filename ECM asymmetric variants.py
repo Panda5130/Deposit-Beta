@@ -448,7 +448,7 @@ def survivors(selected, y, xs):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Asymmetric variant of every screened ECM.")
-    parser.add_argument("-i", "--input", default=bp.VINTAGE_DIR / INPUT_NAME, help="ECM model selection results.csv")
+    parser.add_argument("-i", "--input", default=bp.vfile(INPUT_NAME), help="ECM model selection results.csv")
     parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean")

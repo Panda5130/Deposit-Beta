@@ -26,7 +26,7 @@ Transformations cross-check, recorded in `data_build/raw/supplementary_transfer_
 - `run_scripts/`: the exact rerun (`run_upstream.py v2`, `run_downstream.py`, `harvest.py`) and logs. The
   rerun ran in a scratch copy of the repo, so no v1 output was overwritten. As a check, `run_upstream.py v1`
   reproduced the original v1 files for both banks exactly.
-- Pre-change snapshot: `audit/2026-11-13_pre_transfer_fix/` (SHA-256 manifest).
+- Pre-change snapshot: `audit/2026-11-13_pre_transfer_fix.manifest.csv` (path, SHA-256, baseline commit 057d5dd; the files are in git history).
 
 ## Pipeline switch
 `bank_plots.DATA_VINTAGE = "v2"` points every reader (`CANDIDATE_FILES`, `DEFAULTS["dependents"]`) and the

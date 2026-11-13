@@ -24,7 +24,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 CHECKS = {}
-AUDIT_DIR = ROOT / "audit" / "2026-11-11_pre_det_pruning"
+AUDIT_DIR = ROOT / "audit"
+# Pre-change snapshots are kept as manifests (path, sha256 of the git blob content, baseline commit); the
+# files themselves live in git history at the baseline commit.
+MANIFESTS = {"pre_det_pruning": AUDIT_DIR / "2026-11-11_pre_det_pruning.manifest.csv",
+             "pre_transfer_fix": AUDIT_DIR / "2026-11-13_pre_transfer_fix.manifest.csv"}
 # Originals the owner protects ("do not delete them no matter what"): must match the audit copy.
 PROTECTED = ["Co-integration_results.csv", "co-integration_respecification_results.csv",
              "ECM model selection results.csv", "ECM param selection results.csv",
@@ -45,9 +49,22 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def manifest(folder=AUDIT_DIR):
-    with open(folder / "MANIFEST.sha256.csv", newline="") as f:
-        return {r["path"]: r["sha256"] for r in csv.DictReader(f)}
+def manifest(path=MANIFESTS["pre_det_pruning"]):
+    with open(path, newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def git_blob(commit, path):
+    """Bytes of path at commit, or None when git has no such file."""
+    r = subprocess.run(["git", "show", f"{commit}:{path}"], cwd=ROOT, capture_output=True)
+    return r.stdout if r.returncode == 0 else None
+
+
+def blob_id(path=None, commit=None):
+    """Git object id of the working-tree file (line endings normalised as git does) or of commit:path."""
+    cmd = ["git", "rev-parse", f"{commit}:{path}"] if commit else ["git", "hash-object", "--", str(path)]
+    r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
 
 
 # Checks ----------------------------------------------------------------------------------------
@@ -62,18 +79,29 @@ def check_pytest():
     return out.returncode == 0, last.strip("= ")
 
 
+def _manifest_failures(name):
+    rows = manifest(MANIFESTS[name])
+    bad = []
+    for r in rows:
+        blob = git_blob(r["baseline_commit"], r["path"])
+        if blob is None or hashlib.sha256(blob).hexdigest() != r["sha256"]:
+            bad.append(r["path"])
+    return rows, bad
+
+
 @check("audit_manifest")
 def check_audit_manifest():
-    m = manifest()
-    bad = [p for p, h in m.items() if sha256(AUDIT_DIR / p) != h]
-    return not bad, f"{len(m)} audit copies, {len(bad)} changed" + (f": {bad[:3]}" if bad else "")
+    """Every pre_det_pruning manifest entry resolves to a file in git at its baseline commit with that sha256."""
+    rows, bad = _manifest_failures("pre_det_pruning")
+    return not bad, f"{len(rows)} entries in git, {len(bad)} missing/changed" + (f": {bad[:3]}" if bad else "")
 
 
 @check("protected_originals_unchanged")
 def check_protected():
-    m = manifest()
-    bad = [p for p in PROTECTED if not (ROOT / p).exists() or sha256(ROOT / p) != m[p]]
-    return not bad, f"{len(PROTECTED)} originals vs audit copy, {len(bad)} differ/missing" + (f": {bad}" if bad else "")
+    """The protected originals still equal their baseline blob (same git object id)."""
+    m = {r["path"]: r for r in manifest(MANIFESTS["pre_det_pruning"])}
+    bad = [p for p in PROTECTED if not (ROOT / p).exists() or blob_id(ROOT / p) != blob_id(p, m[p]["baseline_commit"])]
+    return not bad, f"{len(PROTECTED)} originals vs baseline commit, {len(bad)} differ/missing" + (f": {bad}" if bad else "")
 
 
 def _pruned_tables():
@@ -107,11 +135,11 @@ def check_screen():
     """Pruning keeps every model: same model keys as the unpruned outputs, all of them screened."""
     import bank_plots as bp
     import deterministic_pruning as dp
-    screen = dp.Screen(bp.VINTAGE_DIR / dp.SCREEN_NAME)
+    screen = dp.Screen(bp.vfile(dp.SCREEN_NAME))
     bad, n = [], 0
     for orig, path in zip(("ECM estimation results.csv", "ECM asymmetric estimation results.csv"),
                           _pruned_tables().values()):
-        a = set(map(tuple, pd.read_csv(bp.VINTAGE_DIR / orig, usecols=SPEC).drop_duplicates().to_numpy()))
+        a = set(map(tuple, pd.read_csv(bp.vfile(orig), usecols=SPEC).drop_duplicates().to_numpy()))
         b = set(map(tuple, pd.read_csv(path, usecols=SPEC).drop_duplicates().to_numpy()))
         if a != b:
             bad.append(f"{Path(path).name}: {len(a - b)} model(s) lost, {len(b - a)} new")
@@ -128,10 +156,10 @@ def check_carry():
     """Models with no term dropped are identical to the unpruned originals."""
     import bank_plots as bp
     import deterministic_pruning as dp
-    log = pd.read_csv(bp.VINTAGE_DIR / dp.LOG_NAME)
+    log = pd.read_csv(bp.vfile(dp.LOG_NAME))
     pruned = set(map(tuple, log[log["action"].str.startswith("dropped")][SPEC].to_numpy()))
-    pairs = [(bp.VINTAGE_DIR / "ECM estimation results.csv", bp.CANDIDATE_FILES["estimates"]),
-             (bp.VINTAGE_DIR / "ECM asymmetric estimation results.csv", bp.CANDIDATE_FILES["asym_estimates"])]
+    pairs = [(bp.vfile("ECM estimation results.csv"), bp.CANDIDATE_FILES["estimates"]),
+             (bp.vfile("ECM asymmetric estimation results.csv"), bp.CANDIDATE_FILES["asym_estimates"])]
     worst, missing = 0.0, 0
     for orig, new in pairs:
         new = pd.read_csv(new)
@@ -147,9 +175,9 @@ def check_carry():
 def check_log():
     import bank_plots as bp
     import deterministic_pruning as dp
-    log = pd.read_csv(bp.VINTAGE_DIR / dp.LOG_NAME)
-    need = [(bp.VINTAGE_DIR / "estimation result summary.csv", False),
-            (bp.VINTAGE_DIR / "asymmetric estimation result summary.csv", True)]
+    log = pd.read_csv(bp.vfile(dp.LOG_NAME))
+    need = [(bp.vfile("estimation result summary.csv"), False),
+            (bp.vfile("asymmetric estimation result summary.csv"), True)]
     missing = 0
     for path, asym in need:
         spec = pd.read_csv(path, usecols=SPEC)
@@ -263,15 +291,13 @@ def check_nic_transfers():
     return gaps.empty, detail
 
 
-AUDIT_V2_DIR = ROOT / "audit" / "2026-11-13_pre_transfer_fix"
 V2_RERUN_BANKS = {"Manufacturers and Traders Trust Company", "Old National Bank"}
 
 
 @check("audit_pre_transfer_fix_manifest")
 def check_audit_v2():
-    m = manifest(AUDIT_V2_DIR)
-    bad = [p for p, h in m.items() if sha256(AUDIT_V2_DIR / p) != h]
-    return not bad, f"{len(m)} audit copies, {len(bad)} changed" + (f": {bad[:3]}" if bad else "")
+    rows, bad = _manifest_failures("pre_transfer_fix")
+    return not bad, f"{len(rows)} entries in git, {len(bad)} missing/changed" + (f": {bad[:3]}" if bad else "")
 
 
 @check("v2_other_banks_rate_unchanged")

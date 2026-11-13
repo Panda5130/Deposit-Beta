@@ -221,7 +221,7 @@ def long_run_rows(res, y, det, levels):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Fit one-step ECMs for the selected models.")
-    parser.add_argument("-i", "--input", default=bp.VINTAGE_DIR / INPUT_NAME)
+    parser.add_argument("-i", "--input", default=bp.vfile(INPUT_NAME))
     parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean", help="dependent column")

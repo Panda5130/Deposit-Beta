@@ -44,8 +44,8 @@ def run_step(number, script, args, output, total=4):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Cointegration results -> one-step ECM estimates.")
-    parser.add_argument("--cointegration", default=bp.VINTAGE_DIR / "Co-integration_results.csv")
-    parser.add_argument("--respecification", default=bp.VINTAGE_DIR / "co-integration_respecification_results.csv")
+    parser.add_argument("--cointegration", default=bp.vfile("Co-integration_results.csv"))
+    parser.add_argument("--respecification", default=bp.vfile("co-integration_respecification_results.csv"))
     parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean")

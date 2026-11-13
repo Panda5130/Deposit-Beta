@@ -1,9 +1,0 @@
-horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
-1Q,17,24,0.4199154116613273,0.3523100313188193,0.6407269390466428,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-2Q,26,14,0.40225796284920007,0.3642064525956868,0.7626361487966248,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-3Q,30,9,0.3846986674970015,0.37049398022756946,0.7533240316534595,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-4Q,33,5,0.39163256377449046,0.3722600514427603,0.8101380881292469,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-5Q,34,3,0.3855850040712568,0.2337079477247707,0.7980155551901661,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-6Q,33,3,0.26573764195764205,0.21360250872822048,0.7805987346221115,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-7Q,32,3,0.24619207760627612,0.1486161650537319,0.7914019841818196,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)
-8Q,32,2,0.29731930459116057,0.267866048792207,0.7847722767808852,KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none)

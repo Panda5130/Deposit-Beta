@@ -48,10 +48,20 @@ _TAG = " (det pruned)" if DET_PRUNED else ""
 DATA_VINTAGE = "v2"
 VINTAGE_DIR = HERE if DATA_VINTAGE == "v1" else HERE / "vintages" / DATA_VINTAGE
 _VSUFFIX = "" if DATA_VINTAGE == "v1" else f"_{DATA_VINTAGE}"
-CANDIDATE_FILES = {"summary": VINTAGE_DIR / f"estimation result summary{_TAG}.csv",
-                   "estimates": VINTAGE_DIR / f"ECM estimation results{_TAG}.csv",
-                   "asym_summary": VINTAGE_DIR / f"asymmetric estimation result summary{_TAG}.csv",
-                   "asym_estimates": VINTAGE_DIR / f"ECM asymmetric estimation results{_TAG}.csv"}
+# Per-file fallback: a vintage folder holds only the files that differ from v1, so a read looks in each
+# folder of VINTAGE_CHAIN in turn (newest vintage first, v1 = repo root last). Writes go to VINTAGE_DIR.
+VINTAGE_CHAIN = [VINTAGE_DIR] + ([] if VINTAGE_DIR == HERE else [HERE])
+
+
+def vfile(rel):
+    """Path a read of `rel` resolves to: the first VINTAGE_CHAIN folder that has it (else VINTAGE_DIR/rel)."""
+    return next((d / rel for d in VINTAGE_CHAIN if (d / rel).is_file()), VINTAGE_DIR / rel)
+
+
+CANDIDATE_FILES = {"summary": vfile(f"estimation result summary{_TAG}.csv"),
+                   "estimates": vfile(f"ECM estimation results{_TAG}.csv"),
+                   "asym_summary": vfile(f"asymmetric estimation result summary{_TAG}.csv"),
+                   "asym_estimates": vfile(f"ECM asymmetric estimation results{_TAG}.csv")}
 DEPENDENTS = {s: HERE / f"consolidated_fdic_quarterly_financials_{s}-2026_merger_adjusted{_VSUFFIX}.csv"
               for s in ("2008", "2011")}
 DEFAULTS = {

@@ -1,45 +1,46 @@
-"""Copy outputs into an audit folder with a SHA-256 manifest (never deletes or overwrites).
+"""Write an audit manifest for files that are committed in git (no copies are made).
 
-    python tools/audit_snapshot.py audit/<date>_<tag> FILE_OR_GLOB ...
+    python tools/audit_snapshot.py audit/<date>_<tag>.manifest.csv [--commit REV] FILE_OR_GLOB ...
 
-Paths are relative to the repo root and keep their layout under the audit folder. The
-manifest (MANIFEST.sha256.csv: path, sha256, bytes) hashes the copies; the run fails if the
-folder already exists.
+Paths are relative to the repo root. Each row is path, sha256 of the file's content in git at REV
+(default HEAD, which must already hold the files: commit first), baseline_commit. The verify check
+`audit_*_manifest` re-reads every row from git. The run fails if the manifest already exists.
 """
 import csv
 import hashlib
-import shutil
+import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = "MANIFEST.sha256.csv"
-
-
-def sha256(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def main(argv):
+    commit = "HEAD"
+    if "--commit" in argv:
+        i = argv.index("--commit")
+        commit = argv[i + 1]
+        argv = argv[:i] + argv[i + 2:]
     dest, patterns = ROOT / argv[0], argv[1:]
     if dest.exists():
-        print(f"ERROR: {dest} exists; refusing to overwrite an audit copy", file=sys.stderr)
+        print(f"ERROR: {dest} exists; refusing to overwrite an audit manifest", file=sys.stderr)
         return 1
+    full = subprocess.check_output(["git", "rev-parse", commit], cwd=ROOT, text=True).strip()
     files = sorted({p for pat in patterns for p in ROOT.glob(pat) if p.is_file()})
     rows = []
     for src in files:
-        rel = src.relative_to(ROOT)
-        out = dest / rel
-        out.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, out)
-        h = sha256(out)
-        assert h == sha256(src), f"copy mismatch: {rel}"
-        rows.append([rel.as_posix(), h, out.stat().st_size])
-    with open(dest / MANIFEST, "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["path", "sha256", "bytes"])
+        rel = src.relative_to(ROOT).as_posix()
+        r = subprocess.run(["git", "show", f"{full}:{rel}"], cwd=ROOT, capture_output=True)
+        if r.returncode:
+            print(f"ERROR: {rel} is not in git at {commit}", file=sys.stderr)
+            return 1
+        rows.append([rel, hashlib.sha256(r.stdout).hexdigest(), full[:7]])
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with open(dest, "w", newline="") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["path", "sha256", "baseline_commit"])
         w.writerows(rows)
-    print(f"{len(rows)} file(s) copied to {dest.relative_to(ROOT)}")
+    print(f"{len(rows)} file(s) listed in {dest.relative_to(ROOT)}")
     return 0
 
 
