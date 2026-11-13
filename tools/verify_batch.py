@@ -248,7 +248,7 @@ def check_doc_links():
 # /history or supplementary event in merger_events_used_v2.csv, by the supplementary file, or by an
 # explicit waiver. Without a cached NIC file the check is skipped with a warning (it does not fail).
 NIC = {"transformations": None, "attributes": None}      # set by --nic-transformations / --nic-attributes
-NIC_HOWTO = ("download CSV_TRANSFORMATIONS (and CSV_ATTRIBUTES_ACTIVE + _CLOSED for RSSD->FDIC cert) from "
+NIC_HOWTO = ("download CSV_TRANSFORMATIONS, CSV_ATTRIBUTES_ACTIVE and _CLOSED (RSSD->FDIC cert) from "
              "https://www.ffiec.gov/npw/FinancialReport/DataDownload, then pass --nic-transformations FILE "
              "[--nic-attributes FILE ...]")
 NIC_CACHE = ROOT / "data_build" / "raw" / "nic" / "CSV_TRANSFORMATIONS.CSV"  # git-ignored download cache
@@ -279,32 +279,22 @@ def _nic_events(path, attribute_paths):
 
 @check("nic_transfers_covered")
 def check_nic_transfers():
-    if not NIC["transformations"]:
-        print(f"WARNING nic_transfers_covered skipped: no cached NIC Transformations CSV; {NIC_HOWTO}",
-              file=sys.stderr)
-        return True, f"SKIPPED (warning): no NIC Transformations CSV given; {NIC_HOWTO}"
-    from data_build import build_dataset as bd
-    nic = _nic_events(NIC["transformations"], NIC["attributes"])
-    used = pd.read_csv(EVENTS_V2)
-    survivors = set(bd.TARGETS) | set(used.loc[used.mode_applied == "A", "predecessor_cert"].astype(int))
-    nic = nic[nic.succ_cert.isin(survivors) & (nic.date >= pd.Timestamp(bd.START))
-              & nic.pred_rssd.gt(0) & nic.pred_cert.gt(0)]
-    covered = set(zip(used.predecessor_cert.astype(int), used.survivor_cert.astype(int)))
-    sup = pd.read_csv(SUPPLEMENTARY)
-    covered |= set(zip(sup.predecessor_cert.astype(int), sup.survivor_cert.astype(int)))
-    waived = pd.read_csv(NIC_WAIVERS) if NIC_WAIVERS.exists() else pd.DataFrame(columns=["predecessor_rssd"])
-    waived_rssd = set(pd.to_numeric(waived.predecessor_rssd, errors="coerce").dropna().astype(int))
-    gaps = nic[[(int(p), int(s)) not in covered and int(r) not in waived_rssd
-                for p, s, r in zip(nic.pred_cert, nic.succ_cert, nic.pred_rssd)]]
-    detail = (f"{len(nic)} NIC events with FDIC cert + RSSD into targets/Mode A predecessors; "
-              f"{len(gaps)} not in /history, supplementary or waivers")
+    """Every NIC transformation into a survivor in the merger tree is covered, same-charter / non-depository,
+    or a deposit transfer the owner has waived. Classification and materiality: tools/nic_crosscheck.py."""
+    need = [NIC_CACHE.parent / n for n in ("CSV_TRANSFORMATIONS.CSV", "CSV_ATTRIBUTES_ACTIVE.CSV", "CSV_ATTRIBUTES_CLOSED.CSV")]
+    if not all(f.is_file() for f in need):
+        print(f"WARNING nic_transfers_covered skipped: no cached NIC files; {NIC_HOWTO}", file=sys.stderr)
+        return True, f"SKIPPED (warning): NIC files missing in {NIC_CACHE.parent}; {NIC_HOWTO}"
+    import nic_crosscheck as nc
+    e, n, _ = nc.classify()
+    counts = e["class"].value_counts().to_dict()
+    gaps = e[e["class"] == "deposit transfer"]
+    detail = (f"{len(e)} NIC events into tree survivors: {counts}; {len(n)} tree members absorbed by a non-tree successor "
+              f"(FDIC receiverships)")
     if len(gaps):
-        detail += ": " + "; ".join(f"RSSD {int(r.pred_rssd)} (cert {int(r.pred_cert)}) -> {int(r.succ_cert)} "
-                                   f"{r.date.date()}" for r in gaps.head(5).itertuples())
-    return gaps.empty, detail
-
-
-V2_RERUN_BANKS = {"Manufacturers and Traders Trust Company", "Old National Bank"}
+        detail += ": unwaived deposit transfers " + "; ".join(
+            f"RSSD {int(r.pred_rssd)} (cert {int(r.pred_cert)}) -> {int(r.succ_cert)} {str(r.date)[:10]}" for r in gaps.itertuples())
+    return len(gaps) == 0, detail
 
 
 @check("audit_pre_transfer_fix_manifest")
