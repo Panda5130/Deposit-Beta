@@ -149,7 +149,7 @@ def load_candidates(summary=None, estimates=None, asym_summary=None, asym_estima
 
 def output_dir(select, kind="MAE"):
     """Where a run with this model choice writes: <kind>_Backtesting/output[/out_of_sample]."""
-    base = ROOT / ("MAE_Backtesting" if kind == "MAE" else "Beta_Backtesting") / "output"
+    base = bp.OUTPUT_ROOT / ("MAE_Backtesting" if kind == "MAE" else "Beta_Backtesting") / "output"
     return base / "out_of_sample" if select == "out-of-sample" else base
 
 
@@ -313,6 +313,8 @@ def spec_from_terms(terms, y, x):
             levels.append(term[4:])
         elif term.endswith(".L1") and term[:-3] in xs:
             levels.append(term[:-3])
+        elif term == bp.COVID:
+            short_run.append((bp.COVID, 0))
         elif (m := bp.SHORT_RUN_RE.match(term)) and m["var"] in variables:
             short_run.append((m["var"], int(m["lag"])))
         else:

@@ -11,7 +11,7 @@ def test_fallback_order(tmp_path, monkeypatch):
     new.mkdir(), old.mkdir()
     (old / "a.csv").write_text("old"), (old / "b.csv").write_text("old"), (new / "b.csv").write_text("new")
     monkeypatch.setattr(bp, "VINTAGE_CHAIN", [new, old])
-    monkeypatch.setattr(bp, "VINTAGE_DIR", new)
+    monkeypatch.setattr(bp, "OUTPUT_ROOT", new)
     assert bp.vfile("b.csv") == new / "b.csv"      # present in the newest vintage
     assert bp.vfile("a.csv") == old / "a.csv"      # absent there: falls back to the older file
     assert bp.vfile("c.csv") == new / "c.csv"      # absent everywhere: the write location

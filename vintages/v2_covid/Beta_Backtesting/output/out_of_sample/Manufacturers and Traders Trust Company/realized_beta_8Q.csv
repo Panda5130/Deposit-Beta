@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.3787371684457967,0.1701073555620074,0.5275314778631771,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+2Q,26,14,0.3618778439027819,0.18471412691543912,0.5886224761324992,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+3Q,30,9,0.3449173387154153,0.17984303472522678,0.6092575811833639,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+4Q,33,5,0.3542027582154976,0.19661646405294844,0.6420218816729214,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+5Q,34,3,0.3363282126706439,0.15572370335438682,0.640026188150141,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+6Q,33,3,0.2330354696593123,0.06370976575913728,0.6391901395957592,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+7Q,32,3,0.220909222764323,0.06397451647404848,0.6443764016408396,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)
+8Q,32,2,0.26185322640310005,0.1398906774199834,0.6416773468979621,Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant)

@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.11506293027471903,0.022961841073428024
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.1023646392531844,0.10100174242566695
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.07023895296707454,0.13691062122605113
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.12238527028502932,0.0678949027817351
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.3777459853213556,0.06827633366026165
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.17902623948623542,0.304179864743455
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.1955103322648346,0.4371937054738001
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.10443726286560936,0.3144555138099227

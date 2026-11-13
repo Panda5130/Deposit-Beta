@@ -93,6 +93,15 @@ def pruned_name(name):
     return f"{stem}{DET_PRUNED_TAG}{dot}{ext}"
 
 
+def dated(data, subset, y, xs):
+    """prepare_data's frame re-indexed by quarter (same rows), so the calendar dummy covid_liq can be built."""
+    s = subset.sort_values(ct.PERIOD_COL)
+    keep = s[[y, *xs]].apply(pd.to_numeric, errors="coerce").notna().all(axis=1)
+    out = data.copy()
+    out.index = bp.to_periods(s.loc[keep, ct.PERIOD_COL])
+    return out
+
+
 def ecm_spec(test_name, terms, y, xs):
     """Map a group's surviving terms onto (deterministic terms, long-run xs, short-run lags)."""
     det, levels, short_run = [], set(), set()
@@ -119,6 +128,8 @@ def ecm_spec(test_name, terms, y, xs):
             levels.update(xs)
         elif term == f"{y}.L1":
             has_correction = True
+        elif term == bp.COVID:
+            short_run.add((bp.COVID, 0))
         elif (m := SHORT_RUN_RE.match(term)):
             short_run.add((m["var"], int(m["lag"])))
         elif term in xs or term.removesuffix(".L1") in xs:
@@ -127,7 +138,7 @@ def ecm_spec(test_name, terms, y, xs):
         raise ValueError("no significant error-correction term survived")
     if not levels:
         raise ValueError("no long-run regressor survived")
-    unknown = sorted({v for v, _ in short_run} - {y, *xs})
+    unknown = sorted({v for v, _ in short_run} - {y, *xs, bp.COVID})
     if unknown:
         raise ValueError(f"short-run terms for unknown series: {', '.join(unknown)}")
     return det, [x for x in xs if x in levels], sorted(short_run, key=lambda t: (t[0] != y, t[0], t[1]))
@@ -147,7 +158,7 @@ def refine(data, y, det, levels, short_run, alpha):
     short_run = list(short_run)
     while True:
         res = fit_one_step(data, y, det, levels, short_run)
-        names = [f"D.{v}.L{k}" for v, k in short_run]
+        names = [bp.sr_term(v, k) for v, k in short_run]
         if not names:
             return res, short_run
         worst = res.pvalues[names].idxmax()
@@ -167,7 +178,7 @@ def fit_one_step(data, y, det, levels, short_run):
     for x in levels:
         X[f"{x}.L1"] = data[x].shift(1)
     for var, lag in short_run:
-        X[f"D.{var}.L{lag}"] = diffs[var].shift(lag)
+        X[bp.sr_term(var, lag)] = bp.covid_series(data.index) if var == bp.COVID else diffs[var].shift(lag)
     frame = pd.concat([diffs[y].rename("dy"), X], axis=1).dropna()
     return sm.OLS(frame["dy"], frame[X.columns]).fit()
 
@@ -239,6 +250,8 @@ def main(argv=None):
     parser.add_argument("--screen-deterministics", action="store_true",
                         help="keep only deterministic terms that survived step 2 (old behaviour)")
     parser.add_argument("--no-refine", action="store_true", help="do not prune insignificant short-run lags")
+    parser.add_argument("--covid", action="store_true",
+                        help="offer the covid_liq step dummy (2020Q2-2021Q4) as a short-run candidate, pruned at --alpha")
     args = parser.parse_args(argv)
     prune = args.prune_deterministics and not args.screen_deterministics
     if args.output is None:
@@ -276,7 +289,11 @@ def main(argv=None):
                     _, subset = next(ct.select_groups(source, {"group_column": args.group_column,
                                                                "group_value": bank}))
                     data_cache[bank] = ct.prepare_data(subset, args.y, args.x)
+                    if args.covid:
+                        data_cache[bank] = dated(data_cache[bank], subset, args.y, args.x)
                 det, levels, short_run = ecm_spec(test_name, group["term"].dropna(), args.y, args.x)
+                if args.covid and (bp.COVID, 0) not in short_run:
+                    short_run = short_run + [(bp.COVID, 0)]
                 if not args.screen_deterministics:
                     det = test_deterministics(keys[3])
                 if prune:

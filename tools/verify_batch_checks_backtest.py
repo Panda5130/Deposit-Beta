@@ -33,7 +33,7 @@ def check_reference_reproduces_limits(horizon=8):
         # check never rewrites the output folder's cache (issue #20: a v2 run must not touch v1 outputs).
         work, refdir = Path(tmp) / "out", Path(tmp) / "ref"
         shutil.copytree(OUT_DIR / "cache", work / "cache")
-        vcache = bt.bp.VINTAGE_DIR / OUT_DIR.relative_to(bt.ROOT) / "cache"
+        vcache = bt.bp.DATA_ROOT / OUT_DIR.relative_to(bt.bp.OUTPUT_ROOT) / "cache"
         if vcache.is_dir() and vcache != OUT_DIR / "cache":
             shutil.copytree(vcache, work / "cache", dirs_exist_ok=True)
         refdir.mkdir()

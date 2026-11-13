@@ -109,6 +109,17 @@ def _pruned_tables():
     return {"symmetric": bp.CANDIDATE_FILES["estimates"], "asymmetric": bp.CANDIDATE_FILES["asym_estimates"]}
 
 
+@check("no_outputs_outside_vintages")
+def check_no_outputs_outside_vintages():
+    """After a run, no tracked data/result file outside vintages/ is modified and none is new (source code is
+    excluded: editing a script is not a run output). Runs write only under bank_plots.OUTPUT_ROOT."""
+    out = subprocess.run(["git", "status", "--porcelain", "-uall"], cwd=ROOT, capture_output=True, text=True).stdout
+    paths = [l[3:].strip().strip('"') for l in out.splitlines()]
+    bad = [p for p in paths if not p.startswith("vintages/") and p.endswith((".csv", ".png", ".xlsx", ".json", ".log"))
+           and p != "verify_summary.json" and not p.startswith("audit/")]
+    return not bad, f"{len(paths)} changed paths, {len(bad)} result files outside vintages/" + (f": {bad[:3]}" if bad else "")
+
+
 @check("det_terms_significant")
 def check_det_invariant():
     """Every surviving deterministic term has p < 0.05 (on the row deterministic_pruning tests),
@@ -156,10 +167,11 @@ def check_carry():
     """Models with no term dropped are identical to the unpruned originals."""
     import bank_plots as bp
     import deterministic_pruning as dp
-    log = pd.read_csv(bp.vfile(dp.LOG_NAME))
+    # the v2 data vintage's own files (the covid_liq run offers a new candidate, so its pruning path can differ)
+    log = pd.read_csv(bp.DATA_ROOT / dp.LOG_NAME)
     pruned = set(map(tuple, log[log["action"].str.startswith("dropped")][SPEC].to_numpy()))
-    pairs = [(bp.vfile("ECM estimation results.csv"), bp.CANDIDATE_FILES["estimates"]),
-             (bp.vfile("ECM asymmetric estimation results.csv"), bp.CANDIDATE_FILES["asym_estimates"])]
+    pairs = [(bp.DATA_ROOT / "ECM estimation results.csv", bp.DATA_ROOT / "ECM estimation results (det pruned).csv"),
+             (bp.DATA_ROOT / "ECM asymmetric estimation results.csv", bp.DATA_ROOT / "ECM asymmetric estimation results (det pruned).csv")]
     worst, missing = 0.0, 0
     for orig, new in pairs:
         new = pd.read_csv(new)
@@ -239,6 +251,7 @@ NIC = {"transformations": None, "attributes": None}      # set by --nic-transfor
 NIC_HOWTO = ("download CSV_TRANSFORMATIONS (and CSV_ATTRIBUTES_ACTIVE + _CLOSED for RSSD->FDIC cert) from "
              "https://www.ffiec.gov/npw/FinancialReport/DataDownload, then pass --nic-transformations FILE "
              "[--nic-attributes FILE ...]")
+NIC_CACHE = ROOT / "data_build" / "raw" / "nic" / "CSV_TRANSFORMATIONS.CSV"  # git-ignored download cache
 NIC_WAIVERS = ROOT / "data_build" / "raw" / "nic_transfer_waivers.csv"
 SUPPLEMENTARY = ROOT / "data_build" / "raw" / "supplementary_transfer_events.csv"
 EVENTS_V2 = ROOT / "merger_events_used_v2.csv"
@@ -349,6 +362,8 @@ def main(argv=None):
                     help="NIC attributes CSV(s) mapping ID_RSSD -> ID_FDIC_CERT")
     args = ap.parse_args(argv)
     NIC["transformations"], NIC["attributes"] = args.nic_transformations, args.nic_attributes
+    if not NIC["transformations"] and NIC_CACHE.is_file():  # the cached NIC download, when present
+        NIC["transformations"] = str(NIC_CACHE)
     names = [n for n in (args.only or CHECKS) if n not in args.skip]
     results = []
     for name in names:

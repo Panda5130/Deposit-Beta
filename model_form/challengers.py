@@ -80,11 +80,11 @@ class Challenger(bt.MAEBacktest):
     def base_columns(self, path):
         """The champion's one-step ECM regressors (single-lambda linear form), rebuilt by bank_plots.regressor."""
         terms = self.det + [f"{self.y}.L1"] + [f"{v}.L1" for v in self.levels] + [
-            f"D.{v}.L{k}" for v, k in self.short_run]
+            bp.sr_term(v, k) for v, k in self.short_run]
         return pd.concat({term: bp.regressor(path, term) for term in terms}, axis=1)
 
     def short_run_columns(self, path):
-        return pd.concat({f"D.{v}.L{k}": bp.regressor(path, f"D.{v}.L{k}") for v, k in self.short_run}, axis=1) \
+        return pd.concat({bp.sr_term(v, k): bp.regressor(path, bp.sr_term(v, k)) for v, k in self.short_run}, axis=1) \
             if self.short_run else pd.DataFrame(index=path.index)
 
     def ols(self, X, origin):

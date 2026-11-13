@@ -121,16 +121,19 @@ def split_levels(levels):
 
 
 def expand_pairs(pairs):
-    """[(var, lag)] base pairs -> the split short-run terms [(var_pos, lag), (var_neg, lag)]."""
-    return [(f"{v}{s}", k) for v, k in pairs for s in (POS, NEG)]
+    """[(var, lag)] base pairs -> the split short-run terms [(var_pos, lag), (var_neg, lag)].
+    The covid_liq dummy is exogenous and not split: it stays one term."""
+    return [(v, k) if v == bp.COVID else (f"{v}{s}", k) for v, k in pairs for s in ((POS,) if v == bp.COVID else (POS, NEG))]
 
 
 def pair_names(var, lag):
+    if var == bp.COVID:
+        return (bp.COVID,)
     return f"D.{var}{POS}.L{lag}", f"D.{var}{NEG}.L{lag}"
 
 
 def terms_of(y, det, levels, short_run):
-    return det + [f"{y}.L1"] + [f"{v}.L1" for v in levels] + [f"D.{v}.L{k}" for v, k in short_run]
+    return det + [f"{y}.L1"] + [f"{v}.L1" for v in levels] + [bp.sr_term(v, k) for v, k in short_run]
 
 
 def design(data, y, terms):
@@ -235,7 +238,7 @@ def fit_tar(data, y, det, levels, short_run, min_regime=MIN_REGIME, max_passes=M
     """
     lin = fit_linear(data, y, det, levels, short_run)
     lam_name, d_terms = f"{y}.L1", det + [f"{v}.L1" for v in levels]
-    s_terms = [f"D.{v}.L{k}" for v, k in short_run]
+    s_terms = [bp.sr_term(v, k) for v, k in short_run]
     frame = design(data, y, [lam_name] + d_terms + s_terms)
     dy, y1 = frame["dy"].to_numpy(), frame[lam_name].to_numpy()
     D, S = frame[d_terms].to_numpy(), frame[s_terms].to_numpy().reshape(len(frame), len(s_terms))
@@ -338,7 +341,7 @@ def prune_pairs(data, y, det, levels, pairs, split_lambda, alpha=ALPHA):
         res = fit(data, y, det, levels, expand_pairs(pairs), split_lambda)
         if not pairs:
             return res, pairs
-        pvals = {pair: wald(res, [{pair_names(*pair)[0]: 1.0}, {pair_names(*pair)[1]: 1.0}])[1] for pair in pairs}
+        pvals = {pair: wald(res, [{n: 1.0} for n in pair_names(*pair)])[1] for pair in pairs}
         worst = max(pvals, key=pvals.get)
         if pvals[worst] < alpha:
             return res, pairs
@@ -460,6 +463,8 @@ def main(argv=None):
                         help="deterministic-term rule of deterministic_pruning.py (default); writes '(det pruned)' files")
     parser.add_argument("--no-prune-deterministics", dest="prune_deterministics", action="store_false",
                         help="old behaviour: deterministic terms follow the survivor's trend type")
+    parser.add_argument("--covid", action="store_true",
+                        help="offer the covid_liq step dummy (2020Q2-2021Q4) as a short-run candidate, pruned at --alpha")
     parser.add_argument("--pruning-log", default=bp.VINTAGE_DIR / est.dp.LOG_NAME)
     args = parser.parse_args(argv)
 
@@ -480,6 +485,8 @@ def main(argv=None):
         ct.err(e)
         return 1
     specs, skipped = survivors(selected, args.y, [args.x])
+    if args.covid:
+        specs = [(k, d, sr if (bp.COVID, 0) in sr else sr + [(bp.COVID, 0)]) for k, d, sr in specs]
     print(f"{len(specs)} screened ECM specification(s); {len(skipped)} screened test(s) are not ECMs")
 
     rows, summary, tests, data_cache = [], [], [], {}
@@ -493,6 +500,8 @@ def main(argv=None):
                 if bank not in data_cache:
                     _, subset = next(ct.select_groups(source, {"group_column": args.group_column, "group_value": bank}))
                     data_cache[bank] = ct.prepare_data(subset, args.y, [args.x])
+                    if args.covid:
+                        data_cache[bank] = est.dated(data_cache[bank], subset, args.y, [args.x])
                 if prune:
                     v, spec_log = build_pruned(data_cache[bank], args.y, args.x, name, det, short_run, args.alpha)
                     final = name
@@ -519,8 +528,8 @@ def main(argv=None):
                 "passes": getattr(v.res, "passes", np.nan), "n_ect_pos": getattr(v.res, "n_pos", np.nan),
                 "n_ect_neg": getattr(v.res, "n_neg", np.nan), "lambda_split": v.split_lambda,
                 "theta_split": v.split_theta,
-                "pairs_start": " ".join(f"D.{a}.L{k}" for a, k in short_run),
-                "pairs_kept": " ".join(f"D.{a}.L{k}" for a, k in v.pairs), "n_params": len(v.res.params)
+                "pairs_start": " ".join(bp.sr_term(a, k) for a, k in short_run),
+                "pairs_kept": " ".join(bp.sr_term(a, k) for a, k in v.pairs), "n_params": len(v.res.params)
                 + (len(v.res.lr) if is_tar(v.res) else 0), "nobs": int(v.res.nobs)}
         tests += [{**dict(zip(GROUP_KEYS, name)), **t, **diag} for t in v.tests]
 

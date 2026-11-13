@@ -1,0 +1,9 @@
+horizon_q,n_pairs,n_skipped,mean_actual_beta,mean_implied_beta,mean_theta_ref_theta,bank_name,test_name,IC/selected lag,trend type
+1Q,17,24,0.3727843911817412,0.29137580358254955,0.37803230529212295,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+2Q,26,14,0.3426455351929439,0.29474659478941434,0.3481694562921032,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+3Q,30,9,0.3363485783235894,0.31300437909657386,0.3444136788837247,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+4Q,33,5,0.3440584136334606,0.31110976836578313,0.3260738782792416,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+5Q,34,3,0.34523637857087885,0.2738156465860934,0.3331884381715637,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+6Q,33,3,0.2293770092613597,0.11010894373842403,0.3349872893036788,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+7Q,32,3,0.21320401342496992,0.10576440658420762,0.33672958428048844,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"
+8Q,32,2,0.27105839544592414,0.13853990894874818,0.33390696853258706,SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)"

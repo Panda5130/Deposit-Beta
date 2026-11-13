@@ -5,3 +5,4 @@ __pycache__/
 Thumbs.db
 MAE_Backtesting/output/out_of_sample/cache_trend_freeze/
 verify_summary.json
+data_build/raw/nic/

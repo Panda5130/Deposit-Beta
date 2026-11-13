@@ -33,8 +33,8 @@ import pandas as pd
 import backtest as bt
 import run_backtest as rb
 
-MAE_OUT = bt.HERE / "output"
-BETA_OUT = bt.ROOT / "Beta_Backtesting" / "output"
+MAE_OUT = bt.bp.out_path("MAE_Backtesting/output")
+BETA_OUT = bt.bp.out_path("Beta_Backtesting/output")
 KEY = " | ".join
 
 
