@@ -30,6 +30,7 @@
 | 0.1 (WIP) | 2026-10-31 | Added the rolling-origin long-run beta stability backtest (`Beta_Backtesting/`): method (§5.6), per-bank results and figures (§6.x.7), peer comparison (§7.5), limitation L17 and a beta-stability threshold issue. Folded in the root-cause work from PR #11: an FFT builder with complete quarters only and a projection layer with the trend freeze (§3.3, §4.1, §5.7, §10.2); Gregory-Hansen break tests and seven challenger models (§5.3, §6.x.4, §7.4); EG long-run specifications now carry their short-run lags (§5.5), which re-specifies Huntington (Red → Green), changes the Old National champion and relabels KeyBank's; the beta stability test from 2016Q1 with a rating (§5.6, §7.5); and an optional out-of-sample model choice, not adopted (§5.5, §7.6). Issues #2, #4, #5, #6, #7 and #10 closed. |
 | 1.0 (WIP) | 2026-11-11 | Champions are now chosen out of sample (§5.5), over the original specifications and one asymmetric variant of each (long-run FFT⁺/FFT⁻, short-run ΔFFT and Δy split by sign, λ split by the sign of the equilibrium error; §3.2). Six of seven champions change; KeyBank's is asymmetric. Added the realized-beta backtest (§5.6, §7.7), which replaces the 8-start-date beta view. Issues #1 and #13 closed by PR #15. The deposit rate keeps the 2-point average; a 4-point trailing average was tested and rejected (§4.2). Same date, integration batch: deterministic terms are pruned after the cointegration screen (§3.3, §5.5); Glacier's champion loses its trend (θ 0.277 → 0.230, still Red) and M&T's is relabelled `c` with unchanged estimates (§6.2, §6.5, L19); MAE stability is rated against the approved fixed reference v1, which closes #8 (§5.6, §7.1); the trend-freeze accuracy check (§5.6); and a ±200 bp FFT scenario analysis (§7.9). |
 | 2.0 (WIP) | 2026-11-12 | Aligned the FFT series end with the bank-data end (2026Q2): `build_fft.py` now writes FFT only to the last bank quarter (cutting 2026Q3, which FDIC has not yet published), with an `--end` override and a loader and `verify_batch` guard against divergence (§4.1). Scenarios (§7.9) restart from the last actual, 2026Q2 (FFT 3.6333%), shocks from 2026Q3, horizon to 2029Q2. Estimates, backtests and realized betas are unchanged; pass-through moves by at most 0.01. Scenario charts (§7.9) now start at the last actual (k = 0); the all-banks panel shows the signed rate change against base with the FFT shock on a second axis, and a new bar panel shows the pass-through ratio at every horizon; the rate-change panel's axes cover only the side each shock moves into. KeyBank's up-ramp pass-through at k = 8 corrected to 0.40. |
+| 2.1 (WIP) | 2026-11-13 | **Issue #20: deposit transfers that FDIC `/history` does not log** (data vintage v2). Seven transfers are added to the pro forma merger adjustment from `data_build/raw/supplementary_transfer_events.csv`, with a partial `transfer_share` where a seller kept part of its deposits: Wilmington Trust Company and Wilmington Trust NA into M&T (2011), Voyager into Anchor (an Old National predecessor, 2015), Prudential Bank & Trust into TCF (a Huntington predecessor, 2012), CenterBank of Jacksonville and CenterState Bank Mid Florida (SouthState tree), and SouthBank into SouthState (Mode B) (§4.3). Rates move by at most 0.0052 pp (M&T 0.0023, Huntington 0.0026, SouthState 0.0052, Old National 0.0011; the other three banks 0). No champion changes; θ, λ, MAE and ratings move only in the third or fourth decimal, and the figures in §1.3, §6 and §7 are updated where a displayed value moved. Event counts are now 76 events into the seven banks from 2011Q1 (72 Mode A, 4 Mode B). **NIC cross-check:** a new `verify_batch` check, `nic_transfers_covered`, classifies every NIC Transformations event into a bank or merger-tree predecessor against the FDIC events, using NIC Attributes (§4.3, §4.1); 456 events (400 covered, 55 same charter or non-depository, 1 unresolved) (§8, L22). **COVID liquidity dummy test** (2020Q2 to 2021Q4, short-run equation only): excluded for all seven banks, pruned from every champion, with champions, MAE and θ ratings identical with and without it (§5.5, §7.10). **Audit clean-up:** 555 duplicate audit files (about 35 MB) are replaced by two manifests that point at git blobs, outputs are isolated under `vintages/` (`DATA_VINTAGE`, `OUTPUT_VINTAGE`), and `verify_summary.json` is no longer tracked (§10.4). Limitations L20 to L22 added; issue #20 resolved (§9.2). The model remains v1.0 (FDIC); this is a document revision. |
 
 ---
 
@@ -44,11 +45,11 @@ The analysis estimates the **deposit beta** of seven U.S. regional banks: the lo
 | :-: | :--- | :-: | :--- |
 | 1 | First Horizon Bank | 4977 | Pro forma, 4 Mode A events since 2011 (incl. Capital Bank 2017, IBERIABANK 2020) |
 | 2 | Glacier Bank | 30788 | Pro forma, 25 Mode A events since 2011 (incl. 10-charter consolidation 2012), 1 Mode B |
-| 3 | Huntington National Bank | 6560 | Pro forma, 6 Mode A events since 2011 (incl. FirstMerit 2016, TCF 2021, Cadence 2026) |
+| 3 | Huntington National Bank | 6560 | Pro forma, 6 Mode A events since 2011 (incl. FirstMerit 2016, TCF 2021, Cadence 2026); TCF includes Prudential Bank & Trust (2012, partial transfer, §4.3) |
 | 4 | KeyBank National Association | 17534 | Pro forma, 1 Mode A event (First Niagara 2016), 1 Mode B |
-| 5 | Manufacturers and Traders Trust Company | 588 | Pro forma, 2 Mode A events (Hudson City 2015, People's United 2022) |
-| 6 | Old National Bank | 3832 | Pro forma, 13 Mode A events since 2011 (incl. First Midwest 2022, Bremer 2025), 1 Mode B |
-| 7 | SouthState Bank | 33555 | Pro forma, 19 Mode A events since 2011 (incl. South State 2020, Atlantic Capital 2022, Independent 2025) |
+| 5 | Manufacturers and Traders Trust Company | 588 | Pro forma, 4 Mode A events (Wilmington Trust Company and Wilmington Trust NA 2011, Hudson City 2015, People's United 2022) |
+| 6 | Old National Bank | 3832 | Pro forma, 13 Mode A events since 2011 (incl. First Midwest 2022, Bremer 2025), 1 Mode B; Anchor includes Voyager Bank (2015, §4.3) |
+| 7 | SouthState Bank | 33555 | Pro forma, 19 Mode A events since 2011 (incl. South State 2020, Atlantic Capital 2022, Independent 2025), 1 Mode B (SouthBank 2015); CenterBank of Jacksonville and CenterState Bank Mid Florida sit inside predecessors (§4.3) |
 
 Mode A and Mode B are defined in §4.3.
 
@@ -59,11 +60,11 @@ Every bank has at least one specification that is cointegrated with the federal 
 | :--- | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | First Horizon Bank | Johansen VECM (rank 1), k_ar_diff = 1, det_order -1, BIC | -0.228 | 0.477 | 0.0720 | 0.284 | 0.73 | Green | Green |
 | Glacier Bank | Johansen VECM (rank 1), k_ar_diff = 1, det_order 1, BIC; trend pruned | -0.139 | 0.230 | 0.0327 | 0.271 | 1.23 | Red | Red |
-| Huntington National Bank | EG long run, trend `n`, AIC (ADF lag=1, ECM lag=3) | -0.066 | 0.463 | 0.0234 | 0.221 | 0.49 | Green | Green |
+| Huntington National Bank | EG long run, trend `n`, AIC (ADF lag=1, ECM lag=3) | -0.067 | 0.463 | 0.0234 | 0.221 | 0.49 | Green | Green |
 | KeyBank National Association | ARDL(2,1), case 1, BIC, asymmetric | -0.089 (above) / -0.331 (below) | 0.402 | 0.0268 | 0.126 | 0.37 | Green | Red |
 | Manufacturers and Traders Trust Company | EG long run, trend `c`, AIC (ADF lag=1, ECM lag=4); constant pruned | -0.195 | 0.402 | 0.0499 | 0.275 | 0.74 | Green | Red |
 | Old National Bank | Johansen VECM (rank 1), k_ar_diff = 1, det_order -1, fixed | -0.135 | 0.419 | 0.0414 | 0.263 | 0.67 | Green | Amber |
-| SouthState Bank | ARDL(3,2), case 4, BIC | -0.165 | 0.524 | 0.0347 | 0.197 | 0.60 | Green | Red |
+| SouthState Bank | ARDL(3,2), case 4, BIC | -0.165 | 0.523 | 0.0348 | 0.197 | 0.60 | Green | Red |
 
 Long-run betas fall between 0.23 (Glacier) and 0.52 (SouthState). Six series are I(1) under the default unit-root specification; Glacier is flagged (KPSS I(0) p 0.057).
 
@@ -125,7 +126,7 @@ $$\Delta y_t = \lambda^+ ect^+_{t-1} + \lambda^- ect^-_{t-1} + \sum_i (\gamma^+_
 
 | Step | Component | Code | Output |
 | :-: | :--- | :--- | :--- |
-| 1 | Data pull, rate construction and merger adjustment | `data_build/build_dataset.py` (supersedes `FDIC Fincancials pull and aggeregation.ipynb` and `TargetBank_merger_adjusted_features.ipynb`) | `consolidated_fdic_quarterly_financials_*.csv`, `merger_events_used.csv`, `merger_adjustment_log.md`, `data_build/raw/` |
+| 1 | Data pull, rate construction and merger adjustment, including the supplementary deposit-transfer events (§4.3) | `data_build/build_dataset.py` (supersedes `FDIC Fincancials pull and aggeregation.ipynb` and `TargetBank_merger_adjusted_features.ipynb`); reads `data_build/raw/supplementary_transfer_events.csv` and `data_build/raw/nic_transfer_waivers.csv`. The NIC cross-check (`tools/nic_crosscheck.py`, `verify_batch` check `nic_transfers_covered`) tests the event list against NIC Transformations and Attributes (§4.3) | `consolidated_fdic_quarterly_financials_*.csv`, `merger_events_used.csv`, `merger_adjustment_log.md`, `data_build/raw/`; data vintage v2 (§10.4): `consolidated_fdic_quarterly_financials_*_v2.csv`, `merger_events_used_v2.csv`, `merger_adjustment_log_v2.md` |
 | 1b | FFT regressor: FEDFUNDS averaged to complete calendar quarters | `data_build/build_fft.py` | `FFT_2011-2026.csv`, `FFT_2008-2026.csv` (from `FEDFUNDS.csv`) |
 | 2 | Exploratory chart (Figure 1) | `EDA1_Stationarity_Tests.ipynb` | `docs/Historical Deposit Rates vs FFT.png` |
 | 3 | Baseline cointegration tests | `Co-integration Tests.py` with `test_params.csv` | `Co-integration_results.csv` |
@@ -154,6 +155,8 @@ Steps 5 to 7b are run together by `ECM workflow.py`. Downstream steps read the p
 ### 4.1 Sources
 - **FDIC BankFind Suite, Financials endpoint** (`https://banks.data.fdic.gov/api/financials`). Fields: `CERT`, `REPDTE`, `EDEPDOMQ` and `EDEPFORQ` (quarterly interest expense on domestic and foreign-office deposits), `DEP` (total deposits). Quarterly Call Report data, 2007 to 2026Q2.
 - **FDIC BankFind Suite, History endpoint** (`/api/history`), change codes 2xx (mergers, absorptions, whole-bank failure acquisitions), used to build the merger event list.
+- **FFIEC National Information Center (NIC) bulk data** (`https://www.ffiec.gov/npw/FinancialReport/DataDownload`): `CSV_TRANSFORMATIONS.CSV`, `CSV_ATTRIBUTES_ACTIVE.CSV` and `CSV_ATTRIBUTES_CLOSED.CSV` (RSSD to FDIC cert and entity type), plus `fdic_institutions.csv` from the public FDIC API (cert and `FED_RSSD`, which fills RSSDs the NIC attributes leave without a cert). NIC is used only to cross-check the FDIC event list (§4.3); it does not feed the data. The files are git-ignored in `data_build/raw/nic/` (the download is not committed) and were downloaded on 2026-11-13. To refresh, re-download the three NIC files and rebuild `fdic_institutions.csv`, then run `python tools/verify_batch.py --only nic_transfers_covered`; without the cached files the check is skipped with a warning that says how to download them. Anything new that the check lists must be added to `supplementary_transfer_events.csv` or waived in `nic_transfer_waivers.csv` with a reason (§4.3).
+- **Supplementary deposit-transfer events** (`data_build/raw/supplementary_transfer_events.csv`, committed): seven transfers that `/history` does not log, each with its NIC evidence, FDIC deposit balances and a `transfer_share` (§4.3).
 - **FRED `FEDFUNDS`**: monthly effective federal funds rate (`FEDFUNDS.csv`). `data_build/build_fft.py` averages it over the three months of each calendar quarter and writes `FFT_2011-2026.csv` and `FFT_2008-2026.csv`. Only complete quarters are kept: an incomplete current quarter is dropped with a warning that names it, and a missing month inside the series stops the build. `--refresh` re-downloads `FEDFUNDS` from FRED. The files end at the last quarter of the bank dataset (2026Q2, build rule): `build_fft.py` reads that quarter from `consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv`, cuts later FFT quarters (2026Q3 is logged as cut) and accepts `--end` to override. The projection and scenario loaders and `tools/verify_batch.py` fail with a clear message if the FFT end and the bank-data end differ; when FDIC publishes the next quarter, both series are rebuilt and extend together.
 - Built by `data_build/build_dataset.py`. The raw pulls used for this version are cached in `data_build/raw/`.
 
@@ -168,9 +171,26 @@ Steps 5 to 7b are run together by `ECM workflow.py`. Downstream steps read the p
 ### 4.3 Merger Adjustment Methodology
 - **Event list:** every merger, absorption or whole-bank failure acquisition into a target bank since 2007, from FDIC `/history`, with real predecessor certs (`merger_events_used.csv`). Materiality = predecessor deposits ÷ survivor deposits at the predecessor's last pre-merger quarter.
 - **Mode A (≥ 1%):** full pro forma backfill. The predecessor's deposit interest expense and deposits are added to every pre-merger quarter of the survivor. In the merger quarter, the predecessor's last quarterly interest expense is added pro rata to the days before the effective date. Applied recursively to predecessors' own Mode A acquisitions.
-- **Mode B (< 1%):** flagged only; rows are kept in `rate_pf_clean`. In the main sample: Glacier/Treasure State Bank 2016Q3 (0.84%), KeyBank/KeyTrust 2014Q3 (0%), Old National/Old National Trust 2014Q3 (0%).
-- **Counts:** 73 events into the seven banks from 2011Q1 (70 Mode A, 3 Mode B); 92 since 2007; 300 predecessor-level events folded in.
-- **Validations** (`merger_adjustment_log.md`): pro forma rate reconstruction difference 0.0; no duplicate keys; no negative or missing rates.
+- **Mode B (< 1%):** flagged only; rows are kept in `rate_pf_clean`. In the main sample: Glacier/Treasure State Bank 2016Q3 (0.84%), KeyBank/KeyTrust 2014Q3 (0%), Old National/Old National Trust 2014Q3 (0%), SouthState/SouthBank FSB 2015Q3 (0.54%, §4.3 supplementary events).
+- **Counts (data vintage v2, `merger_events_used_v2.csv`):** 76 events into the seven banks from 2011Q1 (72 Mode A, 4 Mode B); 95 since 2007; 305 predecessor-level events folded in (was 73 (70 A, 3 B), 92 and 300 in the original `merger_events_used.csv`). The change is the seven supplementary transfers below plus one `/history` event that the new tree reaches (Wilmington Trust of Pennsylvania into Wilmington Trust NA, 2008). By bank since 2011Q1: First Horizon 4 A; Glacier 25 A, 1 B; Huntington 6 A; KeyBank 1 A, 1 B; M&T 4 A (was 2); Old National 13 A, 1 B; SouthState 19 A, 1 B (was 0 B). Transfers into a predecessor (Voyager, Prudential, CenterBank of Jacksonville, CenterState Bank Mid Florida) count as predecessor-level events.
+- **Validations** (`merger_adjustment_log.md`, `merger_adjustment_log_v2.md` for v2): pro forma rate reconstruction difference 0.0; no duplicate keys; no negative or missing rates.
+
+**Transfers with no charter merger (issue #20).** FDIC `/history` records charter mergers only (change codes 2xx). A deposit transfer is missing from it when the seller's charter survived (for example as a non-insured trust company) or closed voluntarily afterwards, so the original pro forma adjustment left such transfers out. Seven are now added from `data_build/raw/supplementary_transfer_events.csv`, which `build_dataset.py` loads together with the `/history` events; each row carries its NIC evidence, the FDIC deposit balances that confirm it and a `transfer_share`. Materiality and Mode A/B are decided as above on the transferred deposits.
+
+| Predecessor (cert) | Survivor (cert) | Effective | `transfer_share` | % of survivor | Mode | Flows into |
+| :--- | :--- | :-: | :-: | --: | :-: | :--- |
+| Wilmington Trust Company (680) | M&T (588) | 2011-05-16 | 0.920 | 13.1 | A | M&T |
+| Wilmington Trust, National Association (33911) | M&T (588) | 2011-05-16 | 0.942 | 3.5 | A | M&T |
+| Voyager Bank (32173) | Anchor Bank NA (8868) | 2015-04-15 | 1.000 | 23.7 | A | Old National (via Anchor) |
+| SouthBank FSB (33848) | SouthState (33555) | 2015-07-25 | 1.000 | 0.5 | B | SouthState |
+| Prudential Bank & Trust, FSB (32957) | TCF National Bank (28330) | 2012-06-02 | 0.970 | 12.8 | A | Huntington (via TCF) |
+| CenterBank of Jacksonville NA (35542) | FirstAtlantic Bank (35200) | 2011-12-17 | 1.000 | 78.7 | A | SouthState (via FirstAtlantic) |
+| CenterState Bank Mid Florida (57334) | CenterState Bank NA (32699) | 2007-11-30 | 1.000 | 34.5 | A | SouthState (via CenterState NA) |
+
+- **Partial `transfer_share`:** where the seller kept part of its deposits, only the transferred share of its deposits and of its deposit interest expense is added to the survivor's pre-transfer quarters (`transfer_share` = 1 for a whole-bank transfer). The share is measured from the seller's own FDIC deposits before and after the transfer (Wilmington Trust Company: 7.20bn at 2011Q1 to 0.58bn at 2011Q2; Wilmington Trust NA: 1.87bn to 0.11bn; Prudential: 1.69bn at 2012Q1 to $50K at 2012Q2). Interest expense is carried in proportion to deposits (L20), and Prudential's share rests on one balance (L21).
+- **Effect:** rates move by at most 0.0052 pp (M&T 0.0023, Huntington 0.0026, SouthState 0.0052, Old National 0.0011; First Horizon, Glacier and KeyBank 0), all in 2011 to 2015 quarters. The cointegration screen's pass set, the selections and the pruning decisions are unchanged, and no champion changes.
+- **NIC cross-check:** `tools/nic_crosscheck.py` (run by the `verify_batch` check `nic_transfers_covered`) takes every NIC Transformations event whose successor is a target bank or a Mode A predecessor in the merger tree and maps the NIC RSSDs to FDIC certs through NIC Attributes (§4.1). It classifies each event as: covered (already in the `/history` events, the supplementary file or the waivers); deposit transfer (a different FDIC cert, with materiality = seller deposits at the quarter before ÷ survivor deposits); same charter or non-depository entity; or unresolved (no FDIC cert and an entity type that could hold deposits). The check fails on any deposit transfer that is not covered. It found the seven transfers above (the first three by an earlier Transformations-only pass, the other four with Attributes). Of the 456 events into tree survivors in the 2026-11-13 download, 1 is unresolved (RSSD 920274 into cert 34657, 2007; L22).
+- **Waivers** (`data_build/raw/nic_transfer_waivers.csv`): events that NIC lists but that are not additional transfers, each with its reason: the same event as a `/history` record with a NIC date one day later (RSSD 115641, cert 4999 into 59026), the same event as a `/history` record (RSSD 266598, First Place Bank; RSSD 1459575, cert 33001 into Old National, already Mode B), and a re-registration of the same charter (RSSD 3049653, cert 57276). A waiver is the owner's decision and is added only with a stated reason.
 
 **Corrected events from the earlier draft's event list** (the earlier list used placeholder certs and a uniform 5,000,000 deposit figure):
 
@@ -260,6 +280,11 @@ Because a break common to both series need not break their relationship, cointeg
    - **Tie-break:** asymmetric > EG > ARDL > Johansen, then file order.
    - The default is set in one place, `DEFAULT_SELECT` in `MAE_Backtesting/backtest.py`, and every consumer follows it.
 7. **Optional in-sample rule (`--select in-sample`):** lowest in-sample MAE of Δy per bank, the rule used up to version 0.1. It reproduces version 0.1's champions exactly (§7.6).
+8. **COVID liquidity dummy test (decided 2026-11-13).** `covid_liq` is a step dummy, 1 for 2020Q2 to 2021Q4 (7 quarters) and 0 otherwise, tested in the short-run (Δrate) equation only: the long run and the cointegration screen of step 1 are untouched.
+   - **Candidate and pruning:** it is one more candidate short-run regressor in every specification and is pruned like the lags, at p ≥ 0.05 (symmetric models: its own p-value; asymmetric variants: a one-term Wald test, not split by sign).
+   - **Projection and backtest:** it is 0 in every projection and scenario (`Projection.project` refuses a path that reaches the window) and calendar-known in the backtests, so it adds no look-ahead.
+   - **Exclusion rule:** it is included for a bank only if all three hold: (1) it survives pruning in the bank's champion; (2) the champion's out-of-sample mean h-step MAE is no worse than without it by more than one standard error; (3) the long-run beta stability rating does not worsen. Otherwise it is excluded and the champion is the model without it.
+   - **Result:** it is excluded for all seven banks, because it is pruned from every champion, and champions, MAE and θ ratings are identical with and without it (§7.10). Outputs are under `vintages/v2_covid/`, which leaves the v2 files unchanged (§10.4).
 
 Out-of-sample selection is the default because the asymmetric variants have more parameters: ranking on in-sample MAE would reward them for fitting noise. Selecting on the governing backtest does make that backtest somewhat optimistic for the chosen models.
 
@@ -452,7 +477,7 @@ Chosen by the parsimony step: 4 parameters, against 5 for the version 0.1 champi
 ### 6.3 Huntington National Bank
 
 #### 6.3.1 Data Treatment
-- FDIC cert 6560. Pro forma for Fidelity Bank (2012), Advantage Bank (2014), FirstMerit (2016-08-16, 37%), TCF (2021-06-09, 38%), Veritex (2025-10-20, 6%) and Cadence Bank (2026-02-01, 24%).
+- FDIC cert 6560. Pro forma for Fidelity Bank (2012), Advantage Bank (2014), FirstMerit (2016-08-16, 37%), TCF (2021-06-09, 38%), Veritex (2025-10-20, 6%) and Cadence Bank (2026-02-01, 24%). TCF's own history includes Prudential Bank & Trust (2012-06-02; 13% of TCF; 97% of its deposits transferred, a deposit transfer with no charter merger, §4.3).
 - The earlier build showed a 0.00% rate in 2021Q1 because FDIC total interest expense was negative that quarter (probably hedge income) and was clipped to zero. Deposit interest expense is positive (rebuilt rate 0.131%).
 
 #### 6.3.2 Stationarity
@@ -480,19 +505,19 @@ Zivot-Andrews on levels, 2011 to 2026 (AIC lags, max 4): `c`: -6.34, p 4.7e-04, 
 3 one-step ECMs (3 EG), in-sample MAE 0.0234 to 0.0234, long-run beta 0.463 to 0.463. Plus 3 asymmetric variants, one per specification: λ split kept in 3, θ split kept in 0 (§5.5).
 
 #### 6.3.6 Champion Model: EG long run, trend `n`, AIC (ADF lag=1, ECM lag=3)
-Unchanged from version 0.1. Its asymmetric variant scores better (mean MAE 0.204), but within one standard error, so the parsimony step keeps the 8-parameter symmetric model.
+Unchanged from version 0.1. Its asymmetric variant scores better (mean MAE 0.200), but within one standard error, so the parsimony step keeps the 8-parameter symmetric model.
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.0665** | -2.49 | 0.016 |
+| y.L1 (λ) | **-0.0666** | -2.50 | 0.016 |
 | FFT.L1 | 0.0308 | 2.51 | 0.015 |
-| D.y.L1 | 0.8553 | 7.22 | 2.7e-09 |
-| D.y.L2 | -0.8956 | -6.09 | 1.6e-07 |
-| D.y.L3 | 0.4322 | 4.92 | 9.7e-06 |
-| D.FFT.L0 | 0.1738 | 9.75 | 3.7e-13 |
-| D.FFT.L1 | -0.0995 | -3.05 | 0.0036 |
-| D.FFT.L2 | 0.1566 | 4.98 | 8.0e-06 |
-| **LR: FFT (θ)** | **0.4627** | 13.28 | 5.2e-18 |
+| D.y.L1 | 0.8555 | 7.23 | 2.7e-09 |
+| D.y.L2 | -0.8962 | -6.09 | 1.6e-07 |
+| D.y.L3 | 0.4326 | 4.93 | 9.5e-06 |
+| D.FFT.L0 | 0.1739 | 9.76 | 3.6e-13 |
+| D.FFT.L1 | -0.0997 | -3.06 | 0.0035 |
+| D.FFT.L2 | 0.1567 | 4.99 | 7.8e-06 |
+| **LR: FFT (θ)** | **0.4626** | 13.30 | 4.8e-18 |
 
 ![Huntington National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Huntington National Bank - Actual vs Predicted.png>)
 
@@ -500,7 +525,7 @@ Unchanged from version 0.1. Its asymmetric variant scores better (mean MAE 0.204
 
 #### 6.3.7 Outcomes Analysis and Issues
 - **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.042, 0.097, 0.148, 0.199, 0.255, 0.307, 0.339, 0.381 (mean 0.221). Worst skill ratio against the no-change forecast: 0.49 at 6Q.
-- Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.132, 0.069, 0.049, 0.187, 0.287, 0.169, 0.214; mean 0.150, no-change mean 0.231, beats no-change on 4/8 horizons (Amber).
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.094, 0.132, 0.069, 0.048, 0.187, 0.288, 0.169, 0.214; mean 0.150, no-change mean 0.231, beats no-change on 4/8 horizons (Amber).
 
 ![Huntington National Bank: many-start-date backtest MAE by horizon](<docs/figures/Huntington National Bank - MAE Backtest 8Q.png>)
 
@@ -509,13 +534,13 @@ Unchanged from version 0.1. Its asymmetric variant scores better (mean MAE 0.204
 - Unchanged champion and ratings. The large lagged-Δy terms still carry the 2025Q1 start-date error (§7.3).
 - **Scope decision (2026-10-31): Huntington stays in scope with a caveat** (L15).
 
-- **Long-run beta stability (§5.6): Green.** From 2020Q1 to 2026Q1, θ ranges from 0.243 to 0.553 against the full-sample 0.463. The largest deviation is 47% (2020Q2) and at most 1.29 origin standard errors (2022Q4). Failing start dates: none.
+- **Long-run beta stability (§5.6): Green.** From 2020Q1 to 2026Q1, θ ranges from 0.236 to 0.553 against the full-sample 0.463. The largest deviation is 49% (2020Q2) and at most 1.29 origin standard errors (2022Q4). Failing start dates: none.
 
 ![Huntington National Bank: long-run beta at every start date](<docs/figures/Huntington National Bank - Beta Backtest.png>)
 
 *Figure 12: Huntington National Bank, long-run beta θ re-estimated at every start date from 2016Q1 (expanding window), with ±2 origin standard errors, the full-sample θ ±20% and the unrated window before 2020Q1 shaded, champion model.*
 
-- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.40, 0.38, 0.38, 0.39, 0.39, 0.28, 0.26, 0.31; model-implied 0.36, 0.35, 0.34, 0.33, 0.23, 0.18, 0.13, 0.19.
+- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.40, 0.38, 0.38, 0.39, 0.39, 0.28, 0.26, 0.31; model-implied 0.36, 0.35, 0.34, 0.33, 0.23, 0.18, 0.13, 0.18.
 
 ![Huntington National Bank: realized vs model-implied beta by horizon](<docs/figures/Huntington National Bank - Realized Beta 8Q.png>)
 
@@ -593,7 +618,7 @@ The asymmetric variant of ARDL(2,1), case 1. The Wald tests keep λ split (F 11.
 ### 6.5 Manufacturers and Traders Trust Company (M&T)
 
 #### 6.5.1 Data Treatment
-- FDIC cert 588. Pro forma for Hudson City Savings Bank (2015-11-01, 24%) and People's United Bank (2022-04-02, 42%).
+- FDIC cert 588. Pro forma for Wilmington Trust Company (2011-05-16, 13%, 92% of its deposits transferred) and Wilmington Trust, National Association (2011-05-16, 3.5%, 94% transferred), whose charters survived so FDIC `/history` logs no merger (§4.3), Hudson City Savings Bank (2015-11-01, 24%) and People's United Bank (2022-04-02, 42%).
 
 #### 6.5.2 Stationarity
 
@@ -624,32 +649,32 @@ Chosen by the parsimony step: 3 parameters, against 6 for the version 0.1 champi
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.1949** | -5.28 | 2.0e-06 |
-| FFT.L1 | 0.0783 | 6.00 | 1.4e-07 |
-| D.FFT.L0 | 0.1656 | 5.98 | 1.5e-07 |
-| **LR: FFT (θ)** | **0.4021** | 16.94 | 4.0e-24 |
+| y.L1 (λ) | **-0.1946** | -5.26 | 2.2e-06 |
+| FFT.L1 | 0.0782 | 5.99 | 1.4e-07 |
+| D.FFT.L0 | 0.1657 | 5.98 | 1.5e-07 |
+| **LR: FFT (θ)** | **0.4022** | 16.90 | 4.5e-24 |
 
 ![Manufacturers and Traders Trust Company: actual vs. predicted deposit rate, champion model](<docs/figures/Manufacturers and Traders Trust Company - Actual vs Predicted.png>)
 
 *Figure 18: Manufacturers and Traders Trust Company, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.5.7 Outcomes Analysis and Issues
-- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.070, 0.141, 0.205, 0.265, 0.313, 0.364, 0.403, 0.436 (mean 0.275). Worst skill ratio against the no-change forecast: 0.74 at 3Q.
-- Single-window 8Q backtest (one start date per horizon, supplementary): 0.023, 0.160, 0.180, 0.143, 0.110, 0.319, 0.401, 0.443; mean 0.222, no-change mean 0.235, beats no-change on 6/8 horizons (Amber).
+- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.071, 0.141, 0.205, 0.265, 0.314, 0.365, 0.404, 0.438 (mean 0.275). Worst skill ratio against the no-change forecast: 0.74 at 3Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.023, 0.160, 0.181, 0.143, 0.111, 0.320, 0.401, 0.444; mean 0.223, no-change mean 0.235, beats no-change on 6/8 horizons (Amber).
 
 ![Manufacturers and Traders Trust Company: many-start-date backtest MAE by horizon](<docs/figures/Manufacturers and Traders Trust Company - MAE Backtest 8Q.png>)
 
 *Figure 19: Manufacturers and Traders Trust Company, many-start-date backtest: h-step MAE by horizon over 34 to 41 start dates (n under each bar), with the no-change forecast and the 8Q band limits (§5.6), champion model.*
 
-- Mean h-step MAE rises from 0.218 to 0.275 against the version 0.1 champion. Beta stability stays Red.
+- Mean h-step MAE rises from 0.217 to 0.275 against the version 0.1 champion. Beta stability stays Red.
 
-- **Long-run beta stability (§5.6): Red.** From 2020Q1 to 2026Q1, θ ranges from 0.339 to 0.686 against the full-sample 0.402. The largest deviation is 71% (2023Q4) and at most 2.24 origin standard errors (2023Q4). Failing start dates: 3 (2023Q3 2023Q4 2024Q1).
+- **Long-run beta stability (§5.6): Red.** From 2020Q1 to 2026Q1, θ ranges from 0.340 to 0.688 against the full-sample 0.402. The largest deviation is 71% (2023Q4) and at most 2.23 origin standard errors (2023Q4). Failing start dates: 3 (2023Q3 2023Q4 2024Q1).
 
 ![Manufacturers and Traders Trust Company: long-run beta at every start date](<docs/figures/Manufacturers and Traders Trust Company - Beta Backtest.png>)
 
 *Figure 20: Manufacturers and Traders Trust Company, long-run beta θ re-estimated at every start date from 2016Q1 (expanding window), with ±2 origin standard errors, the full-sample θ ±20% and the unrated window before 2020Q1 shaded, champion model.*
 
-- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.38, 0.36, 0.34, 0.35, 0.34, 0.23, 0.22, 0.26; model-implied 0.17, 0.18, 0.18, 0.20, 0.16, 0.06, 0.06, 0.14.
+- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.38, 0.36, 0.34, 0.35, 0.34, 0.23, 0.22, 0.26; model-implied 0.17, 0.18, 0.18, 0.20, 0.15, 0.06, 0.06, 0.14.
 
 ![Manufacturers and Traders Trust Company: realized vs model-implied beta by horizon](<docs/figures/Manufacturers and Traders Trust Company - Realized Beta 8Q.png>)
 
@@ -658,7 +683,7 @@ Chosen by the parsimony step: 3 parameters, against 6 for the version 0.1 champi
 ### 6.6 Old National Bank
 
 #### 6.6.1 Data Treatment
-- FDIC cert 3832. Pro forma for 13 Mode A events since 2011, including Integra Bank (2011 failure, 28%), AnchorBank (2016, 21%), First Midwest (2022-02-16, 94%), CapStar (2024, 7%) and Bremer Bank (2025-05-01, 32%). Old National Trust Company (2014, no deposits) is Mode B.
+- FDIC cert 3832. Pro forma for 13 Mode A events since 2011, including Integra Bank (2011 failure, 28%), AnchorBank (2016, 21%), First Midwest (2022-02-16, 94%), CapStar (2024, 7%) and Bremer Bank (2025-05-01, 32%). Old National Trust Company (2014, no deposits) is Mode B. AnchorBank's history includes Voyager Bank (2015-04-15; 24% of Anchor), a whole-bank deposit transfer that FDIC `/history` does not log (§4.3).
 - The 2025Q2 drop in the earlier build was a data artifact (unadjusted Bremer merger plus calendar-year deposit averaging) and is fixed.
 
 #### 6.6.2 Stationarity
@@ -690,18 +715,18 @@ The Johansen VECM that was Old National's champion before EG long-run specificat
 
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
-| y.L1 (λ) | **-0.1354** | -3.49 | 9.4e-04 |
-| FFT.L1 | 0.0567 | 3.56 | 7.5e-04 |
+| y.L1 (λ) | **-0.1353** | -3.49 | 9.4e-04 |
+| FFT.L1 | 0.0567 | 3.56 | 7.6e-04 |
 | D.y.L1 | 0.3063 | 2.83 | 0.0064 |
-| D.FFT.L1 | 0.1024 | 3.20 | 0.0022 |
-| **LR: FFT (θ)** | **0.4191** | 13.85 | 9.8e-20 |
+| D.FFT.L1 | 0.1025 | 3.21 | 0.0022 |
+| **LR: FFT (θ)** | **0.4191** | 13.84 | 1.0e-19 |
 
 ![Old National Bank: actual vs. predicted deposit rate, champion model](<docs/figures/Old National Bank - Actual vs Predicted.png>)
 
 *Figure 22: Old National Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.6.7 Outcomes Analysis and Issues
-- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.067, 0.132, 0.182, 0.230, 0.300, 0.359, 0.396, 0.437 (mean 0.263). Worst skill ratio against the no-change forecast: 0.67 at 2Q.
+- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.067, 0.132, 0.183, 0.230, 0.300, 0.360, 0.397, 0.437 (mean 0.263). Worst skill ratio against the no-change forecast: 0.67 at 2Q.
 - Single-window 8Q backtest (one start date per horizon, supplementary): 0.106, 0.052, 0.191, 0.094, 0.364, 0.173, 0.289, 0.114; mean 0.173, no-change mean 0.207, beats no-change on 6/8 horizons (Amber).
 
 ![Old National Bank: many-start-date backtest MAE by horizon](<docs/figures/Old National Bank - MAE Backtest 8Q.png>)
@@ -710,13 +735,13 @@ The Johansen VECM that was Old National's champion before EG long-run specificat
 
 - Mean h-step MAE 0.263 against 0.249 for the version 0.1 champion. Beta stability Amber (was Green).
 
-- **Long-run beta stability (§5.6): Amber.** From 2020Q1 to 2026Q1, θ ranges from -0.295 to 0.491 against the full-sample 0.419. The largest deviation is 170% (2020Q2) and at most 2.28 origin standard errors (2020Q1). Failing start dates: 1 (2020Q1).
+- **Long-run beta stability (§5.6): Amber.** From 2020Q1 to 2026Q1, θ ranges from -0.301 to 0.492 against the full-sample 0.419. The largest deviation is 172% (2020Q2) and at most 2.28 origin standard errors (2020Q1). Failing start dates: 1 (2020Q1).
 
 ![Old National Bank: long-run beta at every start date](<docs/figures/Old National Bank - Beta Backtest.png>)
 
 *Figure 24: Old National Bank, long-run beta θ re-estimated at every start date from 2016Q1 (expanding window), with ±2 origin standard errors, the full-sample θ ±20% and the unrated window before 2020Q1 shaded, champion model.*
 
-- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.39, 0.36, 0.35, 0.35, 0.35, 0.20, 0.19, 0.24; model-implied 0.23, 0.26, 0.29, 0.27, 0.19, 0.08, 0.06, 0.09.
+- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.39, 0.36, 0.35, 0.35, 0.35, 0.20, 0.19, 0.24; model-implied 0.23, 0.26, 0.29, 0.27, 0.19, 0.08, 0.05, 0.09.
 
 ![Old National Bank: realized vs model-implied beta by horizon](<docs/figures/Old National Bank - Realized Beta 8Q.png>)
 
@@ -725,7 +750,7 @@ The Johansen VECM that was Old National's champion before EG long-run specificat
 ### 6.7 SouthState Bank
 
 #### 6.7.1 Data Treatment
-- FDIC cert 33555, the former CenterState Bank charter. Pro forma for 19 Mode A events since 2011, including South State Bank (cert 13425, 2020-06-08, 88%; previously mislabelled as CenterState, Mode B, 0.5%), Atlantic Capital (2022-03-01, 9%) and Independent Bank (2025-01-01, 40%).
+- FDIC cert 33555, the former CenterState Bank charter. Pro forma for 19 Mode A events since 2011, including South State Bank (cert 13425, 2020-06-08, 88%; previously mislabelled as CenterState, Mode B, 0.5%), Atlantic Capital (2022-03-01, 9%) and Independent Bank (2025-01-01, 40%). One Mode B event is flagged only: SouthBank FSB (2015-07-25, 0.5%). Two deposit transfers sit inside predecessors: CenterBank of Jacksonville into FirstAtlantic (2011-12-17) and CenterState Bank Mid Florida into CenterState NA (2007-11-30) (§4.3).
 
 #### 6.7.2 Stationarity
 
@@ -757,24 +782,24 @@ Chosen on its score: it is the best-scoring model, 0.197 against 0.264 for the v
 | Term | Coefficient | *t* | p-value |
 | :--- | :-: | :-: | :-: |
 | const | 0.0589 | 2.52 | 0.015 |
-| trend | -0.00220 | -2.79 | 0.0074 |
-| y.L1 (λ) | **-0.1647** | -3.90 | 2.8e-04 |
-| FFT.L1 | 0.0862 | 4.37 | 6.1e-05 |
-| D.y.L1 | 0.7090 | 5.17 | 4.0e-06 |
-| D.y.L2 | -0.3057 | -2.83 | 0.0066 |
+| trend | -0.00220 | -2.79 | 0.0075 |
+| y.L1 (λ) | **-0.1651** | -3.91 | 2.7e-04 |
+| FFT.L1 | 0.0864 | 4.38 | 5.9e-05 |
+| D.y.L1 | 0.7085 | 5.16 | 4.0e-06 |
+| D.y.L2 | -0.3058 | -2.83 | 0.0066 |
 | D.FFT.L0 | 0.1990 | 6.64 | 2.0e-08 |
 | D.FFT.L1 | -0.1127 | -2.45 | 0.018 |
-| LR: const | 0.3576 | 3.63 | 6.5e-04 |
+| LR: const | 0.3569 | 3.63 | 6.5e-04 |
 | LR: trend | -0.0133 | -3.25 | 0.0021 |
-| **LR: FFT (θ)** | **0.5236** | 10.57 | 1.9e-14 |
+| **LR: FFT (θ)** | **0.5232** | 10.60 | 1.7e-14 |
 
 ![SouthState Bank: actual vs. predicted deposit rate, champion model](<docs/figures/SouthState Bank - Actual vs Predicted.png>)
 
 *Figure 26: SouthState Bank, actual vs. one-step ECM fitted deposit rate (`rate_pf_clean`), champion model. In-sample.*
 
 #### 6.7.7 Outcomes Analysis and Issues
-- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.061, 0.117, 0.172, 0.217, 0.238, 0.254, 0.257, 0.260 (mean 0.197). Worst skill ratio against the no-change forecast: 0.60 at 3Q.
-- Single-window 8Q backtest (one start date per horizon, supplementary): 0.115, 0.102, 0.070, 0.122, 0.378, 0.179, 0.196, 0.104; mean 0.158, no-change mean 0.182, beats no-change on 4/8 horizons (Amber).
+- **Governing MAE rating (many-start-date backtest, §5.6): Green**. h-step MAE, 1Q to 8Q, over 34 to 41 start dates: 0.061, 0.117, 0.172, 0.217, 0.238, 0.254, 0.258, 0.260 (mean 0.197). Worst skill ratio against the no-change forecast: 0.60 at 3Q.
+- Single-window 8Q backtest (one start date per horizon, supplementary): 0.115, 0.102, 0.070, 0.122, 0.377, 0.179, 0.195, 0.104; mean 0.158, no-change mean 0.182, beats no-change on 4/8 horizons (Amber).
 
 ![SouthState Bank: many-start-date backtest MAE by horizon](<docs/figures/SouthState Bank - MAE Backtest 8Q.png>)
 
@@ -783,13 +808,13 @@ Chosen on its score: it is the best-scoring model, 0.197 against 0.264 for the v
 - Beta stability is Red (was Green with the version 0.1 champion).
 - Shares the easing-cycle error at the 2025Q1 start date (§7.3).
 
-- **Long-run beta stability (§5.6): Red.** From 2020Q1 to 2026Q1, θ ranges from 0.374 to 0.586 against the full-sample 0.524. The largest deviation is 29% (2022Q3) and at most 2.24 origin standard errors (2022Q3). Failing start dates: 3 (2020Q1 2022Q3 2022Q4).
+- **Long-run beta stability (§5.6): Red.** From 2020Q1 to 2026Q1, θ ranges from 0.373 to 0.584 against the full-sample 0.523. The largest deviation is 29% (2022Q3) and at most 2.27 origin standard errors (2022Q3). Failing start dates: 3 (2020Q1 2022Q3 2022Q4).
 
 ![SouthState Bank: long-run beta at every start date](<docs/figures/SouthState Bank - Beta Backtest.png>)
 
 *Figure 28: SouthState Bank, long-run beta θ re-estimated at every start date from 2016Q1 (expanding window), with ±2 origin standard errors, the full-sample θ ±20% and the unrated window before 2020Q1 shaded, champion model.*
 
-- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.37, 0.34, 0.34, 0.34, 0.35, 0.23, 0.21, 0.27; model-implied 0.29, 0.29, 0.31, 0.31, 0.27, 0.11, 0.11, 0.14.
+- **Realized beta (§5.6, descriptive):** mean actual beta 1Q to 8Q 0.37, 0.34, 0.34, 0.34, 0.35, 0.23, 0.21, 0.27; model-implied 0.29, 0.29, 0.31, 0.31, 0.27, 0.11, 0.10, 0.14.
 
 ![SouthState Bank: realized vs model-implied beta by horizon](<docs/figures/SouthState Bank - Realized Beta 8Q.png>)
 
@@ -808,9 +833,9 @@ Start dates every quarter from 2016Q1, expanding estimation window, dynamic fore
 | Glacier Bank | 0.043 | 0.103 | 0.167 | 0.234 | 0.308 | 0.380 | 0.440 | 0.493 | 0.271 | 0.235 | 1.23 | **Red** |
 | Huntington National Bank | 0.042 | 0.097 | 0.148 | 0.199 | 0.255 | 0.307 | 0.339 | 0.381 | 0.221 | 0.467 | 0.49 | **Green** |
 | KeyBank National Association | 0.042 | 0.068 | 0.091 | 0.104 | 0.147 | 0.176 | 0.187 | 0.195 | 0.126 | 0.448 | 0.37 | **Green** |
-| Manufacturers and Traders Trust Company | 0.070 | 0.141 | 0.205 | 0.265 | 0.313 | 0.364 | 0.403 | 0.436 | 0.275 | 0.394 | 0.74 | **Green** |
-| Old National Bank | 0.067 | 0.132 | 0.182 | 0.230 | 0.300 | 0.359 | 0.396 | 0.437 | 0.263 | 0.404 | 0.67 | **Green** |
-| SouthState Bank | 0.061 | 0.117 | 0.172 | 0.217 | 0.238 | 0.254 | 0.257 | 0.260 | 0.197 | 0.413 | 0.60 | **Green** |
+| Manufacturers and Traders Trust Company | 0.071 | 0.141 | 0.205 | 0.265 | 0.314 | 0.365 | 0.404 | 0.438 | 0.275 | 0.394 | 0.74 | **Green** |
+| Old National Bank | 0.067 | 0.132 | 0.183 | 0.230 | 0.300 | 0.360 | 0.397 | 0.437 | 0.263 | 0.404 | 0.67 | **Green** |
+| SouthState Bank | 0.061 | 0.117 | 0.172 | 0.217 | 0.238 | 0.254 | 0.258 | 0.260 | 0.197 | 0.413 | 0.60 | **Green** |
 
 Band limits for N = 8, from the approved fixed reference v1 (§5.6); this run's peer-derived limits are identical:
 
@@ -829,11 +854,11 @@ Each column is one forecast window, starting at T−k and ending at 2026Q2, with
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | First Horizon Bank | 0.113 | 0.077 | 0.218 | 0.147 | 0.113 | 0.187 | 0.450 | 0.325 | 0.204 | 0.307 | Amber |
 | Glacier Bank | 0.087 | 0.029 | 0.020 | 0.050 | 0.194 | 0.204 | 0.069 | 0.135 | 0.099 | 0.119 | Amber |
-| Huntington National Bank | 0.094 | 0.132 | 0.069 | 0.049 | 0.187 | 0.287 | 0.169 | 0.214 | 0.150 | 0.231 | Amber |
+| Huntington National Bank | 0.094 | 0.132 | 0.069 | 0.048 | 0.187 | 0.288 | 0.169 | 0.214 | 0.150 | 0.231 | Amber |
 | KeyBank National Association | 0.067 | 0.079 | 0.137 | 0.057 | 0.072 | 0.044 | 0.165 | 0.048 | 0.084 | 0.272 | Green |
-| Manufacturers and Traders Trust Company | 0.023 | 0.160 | 0.180 | 0.143 | 0.110 | 0.319 | 0.401 | 0.443 | 0.222 | 0.235 | Amber |
+| Manufacturers and Traders Trust Company | 0.023 | 0.160 | 0.181 | 0.143 | 0.111 | 0.320 | 0.401 | 0.444 | 0.223 | 0.235 | Amber |
 | Old National Bank | 0.106 | 0.052 | 0.191 | 0.094 | 0.364 | 0.173 | 0.289 | 0.114 | 0.173 | 0.207 | Amber |
-| SouthState Bank | 0.115 | 0.102 | 0.070 | 0.122 | 0.378 | 0.179 | 0.196 | 0.104 | 0.158 | 0.182 | Amber |
+| SouthState Bank | 0.115 | 0.102 | 0.070 | 0.122 | 0.377 | 0.179 | 0.195 | 0.104 | 0.158 | 0.182 | Amber |
 
 ### 7.3 Observations
 - Over 34 to 41 start dates per horizon, h-step errors rise with horizon, and every champion except Glacier beats the no-change forecast at every horizon.
@@ -852,15 +877,15 @@ The no-change forecast is the benchmark in both backtests. The `model_form` chal
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: |
 | First Horizon Bank | 0.284 Green | 0.276 Amber | 0.314 Red | 0.389 Red | 0.378 Red | 0.321 Red |
 | Glacier Bank | 0.271 Red | 0.311 Red | 0.301 Red | 0.265 Red | 0.204 Amber | 0.277 Red |
-| Huntington National Bank | 0.221 Green | 0.214 Green | 0.206 Green | 0.348 Red | 0.311 Red | 0.245 Green |
+| Huntington National Bank | 0.221 Green | 0.215 Green | 0.206 Green | 0.348 Red | 0.311 Red | 0.245 Green |
 | KeyBank National Association | 0.126 Green | 0.129 Green | 0.168 Green | 0.344 Red | 0.319 Red | 0.192 Green |
-| Manufacturers and Traders Trust Company | 0.275 Green | 0.264 Green | 0.244 Green | 0.337 Red | 0.285 Red | 0.315 Red |
+| Manufacturers and Traders Trust Company | 0.275 Green | 0.265 Green | 0.244 Green | 0.337 Red | 0.285 Red | 0.316 Red |
 | Old National Bank | 0.263 Green | 0.246 Green | 0.436 Red | 0.375 Red | 0.313 Red | 0.308 Red |
-| SouthState Bank | 0.197 Green | 0.193 Green | 0.220 Green | 0.408 Red | 0.333 Red | 0.198 Green |
+| SouthState Bank | 0.197 Green | 0.193 Green | 0.220 Green | 0.409 Red | 0.333 Red | 0.198 Green |
 
 *Mean h-step MAE over 1Q to 8Q (pp) and rating against the champions' band limits.*
 
-The asymmetric variants of §5.5 now sit inside the candidate set, so the a1 and a2 challengers are kept as reference results. Because the parsimony step chose simpler champions, several challengers now score below their champion: a1 at First Horizon (0.276 vs 0.284), Old National (0.246 vs 0.263) and M&T (0.264 vs 0.275), a2 at M&T (0.244), and the cycle betas at Glacier (0.204 vs 0.271). The challengers are not candidates in the selection rule, so they don't replace the champions. Glacier's cycle betas also beat every candidate model, which adds to the case that Glacier's champion is weak (§6.2.7).
+The asymmetric variants of §5.5 now sit inside the candidate set, so the a1 and a2 challengers are kept as reference results. Because the parsimony step chose simpler champions, several challengers now score below their champion: a1 at First Horizon (0.276 vs 0.284), Old National (0.246 vs 0.263) and M&T (0.265 vs 0.275), a2 at M&T (0.244), and the cycle betas at Glacier (0.204 vs 0.271). The challengers are not candidates in the selection rule, so they don't replace the champions. Glacier's cycle betas also beat every candidate model, which adds to the case that Glacier's champion is weak (§6.2.7).
 
 ### 7.5 Long-Run Beta Stability (start dates from 2016Q1)
 Each champion is re-estimated at every start date from 2016Q1 to 2026Q1 (expanding window), and θ is compared with the full-sample estimate through 2026Q2. Ratings use the start dates from 2020Q1 (§5.6).
@@ -869,11 +894,11 @@ Each champion is re-estimated at every start date from 2016Q1 to 2026Q1 (expandi
 | :--- | :-: | :-: | :-: | :-: | :-: | :-: |
 | First Horizon Bank | 0.477 | 0.378 to 0.706 | 48%, 2023Q3 | 2.00, 2023Q3 | 0 | **Green** |
 | Glacier Bank | 0.230 | 0.029 to 0.339 | 88%, 2020Q3 | 5.17, 2020Q1 | 12 | **Red** |
-| Huntington National Bank | 0.463 | 0.243 to 0.553 | 47%, 2020Q2 | 1.29, 2022Q4 | 0 | **Green** |
+| Huntington National Bank | 0.463 | 0.236 to 0.553 | 49%, 2020Q2 | 1.29, 2022Q4 | 0 | **Green** |
 | KeyBank National Association | 0.402 | 0.294 to 0.429 | 27%, 2022Q4 | 7.00, 2022Q4 | 5 | **Red** |
-| Manufacturers and Traders Trust Company | 0.402 | 0.339 to 0.686 | 71%, 2023Q4 | 2.24, 2023Q4 | 3 | **Red** |
-| Old National Bank | 0.419 | -0.295 to 0.491 | 170%, 2020Q2 | 2.28, 2020Q1 | 1 | **Amber** |
-| SouthState Bank | 0.524 | 0.374 to 0.586 | 29%, 2022Q3 | 2.24, 2022Q3 | 3 | **Red** |
+| Manufacturers and Traders Trust Company | 0.402 | 0.340 to 0.688 | 71%, 2023Q4 | 2.23, 2023Q4 | 3 | **Red** |
+| Old National Bank | 0.419 | -0.301 to 0.492 | 172%, 2020Q2 | 2.28, 2020Q1 | 1 | **Amber** |
+| SouthState Bank | 0.523 | 0.373 to 0.584 | 29%, 2022Q3 | 2.27, 2022Q3 | 3 | **Red** |
 
 ![All banks: long-run beta re-estimated at every start date](<docs/figures/All Banks - Beta Backtest.png>)
 
@@ -890,15 +915,15 @@ Each champion is re-estimated at every start date from 2016Q1 to 2026Q1 (expandi
 | | In sample (optional): ARDL(3,4), case 4, AIC | 9 | 0.0469 | 0.242 (0.039) | 0.517 | Red | Green |
 | Glacier Bank | Out of sample (default): Johansen VECM (rank 1), k_ar_diff = 1, det_order 1, BIC; trend pruned | 4 | 0.0327 | 0.271 (0.127) | 0.230 | Red | Red |
 | | In sample (optional): ARDL(3,1), case 4, BIC; pruned | 5 | 0.0296 | 0.242 (0.097) | 0.310 | Amber | Red |
-| Huntington National Bank | Both rules: EG long run, trend `n`, AIC (ADF lag=1, ECM lag=3) | 8 | 0.0234 | 0.221 (0.040) | 0.463 | Green | Green |
+| Huntington National Bank | Both rules: EG long run, trend `n`, AIC (ADF lag=1, ECM lag=3) | 8 | 0.0234 | 0.221 (0.041) | 0.463 | Green | Green |
 | KeyBank National Association | Out of sample (default): ARDL(2,1), case 1, BIC, asymmetric | 7 | 0.0268 | 0.126 (0.021) | 0.402 | Green | Red |
 | | In sample (optional): EG long run, trend `n`, BIC (ADF lag=1, ECM lag=3) | 7 | 0.0317 | 0.280 (0.062) | 0.398 | Red | Green |
 | Manufacturers and Traders Trust Company | Out of sample (default): EG long run, trend `c`, AIC (ADF lag=1, ECM lag=4); constant pruned | 3 | 0.0499 | 0.275 (0.059) | 0.402 | Green | Red |
-| | In sample (optional): ARDL(2,1), case 4, AIC | 6 | 0.0383 | 0.218 (0.068) | 0.432 | Green | Red |
+| | In sample (optional): ARDL(2,1), case 4, AIC | 6 | 0.0383 | 0.217 (0.068) | 0.432 | Green | Red |
 | Old National Bank | Out of sample (default): Johansen VECM (rank 1), k_ar_diff = 1, det_order -1, fixed | 4 | 0.0414 | 0.263 (0.065) | 0.419 | Green | Amber |
 | | In sample (optional): EG long run, trend `n`, BIC (ADF lag=1, ECM lag=3) | 8 | 0.0285 | 0.249 (0.048) | 0.394 | Green | Green |
-| SouthState Bank | Out of sample (default): ARDL(3,2), case 4, BIC | 8 | 0.0347 | 0.197 (0.039) | 0.524 | Green | Red |
-| | In sample (optional): ARDL(4,3), case 1, AIC | 8 | 0.0336 | 0.264 (0.039) | 0.443 | Green | Green |
+| SouthState Bank | Out of sample (default): ARDL(3,2), case 4, BIC | 8 | 0.0348 | 0.197 (0.039) | 0.523 | Green | Red |
+| | In sample (optional): ARDL(4,3), case 1, AIC | 8 | 0.0337 | 0.264 (0.039) | 0.443 | Green | Green |
 
 Source: `MAE_Backtesting/output/out_of_sample/selection_comparison_8Q.csv`. Each rule's MAE ratings use limits from its own champions as a peer group.
 
@@ -914,7 +939,7 @@ Mean actual / model-implied beta at selected horizons, over start dates where FF
 | :--- | :-: | :-: | :-: | :-: |
 | First Horizon Bank | 0.60 / 0.26 | 0.51 / 0.32 | 0.47 / 0.32 | 0.38 / 0.25 |
 | Glacier Bank | 0.24 / 0.16 | 0.21 / 0.19 | 0.21 / 0.26 | 0.11 / -0.20 |
-| Huntington National Bank | 0.40 / 0.36 | 0.38 / 0.35 | 0.39 / 0.33 | 0.31 / 0.19 |
+| Huntington National Bank | 0.40 / 0.36 | 0.38 / 0.35 | 0.39 / 0.33 | 0.31 / 0.18 |
 | KeyBank National Association | 0.42 / 0.35 | 0.40 / 0.34 | 0.39 / 0.35 | 0.30 / 0.26 |
 | Manufacturers and Traders Trust Company | 0.38 / 0.17 | 0.36 / 0.18 | 0.35 / 0.20 | 0.26 / 0.14 |
 | Old National Bank | 0.39 / 0.23 | 0.36 / 0.26 | 0.35 / 0.27 | 0.24 / 0.09 |
@@ -942,7 +967,7 @@ Mean actual / model-implied beta at selected horizons, over start dates where FF
 - Across all 78 variants, λ⁺ = λ⁻ is rejected at 5% in 54 and θ⁺ = θ⁻ in 31: asymmetric adjustment is common, asymmetric long-run beta less so.
 - 23 of the 78 fits cycled between two regime splits; the lowest-error pass is kept and the outputs flag it.
 - Several admissible variants forecast explosively out of sample (best asymmetric mean h-step MAE: Old National 76.6 pp, SouthState 4.57, M&T 0.76). The out-of-sample score screens them out, but they are fragile.
-- Only KeyBank's champion is asymmetric. Huntington's best asymmetric variant scores 0.204 against 0.221, but within one standard error, so parsimony keeps the symmetric model.
+- Only KeyBank's champion is asymmetric. Huntington's best asymmetric variant scores 0.200 against 0.221, but within one standard error, so parsimony keeps the symmetric model.
 
 Details are in `docs/resolutions/asymmetry_oos_realized_beta.md`.
 
@@ -990,6 +1015,25 @@ Projections use the trend freeze (§5.7); after pruning, only SouthState's champ
 
 Charts for the other banks are in `docs/figures/scenarios/`.
 
+### 7.10 COVID Liquidity Dummy Test (decision)
+The test is defined in §5.5, step 8. The table gives, for each bank, the dummy's coefficient and p-value when it is forced into the champion specification (the champion's own short-run equation with `covid_liq` added), whether it survives pruning in the champion, the champion's many-start-date mean h-step MAE and its θ stability rating without and with it, and the decision.
+
+| Bank | Coefficient (forced in) | p-value | Survives pruning in champion | Mean MAE without / with (pp) | θ rating without / with | Decision |
+| :--- | :-: | :-: | :-: | :-: | :-: | :-: |
+| First Horizon | -0.0194 | 0.66 | No | 0.284 / 0.284 | Green / Green | **Exclude** |
+| Glacier | -0.0238 | 0.24 | No | 0.271 / 0.271 | Red / Red | **Exclude** |
+| Huntington | +0.0193 | 0.18 | No | 0.221 / 0.221 | Green / Green | **Exclude** |
+| KeyBank | +0.0017 | 0.92 | No | 0.126 / 0.126 | Red / Red | **Exclude** |
+| M&T | -0.0224 | 0.43 | No | 0.275 / 0.275 | Red / Red | **Exclude** |
+| Old National | -0.0046 | 0.86 | No | 0.263 / 0.263 | Amber / Amber | **Exclude** |
+| SouthState | +0.0498 | 0.10 | No | 0.197 / 0.197 | Red / Red | **Exclude** |
+
+*Source: `vintages/v2_covid/covid_dummy_decision.csv`.*
+
+- The dummy is excluded for all seven banks. Forced in, its p-value is 0.18 to 0.92 for six banks and 0.098 for SouthState (coefficient +0.05, still above 0.05); it is pruned from every champion, so the champion, its MAE and its θ rating are the same with and without it.
+- Where a non-champion candidate kept the dummy (KeyBank 4 specifications, M&T 5, SouthState 2), none became the champion: KeyBank's best such candidate scored 0.238 against the champion's 0.126, and SouthState's 5.37 against 0.197.
+- The result rests on the 7 COVID quarters in a 62-quarter sample (L1); it says the dummy is not needed given the FFT dynamics already in the model, not that the 2020 to 2021 deposit inflows had no effect.
+
 ---
 
 ## 8. Model Limitations and Assumptions
@@ -1015,6 +1059,9 @@ Charts for the other banks are in `docs/figures/scenarios/`.
 | L17 | Beta stability is rated only from 2020Q1, because earlier samples are mostly zero-lower-bound data. The joint 2-SE-and-20% test does not flag large moves with wide standard errors. Four champions are Red. The realized-beta test is descriptive and has no threshold. | All, esp. Glacier, KeyBank, M&T, SouthState | Medium |
 | L18 | The asymmetric fits are fragile: 23 of 78 cycled between regime splits, and several admissible variants forecast explosively. KeyBank's asymmetric champion rests on a λ split estimated from the regimes of one sample. | KeyBank, all asymmetric variants | Medium |
 | L19 | Deterministic terms are pruned after the cointegration screen without re-testing, so a pruned model's fitted form can differ from the form under which it passed (flag `form_differs_from_qualifying_test` in `deterministic_pruning_log.csv`; 32 models). Its `trend type` label still names the qualifying case. Glacier's champion qualified under det_order 1 (constant and trend) but is fitted with a constant only; M&T's qualified under `c` and is fitted without a constant. | Glacier, M&T, 30 non-champion models | Medium |
+| L20 | Partial deposit transfers (Wilmington Trust Company 92%, Wilmington Trust NA 94%, Prudential 97%) are added with interest expense in proportion to deposits: the transferred book is assumed priced like the seller's whole book. FDIC Call Reports give no interest expense by transferred block, so the assumption cannot be tested. The whole #20 correction moves rates by at most 0.0052 pp, so the effect is bounded, but the assumption applies to every transfer with a share below 1. | M&T, Huntington | Low |
+| L21 | Prudential Bank & Trust's share of 0.970 rests on its own deposit balance falling to $50K (cert 32957: $1.69bn at 2012Q1), because TCF's deposits rose only $1.08bn (12.81bn to 13.89bn) against the $1.64bn the share implies; the remainder is attributed to the seller's other disposals and organic movement, which the data do not separate. A different share changes about 13% of TCF's pre-2012 base. | Huntington (via TCF) | Low |
+| L22 | One NIC event into a tree survivor is unresolved: RSSD 920274 into cert 34657 (2007, a predecessor at merger-tree depth 3 to 4). It has neither an FDIC `/history` record nor a NIC record that identifies a deposit transfer, so it is not adjusted. The `nic_transfers_covered` check reports it; the NIC download is a 2026-11-13 snapshot (§4.1) and later NIC releases may change the picture. | Banks whose tree contains cert 34657 | Low |
 
 ---
 
@@ -1027,6 +1074,8 @@ No independent validation has been performed. The open issues in §9.2 should be
 Open issues are tracked as GitHub issues on [`Panda5130/Deposit-Beta`](https://github.com/Panda5130/Deposit-Beta/issues). GitHub replaces the open-issues log kept in earlier versions of this document; new issues are logged there. Closed issues and how they were resolved are recorded in `docs/open_issue_resolutions.md` and `docs/resolutions/*.md`.
 
 Open at this version: none.
+
+Resolved on 2026-11-13 by the pull request for this version: [#20](https://github.com/Panda5130/Deposit-Beta/issues/20) (deposit transfers missing from FDIC `/history`; data vintage v2, the NIC cross-check and the COVID dummy test, §4.3, §5.5, §7.10).
 
 Resolved on 2026-11-11 by the integration batch: [#8](https://github.com/Panda5130/Deposit-Beta/issues/8) (backtest band limits fixed from an approved reference run, reference v1, §5.6, §7.1).
 
@@ -1123,6 +1172,13 @@ python MAE_Backtesting/compare_selection.py
 - Merger adjustment checks are recorded in `merger_adjustment_log.md`.
 - The FDIC snapshot used for a run is cached in `data_build/raw/` and committed with the outputs. The backtest caches are keyed on a hash of each bank's input data and on each model's fitted terms.
 - Gaps: unit tests cover only the FFT builder and the projection layer (15 tests); the backtests have no unit tests; no version pinning.
+
+### 10.4 Data Vintages, Output Isolation and Audit Manifests
+- **`DATA_VINTAGE`** (`bank_plots.py`) selects the merger-adjusted data every reader and the `ECM workflow.py` / `ECM estimation.py` / `ECM asymmetric variants.py` defaults use. `"v2"` (current) reads `consolidated_fdic_quarterly_financials_{2008,2011}-2026[_merger_adjusted]_v2.csv`, `merger_events_used_v2.csv` and `merger_adjustment_log_v2.md`; `"v1"` goes back to the original files. This document's figures in §1.3, §6 and §7 come from v2. The charts in `docs/figures/` for M&T, Huntington, SouthState and Old National are the earlier renders: the differences are in the third decimal at most and were not redrawn.
+- **`OUTPUT_VINTAGE`** is the one output-root setting (default `v2_covid`; the environment variable `DEPOSIT_OUTPUT_VINTAGE` overrides it for staging runs). Every script that writes results (estimation, asymmetric variants, pruning log, backtests, beta, realized beta, scenarios, figures, `model_form`) writes under `vintages/<OUTPUT_VINTAGE>/` at its usual relative path, so the original outputs in the repository root are never rerun or overwritten. Reads fall back file by file: `vintages/v2_covid/`, then `vintages/v2/`, then the root files (`bank_plots.vfile`). The `verify_batch` check `no_outputs_outside_vintages` enforces this.
+- **`vintages/v2/`** holds the screen, selection, estimation, asymmetric, pruning and downstream outputs that differ from v1 (`README.md` lists them; `run_scripts/` has the exact rerun). **`vintages/v2_covid/`** holds the COVID dummy test (`README.md`, `covid_dummy_decision.csv`).
+- **Audit manifests** (`audit/*.manifest.csv`): pre-change snapshots are kept as a manifest of path, SHA-256 of the file content and baseline commit, not as copies (555 duplicate files, about 35 MB, were removed): `2026-11-11_pre_det_pruning.manifest.csv` (baseline 435849f) and `2026-11-13_pre_transfer_fix.manifest.csv` (baseline 057d5dd). The files themselves are in git history at the baseline commit. To restore an original: `git show <baseline_commit>:"<path>" > "<path>"`, with both from the manifest row; `tools/verify_batch.py` (checks `audit_manifest` and `audit_pre_transfer_fix_manifest`) confirms that each blob still matches its recorded hash.
+- **Checks:** `python tools/verify_batch.py` runs the batch (21 checks) and writes `verify_summary.json`, which is git-ignored.
 
 ---
 
