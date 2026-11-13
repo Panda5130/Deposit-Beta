@@ -1,13 +1,13 @@
 {
- "when": "2026-11-12T14:43:36",
+ "when": "2026-11-13T15:00:25",
  "all_pass": true,
- "n_checks": 17,
+ "n_checks": 20,
  "n_failed": 0,
  "checks": [
   {
    "check": "pytest",
    "pass": true,
-   "detail": "54 passed in 19.84s"
+   "detail": "60 passed in 18.81s"
   },
   {
    "check": "audit_manifest",
@@ -53,6 +53,21 @@
    "check": "doc_figure_links_resolve",
    "pass": true,
    "detail": "35 image links; missing: 0"
+  },
+  {
+   "check": "nic_transfers_covered",
+   "pass": true,
+   "detail": "SKIPPED (warning): no NIC Transformations CSV given; download CSV_TRANSFORMATIONS (and CSV_ATTRIBUTES_ACTIVE + _CLOSED for RSSD->FDIC cert) from https://www.ffiec.gov/npw/FinancialReport/DataDownload, then pass --nic-transformations FILE [--nic-attributes FILE ...]"
+  },
+  {
+   "check": "audit_pre_transfer_fix_manifest",
+   "pass": true,
+   "detail": "347 audit copies, 0 changed"
+  },
+  {
+   "check": "v2_other_banks_rate_unchanged",
+   "pass": true,
+   "detail": "5 other banks, max |rate_pf_clean v2 - v1| = 0.0"
   },
   {
    "check": "backtest:references_immutable",

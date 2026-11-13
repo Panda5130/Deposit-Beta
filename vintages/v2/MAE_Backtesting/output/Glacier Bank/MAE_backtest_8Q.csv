@@ -1,0 +1,9 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.07708637495542936,0.008155630610091391
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.046165491934945235,0.10706437502589294
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.06065243319962003,0.10223196953149623
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.08098124279559565,0.08203868821011423
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.03900908888008461,0.09040633454332521
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.03812280575934882,0.16921218610481722
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.2639026408028529,0.22987716419607535
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.2215225812016653,0.16418502499995793

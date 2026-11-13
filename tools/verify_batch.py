@@ -54,7 +54,7 @@ def manifest(folder=AUDIT_DIR):
 @check("pytest")
 def check_pytest():
     cmd = [sys.executable, "-m", "pytest", "ecm_tests", "projection/test_project.py",
-           "data_build/test_build_fft.py",
+           "data_build/test_build_fft.py", "data_build/test_build_dataset.py",
            "projection/test_scenarios.py", "MAE_Backtesting/test_backtest_reference.py", "-q", "--tb=line", "-p", "no:cacheprovider"]
     out = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     lines = [l for l in out.stdout.strip().splitlines() if l.strip()]
@@ -105,12 +105,13 @@ def check_det_invariant():
 @check("models_kept_and_passed_screen")
 def check_screen():
     """Pruning keeps every model: same model keys as the unpruned outputs, all of them screened."""
+    import bank_plots as bp
     import deterministic_pruning as dp
-    screen = dp.Screen()
+    screen = dp.Screen(bp.VINTAGE_DIR / dp.SCREEN_NAME)
     bad, n = [], 0
     for orig, path in zip(("ECM estimation results.csv", "ECM asymmetric estimation results.csv"),
                           _pruned_tables().values()):
-        a = set(map(tuple, pd.read_csv(ROOT / orig, usecols=SPEC).drop_duplicates().to_numpy()))
+        a = set(map(tuple, pd.read_csv(bp.VINTAGE_DIR / orig, usecols=SPEC).drop_duplicates().to_numpy()))
         b = set(map(tuple, pd.read_csv(path, usecols=SPEC).drop_duplicates().to_numpy()))
         if a != b:
             bad.append(f"{Path(path).name}: {len(a - b)} model(s) lost, {len(b - a)} new")
@@ -127,10 +128,10 @@ def check_carry():
     """Models with no term dropped are identical to the unpruned originals."""
     import bank_plots as bp
     import deterministic_pruning as dp
-    log = pd.read_csv(ROOT / dp.LOG_NAME)
+    log = pd.read_csv(bp.VINTAGE_DIR / dp.LOG_NAME)
     pruned = set(map(tuple, log[log["action"].str.startswith("dropped")][SPEC].to_numpy()))
-    pairs = [(ROOT / "ECM estimation results.csv", bp.CANDIDATE_FILES["estimates"]),
-             (ROOT / "ECM asymmetric estimation results.csv", bp.CANDIDATE_FILES["asym_estimates"])]
+    pairs = [(bp.VINTAGE_DIR / "ECM estimation results.csv", bp.CANDIDATE_FILES["estimates"]),
+             (bp.VINTAGE_DIR / "ECM asymmetric estimation results.csv", bp.CANDIDATE_FILES["asym_estimates"])]
     worst, missing = 0.0, 0
     for orig, new in pairs:
         new = pd.read_csv(new)
@@ -144,9 +145,11 @@ def check_carry():
 
 @check("pruning_log_complete")
 def check_log():
+    import bank_plots as bp
     import deterministic_pruning as dp
-    log = pd.read_csv(ROOT / dp.LOG_NAME)
-    need = [(ROOT / "estimation result summary.csv", False), (ROOT / "asymmetric estimation result summary.csv", True)]
+    log = pd.read_csv(bp.VINTAGE_DIR / dp.LOG_NAME)
+    need = [(bp.VINTAGE_DIR / "estimation result summary.csv", False),
+            (bp.VINTAGE_DIR / "asymmetric estimation result summary.csv", True)]
     missing = 0
     for path, asym in need:
         spec = pd.read_csv(path, usecols=SPEC)
@@ -159,9 +162,9 @@ def check_log():
 @check("fft_end_equals_bank_end")
 def check_fft_end():
     import bank_plots as bp
-    bank = bp.to_periods(pd.read_csv(ROOT / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv",
+    bank = bp.to_periods(pd.read_csv(bp.DEPENDENTS["2011"],
                                      usecols=["quarter"])["quarter"]).max()
-    bank8 = bp.to_periods(pd.read_csv(ROOT / "consolidated_fdic_quarterly_financials_2008-2026_merger_adjusted.csv",
+    bank8 = bp.to_periods(pd.read_csv(bp.DEPENDENTS["2008"],
                                       usecols=["quarter"])["quarter"]).max()
     ends = {n: bp.to_periods(pd.read_csv(ROOT / n).iloc[:, 0]).max() for n in ("FFT_2011-2026.csv", "FFT_2008-2026.csv")}
     try:
@@ -199,6 +202,93 @@ def check_doc_links():
     return not missing, f"{len(links)} image links; missing: {len(missing)}" + (f" ({missing[0]})" if missing else "")
 
 
+# NIC Transformations cross-check (issue #20) ---------------------------------------------------
+# FDIC /history logs charter mergers only. Every NIC transformation into a target bank (or into one
+# of its Mode A predecessors) whose predecessor has an FDIC cert and RSSD must be covered: by a
+# /history or supplementary event in merger_events_used_v2.csv, by the supplementary file, or by an
+# explicit waiver. Without a cached NIC file the check is skipped with a warning (it does not fail).
+NIC = {"transformations": None, "attributes": None}      # set by --nic-transformations / --nic-attributes
+NIC_HOWTO = ("download CSV_TRANSFORMATIONS (and CSV_ATTRIBUTES_ACTIVE + _CLOSED for RSSD->FDIC cert) from "
+             "https://www.ffiec.gov/npw/FinancialReport/DataDownload, then pass --nic-transformations FILE "
+             "[--nic-attributes FILE ...]")
+NIC_WAIVERS = ROOT / "data_build" / "raw" / "nic_transfer_waivers.csv"
+SUPPLEMENTARY = ROOT / "data_build" / "raw" / "supplementary_transfer_events.csv"
+EVENTS_V2 = ROOT / "merger_events_used_v2.csv"
+
+
+def _nic_events(path, attribute_paths):
+    """NIC transformations as predecessor/successor RSSD + FDIC cert + date (upper-cased NIC columns)."""
+    t = pd.read_csv(path, dtype=str).rename(columns=str.upper)
+    t = t.rename(columns={"#ID_RSSD_PREDECESSOR": "ID_RSSD_PREDECESSOR"})
+    out = pd.DataFrame({"pred_rssd": pd.to_numeric(t["ID_RSSD_PREDECESSOR"], errors="coerce"),
+                        "succ_rssd": pd.to_numeric(t["ID_RSSD_SUCCESSOR"], errors="coerce"),
+                        "date": pd.to_datetime(t["D_DT_TRANS"].str[:10].str.replace("-", ""), format="%Y%m%d",
+                                               errors="coerce")})
+    for side, col in (("pred", "PREDECESSOR_CERT"), ("succ", "SUCCESSOR_CERT")):
+        out[f"{side}_cert"] = pd.to_numeric(t[col], errors="coerce") if col in t else float("nan")
+    if attribute_paths:
+        a = pd.concat([pd.read_csv(p, dtype=str, usecols=lambda c: c.upper().lstrip("#") in ("ID_RSSD", "ID_FDIC_CERT"))
+                       .rename(columns=lambda c: c.upper().lstrip("#")) for p in attribute_paths])
+        a = a.apply(pd.to_numeric, errors="coerce").dropna()
+        a = a[a.ID_FDIC_CERT > 0].drop_duplicates("ID_RSSD").set_index("ID_RSSD").ID_FDIC_CERT
+        for side in ("pred", "succ"):
+            out[f"{side}_cert"] = out[f"{side}_cert"].fillna(out[f"{side}_rssd"].map(a))
+    return out
+
+
+@check("nic_transfers_covered")
+def check_nic_transfers():
+    if not NIC["transformations"]:
+        print(f"WARNING nic_transfers_covered skipped: no cached NIC Transformations CSV; {NIC_HOWTO}",
+              file=sys.stderr)
+        return True, f"SKIPPED (warning): no NIC Transformations CSV given; {NIC_HOWTO}"
+    from data_build import build_dataset as bd
+    nic = _nic_events(NIC["transformations"], NIC["attributes"])
+    used = pd.read_csv(EVENTS_V2)
+    survivors = set(bd.TARGETS) | set(used.loc[used.mode_applied == "A", "predecessor_cert"].astype(int))
+    nic = nic[nic.succ_cert.isin(survivors) & (nic.date >= pd.Timestamp(bd.START))
+              & nic.pred_rssd.gt(0) & nic.pred_cert.gt(0)]
+    covered = set(zip(used.predecessor_cert.astype(int), used.survivor_cert.astype(int)))
+    sup = pd.read_csv(SUPPLEMENTARY)
+    covered |= set(zip(sup.predecessor_cert.astype(int), sup.survivor_cert.astype(int)))
+    waived = pd.read_csv(NIC_WAIVERS) if NIC_WAIVERS.exists() else pd.DataFrame(columns=["predecessor_rssd"])
+    waived_rssd = set(pd.to_numeric(waived.predecessor_rssd, errors="coerce").dropna().astype(int))
+    gaps = nic[[(int(p), int(s)) not in covered and int(r) not in waived_rssd
+                for p, s, r in zip(nic.pred_cert, nic.succ_cert, nic.pred_rssd)]]
+    detail = (f"{len(nic)} NIC events with FDIC cert + RSSD into targets/Mode A predecessors; "
+              f"{len(gaps)} not in /history, supplementary or waivers")
+    if len(gaps):
+        detail += ": " + "; ".join(f"RSSD {int(r.pred_rssd)} (cert {int(r.pred_cert)}) -> {int(r.succ_cert)} "
+                                   f"{r.date.date()}" for r in gaps.head(5).itertuples())
+    return gaps.empty, detail
+
+
+AUDIT_V2_DIR = ROOT / "audit" / "2026-11-13_pre_transfer_fix"
+V2_RERUN_BANKS = {"Manufacturers and Traders Trust Company", "Old National Bank"}
+
+
+@check("audit_pre_transfer_fix_manifest")
+def check_audit_v2():
+    m = manifest(AUDIT_V2_DIR)
+    bad = [p for p, h in m.items() if sha256(AUDIT_V2_DIR / p) != h]
+    return not bad, f"{len(m)} audit copies, {len(bad)} changed" + (f": {bad[:3]}" if bad else "")
+
+
+@check("v2_other_banks_rate_unchanged")
+def check_v2_other_banks():
+    """v2 changes rate_pf_clean only for the re-run banks; the other banks are identical (max abs diff 0)."""
+    worst, n = 0.0, 0
+    for s in ("2008", "2011"):
+        a = pd.read_csv(ROOT / f"consolidated_fdic_quarterly_financials_{s}-2026_merger_adjusted.csv")
+        b = pd.read_csv(ROOT / f"consolidated_fdic_quarterly_financials_{s}-2026_merger_adjusted_v2.csv")
+        m = a.merge(b, on=["bank_name", "quarter"], how="outer", suffixes=("_1", "_2"), indicator=True)
+        assert (m["_merge"] == "both").all(), "v1/v2 bank-quarter keys differ"
+        m = m[~m.bank_name.isin(V2_RERUN_BANKS)]
+        n += m.bank_name.nunique()
+        worst = max(worst, float((m.rate_pf_clean_1 - m.rate_pf_clean_2).abs().max()))
+    return worst == 0, f"{n // 2} other banks, max |rate_pf_clean v2 - v1| = {worst}"
+
+
 def _register_module(module_name):
     """Register a sibling check module whose CHECKS entries return (label, ok, detail)."""
     import importlib
@@ -227,7 +317,12 @@ def main(argv=None):
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--skip", nargs="*", default=[])
     ap.add_argument("-o", "--output", default=ROOT / "verify_summary.json")
+    ap.add_argument("--nic-transformations", default=None, metavar="CSV",
+                    help="cached NIC Transformations CSV for the nic_transfers_covered check (else skipped)")
+    ap.add_argument("--nic-attributes", nargs="*", default=[], metavar="CSV",
+                    help="NIC attributes CSV(s) mapping ID_RSSD -> ID_FDIC_CERT")
     args = ap.parse_args(argv)
+    NIC["transformations"], NIC["attributes"] = args.nic_transformations, args.nic_attributes
     names = [n for n in (args.only or CHECKS) if n not in args.skip]
     results = []
     for name in names:

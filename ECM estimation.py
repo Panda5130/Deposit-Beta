@@ -82,6 +82,7 @@ ct = load_module(HERE / "Co-integration Tests.py", "cointegration_tests")
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 import deterministic_pruning as dp  # noqa: E402
+import bank_plots as bp  # noqa: E402  (bp.DATA_VINTAGE picks the data and output folder)
 
 DET_PRUNED_TAG = " (det pruned)"
 
@@ -220,8 +221,8 @@ def long_run_rows(res, y, det, levels):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Fit one-step ECMs for the selected models.")
-    parser.add_argument("-i", "--input", default=HERE / INPUT_NAME)
-    parser.add_argument("--dependents", default=HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv")
+    parser.add_argument("-i", "--input", default=bp.VINTAGE_DIR / INPUT_NAME)
+    parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean", help="dependent column")
     parser.add_argument("--x", nargs="+", default=["FFT"], help="regressor column(s)")
@@ -233,7 +234,7 @@ def main(argv=None):
                         help="after short-run pruning drop trend, then const, at p >= alpha; model kept (default)")
     parser.add_argument("--no-prune-deterministics", dest="prune_deterministics", action="store_false",
                         help="old behaviour: deterministic terms follow the test case and are never pruned")
-    parser.add_argument("--pruning-log", default=HERE / dp.LOG_NAME)
+    parser.add_argument("--pruning-log", default=bp.VINTAGE_DIR / dp.LOG_NAME)
     parser.add_argument("--alpha", type=float, default=0.05, help="significance level for --refine")
     parser.add_argument("--screen-deterministics", action="store_true",
                         help="keep only deterministic terms that survived step 2 (old behaviour)")
@@ -241,9 +242,9 @@ def main(argv=None):
     args = parser.parse_args(argv)
     prune = args.prune_deterministics and not args.screen_deterministics
     if args.output is None:
-        args.output = HERE / (pruned_name(OUTPUT_NAME) if prune else OUTPUT_NAME)
+        args.output = bp.VINTAGE_DIR / (pruned_name(OUTPUT_NAME) if prune else OUTPUT_NAME)
     if args.summary is None:
-        args.summary = HERE / (pruned_name(SUMMARY_NAME) if prune else SUMMARY_NAME)
+        args.summary = bp.VINTAGE_DIR / (pruned_name(SUMMARY_NAME) if prune else SUMMARY_NAME)
     if prune and {Path(args.output).resolve(), Path(args.summary).resolve()} & {
             (HERE / OUTPUT_NAME).resolve(), (HERE / SUMMARY_NAME).resolve()}:
         ct.err("refusing to write pruned results over the original estimation outputs")

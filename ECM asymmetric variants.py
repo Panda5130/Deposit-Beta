@@ -448,19 +448,19 @@ def survivors(selected, y, xs):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Asymmetric variant of every screened ECM.")
-    parser.add_argument("-i", "--input", default=HERE / INPUT_NAME, help="ECM model selection results.csv")
-    parser.add_argument("--dependents", default=HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv")
+    parser.add_argument("-i", "--input", default=bp.VINTAGE_DIR / INPUT_NAME, help="ECM model selection results.csv")
+    parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean")
     parser.add_argument("--x", default="FFT")
     parser.add_argument("--group-column", default="bank_name")
     parser.add_argument("--alpha", type=float, default=ALPHA)
-    parser.add_argument("--out-dir", default=HERE)
+    parser.add_argument("--out-dir", default=bp.VINTAGE_DIR)
     parser.add_argument("--prune-deterministics", dest="prune_deterministics", action="store_true", default=True,
                         help="deterministic-term rule of deterministic_pruning.py (default); writes '(det pruned)' files")
     parser.add_argument("--no-prune-deterministics", dest="prune_deterministics", action="store_false",
                         help="old behaviour: deterministic terms follow the survivor's trend type")
-    parser.add_argument("--pruning-log", default=HERE / est.dp.LOG_NAME)
+    parser.add_argument("--pruning-log", default=bp.VINTAGE_DIR / est.dp.LOG_NAME)
     args = parser.parse_args(argv)
 
     out = Path(args.out_dir)

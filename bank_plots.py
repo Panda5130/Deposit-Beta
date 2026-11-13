@@ -40,13 +40,23 @@ OUT_DIR_NAME = "Actuals vs Predictions"
 # False points back at the original, unpruned outputs (which are kept unchanged).
 DET_PRUNED = True
 _TAG = " (det pruned)" if DET_PRUNED else ""
-CANDIDATE_FILES = {"summary": HERE / f"estimation result summary{_TAG}.csv",
-                   "estimates": HERE / f"ECM estimation results{_TAG}.csv",
-                   "asym_summary": HERE / f"asymmetric estimation result summary{_TAG}.csv",
-                   "asym_estimates": HERE / f"ECM asymmetric estimation results{_TAG}.csv"}
+# DATA_VINTAGE: which merger-adjusted data build the pipeline reads (issue #20).
+#   "v1": FDIC /history mergers only; data and model files in this folder (kept unchanged).
+#   "v2": + supplementary deposit transfers (data_build/raw/supplementary_transfer_events.csv);
+#         data ..._merger_adjusted_v2.csv here; screen, selection, estimation and pruning files in
+#         vintages/v2/ (M&T and Old National re-run; the other 5 banks' rows carried over unchanged).
+DATA_VINTAGE = "v2"
+VINTAGE_DIR = HERE if DATA_VINTAGE == "v1" else HERE / "vintages" / DATA_VINTAGE
+_VSUFFIX = "" if DATA_VINTAGE == "v1" else f"_{DATA_VINTAGE}"
+CANDIDATE_FILES = {"summary": VINTAGE_DIR / f"estimation result summary{_TAG}.csv",
+                   "estimates": VINTAGE_DIR / f"ECM estimation results{_TAG}.csv",
+                   "asym_summary": VINTAGE_DIR / f"asymmetric estimation result summary{_TAG}.csv",
+                   "asym_estimates": VINTAGE_DIR / f"ECM asymmetric estimation results{_TAG}.csv"}
+DEPENDENTS = {s: HERE / f"consolidated_fdic_quarterly_financials_{s}-2026_merger_adjusted{_VSUFFIX}.csv"
+              for s in ("2008", "2011")}
 DEFAULTS = {
     "estimates": CANDIDATE_FILES["estimates"],
-    "dependents": HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv",
+    "dependents": DEPENDENTS["2011"],
     "independents": HERE / "FFT_2011-2026.csv",
     "y": "rate_pf_clean",
     "x": "FFT",
