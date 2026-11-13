@@ -1,5 +1,5 @@
 {
- "when": "2026-11-13T15:00:25",
+ "when": "2026-11-13T15:03:10",
  "all_pass": true,
  "n_checks": 20,
  "n_failed": 0,
@@ -7,7 +7,7 @@
   {
    "check": "pytest",
    "pass": true,
-   "detail": "60 passed in 18.81s"
+   "detail": "60 passed in 27.02s"
   },
   {
    "check": "audit_manifest",

@@ -9,6 +9,7 @@ and these checks (CHECKS) after any change to a bank's champion, data or the bac
 
 import json
 import sys
+import shutil
 import tempfile
 from pathlib import Path
 
@@ -28,11 +29,19 @@ def check_reference_reproduces_limits(horizon=8):
     name = "backtest: frozen reference reproduces today's limits"
     today = pd.read_csv(OUT_DIR / f"backtest_multiorigin_limits_{horizon}Q.csv")
     with tempfile.TemporaryDirectory() as tmp:
-        code = rb.main(["--freeze-reference", "--reference-trigger", "initial", "--reference-dir", tmp,
-                        "--horizon", f"{horizon}Q", "--out-dir", str(OUT_DIR)])
+        # Work on a temp copy of the error cache (overlaid with the active data vintage's entries) so the
+        # check never rewrites the output folder's cache (issue #20: a v2 run must not touch v1 outputs).
+        work, refdir = Path(tmp) / "out", Path(tmp) / "ref"
+        shutil.copytree(OUT_DIR / "cache", work / "cache")
+        vcache = bt.bp.VINTAGE_DIR / OUT_DIR.relative_to(bt.ROOT) / "cache"
+        if vcache.is_dir() and vcache != OUT_DIR / "cache":
+            shutil.copytree(vcache, work / "cache", dirs_exist_ok=True)
+        refdir.mkdir()
+        code = rb.main(["--freeze-reference", "--reference-trigger", "initial", "--reference-dir", str(refdir),
+                        "--horizon", f"{horizon}Q", "--out-dir", str(work)])
         if code != 0:
             return name, False, f"freeze exited {code}"
-        ref, meta = bt.load_reference(Path(tmp) / "reference_v1.csv")
+        ref, meta = bt.load_reference(refdir / "reference_v1.csv")
         derived = bt.limits_from_reference(ref, horizon)
     same = derived.reset_index(drop=True).round(10).equals(today[derived.columns].round(10))
     return name, same, f"{len(derived)} bands, {meta['champions'].__len__()} banks" if same else f"derived:\n{derived}\ntoday:\n{today}"
