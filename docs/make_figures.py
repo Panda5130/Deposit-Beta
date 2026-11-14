@@ -27,6 +27,13 @@ sys.path.insert(0, str(ROOT / "MAE_Backtesting"))
 import backtest as bt  # noqa: E402
 
 
+def _src(base, *parts):
+    """File under the output vintage, else the same relative path in the next vintage of bank_plots.VINTAGE_CHAIN."""
+    p = Path(base).joinpath(*parts)
+    rel = p.relative_to(bt.bp.OUTPUT_ROOT)
+    return bt.bp.vfile(rel.as_posix())
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Regenerate the documentation figures.")
     parser.add_argument("--out-dir", default=HERE / "figures")
@@ -40,12 +47,12 @@ def main(argv=None):
         model = bt.champion_model(summary, bank, select=args.select)
         name = bt.bp.INVALID_CHARS_RE.sub("-", "+".join(model)) + ".png"
         folder = bt.bp.INVALID_CHARS_RE.sub("-", bank)
-        shutil.copy(ROOT / "Actuals vs Predictions" / folder / name, out / f"{bank} - Actual vs Predicted.png")
-        shutil.copy(mae_dir / folder / "MAE_backtest_multiorigin_8Q.png", out / f"{bank} - MAE Backtest 8Q.png")
-        shutil.copy(beta_dir / folder / "beta_backtest_multiorigin.png", out / f"{bank} - Beta Backtest.png")
-        shutil.copy(beta_dir / folder / "realized_beta_8Q.png", out / f"{bank} - Realized Beta 8Q.png")
-    shutil.copy(beta_dir / "beta_backtest_multiorigin_all_banks.png", out / "All Banks - Beta Backtest.png")
-    shutil.copy(beta_dir / "realized_beta_all_banks_8Q.png", out / "All Banks - Realized Beta 8Q.png")
+        shutil.copy(bt.bp.vfile(f"Actuals vs Predictions/{folder}/{name}"), out / f"{bank} - Actual vs Predicted.png")
+        shutil.copy(_src(mae_dir, folder, "MAE_backtest_multiorigin_8Q.png"), out / f"{bank} - MAE Backtest 8Q.png")
+        shutil.copy(_src(beta_dir, folder, "beta_backtest_multiorigin.png"), out / f"{bank} - Beta Backtest.png")
+        shutil.copy(_src(beta_dir, folder, "realized_beta_8Q.png"), out / f"{bank} - Realized Beta 8Q.png")
+    shutil.copy(_src(beta_dir, "beta_backtest_multiorigin_all_banks.png"), out / "All Banks - Beta Backtest.png")
+    shutil.copy(_src(beta_dir, "realized_beta_all_banks_8Q.png"), out / "All Banks - Realized Beta 8Q.png")
     return 0
 
 
