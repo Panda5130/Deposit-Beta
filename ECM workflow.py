@@ -1,6 +1,6 @@
 """Run the ECM workflow end to end: model selection -> parameter selection -> estimation -> asymmetric variants.
 
-Usage (all arguments optional; defaults point at the files in this folder):
+Usage (all arguments optional; defaults follow bank_plots.DATA_VINTAGE: data file and vintage folder):
     python "ECM workflow.py" [--cointegration FILE] [--respecification FILE]
         [--dependents FILE] [--independents FILE] [--y COLUMN] [--x COLUMN ...]
         [--alpha 0.05] [--out-dir DIR]
@@ -27,6 +27,8 @@ from pathlib import Path
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import bank_plots as bp  # noqa: E402  (bp.DATA_VINTAGE picks the data and output folder)
 log = logging.getLogger("ecm_workflow")
 
 
@@ -42,14 +44,14 @@ def run_step(number, script, args, output, total=4):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Cointegration results -> one-step ECM estimates.")
-    parser.add_argument("--cointegration", default=HERE / "Co-integration_results.csv")
-    parser.add_argument("--respecification", default=HERE / "co-integration_respecification_results.csv")
-    parser.add_argument("--dependents", default=HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv")
+    parser.add_argument("--cointegration", default=bp.vfile("Co-integration_results.csv"))
+    parser.add_argument("--respecification", default=bp.vfile("co-integration_respecification_results.csv"))
+    parser.add_argument("--dependents", default=bp.DEFAULTS["dependents"])
     parser.add_argument("--independents", default=HERE / "FFT_2011-2026.csv")
     parser.add_argument("--y", default="rate_pf_clean")
     parser.add_argument("--x", nargs="+", default=["FFT"])
     parser.add_argument("--alpha", type=float, default=0.05)
-    parser.add_argument("--out-dir", default=HERE)
+    parser.add_argument("--out-dir", default=bp.VINTAGE_DIR)
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s", stream=sys.stdout)
 

@@ -1,0 +1,20 @@
+=== Co-integration Tests.py C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\deps2_v2.csv C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\FFT_2011-2026.csv C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\test_params.csv -o C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\Co-integration_results.csv
+=== exit 0
+=== FlaggedRates_co-integration_respecification.py --dependents C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\deps2_v2.csv --independents C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\FFT_2011-2026.csv --banks Manufacturers and Traders Trust Company Old National Bank -o C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\co-integration_respecification_results.csv
+=== exit 0
+=== ECM workflow.py --cointegration C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\Co-integration_results.csv --respecification C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\co-integration_respecification_results.csv --dependents C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\deps2_v2.csv --independents C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\FFT_2011-2026.csv --out-dir C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2
+2026-11-13 14:44:49,711 [1/4] ECM model selection.py
+2026-11-13 14:44:54,192 [1/4] wrote C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\ECM model selection results.csv (200 rows)
+2026-11-13 14:44:54,192 [2/4] ECM Param selection.py
+2026-11-13 14:44:56,480 [2/4] wrote C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\ECM param selection results.csv (137 rows)
+2026-11-13 14:44:56,480 [3/4] ECM estimation.py
+deterministic pruning: 24 model(s), 11 with a term dropped; log -> deterministic_pruning_log.csv
+2026-11-13 14:45:03,272 [3/4] wrote C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\ECM estimation results (det pruned).csv (146 rows)
+2026-11-13 14:45:03,272 [4/4] ECM asymmetric variants.py
+24 screened ECM specification(s); 12 screened test(s) are not ECMs
+deterministic pruning: 24 variant(s), 2 with a term dropped; log -> deterministic_pruning_log.csv
+24 variant(s) written to ECM asymmetric estimation results (det pruned).csv; originals unchanged (SHA-256 checked)
+2026-11-13 14:45:17,241 [4/4] wrote C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\ECM asymmetric estimation results (det pruned).csv (241 rows)
+2026-11-13 14:45:17,242 done: C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\up_v2\ECM estimation results (det pruned).csv
+=== exit 0
+UPSTREAM DONE v2

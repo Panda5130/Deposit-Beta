@@ -1,0 +1,57 @@
+bank_name,test_name,IC/selected lag,trend type,horizon_q,origin,start,end,n_obs,mae,naive_mae
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.09388203726828825,0.06425990662062131
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.04366891914605675,0.20737549197587313
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.030258282325866137,0.33981789576061977
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.0668948693640426,0.22035355716227323
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.0964007340951262,0.16610998751684475
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.08627794731878106,0.4095192103560037
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.17674443942390564,0.6384719993159383
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.10334625095813102,0.4121646780900303
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.10651723627064591,0.005717732211062865
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.043334326534726686,0.19268757541904968
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.06481404486790643,0.24961448655070106
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.029400408379090415,0.17855910957705717
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.33496920860166957,0.13313071317630473
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.11504915194185446,0.3408713864048123
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.06898650956751141,0.42331885572182465
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.10393634402392446,0.359224905468615
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",1Q,2026Q1,2026Q2,2026Q2,1,0.07708637495542936,0.008155630610091391
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",2Q,2025Q4,2026Q1,2026Q2,2,0.046165491934945235,0.10706437502589294
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",3Q,2025Q3,2025Q4,2026Q2,3,0.06065243319962003,0.10223196953149623
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",4Q,2025Q2,2025Q3,2026Q2,4,0.08098124279559565,0.08203868821011423
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",5Q,2025Q1,2025Q2,2026Q2,5,0.03900908888008461,0.09040633454332521
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",6Q,2024Q4,2025Q1,2026Q2,6,0.03812280575934882,0.16921218610481722
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",7Q,2024Q3,2024Q4,2026Q2,7,0.2639026408028529,0.22987716419607535
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",8Q,2024Q2,2024Q3,2026Q2,8,0.2215225812016653,0.16418502499995793
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),1Q,2026Q1,2026Q2,2026Q2,1,0.0768961003982882,0.022961841073428024
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),2Q,2025Q4,2026Q1,2026Q2,2,0.09091425784485119,0.10100174242566695
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),3Q,2025Q3,2025Q4,2026Q2,3,0.05656445276452252,0.13691062122605113
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),4Q,2025Q2,2025Q3,2026Q2,4,0.12474993704483023,0.0678949027817351
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),5Q,2025Q1,2025Q2,2026Q2,5,0.3917536461698443,0.06827633366026165
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),6Q,2024Q4,2025Q1,2026Q2,6,0.12627882640065344,0.304179864743455
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),7Q,2024Q3,2024Q4,2026Q2,7,0.3124105113821144,0.4371937054738001
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),8Q,2024Q2,2024Q3,2026Q2,8,0.12799051376487405,0.3144555138099227
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.0752019071365504,0.017822103793244004
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.026060552044036234,0.22694000667259573
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.18350912927624674,0.31703890322111383
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.059726703727873365,0.21595586958291296
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.12100753958481807,0.19655612617482507
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.17087546849286714,0.3438134563033286
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.35842524608084186,0.507183864874183
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.12333051818762569,0.34689539543064096
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.09411985066689721,0.07401528576812288
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.1319031538172093,0.10276471983005642
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.06875013862523811,0.24277218935021497
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.04847570278167429,0.1711247961038102
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.1873720269696705,0.13538508237256983
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.2875361569528258,0.28275184130444225
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.16895507366347035,0.4635901233992888
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.21393435640367395,0.3770573702701552
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),1Q,2026Q1,2026Q2,2026Q2,1,0.005428016633372668,0.008998567646757216
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),2Q,2025Q4,2026Q1,2026Q2,2,0.08205673531556745,0.13037497016414412
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),3Q,2025Q3,2025Q4,2026Q2,3,0.0674609468540764,0.2624058278595061
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),4Q,2025Q2,2025Q3,2026Q2,4,0.04793269350825219,0.1630723871553898
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),5Q,2025Q1,2025Q2,2026Q2,5,0.3624762826547324,0.12216234005592401
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),6Q,2024Q4,2025Q1,2026Q2,6,0.21264843846520098,0.2959729063105349
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),7Q,2024Q3,2024Q4,2026Q2,7,0.2706052498708787,0.40906516933511167
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),8Q,2024Q2,2024Q3,2026Q2,8,0.14896161856895276,0.2677639206002307

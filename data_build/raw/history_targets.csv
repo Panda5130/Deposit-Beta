@@ -818,3 +818,11 @@ ACQ_CERT,CERT,CHANGECODE,CHANGECODE_DESC,EFFDATE,ID,OUT_CERT,OUT_INSTNAME
 15515,2996.0,223,Merger -Without Assistance,2001-12-31T00:00:00,200200104_223_1896_9814_1896,2996,The Berthoud National Bank
 16902,21614.0,223,Merger -Without Assistance,2002-10-12T00:00:00,200214745_223_14948_10989_14948,21614,American Bank
 15515,3038.0,223,Merger -Without Assistance,2005-10-01T00:00:00,200511605_223_1933_9814_1933,3038,"First Main Street Bank, National Association"
+680,5650.0,223,Merger -Without Assistance,1990-12-18T00:00:00,910000558_223_3845_442_3845,5650,The Peoples Bank of Harrington
+680,11276.0,223,Merger -Without Assistance,1992-01-30T00:00:00,920001911_223_7195_442_7195,11276,The Sussex Trust Company
+680,,211,Failure - Whole Institution,1992-02-21T00:00:00,920001919_211_39457_442_39457,27309,The Bank of The Brandywine Valley
+33848,33752.0,217,Passthrough Receivorship/Conservatorship Resolution,1993-10-08T00:00:00,930010151_217_47961_48156_47961,33752,Palm Beach Federal Savings Association
+32957,16303.0,223,Merger -Without Assistance,2004-04-01T00:00:00,200402804_223_10491_46135_10491,16303,The Prudential Bank and Trust Company
+32957,57222.0,223,Merger -Without Assistance,2004-04-01T00:00:00,200402860_223_359668_46135_359668,57222,"CIGNA Bank & Trust Company, FSB"
+33911,26690.0,223,Merger -Without Assistance,2008-11-01T00:00:00,200813050_223_35719_54767_35719,26690,Wilmington Trust of Pennsylvania
+33911,91284.0,223,Merger -Without Assistance,1995-05-01T00:00:00,950013005_223_18287_54767_18287,91284,"Wilmington Trust of Florida, National Association"

@@ -21,6 +21,7 @@ while reading the input files once.
 """
 
 import argparse
+import os
 import re
 import sys
 from pathlib import Path
@@ -40,18 +41,69 @@ OUT_DIR_NAME = "Actuals vs Predictions"
 # False points back at the original, unpruned outputs (which are kept unchanged).
 DET_PRUNED = True
 _TAG = " (det pruned)" if DET_PRUNED else ""
-CANDIDATE_FILES = {"summary": HERE / f"estimation result summary{_TAG}.csv",
-                   "estimates": HERE / f"ECM estimation results{_TAG}.csv",
-                   "asym_summary": HERE / f"asymmetric estimation result summary{_TAG}.csv",
-                   "asym_estimates": HERE / f"ECM asymmetric estimation results{_TAG}.csv"}
+# DATA_VINTAGE: which merger-adjusted data build the pipeline reads (issue #20).
+#   "v1": FDIC /history mergers only; data and model files in this folder (kept unchanged).
+#   "v2": + supplementary deposit transfers (data_build/raw/supplementary_transfer_events.csv);
+#         data ..._merger_adjusted_v2.csv here; screen, selection, estimation and pruning files in
+#         vintages/v2/ (M&T and Old National re-run; the other 5 banks' rows carried over unchanged).
+DATA_VINTAGE = "v2"
+# OUTPUT_VINTAGE: the ONE output-root setting. Every script that writes results (estimation, screen/pruning
+# logs, backtests, beta, realized beta, model_form, projection, scenarios, scenario figures) writes under
+# vintages/<OUTPUT_VINTAGE>/ at the same relative path it has at the repo root (e.g. MAE_Backtesting/output/...),
+# so the default output/ folders of the original results are never written. Reads fall back per file
+# (VINTAGE_CHAIN): OUTPUT_ROOT, then the data vintage folder, then the repo root (v1).
+OUTPUT_VINTAGE = os.environ.get("DEPOSIT_OUTPUT_VINTAGE", "v2_covid")  # env override: staging runs only
+DATA_ROOT = HERE if DATA_VINTAGE == "v1" else HERE / "vintages" / DATA_VINTAGE
+OUTPUT_ROOT = HERE / "vintages" / OUTPUT_VINTAGE
+VINTAGE_DIR = OUTPUT_ROOT  # where the estimation workflow writes (and first reads)
+_VSUFFIX = "" if DATA_VINTAGE == "v1" else f"_{DATA_VINTAGE}"
+# A vintage folder holds only the files that differ from the one before it, so a read looks in each folder
+# of VINTAGE_CHAIN in turn (newest first, v1 = repo root last). Writes go to OUTPUT_ROOT / relative path.
+VINTAGE_CHAIN = list(dict.fromkeys([OUTPUT_ROOT, DATA_ROOT, HERE]))
+
+
+def vfile(rel):
+    """Path a read of `rel` resolves to: the first VINTAGE_CHAIN folder that has it (else OUTPUT_ROOT/rel)."""
+    return next((d / rel for d in VINTAGE_CHAIN if (d / rel).is_file()), OUTPUT_ROOT / rel)
+
+
+def out_path(rel):
+    """Where a write of the repo-relative path `rel` goes (always under OUTPUT_ROOT)."""
+    return OUTPUT_ROOT / rel
+
+
+# COVID liquidity-injection dummy (short-run only, exogenous): 1 for 2020Q2-2021Q4, else 0. It is a function
+# of the calendar quarter, so it is known in every backtest (no look-ahead) and is 0 in every projection
+# and scenario (all after 2021Q4). Offered as a candidate short-run regressor and pruned at p >= alpha.
+COVID = "covid_liq"
+COVID_START, COVID_END = pd.Period("2020Q2", "Q"), pd.Period("2021Q4", "Q")
+
+
+def covid_series(index):
+    """The step dummy on a quarterly PeriodIndex."""
+    idx = pd.PeriodIndex(index, freq="Q")
+    return pd.Series(((idx >= COVID_START) & (idx <= COVID_END)).astype(float), index=index)
+
+
+def sr_term(var, lag):
+    """Name of a short-run candidate: D.<var>.L<lag>, or the dummy's own name (it has no lag)."""
+    return COVID if var == COVID else f"D.{var}.L{lag}"
+
+
+CANDIDATE_FILES = {"summary": vfile(f"estimation result summary{_TAG}.csv"),
+                   "estimates": vfile(f"ECM estimation results{_TAG}.csv"),
+                   "asym_summary": vfile(f"asymmetric estimation result summary{_TAG}.csv"),
+                   "asym_estimates": vfile(f"ECM asymmetric estimation results{_TAG}.csv")}
+DEPENDENTS = {s: HERE / f"consolidated_fdic_quarterly_financials_{s}-2026_merger_adjusted{_VSUFFIX}.csv"
+              for s in ("2008", "2011")}
 DEFAULTS = {
     "estimates": CANDIDATE_FILES["estimates"],
-    "dependents": HERE / "consolidated_fdic_quarterly_financials_2011-2026_merger_adjusted.csv",
+    "dependents": DEPENDENTS["2011"],
     "independents": HERE / "FFT_2011-2026.csv",
     "y": "rate_pf_clean",
     "x": "FFT",
     "group_column": "bank_name",
-    "out_dir": HERE / OUT_DIR_NAME,
+    "out_dir": OUTPUT_ROOT / OUT_DIR_NAME,
 }
 SPEC_KEYS = ["test_name", "IC/selected lag", "trend type"]
 SHORT_RUN_RE = re.compile(r"^D\.(?P<var>.+)\.L(?P<lag>\d+)$")
@@ -173,6 +225,8 @@ def regressor(data, term, ect_weights=None, trend=None):
     """
     if term == "const":
         return pd.Series(1.0, index=data.index)
+    if term == COVID:
+        return covid_series(data.index)
     if term == "trend":
         return trend if trend is not None else pd.Series(np.arange(1, len(data) + 1, dtype=float), index=data.index)
     if term in ECT_TERMS:

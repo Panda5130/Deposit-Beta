@@ -23,9 +23,10 @@ import project as pj  # noqa: E402
 
 bt, bp = pj.bt, pj.bp
 ROOT = pj.ROOT
-SCEN_DIR = HERE / "scenarios"
-OUT_DIR = HERE / "output" / "scenarios"
-FIG_DIR = ROOT / "docs" / "figures" / "scenarios"
+# every write goes under bank_plots.OUTPUT_ROOT (the repo-root scenarios/ and output/ folders are not written)
+SCEN_DIR = bp.out_path("projection/scenarios")
+OUT_DIR = bp.out_path("projection/output/scenarios")
+FIG_DIR = bp.out_path("docs/figures/scenarios")
 H, SHOCK, RAMP_Q, HORIZONS = 12, 2.0, 4, (4, 8, 12)  # HORIZONS: k = h = quarters after the last actual
 SCENARIOS = {  # name -> (sign, quarters to reach the full shock)
     "base": (0, 1), "up_instant": (1, 1), "up_ramp": (1, RAMP_Q),
@@ -191,6 +192,7 @@ def main(argv=None):
     ap.add_argument("--regenerate", action="store_true", help="rewrite scenario CSVs from the last actual FFT")
     ap.add_argument("--no-charts", action="store_true")
     a = ap.parse_args(argv)
+    SCEN_DIR.mkdir(parents=True, exist_ok=True)
     if a.regenerate or not all((SCEN_DIR / f"scn_{n}.csv").exists() for n in SCENARIOS):
         write_scenarios(*last_fft())
     proj = run(a.banks, a.select)

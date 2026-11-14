@@ -50,7 +50,7 @@ import gregory_hansen as gh  # noqa: E402
 
 bt, bp = ch.bt, ch.bp
 log = logging.getLogger("model_form")
-OUT = HERE / "output"
+OUT = bp.out_path("model_form/output")  # under bank_plots.OUTPUT_ROOT; model_form/output is never written
 CHAMPION_OUT = bt.output_dir(bt.DEFAULT_SELECT)  # the champions' many-start-date outputs
 OI8_BANKS = ["Manufacturers and Traders Trust Company", "SouthState Bank", "Old National Bank"]
 HUNTINGTON = "Huntington National Bank"

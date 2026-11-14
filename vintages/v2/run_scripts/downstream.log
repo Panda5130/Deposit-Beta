@@ -1,0 +1,154 @@
+=== oos_backtest: MAE_Backtesting/run_backtest.py --bank-name All
+2026-11-13 14:46:17,501 INFO backtesting 7 bank(s) over 8Q into C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\MAE_Backtesting\output\out_of_sample (out-of-sample model choice)
+2026-11-13 14:46:18,170 INFO First Horizon Bank: many-origin errors reused from cache
+2026-11-13 14:46:18,741 INFO [1/7] First Horizon Bank: Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none); MAE 1Q=0.1128, 2Q=0.0769, 3Q=0.2176, 4Q=0.1466, 5Q=0.1135, 6Q=0.1870, 7Q=0.4498, 8Q=0.3254
+2026-11-13 14:47:52,770 INFO Manufacturers and Traders Trust Company: many-origin errors reused from cache
+2026-11-13 14:47:52,993 INFO [2/7] Manufacturers and Traders Trust Company: EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant); MAE 1Q=0.0235, 2Q=0.1600, 3Q=0.1805, 4Q=0.1427, 5Q=0.1105, 6Q=0.3196, 7Q=0.4010, 8Q=0.4432
+2026-11-13 14:47:53,232 INFO Glacier Bank: many-origin errors reused from cache
+2026-11-13 14:47:53,483 INFO [3/7] Glacier Bank: Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend); MAE 1Q=0.0872, 2Q=0.0292, 3Q=0.0199, 4Q=0.0505, 5Q=0.1944, 6Q=0.2042, 7Q=0.0688, 8Q=0.1348
+2026-11-13 14:47:53,848 INFO SouthState Bank: many-origin errors reused from cache
+2026-11-13 14:47:54,112 INFO [4/7] SouthState Bank: ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend); MAE 1Q=0.1151, 2Q=0.1024, 3Q=0.0702, 4Q=0.1224, 5Q=0.3777, 6Q=0.1790, 7Q=0.1955, 8Q=0.1044
+2026-11-13 14:47:55,119 INFO KeyBank National Association: many-origin errors reused from cache
+2026-11-13 14:47:55,517 INFO [5/7] KeyBank National Association: ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms); MAE 1Q=0.0673, 2Q=0.0789, 3Q=0.1374, 4Q=0.0568, 5Q=0.0724, 6Q=0.0438, 7Q=0.1652, 8Q=0.0476
+2026-11-13 14:47:56,080 INFO Huntington National Bank: many-origin errors reused from cache
+2026-11-13 14:47:56,356 INFO [6/7] Huntington National Bank: EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none); MAE 1Q=0.0942, 2Q=0.1319, 3Q=0.0688, 4Q=0.0486, 5Q=0.1872, 6Q=0.2874, 7Q=0.1695, 8Q=0.2145
+2026-11-13 14:49:05,125 INFO Old National Bank: many-origin errors reused from cache
+2026-11-13 14:49:05,776 INFO [7/7] Old National Bank: Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none); MAE 1Q=0.1065, 2Q=0.0522, 3Q=0.1908, 4Q=0.0943, 5Q=0.3643, 6Q=0.1730, 7Q=0.2891, 8Q=0.1142
+2026-11-13 14:49:06,054 INFO limits: FIXED from reference_v1.csv (version 1, trigger initial, approved_by 'Panda5130')
+2026-11-13 14:49:06,121 INFO many-origin limits from 7 bank(s): 1-2Q 0.15/0.20; 3-4Q 0.25/0.30; 5-8Q 0.40/0.45
+2026-11-13 14:49:06,126 INFO   First Horizon Bank: Green
+2026-11-13 14:49:06,812 INFO   Glacier Bank: Red (5-8Q max 0.493 > red 0.45; skill ratio 1.23 at 7Q)
+2026-11-13 14:49:07,315 INFO   Huntington National Bank: Green
+2026-11-13 14:49:07,873 INFO   KeyBank National Association: Green
+2026-11-13 14:49:08,349 INFO   Manufacturers and Traders Trust Company: Green
+2026-11-13 14:49:08,926 INFO   Old National Bank: Green
+2026-11-13 14:49:09,752 INFO   SouthState Bank: Green
+2026-11-13 14:49:10,403 INFO done: 7 chart(s) in C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\MAE_Backtesting\output\out_of_sample, 0 bank(s) skipped
+=== oos_backtest: exit 0 in 178s
+=== beta_backtest: Beta_Backtesting/run_beta_backtest.py --bank-name All --realized
+2026-11-13 14:49:17,690 INFO beta backtests of 7 bank(s) from 2016Q1 into C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\Beta_Backtesting\output\out_of_sample (out-of-sample model choice, realized beta)
+2026-11-13 14:49:18,182 INFO First Horizon Bank: many-origin betas reused from cache
+2026-11-13 14:49:25,395 INFO [1/7] First Horizon Bank: Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none); theta Green (full 0.477)
+2026-11-13 14:49:26,381 INFO Manufacturers and Traders Trust Company: many-origin betas computed (41 origins)
+2026-11-13 14:49:30,997 INFO [2/7] Manufacturers and Traders Trust Company: EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant); theta Red (full 0.402)
+2026-11-13 14:49:31,088 INFO Glacier Bank: many-origin betas reused from cache
+2026-11-13 14:49:36,178 INFO [3/7] Glacier Bank: Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend); theta Red (full 0.230)
+2026-11-13 14:49:36,342 INFO SouthState Bank: many-origin betas reused from cache
+2026-11-13 14:49:47,085 INFO [4/7] SouthState Bank: ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend); theta Red (full 0.524)
+2026-11-13 14:49:47,555 INFO KeyBank National Association: many-origin betas reused from cache
+2026-11-13 14:50:05,731 INFO [5/7] KeyBank National Association: ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms); theta Red (full 0.402)
+2026-11-13 14:50:05,796 INFO Huntington National Bank: many-origin betas reused from cache
+2026-11-13 14:50:17,373 INFO [6/7] Huntington National Bank: EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none); theta Green (full 0.463)
+2026-11-13 14:50:17,806 INFO Old National Bank: many-origin betas computed (41 origins)
+2026-11-13 14:50:25,807 INFO [7/7] Old National Bank: Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none); theta Amber (full 0.419)
+2026-11-13 14:50:27,588 INFO   theta stability First Horizon Bank: Green
+2026-11-13 14:50:27,588 INFO   theta stability Manufacturers and Traders Trust Company: Red (3 origin(s) > 2 SE and > 20%)
+2026-11-13 14:50:27,588 INFO   theta stability Glacier Bank: Red (12 origin(s) > 2 SE and > 20%; 4 beyond 3 SE)
+2026-11-13 14:50:27,588 INFO   theta stability SouthState Bank: Red (3 origin(s) > 2 SE and > 20%)
+2026-11-13 14:50:27,588 INFO   theta stability KeyBank National Association: Red (5 origin(s) > 2 SE and > 20%; 5 beyond 3 SE)
+2026-11-13 14:50:27,588 INFO   theta stability Huntington National Bank: Green
+2026-11-13 14:50:27,588 INFO   theta stability Old National Bank: Amber (1 origin(s) > 2 SE and > 20%)
+2026-11-13 14:50:30,786 INFO done: 7 bank(s) in C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\Beta_Backtesting\output\out_of_sample, 0 skipped
+=== beta_backtest: exit 0 in 80s
+=== is_backtest: MAE_Backtesting/run_backtest.py --horizon 8Q --bank-name All --select in-sample --first-origin 2016Q1
+2026-11-13 14:50:35,973 INFO backtesting 7 bank(s) over 8Q into C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\MAE_Backtesting\output (in-sample model choice)
+2026-11-13 14:50:36,307 INFO First Horizon Bank: many-origin errors reused from cache
+2026-11-13 14:50:36,575 INFO [1/7] First Horizon Bank: ARDL bounds F (ARDL(3,4), case 4) | AIC / ARDL(3,4) | ct - case 4 (unrestricted constant, restricted trend); MAE 1Q=0.0939, 2Q=0.0437, 3Q=0.0303, 4Q=0.0669, 5Q=0.0964, 6Q=0.0863, 7Q=0.1767, 8Q=0.1033
+2026-11-13 14:50:42,190 INFO Manufacturers and Traders Trust Company: many-origin errors computed (41 origins)
+2026-11-13 14:50:42,555 INFO [2/7] Manufacturers and Traders Trust Company: ARDL bounds F (ARDL(2,1), case 4) | AIC / ARDL(2,1) | ct - case 4 (unrestricted constant, restricted trend); MAE 1Q=0.1065, 2Q=0.0433, 3Q=0.0648, 4Q=0.0294, 5Q=0.3347, 6Q=0.1149, 7Q=0.0690, 8Q=0.1037
+2026-11-13 14:50:47,189 INFO Glacier Bank: many-origin errors computed (41 origins)
+2026-11-13 14:50:47,529 INFO [3/7] Glacier Bank: ARDL bounds F (ARDL(3,1), case 4) | BIC / ARDL(3,1) | ct - case 4 (unrestricted constant, restricted trend); MAE 1Q=0.0771, 2Q=0.0462, 3Q=0.0607, 4Q=0.0810, 5Q=0.0390, 6Q=0.0381, 7Q=0.2639, 8Q=0.2215
+2026-11-13 14:50:47,965 INFO SouthState Bank: many-origin errors reused from cache
+2026-11-13 14:50:48,366 INFO [4/7] SouthState Bank: ARDL bounds F (ARDL(4,3), case 1) | AIC / ARDL(4,3) | n - case 1 (no deterministic terms); MAE 1Q=0.0769, 2Q=0.0911, 3Q=0.0566, 4Q=0.1240, 5Q=0.3921, 6Q=0.1261, 7Q=0.3140, 8Q=0.1290
+2026-11-13 14:50:48,818 INFO KeyBank National Association: many-origin errors reused from cache
+2026-11-13 14:50:49,403 INFO [5/7] KeyBank National Association: EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none); MAE 1Q=0.0752, 2Q=0.0261, 3Q=0.1835, 4Q=0.0597, 5Q=0.1210, 6Q=0.1709, 7Q=0.3584, 8Q=0.1233
+2026-11-13 14:50:49,978 INFO Huntington National Bank: many-origin errors reused from cache
+2026-11-13 14:50:50,322 INFO [6/7] Huntington National Bank: EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none); MAE 1Q=0.0942, 2Q=0.1319, 3Q=0.0688, 4Q=0.0486, 5Q=0.1872, 6Q=0.2874, 7Q=0.1695, 8Q=0.2145
+2026-11-13 14:50:59,745 INFO Old National Bank: many-origin errors computed (41 origins)
+2026-11-13 14:51:00,215 INFO [7/7] Old National Bank: EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none); MAE 1Q=0.0054, 2Q=0.0821, 3Q=0.0675, 4Q=0.0479, 5Q=0.3625, 6Q=0.2126, 7Q=0.2706, 8Q=0.1490
+2026-11-13 14:51:00,468 INFO limits: FIXED from reference_v1.csv (version 1, trigger initial, approved_by 'Panda5130')
+2026-11-13 14:51:00,468 WARNING First Horizon Bank: champion ARDL bounds F (ARDL(3,4), case 4) | AIC / ARDL(3,4) | ct - case 4 (unrestricted constant, restricted trend) differs from the reference's Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,468 WARNING Manufacturers and Traders Trust Company: champion ARDL bounds F (ARDL(2,1), case 4) | AIC / ARDL(2,1) | ct - case 4 (unrestricted constant, restricted trend) differs from the reference's EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,469 WARNING Glacier Bank: champion ARDL bounds F (ARDL(3,1), case 4) | BIC / ARDL(3,1) | ct - case 4 (unrestricted constant, restricted trend) differs from the reference's Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,469 WARNING SouthState Bank: champion ARDL bounds F (ARDL(4,3), case 1) | AIC / ARDL(4,3) | n - case 1 (no deterministic terms) differs from the reference's ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,469 WARNING KeyBank National Association: champion EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none) differs from the reference's ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,469 WARNING Old National Bank: champion EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none) differs from the reference's Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none) - recalibration trigger 'new-champion'
+2026-11-13 14:51:00,522 INFO many-origin limits from 7 bank(s): 1-2Q 0.15/0.20; 3-4Q 0.25/0.30; 5-8Q 0.40/0.45
+2026-11-13 14:51:00,525 INFO   First Horizon Bank: Green
+2026-11-13 14:51:02,019 INFO   Glacier Bank: Red (skill ratio 1.07 at 7Q)
+2026-11-13 14:51:02,645 INFO   Huntington National Bank: Green
+2026-11-13 14:51:03,233 INFO   KeyBank National Association: Red (5-8Q max 0.533 > red 0.45)
+2026-11-13 14:51:03,680 INFO   Manufacturers and Traders Trust Company: Green
+2026-11-13 14:51:04,146 INFO   Old National Bank: Green
+2026-11-13 14:51:04,589 INFO   SouthState Bank: Green
+2026-11-13 14:51:04,929 INFO done: 7 chart(s) in C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\MAE_Backtesting\output, 0 bank(s) skipped
+=== is_backtest: exit 0 in 34s
+=== is_beta: Beta_Backtesting/run_beta_backtest.py --select in-sample
+2026-11-13 14:51:11,434 INFO beta backtests of 7 bank(s) from 2016Q1 into C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\Beta_Backtesting\output (in-sample model choice)
+2026-11-13 14:51:11,511 INFO First Horizon Bank: many-origin betas reused from cache
+2026-11-13 14:51:12,185 INFO [1/7] First Horizon Bank: ARDL bounds F (ARDL(3,4), case 4) | AIC / ARDL(3,4) | ct - case 4 (unrestricted constant, restricted trend); theta Green (full 0.517)
+2026-11-13 14:51:12,908 INFO Manufacturers and Traders Trust Company: many-origin betas computed (41 origins)
+2026-11-13 14:51:13,445 INFO [2/7] Manufacturers and Traders Trust Company: ARDL bounds F (ARDL(2,1), case 4) | AIC / ARDL(2,1) | ct - case 4 (unrestricted constant, restricted trend); theta Red (full 0.431)
+2026-11-13 14:51:13,830 INFO Glacier Bank: many-origin betas computed (41 origins)
+2026-11-13 14:51:14,282 INFO [3/7] Glacier Bank: ARDL bounds F (ARDL(3,1), case 4) | BIC / ARDL(3,1) | ct - case 4 (unrestricted constant, restricted trend); theta Red (full 0.310)
+2026-11-13 14:51:14,312 INFO SouthState Bank: many-origin betas reused from cache
+2026-11-13 14:51:14,776 INFO [4/7] SouthState Bank: ARDL bounds F (ARDL(4,3), case 1) | AIC / ARDL(4,3) | n - case 1 (no deterministic terms); theta Green (full 0.443)
+2026-11-13 14:51:14,809 INFO KeyBank National Association: many-origin betas reused from cache
+2026-11-13 14:51:15,292 INFO [5/7] KeyBank National Association: EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none); theta Green (full 0.398)
+2026-11-13 14:51:15,326 INFO Huntington National Bank: many-origin betas reused from cache
+2026-11-13 14:51:15,828 INFO [6/7] Huntington National Bank: EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none); theta Green (full 0.463)
+2026-11-13 14:51:16,257 INFO Old National Bank: many-origin betas computed (41 origins)
+2026-11-13 14:51:16,738 INFO [7/7] Old National Bank: EG_LongRun | BIC / ADF lag=1, ECM lag=3 | n (none); theta Green (full 0.394)
+2026-11-13 14:51:18,700 INFO   theta stability First Horizon Bank: Green
+2026-11-13 14:51:18,700 INFO   theta stability Manufacturers and Traders Trust Company: Red (3 origin(s) > 2 SE and > 20%; 2 beyond 3 SE)
+2026-11-13 14:51:18,700 INFO   theta stability Glacier Bank: Red (12 origin(s) > 2 SE and > 20%)
+2026-11-13 14:51:18,700 INFO   theta stability SouthState Bank: Green
+2026-11-13 14:51:18,700 INFO   theta stability KeyBank National Association: Green
+2026-11-13 14:51:18,700 INFO   theta stability Huntington National Bank: Green
+2026-11-13 14:51:18,700 INFO   theta stability Old National Bank: Green
+2026-11-13 14:51:18,700 INFO done: 7 bank(s) in C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\Beta_Backtesting\output, 0 skipped
+=== is_beta: exit 0 in 14s
+=== compare_sel: MAE_Backtesting/compare_selection.py
+wrote C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\MAE_Backtesting\output\out_of_sample\selection_comparison_8Q.csv
+=== compare_sel: exit 0 in 6s
+=== scenarios: projection/run_scenarios.py
+scenario                                asym_instant             asym_ramp             down_instant             down_ramp             up_instant             up_ramp            
+k                                                 4     8     12        4     8     12           4     8     12        4     8     12         4     8     12      4     8     12
+bank                                                                                                                                                                            
+First Horizon Bank                              0.00  0.00  0.00     -0.00 -0.00 -0.00         0.39  0.44  0.47      0.27  0.43  0.46       0.39  0.44  0.47    0.27  0.43  0.46
+Glacier Bank                                    0.00  0.00  0.00      0.00  0.00  0.00         0.13  0.24  0.24      0.06  0.21  0.25       0.13  0.24  0.24    0.06  0.21  0.25
+Huntington National Bank                       -0.00 -0.00 -0.00     -0.00 -0.00  0.00         0.40  0.45  0.46      0.28  0.44  0.46       0.40  0.45  0.46    0.28  0.44  0.46
+KeyBank National Association                   -0.03  0.02  0.01     -0.15  0.01  0.01         0.38  0.39  0.40      0.34  0.39  0.39       0.35  0.41  0.41    0.19  0.40  0.41
+Manufacturers and Traders Trust Company        -0.00  0.00  0.00      0.00  0.00  0.00         0.28  0.35  0.38      0.23  0.33  0.37       0.28  0.35  0.38    0.23  0.33  0.37
+Old National Bank                               0.00 -0.00  0.00      0.00  0.00 -0.00         0.29  0.38  0.40      0.17  0.35  0.40       0.29  0.38  0.40    0.17  0.35  0.40
+SouthState Bank                                -0.00  0.00  0.00      0.00  0.00 -0.00         0.35  0.48  0.51      0.29  0.44  0.50       0.35  0.48  0.51    0.29  0.44  0.50
+=== scenarios: exit 0 in 16s
+=== model_form: model_form/run_model_form.py
+2026-11-13 14:51:46,800 INFO simulating Gregory-Hansen critical values, T=62, 2000 reps per model
+2026-11-13 14:55:38,536 INFO Champion: 2100 forecasts
+2026-11-13 14:55:49,487 INFO Two-step ECM (symmetric control): 2100 forecasts
+2026-11-13 14:56:03,559 INFO Asymmetric ECM (lambda by sign of ect): 2100 forecasts
+2026-11-13 14:56:15,490 INFO Asymmetric ECM (lambda by easing vs. other FFT): 2100 forecasts
+2026-11-13 14:56:16,647 INFO Static OLS beta (levels): 2100 forecasts
+2026-11-13 14:56:17,855 INFO Static OLS beta (applied to FFT change): 2100 forecasts
+2026-11-13 14:56:19,142 INFO Cycle-specific betas: 2100 forecasts
+2026-11-13 14:56:27,021 INFO Champion ECM + 2022 level dummy: 2100 forecasts
+2026-11-13 14:56:35,219 INFO Champion ECM + level dummy from 2022Q1 (sensitivity): 2100 forecasts
+2026-11-13 14:56:35,519 INFO champion re-run matches backtest_multiorigin_8Q.csv for all banks (identical origins)
+2026-11-13 14:56:40,053 INFO Huntington evidence:
+                             item                                                                                                                                                                                  result                                            source
+           Baseline cointegration                                                                                                                                              fails all four at 5% (EG long run p 0.085)                                            §6.3.4
+            Re-specification grid                                                                                                                                      only EG long run, no deterministic terms (p 0.019)                                            §6.3.4
+          EG `n` by sample window                                                                                                                                      10 of 15 windows pass at 5%; p from 0.005 to 0.694                      huntington_eg_subsamples.csv
+   Gregory-Hansen C (level shift)                                                                                                                                   ADF* -3.79, break 2023Q4, reject 5% (T=62 sim): False                        gregory_hansen_summary.csv
+Gregory-Hansen C/S (regime shift)                                                                                                                                   ADF* -3.96, break 2021Q3, reject 5% (T=62 sim): False                        gregory_hansen_summary.csv
+    Asymmetry by sign of ect (a1)                                                                                                                                            lambda+ -0.048, lambda- -0.112, Wald p 0.110                               asymmetry_tests.csv
+  Asymmetry easing vs. other (a2)                                                                                                                                                easing 0.086, other -0.056, Wald p 0.080                               asymmetry_tests.csv
+           2022Q3 level dummy (c)                                                                                                                      delta 0.053 (p 0.029), long-run shift 0.749, theta 0.312 vs. 0.463                                     dummy_ecm.csv
+              Rolling-origin beta                                                                                                                               0.553 (2024Q2) to 0.442 (2026Q1), falling at 3 of 7 steps Beta_Backtesting/output/Huntington National Bank/
+  Champion many-start-date rating                                                                                                                                                                                Green ()                    assessment_fixed_limits_8Q.csv
+           Best challenger rating a0: Green (mean 0.221); a1: Green (mean 0.214); a2: Green (mean 0.206); b1: Red (mean 0.448); b2: Red (mean 0.348); b3: Red (mean 0.311); c: Green (mean 0.245); c': Green (mean 0.227)                    assessment_fixed_limits_8Q.csv
+         Champion + D.FFT.L0 (h1)                                                                                                                               coef 0.174 (p 0.000); mean h-step MAE 0.221, rating Green                  huntington_h1_multiorigin_8Q.csv
+2026-11-13 14:56:40,053 INFO done: outputs in C:\Users\shiva\AppData\Local\Temp\claude\1b04667a3b3ae004\8545df7a-fc44-4bde-bb0c-a33f3ab27a44\scratchpad\v2run\model_form\output
+=== model_form: exit 0 in 299s
+=== DOWNSTREAM DONE

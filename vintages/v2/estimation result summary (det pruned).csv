@@ -1,0 +1,79 @@
+bank_name,test_name,IC/selected lag,trend type,MAE
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),0.0742040679269726
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),0.0517586561983822
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),0.0511091370875392
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),0.0511091370875392
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),0.0517586561983822
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),0.0511091370875392
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),0.0476089655470927
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),0.0476089655470927
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),0.0719797618250434
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),0.0719797618250434
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),0.0742040679269726
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),0.0695648800134068
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),0.0599123146312205
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),0.0695648800134068
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),0.0511091370875392
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),0.0511091370875392
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),0.0511091370875392
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",0.0469220910897752
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",0.0525929859825178
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",0.0469220910897752
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),0.0469220910897752
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),0.0525929859825178
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),0.0469220910897752
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),0.049892505144197
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0385906473965942
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),0.049892505144197
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),0.0385906473965942
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),0.0385906473965942
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),0.0385906473965942
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),0.0385906473965942
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),0.0419303327308115
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),0.0419303327308115
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),0.0419303327308115
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),0.0419303327308115
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),0.0419303327308115
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0385906473965942
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0385906473965942
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0385906473965942
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0385906473965942
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0382574760580309
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0382574760580309
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0382574760580309
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0382574760580309
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0382574760580309
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0382574760580309
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),0.0327059479975637
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),0.0327059479975637
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0295669796287828
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),0.0295669796287828
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),0.0437473958953471
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),0.0437473958953471
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0336722895501736
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0336722895501736
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0336722895501736
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",0.0347751493565873
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),0.0347751493565873
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),0.032393485739497
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),0.032393485739497
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),0.0316735179113955
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),0.0316735179113955
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),0.032393485739497
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),0.032393485739497
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),0.0316735179113955
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),0.0316735179113955
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),0.0452900275624489
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),0.0316735179113955
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),0.0343276146692044
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),0.0316735179113955
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),0.0343276146692044
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0354308722727148
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",0.0354308722727148
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),0.0354308722727148
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),0.0354308722727148
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),0.0234020597199631
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),0.0234020597199631
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),0.0234020597199631
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),0.028461745986363
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),0.0414294956012363

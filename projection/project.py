@@ -132,6 +132,8 @@ class Projection:
     def project(self, scenario, freeze_trend=True):
         """Projected y for every scenario quarter after T (OUTPUT_COLUMNS)."""
         future = self.future_path(scenario)
+        if (bp.covid_series(future.index) != 0).any():  # covid_liq is 0 in every projection and scenario
+            raise ValueError(f"projection quarters fall inside the covid_liq window ({bp.COVID_START}-{bp.COVID_END})")
         path = pd.concat([self.history, pd.DataFrame({self.y: np.nan, self.x: future})])
         trend = bp.regressor(path, "trend")
         if freeze_trend:
@@ -197,7 +199,7 @@ def main(argv=None):
                  trend_note)
     if not frames:
         return 1
-    output = Path(args.output) if args.output else HERE / "output" / f"{Path(args.scenario).stem}_projection.csv"
+    output = Path(args.output) if args.output else bp.out_path(f"projection/output/{Path(args.scenario).stem}_projection.csv")
     output.parent.mkdir(parents=True, exist_ok=True)
     pd.concat(frames, ignore_index=True).to_csv(output, index=False)
     log.info("wrote %s (%d banks, %d rows)", output, len(frames), sum(map(len, frames)))

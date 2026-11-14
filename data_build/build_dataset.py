@@ -17,12 +17,19 @@ Merger adjustment (pro forma):
         quarterly interest expense is added pro rata to the days before the effective date.
         Predecessors are themselves made pro forma for their own Mode A events (recursively).
     Mode B (< 1%): flagged in the merger quarter only, no adjustment.
+    Supplementary deposit transfers (issue #20): FDIC /history only logs charter mergers, so transfers
+    where the seller's charter survives or closes voluntarily are read from
+    data_build/raw/supplementary_transfer_events.csv (NIC Transformations + FDIC financials evidence).
+    Each event carries transfer_share: the predecessor's deposits and interest expense are scaled by it
+    (/history events use 1.0), and materiality uses the transferred deposits.
 
 FDIC pulls are cached in data_build/raw/; --refresh re-downloads them.
 Outputs (repo root):
     consolidated_fdic_quarterly_financials_{2008,2011}-2026.csv                  standalone (no merger adjustment)
     consolidated_fdic_quarterly_financials_{2008,2011}-2026_merger_adjusted.csv  pro forma; model uses rate_pf_clean
     merger_events_used.csv, merger_adjustment_log.md
+    Every output carries the vintage suffix (--vintage, default v2 -> ..._merger_adjusted_v2.csv);
+    existing files are never overwritten (the original, unsuffixed v1 files are kept as they are).
 """
 
 import argparse
@@ -54,6 +61,10 @@ START, END = "20070101", "20261231"      # 2007Q4 is needed for the 2008Q1 avera
 MATERIALITY = 0.01
 FIN_FIELDS = "CERT,REPDTE,DEP,EDEPDOMQ,EDEPFORQ"
 HIST_FIELDS = "CERT,ACQ_CERT,OUT_CERT,OUT_INSTNAME,CHANGECODE,CHANGECODE_DESC,EFFDATE"
+SUPPLEMENTARY = RAW / "supplementary_transfer_events.csv"
+SUPP_COLUMNS = ["predecessor_cert", "survivor_cert", "effective_date", "transfer_share", "source", "note"]
+HISTORY_SOURCE = "FDIC /history"
+VINTAGE = "v2"
 
 
 def get_csv(endpoint, filters, fields):
@@ -76,8 +87,9 @@ def cached(name, fetch, refresh):
 class Fdic:
     """FDIC financials and history, fetched per cert and cached in data_build/raw/."""
 
-    def __init__(self, refresh):
+    def __init__(self, refresh, supplementary=SUPPLEMENTARY):
         self.refresh = refresh
+        self.supp = load_supplementary(supplementary)
         self.fin = cached("financials_targets.csv", lambda: get_csv(
             "financials", f"CERT:({' OR '.join(map(str, TARGETS))}) AND REPDTE:[{START} TO {END}]", FIN_FIELDS),
             refresh)
@@ -114,9 +126,36 @@ class Fdic:
         return f.set_index("q").sort_index()[["DEP", "ie"]].astype(float)
 
     def events(self, cert):
+        """/history mergers into `cert` plus its supplementary deposit transfers, by effective date."""
         h = self.hist[self.hist.ACQ_CERT == cert].copy()
+        h["transfer_share"], h["source"] = 1.0, HISTORY_SOURCE
+        s = self.supp[self.supp.survivor_cert == cert]
+        if len(s):
+            names = s["predecessor_name"] if "predecessor_name" in s else s.predecessor_cert.astype(str)
+            s = pd.DataFrame({"ACQ_CERT": cert, "OUT_CERT": s.predecessor_cert, "OUT_INSTNAME": names,
+                              "CHANGECODE": "NIC",
+                              "CHANGECODE_DESC": "Deposit transfer (supplementary, not in /history)",
+                              "EFFDATE": s.effective_date, "transfer_share": s.transfer_share,
+                              "source": s.source})
+            h = pd.concat([h, s], ignore_index=True)
         h["EFFDATE"] = pd.to_datetime(h.EFFDATE.astype(str).str[:10])
-        return h[h.EFFDATE >= pd.Timestamp(START)].sort_values("EFFDATE")
+        return h[h.EFFDATE >= pd.Timestamp(START)].sort_values("EFFDATE", kind="stable")
+
+
+def load_supplementary(path):
+    """Supplementary transfer events (empty when path is None); shares must be in (0, 1]."""
+    if path is None:
+        return pd.DataFrame(columns=SUPP_COLUMNS)
+    s = pd.read_csv(path)
+    missing = set(SUPP_COLUMNS) - set(s.columns)
+    if missing:
+        raise ValueError(f"{path}: missing columns {sorted(missing)}")
+    s["transfer_share"] = s.transfer_share.astype(float)
+    if not s.transfer_share.between(0, 1, inclusive="right").all():
+        raise ValueError(f"{path}: transfer_share must be in (0, 1]")
+    if s.duplicated(["predecessor_cert", "survivor_cert", "effective_date"]).any():
+        raise ValueError(f"{path}: duplicate events")
+    return s
 
 
 def pro_forma(fdic, cert, event_rows, depth=0):
@@ -129,28 +168,30 @@ def pro_forma(fdic, cert, event_rows, depth=0):
     for e in ev.itertuples():
         pred_cert = int(e.OUT_CERT)
         mq = pd.Period(e.EFFDATE, "Q")
+        share = float(e.transfer_share)
         pred = fdic.series(pred_cert)
         pred = pred[pred.index < mq]
         row = {"predecessor_cert": pred_cert, "predecessor_name": e.OUT_INSTNAME, "survivor_cert": cert,
                "effective_date": e.EFFDATE.date(), "merger_quarter": str(mq), "change_code": e.CHANGECODE,
-               "change_desc": e.CHANGECODE_DESC, "depth": depth}
+               "change_desc": e.CHANGECODE_DESC, "transfer_share": share, "source": e.source, "depth": depth}
         if pred.empty:
             event_rows.append({**row, "mode_applied": "B", "reason_if_skipped": "no predecessor financials"})
             continue
         last_q = pred.index.max()
-        pred_dep = pred.loc[last_q, "DEP"]
+        pred_dep = share * pred.loc[last_q, "DEP"]          # transferred deposits
         surv_dep = own["DEP"].get(last_q, np.nan)
-        share = pred_dep / surv_dep if surv_dep else np.nan
-        mode = "A" if share >= MATERIALITY else "B"
+        pct = pred_dep / surv_dep if surv_dep else np.nan
+        mode = "A" if pct >= MATERIALITY else "B"
         event_rows.append({**row, "predecessor_last_quarter": str(last_q),
                            "deposits_at_last_pre_merger_quarter": pred_dep,
-                           "survivor_deposits_same_quarter": surv_dep, "pct_of_survivor_deposits": 100 * share,
+                           "survivor_deposits_same_quarter": surv_dep, "pct_of_survivor_deposits": 100 * pct,
                            "mode_applied": mode,
                            "reason_if_skipped": "" if mode == "A" else "below 1% materiality"})
         if mode == "B":
             continue
         pred_pf = pro_forma(fdic, pred_cert, event_rows, depth + 1)
-        pred_pf = pred_pf[pred_pf.index < mq]
+        pred_pf = pred_pf[pred_pf.index < mq].copy()
+        pred_pf[["DEP", "ie"]] *= share
         idx = pf.index.intersection(pred_pf.index)
         pf.loc[idx, ["DEP", "ie"]] += pred_pf.loc[idx, ["DEP", "ie"]]
         pf.loc[idx, "n_pred"] += 1 + pred_pf.loc[idx, "n_pred"]
@@ -169,8 +210,8 @@ def rate_frame(series):
     return out
 
 
-def build(refresh):
-    fdic = Fdic(refresh)
+def build(refresh, supplementary=SUPPLEMENTARY):
+    fdic = Fdic(refresh, supplementary)
     rows, events = [], []
     for cert, name in TARGETS.items():
         sa = rate_frame(fdic.series(cert))
@@ -215,23 +256,30 @@ def validate(data):
     return checks
 
 
-def write(data, events, checks):
+def write(data, events, checks, vintage=VINTAGE):
+    tag = f"_{vintage}"
+    targets = [ROOT / f"consolidated_fdic_quarterly_financials_{s}-2026{t}{tag}.csv"
+               for s in ("2008", "2011") for t in ("", "_merger_adjusted")]
+    targets += [ROOT / f"merger_events_used{tag}.csv", ROOT / f"merger_adjustment_log{tag}.md"]
+    clash = [p.name for p in targets if p.exists()]
+    if clash:
+        raise FileExistsError(f"vintage {vintage!r} already written ({clash[0]}...); never overwritten")
     standalone = ["bank_name", "cert_number", "quarter", "deposit_interest_expense", "total_deposits",
                   "average_deposits", "deposit_rate"]
     for start in ("2008", "2011"):
         sub = data[data.quarter >= f"{start}-01-01"]
-        sub[standalone].to_csv(ROOT / f"consolidated_fdic_quarterly_financials_{start}-2026.csv", index=False)
-        sub.to_csv(ROOT / f"consolidated_fdic_quarterly_financials_{start}-2026_merger_adjusted.csv", index=False)
+        sub[standalone].to_csv(ROOT / f"consolidated_fdic_quarterly_financials_{start}-2026{tag}.csv", index=False)
+        sub.to_csv(ROOT / f"consolidated_fdic_quarterly_financials_{start}-2026_merger_adjusted{tag}.csv", index=False)
     cols = ["predecessor_cert", "predecessor_name", "survivor_cert", "survivor_name", "effective_date",
             "merger_quarter", "change_code", "change_desc", "predecessor_last_quarter",
             "deposits_at_last_pre_merger_quarter", "survivor_deposits_same_quarter", "pct_of_survivor_deposits",
-            "mode_applied", "reason_if_skipped", "depth"]
-    events.reindex(columns=cols).to_csv(ROOT / "merger_events_used.csv", index=False)
+            "transfer_share", "mode_applied", "reason_if_skipped", "depth", "source"]
+    events.reindex(columns=cols).to_csv(ROOT / f"merger_events_used{tag}.csv", index=False)
 
     top = events[events.depth == 0]
     in_main = top[top.merger_quarter >= "2011Q1"]
     lines = [
-        "# Merger Adjustment Log", "",
+        f"# Merger Adjustment Log (data vintage {vintage})", "",
         "Generated by `data_build/build_dataset.py`.", "",
         "## Method",
         "- Deposit rate = 400 x quarterly deposit interest expense (FDIC `EDEPDOMQ` + `EDEPFORQ`) / "
@@ -240,7 +288,14 @@ def write(data, events, checks):
         "deposit interest expense and deposits added to every pre-merger quarter; merger quarter gets the "
         "predecessor's last quarterly interest expense pro rata to the days before the effective date. "
         "Applied recursively to predecessors' own Mode A events.",
-        "- Mode B (< 1%): flagged in the merger quarter, no adjustment, rows kept in `rate_pf_clean`.", "",
+        "- Mode B (< 1%): flagged in the merger quarter, no adjustment, rows kept in `rate_pf_clean`.",
+        "- Supplementary deposit transfers (`data_build/raw/supplementary_transfer_events.csv`, issue #20): "
+        "events FDIC /history does not log (seller charter survives or closes voluntarily); predecessor "
+        "deposits and interest expense scaled by `transfer_share`, materiality on the transferred deposits.", "",
+        "## Supplementary events used",
+        *[f"- {r.predecessor_name} ({r.predecessor_cert}) -> {r.survivor_cert}, {r.effective_date}, share "
+          f"{r.transfer_share:.4f}, {r.pct_of_survivor_deposits:.2f}% of survivor, Mode {r.mode_applied}, "
+          f"depth {r.depth}" for r in events[events.source != HISTORY_SOURCE].itertuples()], "",
         "## Execution statistics",
         f"- Bank-quarter records: {len(data)} (2008Q1 to {data.quarter.max()})",
         f"- Events into the 7 target banks since 2007: {len(top)} "
@@ -251,17 +306,20 @@ def write(data, events, checks):
         "## Validations",
         *[f"- {k}: {v}" for k, v in checks.items()], "",
     ]
-    (ROOT / "merger_adjustment_log.md").write_text("\n".join(lines), encoding="utf-8")
+    (ROOT / f"merger_adjustment_log{tag}.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Rebuild FDIC deposit-rate datasets with pro forma merger adjustment.")
     parser.add_argument("--refresh", action="store_true", help="re-download FDIC data instead of using data_build/raw/")
+    parser.add_argument("--vintage", default=VINTAGE, help="suffix for every output file (default v2)")
+    parser.add_argument("--no-supplementary", action="store_true",
+                        help="ignore supplementary_transfer_events.csv (the v1 /history-only build)")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s", stream=sys.stdout)
-    data, events = build(args.refresh)
+    data, events = build(args.refresh, None if args.no_supplementary else SUPPLEMENTARY)
     checks = validate(data)
-    write(data, events, checks)
+    write(data, events, checks, args.vintage)
     log.info("wrote %d rows; %d events; checks %s", len(data), len(events), checks)
     return 0
 

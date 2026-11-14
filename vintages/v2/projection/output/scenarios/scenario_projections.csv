@@ -1,0 +1,456 @@
+bank,model,scenario,quarter,h,FFT,rate,long_run_equilibrium,k
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2026Q2,0,3.633333333333333,1.742003985356793,,0
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2026Q3,1,3.633333333333333,1.7381356500516596,1.7313332525941902,1
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2026Q4,2,3.633333333333333,1.7365825000586204,1.7313332525941902,2
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2027Q1,3,3.633333333333333,1.735383971346675,1.7313332525941902,3
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2027Q2,4,3.633333333333333,1.7344590953979289,1.7313332525941902,4
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2027Q3,5,3.633333333333333,1.733745390743177,1.7313332525941902,5
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2027Q4,6,3.633333333333333,1.733194641926641,1.7313332525941902,6
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2028Q1,7,3.633333333333333,1.7327696422339864,1.7313332525941902,7
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2028Q2,8,3.633333333333333,1.7324416801334181,1.7313332525941902,8
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2028Q3,9,3.633333333333333,1.7321885996223778,1.7313332525941902,9
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2028Q4,10,3.633333333333333,1.7319933034434671,1.7313332525941902,10
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2029Q1,11,3.633333333333333,1.731842598051968,1.7313332525941902,11
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),base,2029Q2,12,3.633333333333333,1.7317263023048954,1.7313332525941902,12
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q2,0,3.633333333333333,1.742003985356793,,0
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q3,1,5.633333333333333,1.7381356500516596,2.684360731086405,1
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q4,2,5.633333333333333,2.38376702104651,2.684360731086405,2
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q1,3,5.633333333333333,2.45239975260551,2.684360731086405,3
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q2,4,5.633333333333333,2.505361990458489,2.684360731086405,4
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q3,5,5.633333333333333,2.5462316830188705,2.684360731086405,5
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q4,6,5.633333333333333,2.577769847524246,2.684360731086405,6
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q1,7,5.633333333333333,2.602107094957625,2.684360731086405,7
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q2,8,5.633333333333333,2.6208875668691265,2.684360731086405,8
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q3,9,5.633333333333333,2.6353800079795766,2.684360731086405,9
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q4,10,5.633333333333333,2.6465634782528253,2.684360731086405,10
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2029Q1,11,5.633333333333333,2.6551934948524756,2.684360731086405,11
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_instant,2029Q2,12,5.633333333333333,2.6618530723083564,2.684360731086405,12
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q2,0,3.633333333333333,1.742003985356793,,0
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q3,1,4.133333333333333,1.7381356500516596,1.9695901222172438,1
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q4,2,4.633333333333333,1.8983786303055927,2.207846991840298,2
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q1,3,5.133333333333333,2.076434046908356,2.4461038614633512,3
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q2,4,5.633333333333333,2.26823489472475,2.684360731086405,4
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q3,5,5.633333333333333,2.4706427631389216,2.684360731086405,5
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q4,6,5.633333333333333,2.5194396854748144,2.684360731086405,6
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q1,7,5.633333333333333,2.5570951036483605,2.684360731086405,7
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q2,8,5.633333333333333,2.5861528894665793,2.684360731086405,8
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q3,9,5.633333333333333,2.6085760879759152,2.684360731086405,9
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q4,10,5.633333333333333,2.625879534099943,2.684360731086405,10
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2029Q1,11,5.633333333333333,2.639232189727661,2.684360731086405,11
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),up_ramp,2029Q2,12,5.633333333333333,2.6495361147975265,2.684360731086405,12
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q2,0,3.633333333333333,1.742003985356793,,0
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q3,1,1.6333333333333329,1.7381356500516596,0.7783057741019753,1
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q4,2,1.6333333333333329,1.0893979790707309,0.7783057741019753,2
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q1,3,1.6333333333333329,1.0183681900878399,0.7783057741019753,3
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q2,4,1.6333333333333329,0.9635562003373686,0.7783057741019753,4
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q3,5,1.6333333333333329,0.9212590984674836,0.7783057741019753,5
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q4,6,1.6333333333333329,0.8886194363290361,0.7783057741019753,6
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q1,7,1.6333333333333329,0.8634321895103477,0.7783057741019753,7
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q2,8,1.6333333333333329,0.84399579339771,0.7783057741019753,8
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q3,9,1.6333333333333329,0.8289971912651792,0.7783057741019753,9
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q4,10,1.6333333333333329,0.8174231286341092,0.7783057741019753,10
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2029Q1,11,1.6333333333333329,0.8084917012514607,0.7783057741019753,11
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_instant,2029Q2,12,1.6333333333333329,0.8015995323014344,0.7783057741019753,12
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q2,0,3.633333333333333,1.742003985356793,,0
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q3,1,3.133333333333333,1.7381356500516596,1.4930763829711364,1
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q4,2,2.633333333333333,1.574786369811648,1.2548195133480828,2
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q1,3,2.133333333333333,1.3943338957849938,1.016562643725029,3
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q2,4,1.6333333333333329,1.2006832960711076,0.7783057741019753,4
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q3,5,1.6333333333333329,0.9968480183474323,0.7783057741019753,5
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q4,6,1.6333333333333329,0.9469495983784675,0.7783057741019753,6
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q1,7,1.6333333333333329,0.908444180819612,0.7783057741019753,7
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q2,8,1.6333333333333329,0.8787304708002569,0.7783057741019753,8
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q3,9,1.6333333333333329,0.8558011112688402,0.7783057741019753,9
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q4,10,1.6333333333333329,0.8381070727869913,0.7783057741019753,10
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q1,11,1.6333333333333329,0.824453006376275,0.7783057741019753,11
+First Horizon Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q2,12,1.6333333333333329,0.8139164898122642,0.7783057741019753,12
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2026Q2,0,3.633333333333333,1.16905896130528,,0
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2026Q3,1,3.633333333333333,1.1398032593087526,0.9926476696239545,1
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2026Q4,2,3.633333333333333,1.1022731040245055,0.9926476696239545,2
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2027Q1,3,3.633333333333333,1.0651151519455462,0.9926476696239545,3
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2027Q2,4,3.633333333333333,1.0333327190534052,0.9926476696239545,4
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2027Q3,5,3.633333333333333,1.0091046487775193,0.9926476696239545,5
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2027Q4,6,3.633333333333333,0.9926561031988446,0.9926476696239545,6
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2028Q1,7,3.633333333333333,0.9830388342882614,0.9926476696239545,7
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2028Q2,8,3.633333333333333,0.9787502256113098,0.9926476696239545,8
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2028Q3,9,3.633333333333333,0.9781721468794948,0.9926476696239545,9
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2028Q4,10,3.633333333333333,0.979843550315103,0.9926476696239545,10
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2029Q1,11,3.633333333333333,0.9825980303616286,0.9926476696239545,11
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),base,2029Q2,12,3.633333333333333,0.985603343914263,0.9926476696239545,12
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2026Q2,0,3.633333333333333,1.16905896130528,,0
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2026Q3,1,5.633333333333333,1.1398032593087526,1.4526090793973858,1
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2026Q4,2,5.633333333333333,1.1661206885057516,1.4526090793973858,2
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2027Q1,3,5.633333333333333,1.221273969252685,1.4526090793973858,3
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2027Q2,4,5.633333333333333,1.285629309230705,1.4526090793973858,4
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2027Q3,5,5.633333333333333,1.3464311163577085,1.4526090793973858,5
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2027Q4,6,5.633333333333333,1.3967155240653208,1.4526090793973858,6
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2028Q1,7,5.633333333333333,1.433871266065688,1.4526090793973858,7
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2028Q2,8,5.633333333333333,1.4581941517003343,1.4526090793973858,8
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2028Q3,9,5.633333333333333,1.4716384544300316,1.4526090793973858,9
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2028Q4,10,5.633333333333333,1.4768567397708086,1.4526090793973858,10
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2029Q1,11,5.633333333333333,1.476541602010255,1.4526090793973858,11
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_instant,2029Q2,12,5.633333333333333,1.473035275923177,1.4526090793973858,12
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2026Q2,0,3.633333333333333,1.16905896130528,,0
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2026Q3,1,4.133333333333333,1.1398032593087526,1.1076380220673123,1
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2026Q4,2,4.633333333333333,1.118235000144817,1.22262837451067,2
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2027Q1,3,5.133333333333333,1.1201167523926423,1.337618726954028,3
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2027Q2,4,5.633333333333333,1.1514084670448264,1.4526090793973858,4
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2027Q3,5,5.633333333333333,1.2115120136639879,1.4526090793973858,5
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2027Q4,6,5.633333333333333,1.2801164271816208,1.4526090793973858,6
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2028Q1,7,5.633333333333333,1.3441675618886095,1.4526090793973858,7
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2028Q2,8,5.633333333333333,1.3966657871895891,1.4526090793973858,8
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2028Q3,9,5.633333333333333,1.435122668450361,1.4526090793973858,9
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2028Q4,10,5.633333333333333,1.4600325140332766,1.4526090793973858,10
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2029Q1,11,5.633333333333333,1.4735647790476023,1.4526090793973858,11
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),up_ramp,2029Q2,12,5.633333333333333,1.478567094080209,1.4526090793973858,12
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2026Q2,0,3.633333333333333,1.16905896130528,,0
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2026Q3,1,1.6333333333333329,1.1398032593087526,0.5326862598505228,1
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2026Q4,2,1.6333333333333329,1.0384255195432595,0.5326862598505228,2
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2027Q1,3,1.6333333333333329,0.9089563346384073,0.5326862598505228,3
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2027Q2,4,1.6333333333333329,0.7810361288761054,0.5326862598505228,4
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2027Q3,5,1.6333333333333329,0.6717781811973303,0.5326862598505228,5
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2027Q4,6,1.6333333333333329,0.5885966823323687,0.5326862598505228,6
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2028Q1,7,1.6333333333333329,0.5322064025108352,0.5326862598505228,7
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2028Q2,8,1.6333333333333329,0.49930629952228545,0.5326862598505228,8
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2028Q3,9,1.6333333333333329,0.4847058393289583,0.5326862598505228,9
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2028Q4,10,1.6333333333333329,0.48283036085939746,0.5326862598505228,10
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2029Q1,11,1.6333333333333329,0.48865445871300234,0.5326862598505228,11
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_instant,2029Q2,12,1.6333333333333329,0.49817141190534897,0.5326862598505228,12
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2026Q2,0,3.633333333333333,1.16905896130528,,0
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2026Q3,1,3.133333333333333,1.1398032593087526,0.8776573171805965,1
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2026Q4,2,2.633333333333333,1.0863112079041939,0.7626669647372386,2
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2027Q1,3,2.133333333333333,1.0101135514984498,0.6476766122938807,3
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2027Q2,4,1.6333333333333329,0.915256971061984,0.5326862598505228,4
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2027Q3,5,1.6333333333333329,0.806697283891051,0.5326862598505228,5
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2027Q4,6,1.6333333333333329,0.7051957792160688,0.5326862598505228,6
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2028Q1,7,1.6333333333333329,0.6219101066879137,0.5326862598505228,7
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2028Q2,8,1.6333333333333329,0.5608346640330308,0.5326862598505228,8
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2028Q3,9,1.6333333333333329,0.5212216253086289,0.5326862598505228,9
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2028Q4,10,1.6333333333333329,0.4996545865969296,0.5326862598505228,10
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2029Q1,11,1.6333333333333329,0.49163128167565523,0.5326862598505228,11
+Glacier Bank,Johansen VECM (rank 1) | BIC / k_ar_diff=1 | det_order 1 (linear trend),down_ramp,2029Q2,12,1.6333333333333329,0.4926395937483172,0.5326862598505228,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q2,0,3.633333333333333,1.853287859185298,,0
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q3,1,3.633333333333333,1.9154483225435819,1.680785952897274,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2026Q4,2,3.633333333333333,1.8251734982071304,1.680785952897274,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q1,3,3.633333333333333,1.7146470773964966,1.680785952897274,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q2,4,3.633333333333333,1.7256296413713386,1.680785952897274,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q3,5,3.633333333333333,1.7920399246106016,1.680785952897274,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2027Q4,6,3.633333333333333,1.7837962582503988,1.680785952897274,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q1,7,3.633333333333333,1.7151249754695705,1.680785952897274,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q2,8,3.633333333333333,1.69020723803353,1.680785952897274,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q3,9,3.633333333333333,1.7262380019534436,1.680785952897274,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2028Q4,10,3.633333333333333,1.7466619738568063,1.680785952897274,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q1,11,3.633333333333333,1.716682205860207,1.680785952897274,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",base,2029Q2,12,3.633333333333333,1.6859287202037438,1.680785952897274,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q2,0,3.633333333333333,1.853287859185298,,0
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q3,1,5.633333333333333,2.2632806934508487,2.6059892297214615,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2026Q4,2,5.633333333333333,2.309603839283402,2.6059892297214615,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q1,3,5.633333333333333,2.346959704067901,2.6059892297214615,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q2,4,5.633333333333333,2.5319876339809126,2.6059892297214615,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q3,5,5.633333333333333,2.6817584090529842,2.6059892297214615,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2027Q4,6,5.633333333333333,2.6551843827828634,2.6059892297214615,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q1,7,5.633333333333333,2.574994170028654,2.6059892297214615,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q2,8,5.633333333333333,2.5970554467177163,2.6059892297214615,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q3,9,5.633333333333333,2.6768905689524716,2.6059892297214615,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2028Q4,10,5.633333333333333,2.6860109242625216,2.6059892297214615,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q1,11,5.633333333333333,2.6264854260616177,2.6059892297214615,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_instant,2029Q2,12,5.633333333333333,2.600559075680629,2.6059892297214615,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q2,0,3.633333333333333,1.853287859185298,,0
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q3,1,4.133333333333333,2.0024064152703986,1.9120867721033208,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2026Q4,2,4.633333333333333,2.033239176203015,2.143387591309368,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q1,3,5.133333333333333,2.0807909120602317,2.3746884105154145,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q2,4,5.633333333333333,2.293362974187467,2.6059892297214615,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q3,5,5.633333333333333,2.4952447858105087,2.6059892297214615,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2027Q4,6,5.633333333333333,2.583740565314354,2.6059892297214615,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q1,7,5.633333333333333,2.571958424505446,2.6059892297214615,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q2,8,5.633333333333333,2.5721632410880586,2.6059892297214615,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q3,9,5.633333333333333,2.6234275256471338,2.6059892297214615,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2028Q4,10,5.633333333333333,2.6608417040188095,2.6059892297214615,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q1,11,5.633333333333333,2.643345442432792,2.6059892297214615,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",up_ramp,2029Q2,12,5.633333333333333,2.6145374934745034,2.6059892297214615,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q2,0,3.633333333333333,1.853287859185298,,0
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q3,1,1.6333333333333329,1.5676159516363153,0.7555826760730863,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2026Q4,2,1.6333333333333329,1.3407431571308592,0.7555826760730863,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q1,3,1.6333333333333329,1.082334450725093,0.7555826760730863,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q2,4,1.6333333333333329,0.9192716487617653,0.7555826760730863,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q3,5,1.6333333333333329,0.9023214401682195,0.7555826760730863,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2027Q4,6,1.6333333333333329,0.9124081337179345,0.7555826760730863,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q1,7,1.6333333333333329,0.8552557809104874,0.7555826760730863,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q2,8,1.6333333333333329,0.7833590293493441,0.7555826760730863,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q3,9,1.6333333333333329,0.7755854349544156,0.7555826760730863,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2028Q4,10,1.6333333333333329,0.8073130234510907,0.7555826760730863,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q1,11,1.6333333333333329,0.8068789856587959,0.7555826760730863,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_instant,2029Q2,12,1.6333333333333329,0.771298364726859,0.7555826760730863,12
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q2,0,3.633333333333333,1.853287859185298,,0
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q3,1,3.133333333333333,1.8284902298167653,1.449485133691227,1
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2026Q4,2,2.633333333333333,1.617107820211246,1.21818431448518,2
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q1,3,2.133333333333333,1.3485032427327615,0.9868834952791332,3
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q2,4,1.6333333333333329,1.1578963085552103,0.7555826760730863,4
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q3,5,1.6333333333333329,1.0888350634106945,0.7555826760730863,5
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2027Q4,6,1.6333333333333329,0.9838519511864432,0.7555826760730863,6
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q1,7,1.6333333333333329,0.858291526433695,0.7555826760730863,7
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q2,8,1.6333333333333329,0.8082512349790014,0.7555826760730863,8
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q3,9,1.6333333333333329,0.8290484782597535,0.7555826760730863,9
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2028Q4,10,1.6333333333333329,0.8324822436948033,0.7555826760730863,10
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q1,11,1.6333333333333329,0.7900189692876218,0.7555826760730863,11
+Huntington National Bank,"EG_LongRun | AIC / ADF lag=1, ECM lag=3 | n (none)",down_ramp,2029Q2,12,1.6333333333333329,0.757319946932984,0.7555826760730863,12
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q2,0,3.633333333333333,1.5404780164167762,,0
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q3,1,3.633333333333333,1.5283929927814341,1.4606938120214707,1
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2026Q4,2,3.633333333333333,1.5189835225315036,1.4606938120214707,2
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2027Q1,3,3.633333333333333,1.511158909720055,1.4606938120214707,3
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2027Q2,4,3.633333333333333,1.5044741578392777,1.4606938120214707,4
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2027Q3,5,3.633333333333333,1.49870364968602,1.4606938120214707,5
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2027Q4,6,3.633333333333333,1.4937029517349918,1.4606938120214707,6
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2028Q1,7,3.633333333333333,1.4893631172124948,1.4606938120214707,7
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2028Q2,8,3.633333333333333,1.4855948035945583,1.4606938120214707,8
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2028Q3,9,3.633333333333333,1.4823221029965477,1.4606938120214707,9
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2028Q4,10,3.633333333333333,1.4794796257333425,1.4606938120214707,10
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2029Q1,11,3.633333333333333,1.4770107494073477,1.4606938120214707,11
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",base,2029Q2,12,3.633333333333333,1.474866348644141,1.4606938120214707,12
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2026Q2,0,3.633333333333333,1.5404780164167762,,0
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2026Q3,1,5.633333333333333,1.5787649108191117,2.2647454516663172,1
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2026Q4,2,5.633333333333333,1.8188626457015071,2.2647454516663172,2
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2027Q1,3,5.633333333333333,2.049406202188557,2.2647454516663172,3
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2027Q2,4,5.633333333333333,2.20040465021034,2.2647454516663172,4
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2027Q3,5,5.633333333333333,2.2739399363378507,2.2647454516663172,5
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2027Q4,6,5.633333333333333,2.2985681087212395,2.2647454516663172,6
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2028Q1,7,5.633333333333333,2.304070212513297,2.2647454516663172,7
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2028Q2,8,5.633333333333333,2.3024615589271855,2.2647454516663172,8
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2028Q3,9,5.633333333333333,2.298644892190716,2.2647454516663172,9
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2028Q4,10,5.633333333333333,2.2945549151279634,2.2647454516663172,10
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2029Q1,11,5.633333333333333,2.2907542602001816,2.2647454516663172,11
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_instant,2029Q2,12,5.633333333333333,2.287373602024798,2.2647454516663172,12
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2026Q2,0,3.633333333333333,1.5404780164167762,,0
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2026Q3,1,4.133333333333333,1.5409859722908534,1.6617067219326824,1
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2026Q4,2,4.633333333333333,1.5936759427525204,1.8627196318438939,2
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2027Q1,3,5.133333333333333,1.7134743352490756,2.0637325417551056,3
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2027Q2,4,5.633333333333333,1.8833548537024447,2.2647454516663172,4
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2027Q3,5,5.633333333333333,2.068270282451848,2.2647454516663172,5
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2027Q4,6,5.633333333333333,2.197239318559757,2.2647454516663172,6
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2028Q1,7,5.633333333333333,2.2641972856243817,2.2647454516663172,7
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2028Q2,8,5.633333333333333,2.287551752124451,2.2647454516663172,8
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2028Q3,9,5.633333333333333,2.2935971278483684,2.2647454516663172,9
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2028Q4,10,5.633333333333333,2.2931120460932566,2.2647454516663172,10
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2029Q1,11,5.633333333333333,2.290443132794517,2.2647454516663172,11
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",up_ramp,2029Q2,12,5.633333333333333,2.287405108288951,2.2647454516663172,12
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2026Q2,0,3.633333333333333,1.5404780164167762,,0
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2026Q3,1,1.6333333333333329,1.015707237846736,0.6566421723766244,1
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2026Q4,2,1.6333333333333329,0.8376454509603821,0.6566421723766244,2
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2027Q1,3,1.6333333333333329,0.7719412846914158,0.6566421723766244,3
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2027Q2,4,1.6333333333333329,0.743363357729258,0.6566421723766244,4
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2027Q3,5,1.6333333333333329,0.7276664801440392,0.6566421723766244,5
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2027Q4,6,1.6333333333333329,0.7169551916652979,0.6566421723766244,6
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2028Q1,7,1.6333333333333329,0.7085876833796263,0.6566421723766244,7
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2028Q2,8,1.6333333333333329,0.7016196583361035,0.6566421723766244,8
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2028Q3,9,1.6333333333333329,0.6956634063254643,0.6566421723766244,9
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2028Q4,10,1.6333333333333329,0.6905206887055311,0.6566421723766244,10
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2029Q1,11,1.6333333333333329,0.6860636847268103,0.6566421723766244,11
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_instant,2029Q2,12,1.6333333333333329,0.6821955814342395,0.6566421723766244,12
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2026Q2,0,3.633333333333333,1.5404780164167762,,0
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2026Q3,1,3.133333333333333,1.4002215540477596,1.259680902110259,1
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2026Q4,2,2.633333333333333,1.2204775659050489,1.0586679921990476,2
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2027Q1,3,2.133333333333333,1.0278485468364407,0.8576550822878359,3
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2027Q2,4,1.6333333333333329,0.8308860949281583,0.6566421723766244,4
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2027Q3,5,1.6333333333333329,0.76052773312308,0.6566421723766244,5
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2027Q4,6,1.6333333333333329,0.7316746130474087,0.6566421723766244,6
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2028Q1,7,1.6333333333333329,0.7169453263238543,0.6566421723766244,7
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2028Q2,8,1.6333333333333329,0.707460926418809,0.6566421723766244,8
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2028Q3,9,1.6333333333333329,0.7002828440385226,0.6566421723766244,9
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2028Q4,10,1.6333333333333329,0.694387572535788,0.6566421723766244,10
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2029Q1,11,1.6333333333333329,0.6893757884978761,0.6566421723766244,11
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1) | asymmetric | BIC / ARDL(2,1) | n - case 1 (no deterministic terms)",down_ramp,2029Q2,12,1.6333333333333329,0.6850574822468076,0.6566421723766244,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q2,0,3.633333333333333,1.3663897567885128,,0
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q3,1,3.633333333333333,1.3848383519659255,1.4612088686950386,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2026Q4,2,3.633333333333333,1.3996974739118702,1.4612088686950386,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q1,3,3.633333333333333,1.41166551282655,1.4612088686950386,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q2,4,3.633333333333333,1.4213049757762692,1.4612088686950386,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q3,5,3.633333333333333,1.4290689249597095,1.4612088686950386,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2027Q4,6,3.633333333333333,1.435322271980956,1.4612088686950386,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q1,7,3.633333333333333,1.44035892897654,1.4612088686950386,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q2,8,3.633333333333333,1.444415622712706,1.4612088686950386,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q3,9,3.633333333333333,1.44768302092614,1.4612088686950386,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2028Q4,10,3.633333333333333,1.450314693854755,1.4612088686950386,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q1,11,3.633333333333333,1.4524343321574054,1.4612088686950386,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",base,2029Q2,12,3.633333333333333,1.4541415604703196,1.4612088686950386,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q2,0,3.633333333333333,1.3663897567885128,,0
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q3,1,5.633333333333333,1.7162461290224846,2.2655440257748762,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2026Q4,2,5.633333333333333,1.8231209385965208,2.2655440257748762,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q1,3,5.633333333333333,1.9092015215969291,2.2655440257748762,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q2,4,5.633333333333333,1.9785337318644673,2.2655440257748762,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q3,5,5.633333333333333,2.0343762367945204,2.2655440257748762,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2027Q4,6,5.633333333333333,2.0793536772198262,2.2655440257748762,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q1,7,5.633333333333333,2.115580027555397,2.2655440257748762,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q2,8,5.633333333333333,2.144757954227657,2.2655440257748762,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q3,9,5.633333333333333,2.1682588423106566,2.2655440257748762,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2028Q4,10,5.633333333333333,2.187187251683031,2.2655440257748762,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q1,11,5.633333333333333,2.2024328321948325,2.2655440257748762,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_instant,2029Q2,12,5.633333333333333,2.2147121378971404,2.2655440257748762,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q2,0,3.633333333333333,1.3663897567885128,,0
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q3,1,4.133333333333333,1.4676902962300653,1.662292657964998,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2026Q4,2,4.633333333333333,1.5884052843471725,1.8633764472349574,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q1,3,5.133333333333333,1.7247573254544473,2.064460236504917,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q2,4,5.633333333333333,1.873703977426216,2.2655440257748762,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q3,5,5.633333333333333,1.9499428103042191,2.2655440257748762,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2027Q4,6,5.633333333333333,2.0113481424640205,2.2655440257748762,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q1,7,5.633333333333333,2.060806071911724,2.2655440257748762,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q2,8,5.633333333333333,2.1006411595045784,2.2655440257748762,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q3,9,5.633333333333333,2.132725685105439,2.2655440257748762,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2028Q4,10,5.633333333333333,2.1585676461814054,2.2655440257748762,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q1,11,5.633333333333333,2.1793816348486983,2.2655440257748762,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",up_ramp,2029Q2,12,5.633333333333333,2.19614592463958,2.2655440257748762,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q2,0,3.633333333333333,1.3663897567885128,,0
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q3,1,1.6333333333333329,1.0534305749093666,0.6568737116152007,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2026Q4,2,1.6333333333333329,0.9762740092272197,0.6568737116152007,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q1,3,1.6333333333333329,0.9141295040561713,0.6568737116152007,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q2,4,1.6333333333333329,0.8640762196880717,0.6568737116152007,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q3,5,1.6333333333333329,0.8237616131248993,0.6568737116152007,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2027Q4,6,1.6333333333333329,0.7912908667420862,0.6568737116152007,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q1,7,1.6333333333333329,0.7651378303976829,0.6568737116152007,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q2,8,1.6333333333333329,0.7440732911977551,0.6568737116152007,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q3,9,1.6333333333333329,0.7271071995416233,0.6568737116152007,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2028Q4,10,1.6333333333333329,0.7134421360264787,0.6568737116152007,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q1,11,1.6333333333333329,0.7024358321199777,0.6568737116152007,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_instant,2029Q2,12,1.6333333333333329,0.6935709830434986,0.6568737116152007,12
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q2,0,3.633333333333333,1.3663897567885128,,0
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q3,1,3.133333333333333,1.3019864077017858,1.2601250794250791,1
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2026Q4,2,2.633333333333333,1.2109896634765678,1.0590412901551196,2
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q1,3,2.133333333333333,1.098573700198653,0.8579575008851602,3
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q2,4,1.6333333333333329,0.9689059741263228,0.6568737116152007,4
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q3,5,1.6333333333333329,0.9081950396152002,0.6568737116152007,5
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2027Q4,6,1.6333333333333329,0.8592964014978918,0.6568737116152007,6
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q1,7,1.6333333333333329,0.8199117860413561,0.6568737116152007,7
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q2,8,1.6333333333333329,0.788190085920834,0.6568737116152007,8
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q3,9,1.6333333333333329,0.7626403567468413,0.6568737116152007,9
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2028Q4,10,1.6333333333333329,0.7420617415281048,0.6568737116152007,10
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q1,11,1.6333333333333329,0.7254870294661124,0.6568737116152007,11
+Manufacturers and Traders Trust Company,"EG_LongRun | AIC / ADF lag=1, ECM lag=4 | c (constant)",down_ramp,2029Q2,12,1.6333333333333329,0.7121371963010593,0.6568737116152007,12
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q2,0,3.633333333333333,1.6742403914230568,,0
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q3,1,3.633333333333333,1.6558246500532419,1.5227503560513798,1
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2026Q4,2,3.633333333333333,1.6321844723068508,1.5227503560513798,2
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2027Q1,3,3.633333333333333,1.610141204108115,1.5227503560513798,3
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2027Q2,4,3.633333333333333,1.591568544498045,1.5227503560513798,4
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2027Q3,5,3.633333333333333,1.576571083783683,1.5227503560513798,5
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2027Q4,6,3.633333333333333,1.5646973086869131,1.5227503560513798,6
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2028Q1,7,3.633333333333333,1.5553864146362428,1.5227503560513798,7
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2028Q2,8,3.633333333333333,1.5481199663521399,1.5227503560513798,8
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2028Q3,9,3.633333333333333,1.5424626277538127,1.5227503560513798,9
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2028Q4,10,3.633333333333333,1.538063399999462,1.5227503560513798,10
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2029Q1,11,3.633333333333333,1.5346445939453695,1.5227503560513798,11
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),base,2029Q2,12,3.633333333333333,1.5319885366069368,1.5227503560513798,12
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q2,0,3.633333333333333,1.6742403914230568,,0
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q3,1,5.633333333333333,1.6558246500532419,2.3609615612172767,1
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2026Q4,2,5.633333333333333,1.9504624122348106,2.3609615612172767,2
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q1,3,5.633333333333333,2.0962441659888933,2.3609615612172767,3
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q2,4,5.633333333333333,2.176707313141086,2.3609615612172767,4
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q3,5,5.633333333333333,2.226277607606877,2.3609615612172767,5
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2027Q4,6,5.633333333333333,2.2596795351492838,2.3609615612172767,6
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q1,7,5.633333333333333,2.283610676755333,2.3609615612172767,7
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q2,8,5.633333333333333,2.301403748331554,2.3609615612172767,8
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q3,9,5.633333333333333,2.3149098988069285,2.3609615612172767,9
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2028Q4,10,5.633333333333333,2.3252760343591965,2.3609615612172767,10
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2029Q1,11,5.633333333333333,2.3332781982299586,2.3609615612172767,11
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_instant,2029Q2,12,5.633333333333333,2.3394738600199276,2.3609615612172767,12
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q2,0,3.633333333333333,1.6742403914230568,,0
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q3,1,4.133333333333333,1.6558246500532419,1.732303157342854,1
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2026Q4,2,4.633333333333333,1.7117539572888407,1.9418559586343282,2
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q1,3,5.133333333333333,1.8112364295602994,2.1514087599258027,3
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q2,4,5.633333333333333,1.9389484621109898,2.3609615612172767,4
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q3,5,5.633333333333333,2.0863776323524266,2.3609615612172767,5
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2027Q4,6,5.633333333333333,2.1686799288892593,2.3609615612172767,6
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q1,7,5.633333333333333,2.2198993598981667,2.3609615612172767,7
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q2,8,5.633333333333333,2.254669164948157,2.3609615612172767,8
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q3,9,5.633333333333333,2.2796970131573104,2.3609615612172767,9
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2028Q4,10,5.633333333333333,2.2983553873773004,2.3609615612172767,10
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2029Q1,11,5.633333333333333,2.3125389168645825,2.3609615612172767,11
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),up_ramp,2029Q2,12,5.633333333333333,2.323433244884544,2.3609615612172767,12
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q2,0,3.633333333333333,1.6742403914230568,,0
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q3,1,1.6333333333333329,1.6558246500532419,0.6845391508854826,1
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2026Q4,2,1.6333333333333329,1.3139065323788908,0.6845391508854826,2
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q1,3,1.6333333333333329,1.1240382422273365,0.6845391508854826,3
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q2,4,1.6333333333333329,1.0064297758550043,0.6845391508854826,4
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q3,5,1.6333333333333329,0.9268645599604894,0.6845391508854826,5
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2027Q4,6,1.6333333333333329,0.8697150822245425,0.6845391508854826,6
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q1,7,1.6333333333333329,0.8271621525171524,0.6845391508854826,7
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q2,8,1.6333333333333329,0.7948361843727255,0.6845391508854826,8
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q3,9,1.6333333333333329,0.770015356700697,0.6845391508854826,9
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2028Q4,10,1.6333333333333329,0.7508507656397274,0.6845391508854826,10
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2029Q1,11,1.6333333333333329,0.7360109896607804,0.6845391508854826,11
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_instant,2029Q2,12,1.6333333333333329,0.7245032131939463,0.6845391508854826,12
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q2,0,3.633333333333333,1.6742403914230568,,0
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q3,1,3.133333333333333,1.6558246500532419,1.3131975547599055,1
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2026Q4,2,2.633333333333333,1.5526149873248607,1.103644753468431,2
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q1,3,2.133333333333333,1.4090459786559302,0.8940919521769568,3
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q2,4,1.6333333333333329,1.2441886268851001,0.6845391508854826,4
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q3,5,1.6333333333333329,1.06676453521494,0.6845391508854826,5
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2027Q4,6,1.6333333333333329,0.9607146884845674,0.6845391508854826,6
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q1,7,1.6333333333333329,0.890873469374319,0.6845391508854826,7
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q2,8,1.6333333333333329,0.8415707677561226,0.6845391508854826,8
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q3,9,1.6333333333333329,0.805228242350315,0.6845391508854826,9
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2028Q4,10,1.6333333333333329,0.7777714126216233,0.6845391508854826,10
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q1,11,1.6333333333333329,0.7567502710261561,0.6845391508854826,11
+Old National Bank,Johansen VECM (rank 1) | fixed / k_ar_diff=1 | det_order -1 (none),down_ramp,2029Q2,12,1.6333333333333329,0.7405438283293294,0.6845391508854826,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q2,0,3.633333333333333,1.739837989448987,,0
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q3,1,3.633333333333333,1.7405199150346822,1.4325135979363557,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2026Q4,2,3.633333333333333,1.6831367718894363,1.4325135979363557,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q1,3,3.633333333333333,1.600899406348582,1.4325135979363557,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q2,4,3.633333333333333,1.532383039584517,1.4325135979363557,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q3,5,3.633333333333333,1.4924984561260202,1.4325135979363557,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2027Q4,6,3.633333333333333,1.4752882655592578,1.4325135979363557,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q1,7,3.633333333333333,1.4682292245548259,1.4325135979363557,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q2,8,3.633333333333333,1.462594399408316,1.4325135979363557,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q3,9,3.633333333333333,1.4557948683590798,1.4325135979363557,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2028Q4,10,3.633333333333333,1.4488571001263306,1.4325135979363557,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q1,11,3.633333333333333,1.4433228017513664,1.4325135979363557,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",base,2029Q2,12,3.633333333333333,1.4397387346438668,1.4325135979363557,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q2,0,3.633333333333333,1.739837989448987,,0
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q3,1,5.633333333333333,2.1384297754362773,2.478978486837344,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2026Q4,2,5.633333333333333,2.2445677611284762,2.478978486837344,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q1,3,5.633333333333333,2.236584330277514,2.478978486837344,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q2,4,5.633333333333333,2.2384877401767205,2.478978486837344,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q3,5,5.633333333333333,2.281977246411778,2.478978486837344,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2027Q4,6,5.633333333333333,2.3447285151372768,2.478978486837344,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q1,7,5.633333333333333,2.398052061554671,2.478978486837344,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q2,8,5.633333333333333,2.4300036803070366,2.478978486837344,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q3,9,5.633333333333333,2.4444213574142153,2.478978486837344,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2028Q4,10,5.633333333333333,2.4505710408075476,2.478978486837344,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q1,11,5.633333333333333,2.4552090361086987,2.478978486837344,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_instant,2029Q2,12,5.633333333333333,2.460538496715548,2.478978486837344,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q2,0,3.633333333333333,1.739837989448987,,0
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q3,1,4.133333333333333,1.839997380135081,1.6941298201616029,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2026Q4,2,4.633333333333333,1.9229719842995951,1.9557460423868496,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q1,3,5.133333333333333,1.9996558497409738,2.2173622646120967,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q2,4,5.633333333333333,2.1076656581249598,2.478978486837344,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q3,5,5.633333333333333,2.165673307137504,2.478978486837344,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2027Q4,6,5.633333333333333,2.2254654316554863,2.478978486837344,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q1,7,5.633333333333333,2.291940868918782,2.478978486837344,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q2,8,5.633333333333333,2.351632188848901,2.478978486837344,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q3,9,5.633333333333333,2.394619582492009,2.478978486837344,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2028Q4,10,5.633333333333333,2.420750237035059,2.478978486837344,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q1,11,5.633333333333333,2.4357317879994667,2.478978486837344,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",up_ramp,2029Q2,12,5.633333333333333,2.4454953411852074,2.478978486837344,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q2,0,3.633333333333333,1.739837989448987,,0
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q3,1,1.6333333333333329,1.3426100546330872,0.3860487090353676,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2026Q4,2,1.6333333333333329,1.1217057826503967,0.3860487090353676,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q1,3,1.6333333333333329,0.9652144824196498,0.3860487090353676,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q2,4,1.6333333333333329,0.8262783389923134,0.3860487090353676,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q3,5,1.6333333333333329,0.7030196658402625,0.3860487090353676,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2027Q4,6,1.6333333333333329,0.6058480159812395,0.3860487090353676,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q1,7,1.6333333333333329,0.5384063875549816,0.3860487090353676,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q2,8,1.6333333333333329,0.4951851185095964,0.3860487090353676,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q3,9,1.6333333333333329,0.4671683793039452,0.3860487090353676,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2028Q4,10,1.6333333333333329,0.44714315944511396,0.3860487090353676,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q1,11,1.6333333333333329,0.4314365673940339,0.3860487090353676,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_instant,2029Q2,12,1.6333333333333329,0.41893897257218526,0.3860487090353676,12
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q2,0,3.633333333333333,1.739837989448987,,0
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q3,1,3.133333333333333,1.6410424499342835,1.1708973757111085,1
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2026Q4,2,2.633333333333333,1.4433015594792777,0.9092811534858617,2
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q1,3,2.133333333333333,1.2021429629561902,0.6476649312606145,3
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q2,4,1.6333333333333329,0.9571004210440743,0.3860487090353676,4
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q3,5,1.6333333333333329,0.819323605114537,0.3860487090353676,5
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2027Q4,6,1.6333333333333329,0.7251110994630301,0.3860487090353676,6
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q1,7,1.6333333333333329,0.6445175801908701,0.3860487090353676,7
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q2,8,1.6333333333333329,0.5735566099677312,0.3860487090353676,8
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q3,9,1.6333333333333329,0.5169701542261507,0.3860487090353676,9
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2028Q4,10,1.6333333333333329,0.47696396321760176,0.3860487090353676,10
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q1,11,1.6333333333333329,0.45091381550326537,0.3860487090353676,11
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4) | BIC / ARDL(3,2) | ct - case 4 (unrestricted constant, restricted trend)",down_ramp,2029Q2,12,1.6333333333333329,0.4339821281025253,0.3860487090353676,12

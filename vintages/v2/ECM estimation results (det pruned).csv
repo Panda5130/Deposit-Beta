@@ -1,0 +1,576 @@
+bank_name,test_name,IC/selected lag,trend type,term,coef,t_stat,p_value
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),const,0.0742630073102415,3.523433609505429,0.0008562651527767
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),rate_pf_clean.L1,-0.3919934778121627,-6.888250634416795,5.293760273127611e-09
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),FFT.L1,0.1583611130267951,6.503133276341182,2.2831314064419306e-08
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),D.rate_pf_clean.L1,0.3127937189169224,3.327841754270797,0.0015511135419784
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),LR: const,0.1894495993268216,3.979825397005472,0.0002004501767907
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 0 (constant),LR: FFT,0.4039891528569752,19.448871270104004,1.4031182037557718e-26
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.1969965058850767,-3.903470731737954,0.0002697141213818
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.0918312694609644,3.896058949673989,0.0002761958338996
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.327478759755005,-3.5480274653314505,0.0008221313241514
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L0,0.1893907980045902,5.4883456218525,1.1642777184116786e-06
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L3,0.2809954668213645,5.7282014200721765,4.884270904430593e-07
+First Horizon Bank,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.4661568439926377,17.5215284319109,1.0523252336812636e-23
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,EG_ShortRun,"BIC / ADF lag=2, ECM lag=3",n (none),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,EG_ShortRun,"t-stat / ADF lag=2, ECM lag=3",n (none),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.1969965058850767,-3.903470731737954,0.0002697141213818
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.0918312694609644,3.896058949673989,0.0002761958338996
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.327478759755005,-3.5480274653314505,0.0008221313241514
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.1893907980045902,5.4883456218525,1.1642777184116786e-06
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.2809954668213645,5.7282014200721765,4.884270904430593e-07
+First Horizon Bank,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.4661568439926377,17.5215284319109,1.0523252336812636e-23
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.0682097771973223,1.775386733192803,0.0819206902101936
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.002393860702992,-1.86494145665488,0.0680637762765224
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.246562708480034,-3.410325213845471,0.0012917137877779
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.1285203504536337,3.5777828160928284,0.0007810244475892
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L1,0.2114008279140623,2.3813694465844923,0.0210967644197507
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L2,-0.3850923502221208,-4.1532715579560175,0.0001276844718885
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L0,0.1674584373486908,4.352807747451204,6.642129826016508e-05
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L3,0.1932123430466759,3.553144324664629,0.0008416519542438
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.2766427154285004,2.438079358253177,0.0183622078893362
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.0097089325378899,-2.1526611928500747,0.036195741712938
+First Horizon Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.5212481289077054,10.682077010723871,1.6660588255108766e-14
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),const,0.0682097771973223,1.775386733192803,0.0819206902101936
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),trend,-0.002393860702992,-1.86494145665488,0.0680637762765224
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),rate_pf_clean.L1,-0.246562708480034,-3.410325213845471,0.0012917137877779
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),FFT.L1,0.1285203504536337,3.5777828160928284,0.0007810244475892
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L1,0.2114008279140623,2.3813694465844923,0.0210967644197507
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.rate_pf_clean.L2,-0.3850923502221208,-4.1532715579560175,0.0001276844718885
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L0,0.1674584373486908,4.352807747451204,6.642129826016508e-05
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),D.FFT.L3,0.1932123430466759,3.553144324664629,0.0008416519542438
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: const,0.2766427154285004,2.438079358253177,0.0183622078893362
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: trend,-0.0097089325378899,-2.1526611928500747,0.036195741712938
+First Horizon Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",ct (constant + trend),LR: FFT,0.5212481289077054,10.682077010723871,1.6660588255108766e-14
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),rate_pf_clean.L1,-0.2283239112019051,-3.860343274373408,0.0002913440258877
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),FFT.L1,0.108799480686116,4.006305785204251,0.0001808058636636
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),D.FFT.L1,0.2147927798078287,4.251649186858244,7.962961732416159e-05
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order -1 (none),LR: FFT,0.4765137392461074,16.96710562436726,6.0072976012036114e-24
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),rate_pf_clean.L1,-0.2283239112019051,-3.860343274373408,0.0002913440258877
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),FFT.L1,0.108799480686116,4.006305785204251,0.0001808058636636
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),D.FFT.L1,0.2147927798078287,4.251649186858244,7.962961732416159e-05
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),LR: FFT,0.4765137392461074,16.96710562436726,6.0072976012036114e-24
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),const,0.0742630073102415,3.523433609505429,0.0008562651527767
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),rate_pf_clean.L1,-0.3919934778121627,-6.888250634416795,5.293760273127611e-09
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),FFT.L1,0.1583611130267951,6.503133276341182,2.2831314064419306e-08
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),D.rate_pf_clean.L1,0.3127937189169224,3.327841754270797,0.0015511135419784
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),LR: const,0.1894495993268216,3.979825397005472,0.0002004501767907
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 0 (constant),LR: FFT,0.4039891528569752,19.448871270104004,1.4031182037557718e-26
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),const,0.2171099705199073,5.878631635803672,2.2714472387627106e-07
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),trend,-0.0056986122188108,-4.417428236025452,4.521446108359282e-05
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.5378129195891213,-10.556229009745005,4.980827429259906e-15
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.2642754668481177,10.490373780446475,6.3161641228697976e-15
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: const,0.4036905076318642,7.12578301328493,1.9637114119119807e-09
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: trend,-0.0105959005655061,-4.737160057813817,1.4816435735620818e-05
+First Horizon Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.491389212163254,22.42908187842008,5.784174577457351e-30
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),const,0.1793646955338924,4.621221328502627,2.4792313086483164e-05
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),trend,-0.0046265765857324,-3.302820722239866,0.0017188160918131
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),rate_pf_clean.L1,-0.5063390387527305,-8.278986117461871,4.020916051420635e-11
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),FFT.L1,0.247135459776047,7.576557660053074,5.332691835525918e-10
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),D.rate_pf_clean.L1,0.2704187130704528,2.523449212951172,0.0146551661736318
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),D.rate_pf_clean.L2,-0.2236592899709531,-2.25818261937554,0.0280760793758261
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: const,0.3542383300638306,5.811476182407115,3.6066667771305243e-07
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: trend,-0.0091373096515115,-3.7408276166584935,0.0004519849520969
+First Horizon Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: FFT,0.4880829658815525,19.61520405138095,5.825717535512357e-26
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),const,0.2171099705199073,5.878631635803672,2.2714472387627106e-07
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),trend,-0.0056986122188108,-4.417428236025452,4.521446108359282e-05
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.5378129195891213,-10.556229009745005,4.980827429259906e-15
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.2642754668481177,10.490373780446475,6.3161641228697976e-15
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: const,0.4036905076318642,7.12578301328493,1.9637114119119807e-09
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: trend,-0.0105959005655061,-4.737160057813817,1.4816435735620818e-05
+First Horizon Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.491389212163254,22.42908187842008,5.784174577457351e-30
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","BIC / ARDL(3,4)",n - case 1 (no deterministic terms),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1660839743739094,-3.4061991970337213,0.0012776804903095
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),FFT.L1,0.0775805462252663,3.4089756465489267,0.001267119374722
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.2467226053304493,2.8006983182242338,0.0071427923921508
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.4032254686738179,-4.432313558733132,4.839305609605535e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.FFT.L0,0.1796624042556578,5.500999269675051,1.1672256146349655e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),D.FFT.L3,0.2409839527865548,4.9867762280506165,7.213281545709033e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 1)","HQIC / ARDL(3,4)",n - case 1 (no deterministic terms),LR: FFT,0.4671163880664793,15.712124605488755,2.1636797266838188e-21
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",const,0.1265718856974992,2.8285855995229907,0.0067556726181984
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0040012718858679,-2.825739661975601,0.0068073551173557
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.3746703869575893,-4.212190365531653,0.0001079476856459
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.1935207173415577,4.342548978565604,7.053242462189065e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3469362329614565,3.3500242320071663,0.0015616825983782
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L2,-0.4059154461882643,-4.538672898761504,3.686151674339039e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.2171104062440701,5.077487759688121,5.927391270849284e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L1,-0.1562972302696595,-2.301457330716309,0.025658270957513
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L3,0.1510703716438127,2.731762507469445,0.0087340807631183
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3378219632602736,4.710500218959027,2.0716530042317816e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0106794452541585,-3.712441007940804,0.0005251993569501
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","AIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.5165092413974613,16.884373726002142,4.602747039416737e-22
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",const,0.1945255090130671,4.933266000458846,9.014113202105124e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.006082778186403,-4.724191013225068,1.8508906361478105e-05
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.4886454045402333,-6.542833435931039,2.8703892913883443e-08
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.2577047495331371,7.033428602989057,4.819454985193821e-09
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.4251919062978617,4.059700267004339,0.0001692361248624
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L2,-0.296247069775769,-3.43628535171315,0.0011813189546004
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.2250131971468175,4.948839031208264,8.54062680295463e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L1,-0.204579605471388,-3.0388227897176123,0.0037404424011604
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3980913505082408,7.4327261476019375,1.1295105595851627e-09
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0124482459670858,-5.470953532921977,1.364788173330957e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 4)","BIC / ARDL(4,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.5273860086244169,21.13377784744949,6.923896257944812e-27
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",const,0.1265718856974992,2.8285855995229907,0.0067556726181984
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0040012718858679,-2.825739661975601,0.0068073551173557
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.3746703869575893,-4.212190365531653,0.0001079476856459
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.1935207173415577,4.342548978565604,7.053242462189065e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3469362329614565,3.3500242320071663,0.0015616825983782
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L2,-0.4059154461882643,-4.538672898761504,3.686151674339039e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.2171104062440701,5.077487759688121,5.927391270849284e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L1,-0.1562972302696595,-2.301457330716309,0.025658270957513
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L3,0.1510703716438127,2.731762507469445,0.0087340807631183
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3378219632602736,4.710500218959027,2.0716530042317816e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0106794452541585,-3.712441007940804,0.0005251993569501
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 4)","HQIC / ARDL(3,4)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.5165092413974613,16.884373726002142,4.602747039416737e-22
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),const,0.1265718856974992,2.8285855995229907,0.0067556726181984
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),trend,-0.0040012718858679,-2.825739661975601,0.0068073551173557
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.3746703869575893,-4.212190365531653,0.0001079476856459
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.1935207173415577,4.342548978565604,7.053242462189065e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3469362329614565,3.3500242320071663,0.0015616825983782
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L2,-0.4059154461882643,-4.538672898761504,3.686151674339039e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.2171104062440701,5.077487759688121,5.927391270849284e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L1,-0.1562972302696595,-2.301457330716309,0.025658270957513
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L3,0.1510703716438127,2.731762507469445,0.0087340807631183
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: const,0.3378219632602736,4.710500218959027,2.0716530042317816e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0106794452541585,-3.712441007940804,0.0005251993569501
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","AIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.5165092413974613,16.884373726002142,4.602747039416737e-22
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),const,0.1945255090130671,4.933266000458846,9.014113202105124e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),trend,-0.006082778186403,-4.724191013225068,1.8508906361478105e-05
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.4886454045402333,-6.542833435931039,2.8703892913883443e-08
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.2577047495331371,7.033428602989057,4.819454985193821e-09
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.4251919062978617,4.059700267004339,0.0001692361248624
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L2,-0.296247069775769,-3.43628535171315,0.0011813189546004
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.2250131971468175,4.948839031208264,8.54062680295463e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),D.FFT.L1,-0.204579605471388,-3.0388227897176123,0.0037404424011604
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),LR: const,0.3980913505082408,7.4327261476019375,1.1295105595851627e-09
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0124482459670858,-5.470953532921977,1.364788173330957e-06
+First Horizon Bank,"ARDL bounds F (ARDL(4,2), case 5)","BIC / ARDL(4,2)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.5273860086244169,21.13377784744949,6.923896257944812e-27
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),const,0.1265718856974992,2.8285855995229907,0.0067556726181984
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),trend,-0.0040012718858679,-2.825739661975601,0.0068073551173557
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.3746703869575893,-4.212190365531653,0.0001079476856459
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.1935207173415577,4.342548978565604,7.053242462189065e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3469362329614565,3.3500242320071663,0.0015616825983782
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L2,-0.4059154461882643,-4.538672898761504,3.686151674339039e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.2171104062440701,5.077487759688121,5.927391270849284e-06
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L1,-0.1562972302696595,-2.301457330716309,0.025658270957513
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),D.FFT.L3,0.1510703716438127,2.731762507469445,0.0087340807631183
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: const,0.3378219632602736,4.710500218959027,2.0716530042317816e-05
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0106794452541585,-3.712441007940804,0.0005251993569501
+First Horizon Bank,"ARDL bounds F (ARDL(3,4), case 5)","HQIC / ARDL(3,4)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.5165092413974613,16.884373726002142,4.602747039416737e-22
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),rate_pf_clean.L1,-0.1945662093481716,-5.262395248418198,2.1558209798690225e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),FFT.L1,0.0782482212792451,5.986510828037724,1.4345692203792036e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),D.FFT.L0,0.1657038885282795,5.981061982588042,1.4645431591687126e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",c (constant),LR: FFT,0.4021675785399191,16.895269858310076,4.5334249292635726e-24
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","AIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),rate_pf_clean.L1,-0.1945662093481716,-5.262395248418198,2.1558209798690225e-06
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),FFT.L1,0.0782482212792451,5.986510828037724,1.4345692203792036e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),D.FFT.L0,0.1657038885282795,5.981061982588042,1.4645431591687126e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"AIC / ADF lag=1, ECM lag=4",n (none),LR: FFT,0.4021675785399191,16.895269858310076,4.5334249292635726e-24
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",n (none),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"BIC / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,EG_LongRun,"t-stat / ADF lag=1, ECM lag=1",c (constant),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1242060656773697,-2.9843455099821203,0.0042060055385747
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.0453313824282868,2.9457956938675096,0.0046860226501755
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.3059904444158011,2.9454233540842605,0.0046908979569577
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),D.FFT.L1,0.1349944920477781,3.927471827724954,0.0002378042320918
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),AIC / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.3649691517162853,11.410788233444782,3.089298518356566e-16
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1242060656773697,-2.9843455099821203,0.0042060055385747
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.0453313824282868,2.9457956938675096,0.0046860226501755
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.3059904444158011,2.9454233540842605,0.0046908979569577
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),D.FFT.L1,0.1349944920477781,3.927471827724954,0.0002378042320918
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.3649691517162853,11.410788233444782,3.089298518356566e-16
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1242060656773697,-2.9843455099821203,0.0042060055385747
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.0453313824282868,2.9457956938675096,0.0046860226501755
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.3059904444158011,2.9454233540842605,0.0046908979569577
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),D.FFT.L1,0.1349944920477781,3.927471827724954,0.0002378042320918
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),HQIC / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.3649691517162853,11.410788233444782,3.089298518356566e-16
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1242060656773697,-2.9843455099821203,0.0042060055385747
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.0453313824282868,2.9457956938675096,0.0046860226501755
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.3059904444158011,2.9454233540842605,0.0046908979569577
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),D.FFT.L1,0.1349944920477781,3.927471827724954,0.0002378042320918
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),FPE / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.3649691517162853,11.410788233444782,3.089298518356566e-16
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1242060656773697,-2.9843455099821203,0.0042060055385747
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.0453313824282868,2.9457956938675096,0.0046860226501755
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.3059904444158011,2.9454233540842605,0.0046908979569577
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),D.FFT.L1,0.1349944920477781,3.927471827724954,0.0002378042320918
+Manufacturers and Traders Trust Company,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.3649691517162853,11.410788233444782,3.089298518356566e-16
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 1)","HQIC / ARDL(2,1)",n - case 1 (no deterministic terms),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),rate_pf_clean.L1,-0.1120289687760078,-3.210786803493221,0.0021939540200705
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),FFT.L1,0.041776687262793,3.233517332173772,0.0020521945759989
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.rate_pf_clean.L1,0.4468308885200549,5.802784813494729,3.174965698187498e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.FFT.L0,0.1439495695890755,6.473732465121087,2.551915692403316e-08
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 3)","HQIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: FFT,0.3729096832652448,12.182951281356011,2.2232735468466762e-17
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","AIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 4)","HQIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","AIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),const,0.0555693095404099,2.3787644144963824,0.0209364083592568
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),trend,-0.0020179222267641,-2.4346447034791585,0.0182416394031077
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1835772244335808,-3.915453579770636,0.0002552599006696
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0792143053767774,4.062901266587678,0.0001580616233499
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3336657219296353,3.80867077639051,0.0003593488594257
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1384293887913544,5.738256712848834,4.466628898225557e-07
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.3027026348822221,3.243161825382391,0.0020294716611276
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0109922253862939,-2.827643542895186,0.0065648224083524
+Manufacturers and Traders Trust Company,"ARDL bounds F (ARDL(2,1), case 5)","HQIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.4315039930535475,10.2479492887627,2.8531123203868844e-14
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),const,0.0218003808733354,2.3292026838326017,0.0234811814021
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1388107417809162,-4.994384437670094,6.1116374102511385e-06
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.031923792240623,4.319383796542999,6.458191319144111e-05
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.5846169312540265,6.63324220309388,1.3943938159472532e-08
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: const,0.1570511085355539,2.576191835999308,0.0126542637586213
+Glacier Bank,Johansen VECM (rank 1),BIC / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.2299807048867159,8.199522916010334,3.634422356032038e-11
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),const,0.0218003808733354,2.3292026838326017,0.0234811814021
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),rate_pf_clean.L1,-0.1388107417809162,-4.994384437670094,6.1116374102511385e-06
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),FFT.L1,0.031923792240623,4.319383796542999,6.458191319144111e-05
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),D.rate_pf_clean.L1,0.5846169312540265,6.63324220309388,1.3943938159472532e-08
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: const,0.1570511085355539,2.576191835999308,0.0126542637586213
+Glacier Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order 1 (linear trend),LR: FFT,0.2299807048867159,8.199522916010334,3.634422356032038e-11
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.0880391175941689,-3.5647627132202904,0.0007714419618915
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0272613008337409,3.848752418871362,0.000316219068278
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.78623319855205,6.894451787386427,6.1136868236990145e-09
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L2,-0.2889421713544918,-2.6782903335469816,0.0097842097654216
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.0502930109351396,3.222703954652005,0.0021546985385767
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 4)","BIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.3096498645000787,9.430469986776634,5.225953902672569e-13
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.0880391175941689,-3.5647627132202904,0.0007714419618915
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0272613008337409,3.848752418871362,0.000316219068278
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.78623319855205,6.894451787386427,6.1136868236990145e-09
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L2,-0.2889421713544918,-2.6782903335469816,0.0097842097654216
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.0502930109351396,3.222703954652005,0.0021546985385767
+Glacier Bank,"ARDL bounds F (ARDL(3,1), case 5)","BIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.3096498645000787,9.430469986776634,5.225953902672569e-13
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),rate_pf_clean.L1,-0.1328095292655691,-3.79697897881211,0.0003675468723601
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),FFT.L1,0.0593978992453437,4.108309523227963,0.0001336237546276
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),D.FFT.L1,0.1244102276235653,3.604649858722647,0.000673619016279
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),D.FFT.L2,0.0935058464648986,2.565313396029845,0.0130653191186291
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order -1 (none),LR: FFT,0.4472412452164502,14.19716019800948,4.868882794253013e-20
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),rate_pf_clean.L1,-0.1328095292655691,-3.79697897881211,0.0003675468723601
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),FFT.L1,0.0593978992453437,4.108309523227963,0.0001336237546276
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),D.FFT.L1,0.1244102276235653,3.604649858722647,0.000673619016279
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),D.FFT.L2,0.0935058464648986,2.565313396029845,0.0130653191186291
+SouthState Bank,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 0 (constant),LR: FFT,0.4472412452164502,14.19716019800948,4.868882794253013e-20
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.0819285933794114,-2.725581496463294,0.0088243866702314
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),FFT.L1,0.0362607966967303,2.789600108678863,0.0074484377779119
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.7903761487426482,5.836110075025643,3.9302807550046923e-07
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.6657484374896359,-4.0330696178240615,0.0001881754407126
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L3,0.2760272812138869,2.7128549771363923,0.0091243751378868
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L0,0.1847552560595841,6.820734067533292,1.1448344377157498e-08
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L1,-0.1440998679436835,-3.1223141045938023,0.0029810174091749
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L2,0.1445365755001265,3.5373289466671443,0.0008829102852117
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","AIC / ARDL(4,3)",n - case 1 (no deterministic terms),LR: FFT,0.4425902508640248,11.242581446933205,2.7006600943258536e-15
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.0819285933794114,-2.725581496463294,0.0088243866702314
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),FFT.L1,0.0362607966967303,2.789600108678863,0.0074484377779119
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.7903761487426482,5.836110075025643,3.9302807550046923e-07
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.6657484374896359,-4.0330696178240615,0.0001881754407126
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L3,0.2760272812138869,2.7128549771363923,0.0091243751378868
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L0,0.1847552560595841,6.820734067533292,1.1448344377157498e-08
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L1,-0.1440998679436835,-3.1223141045938023,0.0029810174091749
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L2,0.1445365755001265,3.5373289466671443,0.0008829102852117
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","BIC / ARDL(4,3)",n - case 1 (no deterministic terms),LR: FFT,0.4425902508640248,11.242581446933205,2.7006600943258536e-15
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.0819285933794114,-2.725581496463294,0.0088243866702314
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),FFT.L1,0.0362607966967303,2.789600108678863,0.0074484377779119
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.7903761487426482,5.836110075025643,3.9302807550046923e-07
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.6657484374896359,-4.0330696178240615,0.0001881754407126
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L3,0.2760272812138869,2.7128549771363923,0.0091243751378868
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L0,0.1847552560595841,6.820734067533292,1.1448344377157498e-08
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L1,-0.1440998679436835,-3.1223141045938023,0.0029810174091749
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L2,0.1445365755001265,3.5373289466671443,0.0008829102852117
+SouthState Bank,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),LR: FFT,0.4425902508640248,11.242581446933205,2.7006600943258536e-15
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0589134796514791,2.517191078201607,0.015014319576471
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0021977945449503,-2.786494424154256,0.0074642760895981
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1650782717508638,-3.9097360069378895,0.0002737066819681
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0863743076538674,4.379411386072692,5.92650582065654e-05
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.7085078916052644,5.1638307284301845,4.035870424257501e-06
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L2,-0.3057743613330348,-2.833809730444314,0.0065741595742338
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1989549302007975,6.636828211057037,2.0396398932043007e-08
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L1,-0.1127317453223232,-2.454041377067181,0.0175806615788011
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.3568820961512814,3.63310735975664,0.0006502489753953
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.0133136512857806,-3.247637756331537,0.0020605256893744
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 4)","BIC / ARDL(3,2)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.5232324444504943,10.600627882566148,1.70043771818743e-14
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),const,0.0589134796514791,2.517191078201607,0.015014319576471
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),trend,-0.0021977945449503,-2.786494424154256,0.0074642760895981
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1650782717508638,-3.9097360069378895,0.0002737066819681
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0863743076538674,4.379411386072692,5.92650582065654e-05
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.7085078916052644,5.1638307284301845,4.035870424257501e-06
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L2,-0.3057743613330348,-2.833809730444314,0.0065741595742338
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1989549302007975,6.636828211057037,2.0396398932043007e-08
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),D.FFT.L1,-0.1127317453223232,-2.454041377067181,0.0175806615788011
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: const,0.3568820961512814,3.63310735975664,0.0006502489753953
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.0133136512857806,-3.247637756331537,0.0020605256893744
+SouthState Bank,"ARDL bounds F (ARDL(3,2), case 5)","BIC / ARDL(3,2)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.5232324444504943,10.600627882566148,1.70043771818743e-14
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.1295832813514332,-3.227020293754068,0.002166704847676
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.0541010620400084,3.31176272171838,0.0016909255454004
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L1,0.4815748348555095,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.2312691858082189,-2.354653819164144,0.0223504741420173
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L0,0.1357987231874134,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L3,0.0779811442241918,2.4185902552946543,0.0191172483809945
+KeyBank National Association,EG_LongRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.4175003247007222,17.32872706407543,2.964794916353793e-23
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),rate_pf_clean.L1,-0.1295832813514332,-3.227020293754068,0.002166704847676
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),FFT.L1,0.0541010620400084,3.31176272171838,0.0016909255454004
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L1,0.4815748348555095,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.2312691858082189,-2.354653819164144,0.0223504741420173
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L0,0.1357987231874134,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),D.FFT.L3,0.0779811442241918,2.4185902552946543,0.0191172483809945
+KeyBank National Association,EG_ShortRun,"AIC / ADF lag=2, ECM lag=4",n (none),LR: FFT,0.4175003247007222,17.32872706407543,2.964794916353793e-23
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.1295832813514332,-3.227020293754068,0.002166704847676
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.0541010620400084,3.31176272171838,0.0016909255454004
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L1,0.4815748348555095,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.2312691858082189,-2.354653819164144,0.0223504741420173
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.1357987231874134,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.0779811442241918,2.4185902552946543,0.0191172483809945
+KeyBank National Association,EG_LongRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.4175003247007222,17.32872706407543,2.964794916353793e-23
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),rate_pf_clean.L1,-0.1295832813514332,-3.227020293754068,0.002166704847676
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),FFT.L1,0.0541010620400084,3.31176272171838,0.0016909255454004
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L1,0.4815748348555095,4.740711739711678,1.6940520800166207e-05
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.rate_pf_clean.L2,-0.2312691858082189,-2.354653819164144,0.0223504741420173
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L0,0.1357987231874134,6.658161153067556,1.7359995303348395e-08
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),D.FFT.L3,0.0779811442241918,2.4185902552946543,0.0191172483809945
+KeyBank National Association,EG_ShortRun,"fixed / ADF lag=4, ECM lag=4",n (none),LR: FFT,0.4175003247007222,17.32872706407543,2.964794916353793e-23
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",c (constant),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),const,0.0526887145865361,2.1444242270780047,0.0364334322014328
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),trend,-0.0020906719083137,-2.422022908923135,0.0187578706318862
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),rate_pf_clean.L1,-0.2669979141892693,-4.948450248992773,7.439437364422848e-06
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),FFT.L1,0.1243527256299595,5.341172056554466,1.8154692998990896e-06
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),D.FFT.L1,0.1424880876919653,3.812158043700888,0.0003501588832531
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: const,0.1973375512933265,2.611695975384208,0.0115909418345243
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: trend,-0.0078302930367901,-2.713374392829432,0.0088753214056792
+KeyBank National Association,Johansen VECM (rank 1),HQIC / k_ar_diff=2,det_order 1 (linear trend),LR: FFT,0.4657441838358649,15.800304556427356,4.234601233402275e-22
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,"ARDL bounds F (ARDL(4,4), case 1)","AIC / ARDL(4,4)",n - case 1 (no deterministic terms),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1210822451579899,-3.343073120585802,0.0014819500659275
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),FFT.L1,0.0498796852222294,3.352600023183545,0.0014401838937232
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.4672633331861322,6.472927565119972,2.5597012478780312e-08
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),D.FFT.L0,0.1489246537622954,7.239372711275042,1.3917254260186335e-09
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 1)","BIC / ARDL(2,1)",n - case 1 (no deterministic terms),LR: FFT,0.4119487969284488,16.313681264244128,6.165539121357839e-23
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),rate_pf_clean.L1,-0.1102157545732446,-2.66540713778412,0.0102724823255598
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),FFT.L1,0.0438160064408384,2.577007314437856,0.0129017932352235
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L1,0.5142653207003391,4.936676277732158,8.9082675921326e-06
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L2,-0.4424409022727523,-3.1450908609677906,0.0027688403790939
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.rate_pf_clean.L3,0.277962984245577,2.710475793703153,0.0091300118788726
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L0,0.1207322511049021,5.703009198262607,5.964788022994938e-07
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),D.FFT.L2,0.0955644844801906,2.451477034954905,0.0176927837438809
+KeyBank National Association,"ARDL bounds F (ARDL(4,3), case 1)","HQIC / ARDL(4,3)",n - case 1 (no deterministic terms),LR: FFT,0.3975475793863954,13.680461281210674,1.0697081485936333e-18
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),rate_pf_clean.L1,-0.1210822451579899,-3.343073120585802,0.0014819500659275
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),FFT.L1,0.0498796852222294,3.352600023183545,0.0014401838937232
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.rate_pf_clean.L1,0.4672633331861322,6.472927565119972,2.5597012478780312e-08
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),D.FFT.L0,0.1489246537622954,7.239372711275042,1.3917254260186335e-09
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 3)","BIC / ARDL(2,1)",c - case 3 (unrestricted constant),LR: FFT,0.4119487969284488,16.313681264244128,6.165539121357839e-23
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0380216452351797,2.0305700589646984,0.0472353235442957
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0017531306649255,-2.397668606934472,0.0199872631300045
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1729549258875431,-3.9775069468710935,0.0002088342735565
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0843009483810149,4.10895741115514,0.0001358664272366
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3514521004201058,4.1369849192508665,0.0001238696771472
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1506707135604342,6.9259429707226685,5.434634851148307e-09
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.2198355729972196,2.505527284958017,0.0152741832573592
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.010136344229163,-2.757894740240784,0.0079221411325231
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 4)","BIC / ARDL(2,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.4874157122060122,12.10471286426871,5.190182277023802e-17
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",const,0.0380216452351797,2.0305700589646984,0.0472353235442957
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",trend,-0.0017531306649255,-2.397668606934472,0.0199872631300045
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",rate_pf_clean.L1,-0.1729549258875431,-3.9775069468710935,0.0002088342735565
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",FFT.L1,0.0843009483810149,4.10895741115514,0.0001358664272366
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",D.rate_pf_clean.L1,0.3514521004201058,4.1369849192508665,0.0001238696771472
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",D.FFT.L0,0.1506707135604342,6.9259429707226685,5.434634851148307e-09
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: const,0.2198355729972196,2.505527284958017,0.0152741832573592
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: trend,-0.010136344229163,-2.757894740240784,0.0079221411325231
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 4)","HQIC / ARDL(3,1)","ct - case 4 (unrestricted constant, restricted trend)",LR: FFT,0.4874157122060122,12.10471286426871,5.190182277023802e-17
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),const,0.0380216452351797,2.0305700589646984,0.0472353235442957
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),trend,-0.0017531306649255,-2.397668606934472,0.0199872631300045
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1729549258875431,-3.9775069468710935,0.0002088342735565
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0843009483810149,4.10895741115514,0.0001358664272366
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3514521004201058,4.1369849192508665,0.0001238696771472
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1506707135604342,6.9259429707226685,5.434634851148307e-09
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.2198355729972196,2.505527284958017,0.0152741832573592
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.010136344229163,-2.757894740240784,0.0079221411325231
+KeyBank National Association,"ARDL bounds F (ARDL(2,1), case 5)","BIC / ARDL(2,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.4874157122060122,12.10471286426871,5.190182277023802e-17
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),const,0.0380216452351797,2.0305700589646984,0.0472353235442957
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),trend,-0.0017531306649255,-2.397668606934472,0.0199872631300045
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),rate_pf_clean.L1,-0.1729549258875431,-3.9775069468710935,0.0002088342735565
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),FFT.L1,0.0843009483810149,4.10895741115514,0.0001358664272366
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),D.rate_pf_clean.L1,0.3514521004201058,4.1369849192508665,0.0001238696771472
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),D.FFT.L0,0.1506707135604342,6.9259429707226685,5.434634851148307e-09
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: const,0.2198355729972196,2.505527284958017,0.0152741832573592
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: trend,-0.010136344229163,-2.757894740240784,0.0079221411325231
+KeyBank National Association,"ARDL bounds F (ARDL(3,1), case 5)","HQIC / ARDL(3,1)",ct - case 5 (unrestricted constant and trend),LR: FFT,0.4874157122060122,12.10471286426871,5.190182277023802e-17
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.0665564036845313,-2.498699337505121,0.0157962661786241
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.0307891013912809,2.5139763716286723,0.0152030784822644
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8554642098505705,7.225304006263654,2.666458411041104e-09
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8961514475654803,-6.093796318989634,1.5645335051493886e-07
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4325534259581942,4.928158625306909,9.521762492658567e-06
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1739161854536333,9.76296532631429,3.5812119367611463e-13
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.0996939526297705,-3.060716316515291,0.0035467831274346
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1567009161155695,4.985156012185073,7.824047711232168e-06
+Huntington National Bank,EG_LongRun,"AIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4626016384120948,13.296704758740548,4.842755366300844e-18
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.0665564036845313,-2.498699337505121,0.0157962661786241
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.0307891013912809,2.5139763716286723,0.0152030784822644
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8554642098505705,7.225304006263654,2.666458411041104e-09
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8961514475654803,-6.093796318989634,1.5645335051493886e-07
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4325534259581942,4.928158625306909,9.521762492658567e-06
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1739161854536333,9.76296532631429,3.5812119367611463e-13
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.0996939526297705,-3.060716316515291,0.0035467831274346
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1567009161155695,4.985156012185073,7.824047711232168e-06
+Huntington National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4626016384120948,13.296704758740548,4.842755366300844e-18
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.0665564036845313,-2.498699337505121,0.0157962661786241
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.0307891013912809,2.5139763716286723,0.0152030784822644
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.8554642098505705,7.225304006263654,2.666458411041104e-09
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.8961514475654803,-6.093796318989634,1.5645335051493886e-07
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4325534259581942,4.928158625306909,9.521762492658567e-06
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1739161854536333,9.76296532631429,3.5812119367611463e-13
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.0996939526297705,-3.060716316515291,0.0035467831274346
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1567009161155695,4.985156012185073,7.824047711232168e-06
+Huntington National Bank,EG_LongRun,"t-stat / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.4626016384120948,13.296704758740548,4.842755366300844e-18
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),rate_pf_clean.L1,-0.0854651476637013,-2.664551566894367,0.0103502880387562
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),FFT.L1,0.033645885181016,2.5112622819769537,0.0153069645639101
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L1,0.7165971383330141,6.650316967933577,2.1155963004888392e-08
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L2,-0.7380562035450187,-5.731371883815794,5.70639147259246e-07
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.rate_pf_clean.L3,0.4609021623204377,5.053776277558718,6.171706631446316e-06
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L0,0.1388301283151349,5.995114421077103,2.2275307901906333e-07
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L1,-0.0956519815417935,-2.685411738519745,0.0098034277453756
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),D.FFT.L2,0.1375280695637104,4.138836937795335,0.0001338039642501
+Old National Bank,EG_LongRun,"BIC / ADF lag=1, ECM lag=3",n (none),LR: FFT,0.3936796004075252,11.09734438282181,4.310912259653223e-15
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),rate_pf_clean.L1,-0.1352523322917448,-3.4924148652093003,0.0009419949132852
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),FFT.L1,0.0566850102258809,3.5635267290808312,0.0007564202856362
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),D.rate_pf_clean.L1,0.3063449361755769,2.833667927131298,0.0063869027391763
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),D.FFT.L1,0.1024539597380991,3.206834319906519,0.0022195255396423
+Old National Bank,Johansen VECM (rank 1),fixed / k_ar_diff=1,det_order -1 (none),LR: FFT,0.4191056025829487,13.840032035348267,1.0146369416116732e-19
