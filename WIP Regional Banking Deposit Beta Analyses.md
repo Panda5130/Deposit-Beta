@@ -964,8 +964,8 @@ Mean actual / model-implied beta at selected horizons, over start dates where FF
 | Old National Bank | 2 | 1 | 0 |
 | SouthState Bank | 7 | 5 | 5 |
 
-- Across all 78 variants, λ⁺ = λ⁻ is rejected at 5% in 54 and θ⁺ = θ⁻ in 31: asymmetric adjustment is common, asymmetric long-run beta less so.
-- 23 of the 78 fits cycled between two regime splits; the lowest-error pass is kept and the outputs flag it.
+- Across all 78 variants, λ⁺ = λ⁻ is rejected at 5% in 52 and θ⁺ = θ⁻ in 35: asymmetric adjustment is common, asymmetric long-run beta less so.
+- 21 of the 78 fits cycled between two regime splits; the lowest-error pass is kept and the outputs flag it.
 - Several admissible variants forecast explosively out of sample (best asymmetric mean h-step MAE: Old National 76.6 pp, SouthState 4.57, M&T 0.76). The out-of-sample score screens them out, but they are fragile.
 - Only KeyBank's champion is asymmetric. Huntington's best asymmetric variant scores 0.200 against 0.221, but within one standard error, so parsimony keeps the symmetric model.
 
@@ -1047,7 +1047,7 @@ The test is defined in §5.5, step 8. The table gives, for each bank, the dummy'
 | L5 | The deposit rate is deposit interest expense over total deposits: a total-deposit (not interest-bearing-deposit) beta that does not separate product mix | All | Low |
 | L6 | Pass-through is linear and symmetric for six of seven champions. Asymmetric variants are now candidates (§3.2, §5.5), and λ asymmetry is common among them (§7.8), but out-of-sample selection keeps a symmetric champion for six banks. The 2025Q1 start-date error from lagged-Δy momentum remains for those champions (§7.3). | All, esp. Huntington, M&T, Old National, SouthState | High |
 | L7 | Post-selection inference: short-run terms screened and pruned on p < 0.05, so p-values are optimistic | All | Medium |
-| L8 | Champions are chosen out of sample (§5.5). Selecting on the governing backtest makes that backtest optimistic for the chosen models, and the one-standard-error parsimony rule trades accuracy for fewer parameters at four banks. The out-of-sample champions are less stable in θ than the in-sample ones (§7.6). | All | Medium |
+| L8 | Champions are chosen out of sample (§5.5). Selecting on the governing backtest makes that backtest optimistic for the chosen models, and the one-standard-error parsimony rule trades accuracy for fewer parameters at five banks (First Horizon, M&T, Glacier, Huntington and Old National; `selection_comparison_8Q.csv`). The out-of-sample champions are less stable in θ than the in-sample ones (§7.6). | All | Medium |
 | L9 | Johansen p-values are bounds; r ≤ 1 rejections (implying rank 2) are overridden by assuming rank 1 | Glacier, Huntington, First Horizon | Medium |
 | L10 | Single regressor (FFT). No competitive, liquidity or balance-sheet drivers | All | Medium |
 | L11 | Cointegration with one unknown break (Gregory-Hansen, four forms) does not reject at 5% for any bank on ADF\* (finite-sample critical values, T = 62). With 62 quarters the test has low power, and two or more breaks are not tested. | All | Low |
